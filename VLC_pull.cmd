@@ -1,0 +1,1 @@
+copy %APPDATA%\vlc\vlcrc vlcrc 
