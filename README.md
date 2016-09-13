@@ -2,9 +2,9 @@
 configuration files for different apps
 
 my preferences and hotkeys for audio and video players:
- - AIMP;
- - Light Alloy;
- - VLC media player;
+ - AIMP
+ - Light Alloy
+ - VLC media player
 
 x_push.cmd scripts to apply x's config
 
