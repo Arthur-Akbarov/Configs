@@ -6,6 +6,5 @@ my preferences and hotkeys for audio and video players:
  - Light Alloy
  - VLC media player
 
-x_push.cmd scripts to apply x's config
-
-x_pull.cmd scripts to copy x's config from the source (your AppData)
+x_push.cmd script applies x's config  file from this repo
+x_pull.cmd script copies x's config file from the source (AppData usually)
