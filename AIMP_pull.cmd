@@ -1,1 +1,0 @@
-copy %APPDATA%\AIMP\AIMP.ini AIMP.ini

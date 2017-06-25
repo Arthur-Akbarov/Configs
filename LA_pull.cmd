@@ -1,1 +1,0 @@
-copy %LOCALAPPDATA%\LightAlloy\LA.xml LA.xml
