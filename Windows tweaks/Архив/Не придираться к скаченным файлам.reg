@@ -1,0 +1,26 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Attachments]
+;Отключить предупреждение при открытии файлов, загруженных из интернета
+"SaveZoneInformation"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings]
+;Запретить встроенную проверку подлинности Windows
+"EnableNegotiate"=dword:00000000
+;Отключить предупреждение о несоответствии сертификата
+"WarnonBadCertRecving"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinDefend]
+;Отключить службу Защитник Windows
+"Start"=dword:00000004
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wscsvc]
+;Отключить службу Центр обеспечения безопасности
+"Start"=dword:00000004
+
+;Параметры проверки цифровой подписи программ
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Download]
+;Не проверять цифровую подпись загружаемых программ
+"CheckExeSignatures"="no"
+;Запускать программы с непроверенной цифровой подписью
+"RunInvalidSignatures"=dword:00000001

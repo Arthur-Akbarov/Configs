@@ -1,0 +1,37 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4D36E96B-E325-11CE-BFC1-08002BE10318}]
+"UpperFilters"=hex(7):6b,00,62,00,64,00,63,00,6c,00,61,00,73,00,73,00,00,00,00,\
+  00
+  
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\CriticalDeviceDatabase\root#rdp_kbd]
+"UpperFilters"=hex(7):6b,00,62,00,64,00,63,00,6c,00,61,00,73,00,73,00,00,00,00,\
+  00
+  
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Enum\Root\RDP_KBD\0000]
+"UpperFilters"=hex(7):6b,00,62,00,64,00,63,00,6c,00,61,00,73,00,73,00,00,00,00,\
+  00
+  
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet003\Control\Class\{4D36E96B-E325-11CE-BFC1-08002BE10318}]
+"UpperFilters"=hex(7):6b,00,62,00,64,00,63,00,6c,00,61,00,73,00,73,00,00,00,00,\
+  00
+  
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet003\Control\CriticalDeviceDatabase\root#rdp_kbd]
+"UpperFilters"=hex(7):6b,00,62,00,64,00,63,00,6c,00,61,00,73,00,73,00,00,00,00,\
+  00
+  
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet003\Enum\Root\RDP_KBD\0000]
+"UpperFilters"=hex(7):6b,00,62,00,64,00,63,00,6c,00,61,00,73,00,73,00,00,00,00,\
+  00
+  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E96B-E325-11CE-BFC1-08002BE10318}]
+"UpperFilters"=hex(7):6b,00,62,00,64,00,63,00,6c,00,61,00,73,00,73,00,00,00,00,\
+  00
+  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CriticalDeviceDatabase\root#rdp_kbd]
+"UpperFilters"=hex(7):6b,00,62,00,64,00,63,00,6c,00,61,00,73,00,73,00,00,00,00,\
+  00
+  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\Root\RDP_KBD\0000]
+"UpperFilters"=hex(7):6b,00,62,00,64,00,63,00,6c,00,61,00,73,00,73,00,00,00,00,\
+  00

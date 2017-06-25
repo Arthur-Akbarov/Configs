@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Unknown\shell\open\Command]
+;reg_sz "C:\Program Files (x86)\Notepad++\notepad++.exe" "%1"
+"C:\Program Files (x86)\Notepad++\notepad++. exe"

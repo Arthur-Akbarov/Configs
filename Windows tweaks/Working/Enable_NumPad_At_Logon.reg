@@ -1,0 +1,6 @@
+Windows Registry Editor Version 5.00
+
+; enable NumPad at logon
+
+[HKEY_USERS\.Default\Control Panel\Keyboard]
+"InitialKeyboardIndicators"="2"

@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+; enable icon "Get Windows 10"
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\GWX]

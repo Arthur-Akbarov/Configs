@@ -1,0 +1,17 @@
+Windows Registry Editor Version 5.00
+
+
+;Копировать в папку.....(контестное меню)  
+[HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\Copy To]  
+@="{C2FBB630-2971-11d1-A18C-00C04FD75D13}"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\AllFilesystemObjects\shellex\ContextMenuHandlers\Copy To]  
+@="{C2FBB630-2971-11d1-A18C-00C04FD75D13}"   
+
+
+;Переместить в папку.....(контекстное меню)  
+[HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\Move To]  
+@="{C2FBB631-2971-11d1-A18C-00C04FD75D13}"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\AllFilesystemObjects\shellex\ContextMenuHandlers\Move To]  
+@="{C2FBB631-2971-11d1-A18C-00C04FD75D13}"

@@ -1,0 +1,6 @@
+Windows Registry Editor Version 5.00
+
+; Не обращаться к средствам устранения неполадок через интернет
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\ScriptedDiagnosticsProvider\Policy]
+"EnableQueryRemoteServer"=dword:00000000

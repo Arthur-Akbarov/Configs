@@ -1,0 +1,378 @@
+Windows Registry Editor Version 5.00
+
+;Убрать ярлык "Программы по умолчанию" из меню Пуск
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoSMConfigurePrograms"=dword:00000001
+
+;Ускорение меню пуск
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"MenuShowDelay"="2" 
+
+;Включение Num-Lock при загрузке
+[HKEY_CURRENT_USER\Control Panel\Keyboard]
+"InitialKeyboardIndicators"="2" 
+
+
+;Администрирование в Мой компьютер
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\1]
+@="Администрирование"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\1\command]
+@="control admintools"
+
+
+
+;Выключение в Мой компьютер
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\8]
+@="<<Выключение>>"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\8\command]
+@="shutdown -s -f -t 0"
+
+
+
+;Командная строка в Мой комьютер
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\22]
+@="Командная строка"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\22\command]
+@="cmd.exe"
+
+
+
+;Настройка ситемы в Мой комьютер
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\3]
+@="Настройка системы (MSCONFIG)"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\3\command]
+@="msconfig.exe /s"
+
+
+;Перезагрузка в Мой компьютер
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\77]
+@="<<Перезагрузка>>"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\77\command]
+@="shutdown -r -f -t 0"
+
+
+
+;Корзина использует 3% от доступного места на диске (не 10%)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\BitBucket]
+"Percent"=dword:00000003
+
+
+;Ускорение загрузки Windows
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Dfrg\BootOptimizeFunction]
+"Enable"="Y"
+
+
+
+
+;Отключить перезагрузку в случае Экрана смерти
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl]
+"AutoReboot"=dword:00000000
+
+
+;Отключить сообщения об ошибках, но оставить уведомление о критических ошибках
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PCHealth\ErrorReporting]
+"AllOrNone"=dword:00000000
+"IncludeMicrosoftApps"=dword:00000000
+"IncludeWindowsApps"=dword:00000001
+"IncludeKernelFaults"=dword:00000001
+"DoReport"=dword:00000000
+"ShowUI"=dword:00000000
+
+
+;Отключить оповещения Центра безопасности
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Security Center]
+"FirewallDisableNotify"=dword:00000001
+"UpdatesDisableNotify"=dword:00000001
+"AntiVirusDisableNotify"=dword:00000001
+
+
+
+;Переключение раскладки клавиатуры CTRL+SHIFT
+[HKEY_CURRENT_USER\Keyboard Layout\Toggle]
+"Hotkey"="2"
+"Language Hotkey"="2" 
+"Layout Hotkey"="3"
+
+
+
+;Пункт "Очистить корзину" в контекстное меню всех файлов
+[HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\{645FF040-5081-101B-9F08-00AA002F954E}]
+
+
+
+;Убрать Общие Документы из Мой Компьютер
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\DelegateF olders\{59031A47-3F72-44A7-89C5-5595FE6B30EE}]
+
+
+
+;Убрать пункт "Другие темы в Интернете" в меню выбора тем оформления рабочего стола
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\DownloadSites]
+
+
+
+;Убрать Найти из Мой Компьютер
+[-HKEY_CLASSES_ROOT\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\find]
+@=hex(2):40,00,25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,\
+00,25,00,5c,00,73,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,53,00,\
+68,00,65,00,6c,00,6c,00,33,00,32,00,2e,00,64,00,6c,00,6c,00,2c,00,2d,00,38,\
+00,35,00,30,00,33,00,00,00
+"SuppressionPolicy"=dword:00000080
+
+[-HKEY_CLASSES_ROOT\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\find\command]
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+00,5c,00,45,00,78,00,70,00,6c,00,6f,00,72,00,65,00,72,00,2e,00,65,00,78,00,\
+65,00,00,00
+
+[-HKEY_CLASSES_ROOT\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\find\ddeexec]
+@="[FindFolder(\"%l\", %I)]"
+
+[-HKEY_CLASSES_ROOT\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\find\ddeexec\application]
+@="Folders"
+
+[-HKEY_CLASSES_ROOT\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\find\ddeexec\topic]
+@="AppProperties"
+
+
+;Ускорить открытие "Моего компьютера"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoRemoteRecursiveEvents"=dword:00000001
+
+
+;Добавляет в контекстное меню "Моего компьютера" команду "Редактор реестра"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\44]
+@="Редактор реестра"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\44\command]
+@="Regedit.exe"
+
+
+
+;Добавляет в контекстное меню "Моего компьютера" команду "Диспетчер устройств"
+[HKEY_CLASSES_ROOT\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\LDevMgmt]
+@="Диспетчер Устройств"
+"SuppressionPolicy"=dword:4000003c
+
+[HKEY_CLASSES_ROOT\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\LDevMgmt\command]
+@=hex(2):25,00,77,00,69,00,6e,00,64,00,69,00,72,00,25,00,5c,00,73,00,79,00,73,\
+00,74,00,65,00,6d,00,33,00,32,00,5c,00,6d,00,6d,00,63,00,2e,00,65,00,78,00,\
+65,00,20,00,2f,00,73,00,20,00,25,00,77,00,69,00,6e,00,64,00,69,00,72,00,25,\
+00,5c,00,73,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,64,00,65,00,\
+76,00,6d,00,67,00,6d,00,74,00,2e,00,6d,00,73,00,63,00,00,00
+
+
+;Позволить переименовывать Корзину
+[HKEY_CLASSES_ROOT\CLSID\{645FF040-5081-101B-9F08-00AA002F954E}\ShellFolder]
+"Attributes"=hex:50,01,00,20
+"CallForAttributes"=dword:00000000
+
+;Отключить "ярлык для"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer]
+"link"=hex:00,00,00,00
+
+;Раскрывать Сетевые подключения в меню Пуск
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"CascadeNetworkConnections"="YES"
+
+;Отображать pacшиpeния для зapeгиcтpиpoвaнныx типoв фaйлoв
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"HideFileExt"=dword:00000000
+
+;Показывать защищенные системные файлы 
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"ShowSuperHidden"=dword:00000001
+
+
+;Отoбpaжaть coдepжимoe cиcтeмныx пaпoк 
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"WebViewBarricade"=dword:00000001
+
+;Не отображать папку "Избранное" в меню Пуск 
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"StartMenuFavorites"=dword:00000000
+
+;Отключение очистки Рабочего Стола
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Desktop\CleanupWiz]
+"NoRun"=dword:00000001
+
+
+;Крупные значки в меню "Пуск"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\StuckRects2]
+"Settings"=hex:28,00,00,00,ff,ff,ff,ff,02,00,00,00,03,00,00,00,3c,00,00,00,1e,\
+00,00,00,fe,ff,ff,ff,e4,03,00,00,02,05,00,00,02,04,00,00
+
+
+;Увеличить число одновременных закачек в IE до 10 
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings]
+"MaxConnectionsPerServer"=dword:0000000a
+
+;Отключить предупреждение "Информация переданная через Интернет, может стать доступной другим пользователям"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3]
+"1601"=dword:00000000
+
+;Отключить "Поиск соответствия в Интернете" при открытии файла с неизвестными расширением 
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System]
+"NoInternetOpenWith"=dword:00000001
+
+;Отключить меню Недавние Документы в меню Пуск 
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoRecentDocsMenu"=hex:01,00,00,00
+
+;Отключить ведение истории последних открываемых документов 
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoRecentDocsHistory"=dword:00000001
+
+;Отключить проверку свободного места на диске 
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoLowDiskSpaceChecks"=dword:00000001
+
+;Убрать ярлык "Программы по умолчанию" из меню Пуск 
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoSMConfigurePrograms"=dword:00000001
+
+
+;Отключить уведомление о новых программах в меню Пуск (выделение цветом)
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Advanced]
+"Start_NotifyNewApps"=dword:00000000
+
+;При ошибках оболочки (Explorer) перезагружать только ее саму, а не всю ОС 
+[HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\Winlogon]
+"AutoRestartShell"=dword:00000001
+
+
+;Удаление Alexa Spyware
+[-HKEY_CLASSES_ROOT\CLSID\{85BBD920-42A0-1069-A2E4-08002B30309D}]
+
+
+;Отключение анимированного помощника по поиску (Собака)
+[HKEY_CURRENT_USER\Software\Microsoft\Search Assistant]
+"SocialUI"=dword:00000000 
+
+
+;Отключить приглашение Знакомство с Windows
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Applets\Tour]
+"RunCount"=dword:00000000
+
+
+;Отключение встроенного отладчика Dr.Watson
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AeDebug]
+"Auto"="0"
+
+
+;Убрать стрелки у ярлыков
+[HKEY_CLASSES_ROOT\lnkfile]
+"IsShortcut"=-
+
+;Убрать пункт меню "Выход из системы"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"StartMenuLogoff"=dword:00000001
+
+;Убрать Найти из меню Пуск
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Start_ShowSearch"=dword:00000000 
+
+;Убрать Мои Документы из меню Пуск
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Start_ShowMyDocs"=dword:00000000 
+
+;Убрать Мои Рисунки из меню Пуск
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Start_ShowMyPics"=dword:00000000
+
+;Убрать Моя Музыка из меню Пуск
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Start_ShowMyMusic"=dword:00000000
+
+;Позволить мышью копировать\вставить как в командную строку, так и из неё
+[HKEY_CURRENT_USER\Console]
+"QuickEdit"=dword:00000001
+
+;Автоматически при выходе из системы убить зависшие приложения
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"AutoEndTasks"="1"
+
+;Большие значки Рабочего Стола
+[HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics]
+"Shell Icon Size"="48"
+
+;Добавить _ВЫХОД_ в Мой компьютер
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\7]
+@="<<Выход>>"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\shell\7\command]
+@="shutdown -l -f -t 0"
+
+
+
+
+
+
+;Удаление стрелок с ярлыков на рабочем столе  
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons]  
+"29"=hex(2):25,00,73,00,79,00,73,00,74,00,65,00,6d,00,72,00,6f,00,6f,00,74,00,\    25,00,5c,00,73,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,73,00,68,\    00,65,00,6c,00,6c,00,33,00,32,00,2e,00,64,00,6c,00,6c,00,2c,00,35,00,30,00,\    00,00
+
+;Убрать стрелки у ярлыков
+[HKEY_CLASSES_ROOT\lnkfile]
+"IsShortcut"=- 
+
+
+1. Добавляет в контекстное меню файлов :
+Копировать в папку...
+Переместить в папку... 
+« скрыть
+Применить 
+
+Windows Registry Editor Version 5.00 
+
+[HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers] 
+
+[HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\Copy To] 
+@="{C2FBB630-2971-11D1-A18C-00C04FD75D13}" 
+
+[HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\Move To] 
+@="{C2FBB631-2971-11D1-A18C-00C04FD75D13}" 
+
+Отменить 
+
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers]
+
+[-HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\Copy To]
+@="{C2FBB630-2971-11D1-A18C-00C04FD75D13}"
+
+[-HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\Move To]
+@="{C2FBB631-2971-11D1-A18C-00C04FD75D13}"
+
+
+
+2. Добавляет в контекстное меню папок :
+Открыть в новом окне
+« скрыть
+Применить 
+
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\opennew]
+@="Открыть в новом окне"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\opennew\command]
+@="explorer.exe /e, %1" 
+
+Отменить 
+
+Windows Registry Editor Version 5.00
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\opennew]
+@="Открыть в новом окне"
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\opennew\command]
+@="explorer.exe /e, %1"
+
+;отображать скрытые - 1, скрывать - 2
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Hidden]
+"Hidden"=dword:00000002

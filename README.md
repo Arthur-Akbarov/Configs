@@ -1,10 +1,13 @@
 # configs
-configuration files for different apps
-
-my preferences and hotkeys for audio and video players:
+configuration files for different apps to set preferences and shortcuts
  - AIMP
+ - AutoHotKey
  - Light Alloy
+ - Process Hacker
+ - Sublime Text
  - VLC media player
 
-x_push.cmd script applies x's config  file from this repo
-x_pull.cmd script copies x's config file from the source (AppData usually)
+Also hosts file and Windows tweaks.
+
+push.cmd scripts apply config from this repo.
+pull.cmd scripts copy config from source (AppData usually) to this repo.

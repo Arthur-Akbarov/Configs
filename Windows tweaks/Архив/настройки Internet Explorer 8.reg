@@ -1,0 +1,42 @@
+Windows Registry Editor Version 5.00
+
+;Насторойки меню браузера Internet Explorer 8
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\CommandBar]
+;Не отображать Командную строку
+"CommandBarEnabled"=dword:00000000
+;Не отображать кнопку совместимости
+"ShowCompatibilityViewButton"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Download]
+;Не проверять цифровую подпись загружаемых программ
+"CheckExeSignatures"="no"
+;Запускать программы с непроверенной цифровой подписью
+"RunInvalidSignatures"=dword:00000001
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\LinksBar]
+;Не отображать Панель избранного
+"Enabled"=dword:00000000
+
+;Дополнительные настройки Internet Explorer 8
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main]
+;Не предлагать Internet Explorer использовать по умолчанию
+"Check_Associations"="no"
+;Запретить сторонние расширения обозревателя
+"Enable Browser Extensions"="no"
+;Время завершения настройки
+"IE8RunOnceCompletionTime"=hex:00
+;Браузер IE8 уже запускался
+"IE8RunOnceLastShown"=dword:00000001
+;Время пследнего запуска
+"IE8RunOnceLastShown_TIMESTAMP"=hex:00
+;Предварительная настройка IE8 выполнена
+"IE8RunOncePerInstallCompleted"=dword:00000001
+;Тур знакомства с IE8 пройден
+"IE8TourShown"=dword:00000001
+;Время показа тура знакомства с IE8
+"IE8TourShownTime"=hex:00
+;Отключить уведомление по окончании загрузки файла
+"NotifyDownloadComplete"="no"
+;Убрать эффект затемнения при переходе с одной страницы на другую
+"Page_Transitions"=dword:00000000
+;Пустая страница по умолчанию в Internet Explorer
+"Start Page"="about:blank"
