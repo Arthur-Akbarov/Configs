@@ -1,4 +1,4 @@
-#NoEnv          ; Recommended for performance and compatibility with future AutoHotkey releases.
+﻿#NoEnv          ; Recommended for performance and compatibility with future AutoHotkey releases.
 #Warn           ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
@@ -15,7 +15,9 @@ CapsLock::    return
 
 Insert::      return
 
+#+Ы::
 #+S::         Run nircmd-x64\nircmd.exe speak text ~$clipboard$
+#+Ф::
 #+A::         Run nircmd-x64\nircmd.exe win center alltop
 
 #Esc::        Run nircmd-x64\nircmd.exe monitor off
@@ -35,10 +37,12 @@ Insert::      return
 #^+right::    Run nircmd-x64\nircmd.exe setbrightness 100
 #^+left::     Run nircmd-x64\nircmd.exe setbrightness 0
 
+!+ф::
 !+a::         Send, arthur.akbarov@yandex.ru
 
 ; does not work with non-Latin layout
 ; https://autohotkey.com/board/topic/75964-bug-copypasting-when-keyboard-layout-is-non-latin/
+#п::
 #g::
         clipboardOld=%clipboard%
         Send ^c
@@ -53,9 +57,13 @@ return
         Send, ({ctrl down}v{ctrl up})
 return
 
+#ы::
 #s::    WinRestore,A
+#ф::
 #a::    WinMaximize,A
+#ц::
 #w::    WinMinimize,A
+#й::
 #q::    WinClose,A
 
 
@@ -106,6 +114,7 @@ MButton::     Send {enter}
 ; https://gist.github.com/davejamesmiller/1965432
 ; ctrl+alt+n to create and open new file in explorer
 #IfWinActive ahk_class CabinetWClass
+^!т::
 ^!n::
         WinGetText, text, A
 
@@ -130,7 +139,9 @@ return
 
 ; cmd
 #IfWinActive ahk_class ConsoleWindowClass
+^+С::
 ^+C::         Send {enter}
+^М::
 ^V::          Send %clipboard%
 !f4::         WinClose,A
 MButton::     Send {enter}
@@ -140,6 +151,7 @@ PgDn::        send {WheelDown 10}
 
 
 ; save and update script, doesn't work in sublime text
+^+ы::
 ^+s::
 IfWinActive, %A_ScriptName%
 {
@@ -149,4 +161,3 @@ IfWinActive, %A_ScriptName%
         Reload
 }
 return
-
