@@ -1,5 +1,5 @@
+rem open hosts location in Windows
 @echo off
-rem open hosts location
 
 set dir=%SystemRoot%\System32\drivers\etc
 set name=hosts

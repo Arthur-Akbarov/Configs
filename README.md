@@ -4,11 +4,9 @@ Configuration files for different apps to set preferences and shortcuts
  - AutoHotKey
  - Light Alloy
  - Process Hacker
- - Sublime Text
+ - Sublime Text 3
  - VLC media player
 
 Also hosts file and Windows tweaks.
 
-push.cmd scripts apply config from this repo.
-
-pull.cmd scripts copy config from source (AppData usually) to this repo.
+Pull scripts to apply configs from this repo and push to clone your current to repo.

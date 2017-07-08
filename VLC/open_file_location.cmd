@@ -1,5 +1,5 @@
+rem open VLC config location in Windows
 @echo off
-rem open VLC config location
 
 set dir=%AppData%\vlc
 set name=vlcrc

@@ -1,17 +1,14 @@
+rem push Light Alloy config to local configs repo
 @echo off
-rem push Light Alloy config
 
 set dir=%LocalAppData%\LightAlloy
 set name=LA.xml
 set file=%dir%\%name%
 
-if not exist "%dir%" (
-	mkdir "%dir%"
-	if ErrorLevel 1 (
-		echo Can't create folder "%dir%".
-		pause & goto :eof
-	)
+if not exist "%file%" (
+	echo File "%file%" can't be found.
+	pause & goto :eof
 )
 
-copy "files\%name%" "%file%"
+copy "%file%" files\
 pause

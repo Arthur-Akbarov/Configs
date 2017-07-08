@@ -15,37 +15,33 @@ CapsLock::    return
 
 Insert::      return
 
-#+Ы::
 #+S::         Run nircmd-x64\nircmd.exe speak text ~$clipboard$
-#+Ф::
-#+A::         Run nircmd-x64\nircmd.exe win center alltop
+#+A::         Run nircmd-x64\nircmd.exe win cEnter alltop
 
 #Esc::        Run nircmd-x64\nircmd.exe monitor off
 
 #WheelUp::    Run nircmd-x64\nircmd.exe changesysvolume 4000
 #WheelDown::  Run nircmd-x64\nircmd.exe changesysvolume -4000
 
-#+up::        Run nircmd-x64\nircmd.exe changesysvolume 4000
-#+down::      Run nircmd-x64\nircmd.exe changesysvolume -4000
+#+Up::        Run nircmd-x64\nircmd.exe changesysvolume 4000
+#+Down::      Run nircmd-x64\nircmd.exe changesysvolume -4000
 
-#^+up::       Run nircmd-x64\nircmd.exe mutesysvolume 0
-#^+down::     Run nircmd-x64\nircmd.exe mutesysvolume 1
+#^+Up::       Run nircmd-x64\nircmd.exe mutesysvolume 0
+#^+Down::     Run nircmd-x64\nircmd.exe mutesysvolume 1
 
-#+right::     Run nircmd-x64\nircmd.exe changebrightness +4
+#+Right::     Run nircmd-x64\nircmd.exe changebrightness +4
 #+left::      Run nircmd-x64\nircmd.exe changebrightness -12
 
-#^+right::    Run nircmd-x64\nircmd.exe setbrightness 100
+#^+Right::    Run nircmd-x64\nircmd.exe setbrightness 100
 #^+left::     Run nircmd-x64\nircmd.exe setbrightness 0
 
-!+ф::
-!+a::         Send, arthur.akbarov@yandex.ru
+!+A::         Send, arthur.akbarov@yandex.ru
 
-; does not work with non-Latin layout
+; does not work with non-latin layout
 ; https://autohotkey.com/board/topic/75964-bug-copypasting-when-keyboard-layout-is-non-latin/
-#п::
-#g::
+#G::
         clipboardOld=%clipboard%
-        Send ^c
+        Send ^C
         Clipwait
         Run https://www.google.com/search?q=%clipboard%
         clipboard=%clipboardOld%
@@ -53,28 +49,23 @@ return
 
 ^(::
 ^)::
-        Send, {ctrl down}c{ctrl up}
-        Send, ({ctrl down}v{ctrl up})
+        Send, {Ctrl Down}c{Ctrl Up}
+        Send, ({Ctrl Down}v{Ctrl Up})
 return
 
-#ы::
-#s::    WinRestore,A
-#ф::
-#a::    WinMaximize,A
-#ц::
-#w::    WinMinimize,A
-#й::
-#q::    WinClose,A
-
+#S::    WinRestore,A
+#A::    WinMaximize,A
+#W::    WinMinimize,A
+#Q::    WinClose,A
 
 ;
 ; program sensitive
 ;
 
-; работает не только на видео youtube, но и всякий раз при закрытии вкладки и т.п.
+; triggered not only on youtube video but during closing tab
 ; #IfWinActive ahk_class Chrome_WidgetWin_1
 ; MButton::
-;         Send f
+;         Send F
 ;         Send {MButton}
 ; #IfWinActive
 
@@ -82,25 +73,25 @@ return
 ; windows photo viewer
 #IfWinActive ahk_class Photo_Lightweight_Viewer
 WheelUp::     Send {left}
-WheelDown::   Send {right}
+WheelDown::   Send {Right}
 #IfWinActive
 
 
 ; explorer
 #IfWinActive ahk_exe explorer.exe
-!down::       Send {enter}
-!right::      Send {enter}
+!Down::       Send {Enter}
+!Right::      Send {Enter}
 
-CapsLock & WheelUp::     Send {up}
-CapsLock & WheelDown::   Send {down}
+CapsLock & WheelUp::     Send {Up}
+CapsLock & WheelDown::   Send {Down}
 
-!WheelUp::    Send !{up}
-!WheelDown::  Send {enter}
+!WheelUp::    Send !{Up}
+!WheelDown::  Send {Enter}
 
-+WheelUp::    Send +{up}
-+WheelDown::  Send +{down}
++WheelUp::    Send +{Up}
++WheelDown::  Send +{Down}
 
-MButton::     Send {enter}
+MButton::     Send {Enter}
 #IfWinActive
 
 
@@ -111,16 +102,25 @@ MButton::     Send {enter}
 ; GroupAdd, Explorer, ahk_class WorkerW
 
 
-; https://gist.github.com/davejamesmiller/1965432
-; ctrl+alt+n to create and open new file in explorer
 #IfWinActive ahk_class CabinetWClass
-^!т::
-^!n::
+#C::
+        WinHWND := WinActive()
+        For win in ComObjCreate("Shell.Application").Windows
+            If (win.HWND = WinHWND) {
+                dir := SubStr(win.LocationURL, 9) ; remove "file:///"
+                dir := RegExReplace(dir, "%20", " ")
+                Break
+            }
+        Run, cmd, % dir ? dir : A_Desktop
+return
+; https://gist.github.com/davejamesmiller/1965432
+; Ctrl+Alt+N to create and open new file in explorer
+^!N::
         WinGetText, text, A
-
         StringSplit, pathArray, text, `r`n
         fullPath = %pathArray1%
         fullPath := RegExReplace(fullPath, "(^Address: )", "")
+        fullPath := RegExReplace(fullPath, "(^Адрес: )", "")
 
         SetWorkingDir, %fullPath%
 
@@ -137,26 +137,32 @@ MButton::     Send {enter}
 return
 #IfWinActive
 
+
 ; cmd
 #IfWinActive ahk_class ConsoleWindowClass
-^+С::
-^+C::         Send {enter}
-^М::
-^V::          Send %clipboard%
-!f4::         WinClose,A
-MButton::     Send {enter}
-PgUp::        send {WheelUp 10}
-PgDn::        send {WheelDown 10}
+^+C::         Send {Enter}
+^M::          Send %clipboard%
+!F4::         WinClose,A
+MButton::     Send {Enter}
+PgUp::        Send {WheelUp 10}
+PgDn::        Send {WheelDown 10}
 #IfWinActive
 
 
-; save and update script, doesn't work in sublime text
-^+ы::
-^+s::
+; MinGW
+#IfWinActive  ahk_class mintty
+^+C::         Send {Ctrl}{Insert}
+^V::          Send %clipboard%
+#IfWinActive
+
+
+; save and update script
+; work only with default text editor - notepad
+^+S::
 IfWinActive, %A_ScriptName%
 {
-        Send, ^s
-        ToolTip, Scr ipt is updating
+        Send, ^S
+        ToolTip, Script is updating
         Sleep, 700
         Reload
 }

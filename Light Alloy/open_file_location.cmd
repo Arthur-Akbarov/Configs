@@ -1,5 +1,5 @@
+rem open Light Alloy config location in Windows
 @echo off
-rem open Light Alloy config location
 
 set dir=%LocalAppData%\LightAlloy
 set name=LA.xml

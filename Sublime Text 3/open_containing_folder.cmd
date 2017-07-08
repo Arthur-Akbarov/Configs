@@ -1,11 +1,8 @@
-rem open Process Hacker config location in Windows
+rem open Sublime Text 3 configs folder in Windows
 @echo off
 
-set dir=%AppData%\Process Hacker 2
-set name=settings.xml
-set file=%dir%\%name%
+set dir=%AppData%\Sublime Text 3\Packages\User
 
-if exist "%file%" start /max explorer /select, "%file%" & goto :eof
 if exist "%dir%" start /max explorer "%dir%" & goto :eof
 
 echo Folder "%dir%" can't be found.

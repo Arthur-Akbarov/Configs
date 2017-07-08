@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+; For folders.
+[-HKEY_CLASSES_ROOT\Directory\shell\sublime]
+
+; For files.
+[-HKEY_CLASSES_ROOT\*\shell\sublime]

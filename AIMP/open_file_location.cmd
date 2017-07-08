@@ -1,5 +1,5 @@
+rem open AIMP config location in Windows
 @echo off
-rem open AIMP config location
 
 set dir=%AppData%\AIMP
 set name=AIMP.ini
