@@ -9,4 +9,4 @@ Configuration files for different apps to set preferences and shortcuts
 
 Also hosts file and Windows tweaks.
 
-Pull scripts to apply configs from this repo and push to clone your current to repo.
+Pull scripts to apply configs from this repo and push to clone your current to repo
