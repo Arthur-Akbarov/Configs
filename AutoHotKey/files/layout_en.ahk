@@ -3,6 +3,8 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+; ^ Ctrl, ! Alt, + Shift, # Windows
+
 NumLock::     return
 ^NumLock::    return
 !NumLock::    return
@@ -76,9 +78,15 @@ WheelUp::     Send {left}
 WheelDown::   Send {Right}
 #IfWinActive
 
+; should be in the auto-execute section
+; GroupAdd, Explorer, ahk_class CabinetWClass
+; GroupAdd, Explorer, ahk_class ExploreWClass
+; GroupAdd, Explorer, ahk_class Progman
+; GroupAdd, Explorer, ahk_class WorkerW
 
 ; explorer
-#IfWinActive ahk_exe explorer.exe
+;#IfWinActive ahk_exe explorer.exe
+#IfWinActive ahk_class CabinetWClass
 !Down::       Send {Enter}
 !Right::      Send {Enter}
 
@@ -92,17 +100,7 @@ CapsLock & WheelDown::   Send {Down}
 +WheelDown::  Send +{Down}
 
 MButton::     Send {Enter}
-#IfWinActive
 
-
-; should be in the auto-execute section
-; GroupAdd, Explorer, ahk_class CabinetWClass
-; GroupAdd, Explorer, ahk_class ExploreWClass
-; GroupAdd, Explorer, ahk_class Progman
-; GroupAdd, Explorer, ahk_class WorkerW
-
-
-#IfWinActive ahk_class CabinetWClass
 #C::
         WinHWND := WinActive()
         For win in ComObjCreate("Shell.Application").Windows
@@ -113,6 +111,7 @@ MButton::     Send {Enter}
             }
         Run, cmd, % dir ? dir : A_Desktop
 return
+
 ; https://gist.github.com/davejamesmiller/1965432
 ; Ctrl+Alt+N to create and open new file in explorer
 ^!N::
@@ -134,6 +133,74 @@ return
 
         FileAppend, , %UserInput%
         ; Run %UserInput%
+return
+
+
+
+^1::
+^h::
+^t::
+        WinGet, Win_pid, PID, A
+        PostMessage, 0x111, 28717,0,, ahk_pid %Win_pid%      ;"Thumbnails" (h) (t)
+return
+
+^2::
+^s::
+        WinGet, Win_pid, PID, A
+        PostMessage, 0x111, 28718,0,, ahk_pid %Win_pid%      ;"Tiles" (s)
+return
+
+^3::
+^n::
+^i::
+^m::
+        WinGet, Win_pid, PID, A
+        PostMessage, 0x111, 28713,0,, ahk_pid %Win_pid%      ;"Icons" (n) (i) (m = Medium icon view)
+return
+
+^4::
+^l::
+        WinGet, Win_pid, PID, A
+        PostMessage, 0x111, 28715,0,, ahk_pid %Win_pid%      ;"List" (l)
+return
+
+^d::
+        MouseGetPos,x,y,winid,ctrlid,2
+        ControlGet,listview,Hwnd,,,ahk_id %ctrlid%
+        Loop
+        {
+            listview:=DllCall("GetParent","UInt",listview)
+            If listview=0
+                Break
+            SendMessage,0x111,0x702c,0,,ahk_id %listview%
+        }
+return
+
+*F5::
+MouseGetPos,x,y,winid,ctrlid,2
+Sleep,0
+WM_COMMAND=0x111
+ODM_VIEW_ICONS =0x7029
+ODM_VIEW_LIST  =0x702b
+ODM_VIEW_DETAIL=0x702c
+ODM_VIEW_THUMBS=0x702d
+ODM_VIEW_TILES =0x702e
+views=%ODM_VIEW_ICONS%,%ODM_VIEW_LIST%,%ODM_VIEW_DETAIL%,%ODM_VIEW_THUMBS%,%ODM_VIEW_TILES%
+StringSplit,view_,views,`,
+view+=1
+If view>5
+  view=1
+changeview:=view_%view%
+MsgBox %views%, %view%, %changeview%
+ControlGet,listview,Hwnd,,,ahk_id %ctrlid%
+parent:=listview
+Loop
+{
+  parent:=DllCall("GetParent","UInt",parent)
+  If parent=0
+    Break
+  SendMessage,%WM_COMMAND%,%changeview%,0,,ahk_id %parent%
+}
 return
 #IfWinActive
 
