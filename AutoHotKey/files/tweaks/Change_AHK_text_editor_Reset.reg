@@ -1,5 +1,4 @@
 Windows Registry Editor Version 5.00
 
-; reset AHK text editor from notepad to Sublime Text 3
+; reset AHK text editor to default notepad
 [-HKEY_CLASSES_ROOT\AutoHotkeyScript\Shell\Edit\Command]
-
