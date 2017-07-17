@@ -1,4 +1,4 @@
-rem pull and apply Sublime Text 3 configs from local configs repo
+@echo pull and apply Sublime Text 3 configs from local configs repo
 @echo off
 
 set dir=%AppData%\Sublime Text 3\Packages\User

@@ -1,5 +1,5 @@
+@echo push hosts file
 @echo off
-rem push hosts file
 
 set dir=%SystemRoot%\System32\drivers\etc
 set name=hosts

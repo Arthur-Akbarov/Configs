@@ -1,4 +1,4 @@
-rem pull hosts file
+@echo pull hosts file
 @echo off
 
 set dir=%SystemRoot%\System32\drivers\etc

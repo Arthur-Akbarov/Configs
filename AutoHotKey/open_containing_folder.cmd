@@ -1,4 +1,4 @@
-rem open user autorun folder
+@echo open user autorun folder
 @echo off
 
 set dir=%AppData%\Microsoft\Windows\Start Menu\Programs\Startup

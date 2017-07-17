@@ -1,4 +1,4 @@
-rem open Light Alloy config location in Windows
+@echo open Light Alloy config location in Windows
 @echo off
 
 set dir=%LocalAppData%\LightAlloy

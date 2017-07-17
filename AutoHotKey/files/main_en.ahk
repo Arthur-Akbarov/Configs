@@ -28,8 +28,12 @@ GroupAdd, Editors, ahk_class Notepad++        ; Notepad++
 ;*                  end of the auto-execute section                  *
 ;*********************************************************************
 
+~^#End::        ExitApp
 ~#Home::        Suspend, Off
 ~#End::         Suspend, On
+
+; Ctrl+Win+L to logoff
+^#L::Shutdown, 0
 
 ; Alt+CapsLock or RCtrl+NumPad7 to edit all scripts
 !CapsLock::

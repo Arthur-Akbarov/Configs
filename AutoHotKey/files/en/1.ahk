@@ -15,9 +15,10 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;*                  end of the auto-execute section                  *
 ;*********************************************************************
 
-; Win+End to suspend all scripts, Win+Home to rise all back
+; Win+End to suspend all scripts, Win+Home to rise back, Ctrl+Win+End to close
 ~#Home::        Suspend, Off
 ~#End::         Suspend, On
+~^#End::        ExitApp
 
 NumLock::       Return
 ^NumLock::      Return
@@ -33,7 +34,7 @@ Insert::        Return
 !+A::           Send, arthur.akbarov@yandex.ru
 !+K::           Send, autohotkey
 
-^#A::           WinSet, AlwaysOnTop, Toggle, A
+^!A::           WinSet, AlwaysOnTop, Toggle, A
 
 #S::            WinRestore, A
 #A::            WinMaximize, A
@@ -113,19 +114,3 @@ Return
         ClipBoard := ClipSaved
         ClipSaved =  ; free memory
 Return
-
-; MiddleClick on window titlebar to minimize it, with Shift to close
-#If MouseIsOverTitlebar()
-MButton::       WinMinimize
-+MButton::      WinClose
-
-MouseIsOverTitlebar() {
-        static WM_NCHITTEST := 0x84, HTCAPTION := 2
-        CoordMode Mouse, Screen
-        MouseGetPos x, y, w
-        If WinExist("ahk_class Shell_TrayWnd ahk_id " w)  ; exclude taskbar
-            Return false
-        SendMessage WM_NCHITTEST,, x | (y << 16),, ahk_id %w%
-        WinExist("ahk_id " w)  ; set Last Found Window for convenience
-        Return ErrorLevel = HTCAPTION
-}

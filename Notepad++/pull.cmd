@@ -1,8 +1,8 @@
-@echo pull and apply AIMP config from local configs repo
+@echo pull and apply Notepad++ config from local configs repo
 @echo off
 
-set dir=%AppData%\AIMP
-set name=AIMP.ini
+set dir=%AppData%\Notepad++
+set name=shortcuts.xml
 set file=%dir%\%name%
 
 if not exist "%dir%" (

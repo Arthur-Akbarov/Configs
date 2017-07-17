@@ -1,4 +1,4 @@
-rem pull and apply VLC config from local configs repo
+@echo pull and apply VLC config from local configs repo
 @echo off
 
 set dir=%AppData%\vlc

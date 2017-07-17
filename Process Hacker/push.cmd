@@ -1,4 +1,4 @@
-rem push current Process Hacker config to local configs repo
+@echo push current Process Hacker config to local configs repo
 @echo off
 
 set dir=%AppData%\Process Hacker 2

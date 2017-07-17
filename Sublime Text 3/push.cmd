@@ -1,4 +1,4 @@
-rem push current Sublime Text 3 configs to local configs repo
+@echo push current Sublime Text 3 configs to local configs repo
 @echo off
 
 set dir=%AppData%\Sublime Text 3\Packages\User

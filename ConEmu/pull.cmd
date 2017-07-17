@@ -1,8 +1,8 @@
-@echo pull and apply AIMP config from local configs repo
+@echo pull and apply ConEmu config from local configs repo
 @echo off
 
-set dir=%AppData%\AIMP
-set name=AIMP.ini
+set dir=%AppData%
+set name=ConEmu.xml
 set file=%dir%\%name%
 
 if not exist "%dir%" (

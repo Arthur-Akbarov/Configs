@@ -1,4 +1,4 @@
-rem open AIMP config location in Windows
+@echo open AIMP config location in Windows
 @echo off
 
 set dir=%AppData%\AIMP

@@ -1,8 +1,8 @@
-@echo open hosts location in Windows
+@echo open Notepad++ config location in Windows
 @echo off
 
-set dir=%SystemRoot%\System32\drivers\etc
-set name=hosts
+set dir=%AppData%\Notepad++
+set name=shortcuts.xml
 set file=%dir%\%name%
 
 if exist "%file%" start /max explorer /select, "%file%" & goto :eof

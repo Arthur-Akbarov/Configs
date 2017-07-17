@@ -15,8 +15,10 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;*                  end of the auto-execute section                  *
 ;*********************************************************************
 
+; Win+End to suspend all scripts, Win+Home to rise back, Ctrl+Win+End to close
 ~#Home::        Suspend, Off
 ~#End::         Suspend, On
+~^#End::        ExitApp
 
 ; Win+G to search selected text in google
 #G::

@@ -1,4 +1,4 @@
-rem open Sublime Text 3 configs folder in Windows
+@echo open Sublime Text 3 configs folder in Windows
 @echo off
 
 set dir=%AppData%\Sublime Text 3\Packages\User

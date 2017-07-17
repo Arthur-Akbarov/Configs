@@ -1,4 +1,4 @@
-rem push current AIMP config to local configs repo
+@echo push current AIMP config to local configs repo
 @echo off
 
 set dir=%AppData%\AIMP

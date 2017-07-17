@@ -1,4 +1,4 @@
-rem pull and apply Light Alloy config from local configs repo
+@echo pull and apply Light Alloy config from local configs repo
 @echo off
 
 set dir=%LocalAppData%\LightAlloy

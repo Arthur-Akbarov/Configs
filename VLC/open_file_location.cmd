@@ -1,4 +1,4 @@
-rem open VLC config location in Windows
+@echo open VLC config location in Windows
 @echo off
 
 set dir=%AppData%\vlc

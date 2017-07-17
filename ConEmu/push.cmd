@@ -1,8 +1,8 @@
-@echo push Light Alloy config to local configs repo
+@echo push current ConEmu config to local configs repo
 @echo off
 
-set dir=%LocalAppData%\LightAlloy
-set name=LA.xml
+set dir=%AppData%
+set name=ConEmu.xml
 set file=%dir%\%name%
 
 if not exist "%file%" (

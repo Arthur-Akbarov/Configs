@@ -1,4 +1,4 @@
-rem open Process Hacker config location in Windows
+@echo open Process Hacker config location in Windows
 @echo off
 
 set dir=%AppData%\Process Hacker 2

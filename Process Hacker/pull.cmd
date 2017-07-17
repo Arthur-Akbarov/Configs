@@ -1,4 +1,4 @@
-rem pull and apply Process Hacker config from local configs repo
+@echo pull and apply Process Hacker config from local configs repo
 @echo off
 
 set dir=%AppData%\Process Hacker 2
