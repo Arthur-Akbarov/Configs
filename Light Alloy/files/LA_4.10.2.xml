@@ -1,23 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<APP name="Light Alloy" version="4.8.8" build="2017">
+﻿<?xml version="1.0"?>
+<APP name="Light Alloy" version="4.10.2" build="3317">
+  <DeleteFilesDialog DontShow="0" RecycleBin="1"/>
   <OpenDialog Filters="1" CloseAfterAdd="1" ShowHidden="0" Width="800" Height="600" DblClick="1" AlwaysFavs="0" WidthCol_0="300" WidthCol_1="67" WidthCol_2="54" WidthCol_3="77" SL_Font_Size="11" PanelMin="0">
     <ShellTree Width="272" Height="460"/>
     <ShellList Width="536" Height="460" ViewStyle="2"/>
     <Highlight Enabled="1" LastDays="2" Color="16711680"/>
   </OpenDialog>
-  <RadioStations rsFontSize="8" minbr="-1" maxbr="320" FlagMT="11111" FlagRazdel="11111111" ShowOffGenre="0" OffGenre="1" EnableRSColor="1" SaveFilter="0" ReloadName="0" EndDir="" AddTagToLAU="1" ShortExt="0" RSDefDir="" SearchTxt="">
+  <RadioStations rsFontSize="8" minbr="-1" maxbr="320" FlagMT="11111" FlagRazdel="11111111" ShowOffGenre="0" OffGenre="1" EnableRSColor="0" SaveFilter="0" ReloadName="0" EndDir="" AddTagToLAU="1" RSDefDir="" SearchTxt="">
     <Net IndyConnTimeOut="10000" IndyReadTimeOut="20000"/>
     <IceCast URL="http://dir.xiph.org/yp.xml"/>
-    <Size ColN="20" ColName="250" ColCt="260" ColGenre="120" ColBr="50" ColMt="50" ColID="150" ColRazdel="100" ColStatus="-1" ColCo="100" ColLang="100" ColNote="400" FLeft="563" FTop="204" FWidth="800" FHeight="550" FNewLeft="266" FNewTop="253" FNewWidth="500" FNewHeight="405"/>
-    <Razdel Text_h1="VXNlciAx" Text_h2="VXNlciAy" Text_h3="VXNlciAz" Text_h4="VXNlciA0" Text_h5="VXNlciA1" Text_h6="VXNlciA2" Text_h7="VXNlciA3" Color1="16775920" Color2="16775920" Color3="16775920" Color4="16775920" Color5="16775920" Color6="16775920" Color7="16775920" Color0="16775920"/>
+    <Size ColN="50" ColName="250" ColCt="260" ColGenre="120" ColBr="50" ColMt="50" ColID="150" ColRazdel="100" ColStatus="-1" ColCo="100" ColLang="100" ColNote="400" FLeft="70" FTop="70" FWidth="800" FHeight="550" FNewLeft="150" FNewTop="100" FNewWidth="500" FNewHeight="405"/>
+    <Razdel Text_h1="User 1" Text_h2="User 2" Text_h3="User 3" Text_h4="User 4" Text_h5="User 5" Text_h6="User 6" Text_h7="User 7" Color1="16775920" Color2="16775920" Color3="16775920" Color4="16775920" Color5="16775920" Color6="16775920" Color7="16775920" Color0="16775920"/>
   </RadioStations>
   <Radio>
     <Net LABB_PrebufSz="1000" LABB_BuffSz="5000"/>
-    <Recording LABB_Rec_SplitStream="0" FNTemplate="[{TIME}] {TITLE}" SavePath="QzpcVXNlcnNcQXJ0aHVyXERvY3VtZW50c1w=" AutoRec="0"/>
-    <Play PlayPath="QzpcUHJvZ3JhbSBGaWxlcyAoeDg2KVxMaWdodCBBbGxveVxSYWRpbw==" LastPlayRadio="C:\Program Files (x86)\Light Alloy\Radio\RU Kids Songs.lau" OnRadioMinimize="0"/>
+    <Recording LABB_Rec_SplitStream="0" FNTemplate="[{DATE}-{TIME}] {TITLE}" SavePath="C:\Users\Эльмира\Music\" AutoRec="0"/>
+    <Play PlayPath="C:\Users\Эльмира\AppData\Local\LightAlloy\Radio" LastPlayRadio="" OnRadioMinimize="0"/>
   </Radio>
-  <Info Width="1207" Height="687"/>
-  <OpenDialog_TV LastDir="D:\Movies\Adam Ruins Everything (2015)\" LastFile="D:\Movies\Adam Ruins Everything (2015)\Adam.Ruins.Everything.S01E04.720p.HDTVRip.Rus.Eng.Ozz.mkv"/>
+  <Info Width="613" Height="613"/>
+  <OpenDialog_TV LastDir=""/>
   <Codecs UseInternal="1" Attention="0" UseWMAsfReader="0" UseFastOpen="0" SC_Conn_TimeOut="5000" SC_Read_TimeOut="10000" UseBassForMusic="0" CacheLen="64" MinQueueSize="128" MaxQueueSize="64" MinQueuePackets="50" MaxQueuePackets="500" UDP_MaxStoreSizeInMemory="50" UDP_MinSecBeforePlay="3" MKV_MaxReadFailCount="20" UseDmitriRender="0">
     <Tubes>
       <Youtube PreferQuality="18"/>
@@ -26,15 +27,15 @@
     <Video H265="1" H264DXVA="1" H264="1" MPEG2DXVA="1" MPEG2="1" VC1DXVA="1" VC1="1" WMV3DXVA="1" WMV="1" DIVX="1" XVID="1" FLV4="1" MSMPEG4AMVIND="1" MPEG1="1" RV="1" VP356="1" VP8="1" Theora="1" H263SVQ="1" DV="1" SCRREC="1" LOSSLESS="1" OTHERS="1" QTUNCOMP="1"/>
     <Audio RA="1" MPA="1" DTS="1" LPCM="1" AC3="1" AAC="1" PS2AUD="1" VORBIS="1" FLAC="1" NELLY="1" AMR="1" PCM="1" ALAC="1" QDM2="1" ALS="1" WV="1" MPC="1" APE="1" DSP_TS="1" WMAPRO="1" WMALOSS="1" WMA12="1" WMAVOICE="1" IAC="1" TAK="1"/>
   </Codecs>
-  <Nastr CyclicRestart="0" DeltaPos="5" StopFile="0" StopFileDone="0" SizeSleep="100" ShowHintPL="1" MyExpert="0" NotInfo="0" ShowNamePause="0" PlusDelay="4" ShowCustomCodec="0" SessionZoom="0" DeltaActive="0" NotMoveVideo="0" NotZoomRW="0" GlobalOpenWin="0" GlobalOpenWinNew="3" ApplyEndSound="1" MiniOSDBD="0" SkinHotKeyEnable="0" SkinHotKey="116" HideVideoFilter="0" ShowExpertMode="0" ShowTackBarState="0" PauseMoveWindow="0" EnableOptimHash="0" PrefLocHints="0" UserLocHints="0" SeriesSeek="0" AdvSpeedVolume="0" ProcVolSpeed="50" CountOnPause="0" EventOnPause="0" AlterSpeedPause="0" MaxSpeedMiddle="310" PosSpeed="0" MinimizeAudioNotActive="0" EnadleDuplicateSound="0" MonitoringUrls="0" PathTicker="0" NotMoveBorder="0" DeleteAutoSeek="0" TagsUseMediaInfo="0" PauseDeActivation="0">
-    <Size F6Width="220" DisableCheckSize="0" InitWidth="580" InitHeight="450" InitWidthA="350" InitHeightA="500" MinWidthPL="160" WidthPLOkno="160" WidthPLFS="432" DeltaH220="220"/>
-    <Skin SkinA="Dub Audio.las" SkinV="&lt;LADub&gt;" ResizePlayMp3="0" MinAudioList="1" PreviewSkinWidth="200" PreviewSkinHeight="150" SkinDouble="" NumActiveSkin="1" AudioOriginal="0"/>
+  <Nastr CyclicRestart="0" DeltaPos="5" StopFile="0" SizeSleep="100" ShowHintPL="1" NotInfo="0" ShowNamePause="0" PlusDelay="4" ShowCustomCodec="0" SessionZoom="0" DeltaActive="0" NotMoveVideo="0" NotZoomRW="0" GlobalOpenWin="0" GlobalOpenWinNew="0" ApplyEndSound="1" MiniOSDBD="0" SkinHotKeyEnable="0" SkinHotKey="116" HideVideoFilter="0" ShowExpertMode="0" PauseMoveWindow="0" EnableOptimHash="0" SeriesSeek="0" AdvSpeedVolume="0" ProcVolSpeed="50" CountOnPause="0" EventOnPause="0" AlterSpeedPause="0" MaxSpeedMiddle="310" PosSpeed="0" MinimizeAudioNotActive="0" EnadleDuplicateSound="0" MonitoringUrls="0" DeleteAutoSeek="0" TagsUseMediaInfo="0" PauseDeActivation="0">
+    <Size F6Width="220" DisableCheckSize="0" MinWidthPL="160" WidthPLOkno="160" WidthPLFS="160" DeltaH220="220"/>
+    <Skin SkinA="Omega Audio.las" SkinV="&lt;LAOmega&gt;" ResizePlayMp3="0" MinAudioList="1" PreviewSkinWidth="200" PreviewSkinHeight="150" SkinDouble="" NumActiveSkin="1"/>
     <PL EnableExt="0" ShowPlExt="1" ShowNum="1" ShowDur="1" bold="1" color="16776960" ExtPlayList="0" PlayListAudioFontSize="9" CompactHeight="0" PlayListAudioFontBold="0" PlayListTypLoad="1" HistoryDeleteFile="" HistoryUnicode="1"/>
   </Nastr>
-  <Popup EnableCustomPL="0" ElementItemIndex="0">
-    <PlayList Enabl="1" Items="253;160;-1;062;-1;256;257;051;159;261;258;260;-1;263;264;-1;265;262;-1;267;266;268;269;270;272;271;273;250;3420;-1;259"/>
-    <LAC_APPLICATION_PREFERENCES Enabl="1" Items="105;060;3155"/>
-    <LAC_PLAYLIST_ADD_FILES Enabl="1" Items="3160;-1;051;063"/>
+  <Popup ElementItemIndex="0">
+    <PlayList Enabl="0" Items="253;160;-1;062;-1;256;257;051;277;159;261;258;260;-1;263;264;-1;265;262;-1;267;266;268;269;270;272;271;273;250;3420;-1;259"/>
+    <LAC_APPLICATION_PREFERENCES Enabl="1" Items="105;060"/>
+    <LAC_PLAYLIST_ADD_FILES Enabl="1" Items="3160;-1;051;277;063"/>
     <LAC_PLAYLIST_DELETE Enabl="1" Items="260;259;3170"/>
     <LAC_APPLICATION_SCHEDULER Enabl="1" Items="3180;3181;3179"/>
     <LAC_SOUND_MUTE Enabl="1" Items="3050;-1;400;-1;402"/>
@@ -49,7 +50,7 @@
     <LAC_WINDOW_MINIMIZE Enabl="1" Items="3156;3157"/>
     <LAC_VIDEO_PROPERTIES Enabl="1" Items="3380;3381;3382"/>
     <LAC_VIDEO_RATIO_SWITCH Enabl="1" Items="3381;-1;300"/>
-    <LAC_PLAYBACK_STOP_PLAY Enabl="1" Items="3280;459;-1;059"/>
+    <LAC_PLAYBACK_STOP_PLAY Enabl="1" Items="3280;4000;-1;059"/>
     <LAC_SEEK_FRAME_STEP Enabl="1" Items="3250;-1;3255;-1;3270;3275"/>
     <LAC_WINDOW_ORIGINAL Enabl="1" Items="3220;3221;3222;3156;3210"/>
     <LAC_PLAYLIST_PREV Enabl="1" Items=""/>
@@ -60,112 +61,109 @@
     <LAC_PLAYLIST_BOOKMARKS Enabl="1" Items=""/>
     <LAC_PLAYLIST_SAVE Enabl="1" Items=""/>
   </Popup>
-  <PLDir AdvDir="0" LastOpenDir="C:\Program Files (x86)\Light Alloy\Radio" LastOpenFile="C:\Program Files (x86)\Light Alloy\Radio\RU Kids Songs.lau" MyPath="QzpcVXNlcnNcQXJ0aHVyXERvY3VtZW50c1w=" PnLeftW="149" PnDriveLeftW="30" Filtr="4" Color1="255" Color2="65535" Color3="4227072" LastDays1="0" LastDays2="0" LastDays3="0" UserAdvDirColor="0" AdvDirDaysColor="0" SyncPL="0" NextFolder="0" ShowDelBut="0" DriveLeft="0" MinCountItemDir="1" PnLeftDriveW="1">
+  <PLDir AdvDir="0" LastOpenDir="C:\" LastOpenFile="" MyPath="C:\Users\Эльмира\Documents\" PnLeftW="120" PnDriveLeftW="30" Filtr="4" Color1="255" Color2="65535" Color3="4227072" LastDays1="0" LastDays2="0" LastDays3="0" UserAdvDirColor="0" AdvDirDaysColor="0" SyncPL="0" NextFolder="0" ShowDelBut="0" DriveLeft="0" MinCountItemDir="1">
     <UserColor Color1="3156256" Color2="13419960" Color3="3156256" Color4="13419960" Color5="3156256" Color6="3156256" Color7="3156256" Color8="13419960" Color9="3156256"/>
   </PLDir>
   <OpenWin LastOpenDir="C:\" OpenWinFontSize="12" OpenWinFontBold="0" ShowTop="1" OpenWinW="800" OpenWinH="550" OpenWinL="0" OpenWinT="0" OpenWinPnLeftW="240" PnDriveLeftW="40" OpenWinColor1="-1" OpenWinColor2="-1" OpenWinColor3="-1" OpenWinColor1f="-1" OpenWinColor2f="-1" OpenWinColor3f="-1" TestColor="0" Filtr="0" cbAll="0" cbClose="0" DriveLeft="1">
     <Favorites FLeft="70" FTop="70" FWidth="380" FHeight="440" ShowNumber="0" PathUserFavorites="" FavoriteName="" HistoryPathName=""/>
   </OpenWin>
   <History TypFilter="1" HLeft="70" HTop="70" HWidth="800" HHeight="550" SortTyp="5" AskSort="1" PlayTimeHistory="30" ShowHint="0" ShowDelButton="1" ChekFileExist="0" EnableHistoryColor="1" ProsmType="1" MaxDay="0" ColumnsVisible="1111111111111" SaveFilter="0" FilterEnable="11111111111111" HFontSize="10" HFontBold="0" VideoOnly="0" HistoryPath="">
-    <Razdel Text_h1="RmF2b3JpdGVz" Color1="14482136" Text_h2="R2VuZXJhbA==" Color2="16245207" Text_h3="UmVjeWNsZSBCaW4=" Color3="12307709" Text_h4="QXVkaW9maWxlcw==" Color4="15718125" Text_h5="U2hvcnQ=" Color5="15263415" Text_h6="TWlzYyAx" Color6="14811135" Text_h7="TWlzYyAy" Color7="14811135" DefaultInPLComent="1" DefaultAudioComent="3" DefaultShortComent="4" Filter1="1" Filter2="1" Filter3="1" Filter4="1" Filter5="1" Filter6="1" Filter7="1" MaxShortTime="30:00" RazdelShort="0" RazdelAudio="1"/>
+    <Razdel Text_h1="Favorites" Color1="14482136" Text_h2="Regular" Color2="16245207" Text_h3="Recycle bin" Color3="12307709" Text_h4="Audiofiles" Color4="15718125" Text_h5="Shorts" Color5="15263415" Text_h6="Others 1" Color6="14811135" Text_h7="Others 2" Color7="14811135" DefaultInPLComent="1" DefaultAudioComent="3" DefaultShortComent="4" Filter1="1" Filter2="1" Filter3="1" Filter4="1" Filter5="1" Filter6="1" Filter7="1" MaxShortTime="30:00" RazdelShort="0" RazdelAudio="1"/>
     <Color DeleteFileBrushColor="10329501" DeleteFileFontColor="16777215" CursorColorAll="12311009" CursorColorSelect="9403504" GridColor="-1" GridFontColor="-1" DurMinViewColor="255"/>
     <LastDays Color1="255" Color2="32768" Color3="13447737" LastDays1="7" LastDays2="30" LastDays3="365"/>
     <Columns Coln="50" ColRazdel="150" Colfname="500" Colendplay1="100" Colendplay2="100" Colprosm="100" Colprim="150" Colfpatch="700" Coldur="100" Colsize="100" Colcount="70" Colext="70"/>
     <Filters Item1="" Item2="" Item3="" Item4="" Item5="" Item6="" Item7="" Item8="" Item9="" Item10="" Item11="" Item12="" Item13="" Item14=""/>
   </History>
-  <HiddenSet ShowEditRazdel="0" UserFilter1="1" UserFilter2="0" UserFilter3="0" UserFilter4="0" ColorDifferent="12058623" SearchPrim="1">
-    <Forms HSLeft="70" HSTop="70" HSWidth="1212" HSHeight="550" pBottomHeight="98"/>
+  <HiddenSet ShowEditRazdel="0" UserFilter1="1" UserFilter2="0" UserFilter3="1" UserFilter4="0" ColorDifferent="12058623" SearchPrim="1">
+    <Forms HSLeft="70" HSTop="70" HSWidth="800" HSHeight="550" pBottomHeight="98"/>
     <Columns ColWidth1="285" ColWidth2="110" ColWidth3="100"/>
   </HiddenSet>
-  <FrontEnd Expert="1" ClosedInFL="0" ClosedInFL_WithOpenedPanels="1" PanelsState="1" Home_btnOnly="0" RememberPanelsState="0" ResizeLimit="1" AlwaysWindowCaption="0" ShowHints="1" ShowExtHints="1" TwoLineHints="1" MinimizeToTray="2" Sticky="0" Language="english" MediaDir="D:\YandexDisk\??????????\" FilterIndex="1" OpenFolderDir="C:\" MultiInstance="0" Mute="0" NeverFullScrCaption="0" CaptionFromTags="0" ReversePlayTime="0" RemoveZerosOfTime="0" LargeFontTimeLineSize="0" Skin="&lt;LADub&gt;" StayOnTop="0" BrandBorder="1" AspectRatioVF="0" AspectRatioVF_PList="0" DoNotAcrossWorkArea="0" ShowSkinLogo="1" ShowPLEnd="1" Bmks_PlayingOnly="1" ShowCover="1" CaptionTagsFmt="%IF(%A, %A - %T, %T)" PlaylistTagsFmt="%IF(%T, %T, %F)">
+  <FrontEnd Expert="0" ResizeLimit="1" ShowHints="1" MinimizeToTray="2" Sticky="1" StickySize="5" Language="english" MediaDir="C:\" FilterIndex="0" OpenFolderDir="C:\" MultiInstance="0" Mute="0" CaptionFromTags="0" ReversePlayTime="0" RemoveZerosOfTime="0" LargeFontTimeLineSize="0" Skin="&lt;LAOmega&gt;" StayOnTop="0" AspectRatioVF="0" AspectRatioVF_PList="0" DoNotAcrossWorkArea="0" ShowSkinLogo="1" ShowPLEnd="1" Bmks_PlayingOnly="1" ShowCover="1" CaptionTagsFmt="%IF(%A, %A - %T, %T)" PlaylistTagsFmt="%IF(%T, %T, %F)">
+    <ControlPanelStates OnPlayerStart="0" WhenSwitchingModes="0" AlwaysShowCaptionInWindowed="0" AlwaysHideCaptionInFS="0"/>
+    <LastState ClosedInFL="0" PanelsVisible="0"/>
     <Hints Pause="300" Time="10"/>
-    <Pos Bottom="976" Left="389" Right="1456" Top="21"/>
+    <Pos Bottom="640" Left="132" Right="747" Top="272"/>
     <Tray Left="0" LeftDbl="5" Middle="4" Middle_Wheel="3"/>
   </FrontEnd>
-  <Video SpeedPlayRate="15" CreateRelatedDirectoryName="0" AspectRatioForced="0" AspectRatio="0" AspectRatioCustom="47:20" MonitorForFullScr="0" DoubleMonitor="1" PitchList="1000" PitchDelta="10">
-    <OnTop Index="0" Keep="0"/>
-    <Renderer Type="5">
-      <VMR YUV="0" AC="0" Decim="0" Shrink="0" Surface="2" Mixer="1"/>
+  <Video SpeedPlayRate="13" CreateRelatedDirectoryName="0" AspectRatioForced="0" AspectRatio="0" AspectRatioCustom="47:20" MonitorForFullScr="0" DoubleMonitor="1" PitchList="1000" PitchDelta="10">
+    <OnTop Index="0"/>
+    <Renderer Type="1">
       <EVR QoS="0" Bufs="5"/>
-      <Sync Vid="0" Disp="0" Near="1" LineDelta="0" ColDelta="0" CycleDelta="0.0012" TargetOffset="12.0" ControlLimit="2.0"/>
       <Common Resizer="1"/>
-      <Presentation FrameTimeCorrection="0" DisableDesktopComposition="0" Use16235OutputRange="0"/>
+      <Presentation FrameTimeCorrection="0" Use16235OutputRange="0"/>
       <VSync Enabled="0" AccurateVSync="0" AlternativeVSync="0"/>
       <GPU FlushGPUBeforeVSync="0" FlushGPUAfterPresent="0" FlushGPUWait="0"/>
     </Renderer>
-    <BCS B="0" C="100" S="150" DXVA="1" SaveBCS="0" EnableRotate="0" AngleX="0" AngleY="0" AngleZ="0"/>
+    <BCS B="0" C="100" S="150" DXVA="1" SaveBCS="0" AngleX="0" AngleY="0" AngleZ="0"/>
   </Video>
-  <Media MaxCount="128" MinMediaDur="300" UseBytes="32000"/>
-  <Seek KeySeek="5" KeyJump="30" KeyFrame="0" KeyFrameTimeLine="0" KeyDouble="1" KeySeekTyp="0" KeySeekItemIndex="7" KeyMaxTest="0"/>
+  <Media MaxCount="384" MinMediaDur="300" UseBytes="32000" ApplyForAudio="1"/>
+  <Seek KeySeek="5" KeyJump="30" KeyFrame="1" KeyFrameTimeLine="0" KeySeekTyp="0" KeySeekItemIndex="7"/>
   <Thumbnails Width="1280" Rows="4" Cols="4" OpenFolder="0" ShowOptions="1"/>
   <AudioSw Enabled="1" Balance="0" Shift="0" Norm="0" Regain="0" Boost="0" RateCompensation="1" NormRegainStep="6" NormRegainThreshold="75" NormFactor="400" AltNormAttackTime="1000" AltNormReleaseTime="3000" AltNormMaxAmplif="10000">
     <Eq Enabled="0" B1="0" B2="0" B3="0" B4="0" B5="0" B6="0" B7="0" B8="0" B9="0" B10="0" Preset="(Default)"/>
   </AudioSw>
-  <Sound VolumeStep="5" Force44="0" RememberStreamSwitch="1" DefaultStream="-1" Volume="145" AddSound="1" VolumeMaster="0" VolumeMaster_UseSystemVol="0" OutDevice="Default DirectSound Device" max_Boost="10" max_Volume="200" Enable_Boost="1" MidiSoundfontsPath="">
-    <ExternalFolders Use="0">
-      <ExtSndDir dir="LgBcAFIAdQBzACAAUwBvAHUAbgBkAA=="/>
-    </ExternalFolders>
+  <Sound VolumeStep="5" Force44="0" RememberStreamSwitch="1" DefaultStream="-1" Volume="50" AddSound="1" VolumeMaster="0" VolumeMaster_UseSystemVol="0" OutDevice="Default DirectSound Device" max_Boost="10" max_Volume="200" Enable_Boost="1" MidiSoundfontsPath="">
+    <ResetVolumeOnFileOpen Enabled="0" Volume="50"/>
+    <ExternalFolders Use="0"/>
     <DefaultAudioLang>
-      <DefStream langstr="RW5nbGlzaA=="/>
-      <DefStream langstr="RW5n"/>
+      <DefStream langstr="English"/>
+      <DefStream langstr="Eng"/>
     </DefaultAudioLang>
   </Sound>
   <DVD PlayInsertDisk="0">
     <Dir LastUsed="1" src="" DefDeviceCDDVD="" DefDeviceBD="" DefDeviceACD=""/>
     <Langs Menu="Default" Audio="Default" Subs="Default"/>
   </DVD>
-  <Mouse TimeOut="1" TimeOutPlus="2" Left="3" LeftDbl="2" Middle="0" Right="0" Wheel="0" WheelInvert="0" HoverCPanel="1" HoverCCaption="1" Additional="2" ShowMouseFSp="0" WheelCtrl="10" WheelShift="4" WheelAlt="1" WheelAltCtrl="8" WheelAltShift="15" WheelCtrlShift="15" WheelAltCtrlShift="15" ReverseVASButtons="0" PauseNotActive="1">
-    <Preview Enabled="0" WinW="250" WinH="160" Renderer="0" OnOff="0" Algoritm="1" KeyFrame="1" ShiftDeltaPreview="1000" CtrlDeltaPreview="10000" AltDeltaPreview="60000" DeltaPreviewOn="1" OffPreviewInDVD="0">
+  <Mouse TimeOut="1" TimeOutPlus="2" Left="3" LeftDbl="1" Middle="0" Right="0" Wheel="0" WheelInvert="0" HoverCPanel="1" HoverCCaption="1" Additional="2" ShowMouseFSp="0" WheelCtrl="8" WheelShift="4" WheelAlt="1" WheelAltCtrl="15" WheelAltShift="15" WheelCtrlShift="15" WheelAltCtrlShift="15" PauseNotActive="1">
+    <Preview Enabled="0" WinW="250" WinH="160" OnOff="0" Algoritm="1" KeyFrame="1" ShiftDeltaPreview="1000" CtrlDeltaPreview="10000" AltDeltaPreview="60000" DeltaPreviewOn="1" OffPreviewInDVD="0">
       <Time Enabled="0" TextClr="14745599" TextBold="0" TextBrdClr="4077616" TextBrdClrUse="1" BgClr="3156000" BgClr_Trans="0" FontSize="10"/>
       <DetectFalsePositiveMovs Enabled="0" Step="2"/>
     </Preview>
     <WheelOpts Wheel0="0" Wheel1="0" Wheel2="0" Wheel3="0" Wheel4="1" Wheel5="1" Wheel6="1" Wheel7="0" Wheel8="0" Wheel9="0" Wheel10="0" Wheel11="0" Wheel12="0" Wheel13="0" Wheel14="0"/>
-    <WheelChange DeltaZoom="5" MinZoom="100" MaxZoom="300"/>
+    <WheelChange DeltaZoom="5" MinZoom="50" MaxZoom="500" AllowPointZoom="0"/>
     <Area Global="0" AllRejim="0" ExpertMode="1" AreaLeft="1" AreaTop="0" AreaRight="0" AreaBottom="1" AreaLeftTopN="1" AreaRightTopN="2" ShowFrame="0" DeltaFrame="1" DeltaShow="1" ShowAreaRC="0" RejimWheel="1" RejimWheelSlider="0" OffMoveOnlyWhell="0" MinTL="0" MinTLHeight="5" MinTLColorLeft="33023" MinTLColorRight="8421504"/>
     <AreaSize DxL="10" DxR="10" DyT="15" DyB="15"/>
     <AreaStyle ColorArea="65535" StyleArea="1" WidthArea="1" ColorZonaArea="16776960" StyleZonaArea="0" WidthZonaArea="1" RamkaArea="1" ZonaArea="1"/>
     <AreaHint HintLeft="1" HintTop="1" HintRight="1" HintBottom="1" HintLeftTop="1" HintRightTop="1"/>
     <AreaTL MoveMin="1" Shema="0" DinamicDelta="0" Shema0_Delta1="5" Shema0_Delta2="30" Shema0_Delta3="60" Shema1_Delta1="60" Shema1_Delta2="150" Shema1_Delta3="300"/>
     <AreaSpeed Delta1="10" Delta2="13" Delta3="20"/>
-    <Reg EnableReg="0" DeltaTime="2" Enable1="1" Enable2="1" En1="1" En2="0" En3="0" En4="0" GroupPos="1" GroupMode="1" Background="8421504" Color1="16711680" Color2="255" Color3="65535" Color4="33023" Mode1="0" Mode2="4" Mode3="5" Mode4="6" Win1="20" Win2="20" Win3="20" Win4="20" Ful1="5" Ful2="5" Ful3="5" Ful4="5" WheelChange="1" JumpScale="4" JumpTmrInterval="1000" SpeedScale="0" PopUp="1"/>
+    <Reg EnableReg="0" DeltaTime="2" Enable1="1" Enable2="1" En1="1" En2="1" En3="1" En4="1" GroupPos="1" GroupMode="1" Background="8421504" Color1="16711680" Color2="255" Color3="65535" Color4="33023" Mode1="0" Mode2="4" Mode3="5" Mode4="6" Win1="20" Win2="20" Win3="20" Win4="20" Ful1="5" Ful2="5" Ful3="5" Ful4="5" WheelChange="1" JumpScale="4" JumpTmrInterval="1000" SpeedScale="0" PopUp="1"/>
   </Mouse>
-  <OnStart Resize="0" Center="0" Maximize="0" AlwaysPrMonitor="1" Monitor="0" OpenPlay="1"/>
-  <OnOpen Resize="0" Play="1" Center="1" CenterExpert="0" PosOpenFileOnly="1" FullScreen="0" HidePanels="0" ApplySettings="1" SeekLastPos="1" Popup="1" CoverResize="1" CoverCenter="0" ProcessAudioFiles="0" SearchForSimilarFiles="0" DoDVD="0" SearchForNewFiles="1" TypSearch="1" MaxWidthResize="0" MaxHeightResize="0" ResizeMaxInDesktop="1" OnlyOneOpenFile="1" AudioPosEnable="0" AudioPosLeft="350" AudioPosTop="50" BookMarkMkv="1" NumberSearch="0" EnableOE="1" LoadOE="1" AutoSaveOE="1" ClearOELoadMedia="0" DelBlackBorder="1" OldExtOE="0" Inversion="0" AddBookMarkOE="0"/>
+  <OnStart Resize="1" Center="1" Maximize="0" AlwaysPrMonitor="1" OnLastUsedMonitor="0" Monitor="0" OpenPlay="0"/>
+  <OnOpen Resize="1" Play="1" Center="1" CenterExpert="0" PosOpenFileOnly="1" FullScreen="0" HidePanels="0" ApplySettings="0" SeekLastPos="0" Popup="1" CoverResize="1" CoverCenter="0" ProcessAudioFiles="0" SearchForSimilarFiles="0" DoDVD="0" SearchForNewFiles="1" TypSearch="1" MaxWidthResize="0" MaxHeightResize="0" ResizeMaxInDesktop="1" OnlyOneOpenFile="1" AudioPosEnable="0" AudioPosLeft="350" AudioPosTop="50" BookMarkMkv="1" NumberSearch="0" EnableOE="0" LoadOE="0" AutoSaveOE="0" ClearOELoadMedia="0" DelBlackBorder="1" OldExtOE="0" Inversion="0" AddBookMarkOE="0"/>
   <OnUserSize USLeft="132" USTop="272" USWidth="615" USHeight="368" USPLWidth="160" USPnLeftW="120"/>
   <MediaHistory Enabled="0" Max="5" CheckExistens="1"/>
-  <OSD Enabled="0" ShowPauseTime="1" UseSkinColor="1" ShowTotalTimeInReverse="0" InfoStrEnabled="0" InfoStr="{TITLE}{FORMAT}
+  <OSD Enabled="1" ShowPauseTime="1" UseSkinColor="1" ShowTotalTimeInReverse="0" InfoStrEnabled="0" InfoStr="{TITLE}{FORMAT} 
 {IFHASVIDEO}Video: {VIDEOWIDTH}x{VIDEOHEIGHT}@{VIDEOFPS} ({VIDEOFORMAT}){/IFHASVIDEO}
-{IFHASAUDIO}Audio: {AUDIOSTREAM}/{AUDIOSTREAMSCOUNT}, {AUDIOLANGUAGE}, ({AUDIOFORMAT}){/IFHASAUDIO}" WithVideo="0" ShowSize="0" ShowTotalTime="0" ShowPosDurInfo="0" ShowChapterPos="0">
-    <Info Antialiasing="0" Show="1" Duration="3" Pos="1" MinDuration="5">
+{IFHASAUDIO}Audio: {AUDIOSTREAM}/{AUDIOSTREAMSCOUNT}, {AUDIOLANGUAGE}, ({AUDIOFORMAT}){/IFHASAUDIO}" WithVideo="1" ShowSize="0" ShowTotalTime="0" ShowPosDurInfo="0" ShowChapterPos="0">
+    <Info Antialiasing="0" Show="1" Duration="3" InfoLineDuration="5" Pos="1" MinDuration="5">
       <Font Charset="1" Family="Arial" Size="20" Color="14539042" Bold="1"/>
     </Info>
     <BG IsColor="0" Color="0"/>
     <Shadow Use="0" Color="0"/>
     <Outline Use="1" Color="0"/>
   </OSD>
-  <MonitorSaver Enabled="0"/>
-  <Subtitles LastDir="QzpcVXNlcnNcQXJ0aHVyXERvd25sb2Fkc1xaYXBheC5qZW5zaGlueS4xOTkyXA==" Show="1" Show2="1" Buffer="0" PreBuf="1" AutoReload="1" ForcedOnly="0" RememberLastDir="0" UseMediaFPS="0" BlockVSFilter="1" RelativeTo="0" ShowCommentEmbedded="1" ApplyStyles="1" SetExternalAsActive="0" ShowExternalSubOnly="0" PreferXySub="1">
+  <Subtitles LastDir="" Show="1" Show2="0" Buffer="0" PreBuf="1" AutoReload="1" ForcedOnly="0" RememberLastDir="0" UseMediaFPS="0" BlockVSFilter="1" RelativeTo="0" ShowCommentEmbedded="1" ApplyStyles="0" SetExternalAsActive="0" ShowExternalSubOnly="0" PreferXySub="1">
     <Loading External="1" Embedded="1"/>
     <PicSize Vert="0" Horiz="0" Resolution="2" W="384" H="288"/>
     <View Overlap="1">
       <Border Type="0" BWidth="2" SDepth="3"/>
       <Font Name="Arial" Bold="1" Italic="0" Size="18" Charset="1" Spacing="NOT_USED" Angle="NOT_USED" ScaleX="100" ScaleY="100" LeftAlign="0"/>
-      <Align Pos="2" Left="20" Top="0" Right="20" Bottom="0"/>
+      <Align Pos="2" Left="20" Top="20" Right="20" Bottom="20"/>
       <Colors Primary="clWhite" PrimaryTrans="100" Secondary="16776960" SecondaryTrans="100" Outline="clBlack" OutlineTrans="100" Shadow="clBlack" ShadowTrans="100" LinkAlpha="0"/>
       <Timing Delay="0" SpdSubs="1000" SpdVid="1000"/>
     </View>
     <Folder Use="0">
-      <Dir src="Lg==" Recursive="0"/>
-      <Dir src="LlxTdWI=" Recursive="0"/>
-      <Dir src="LlxTdWJz" Recursive="0"/>
-      <Dir src="LlxTdWJ0aXRsZXM=" Recursive="0"/>
-      <Dir src="LlxSdXMuc3Vicw==" Recursive="0"/>
+      <Dir src="." Recursive="0"/>
+      <Dir src=".\Sub" Recursive="0"/>
+      <Dir src=".\Subs" Recursive="0"/>
+      <Dir src=".\Subtitles" Recursive="0"/>
     </Folder>
     <DefaultSubsLang>
-      <DefStream langstr="RW5nbGlzaA=="/>
-      <DefStream langstr="RW5n"/>
+      <DefStream langstr="English"/>
+      <DefStream langstr="Eng"/>
     </DefaultSubsLang>
-    <Texture Anim="1" MaxRes="4" BufSz="5"/>
+    <Texture Anim="1" MaxRes="0" BufSz="5"/>
   </Subtitles>
   <Command c050="Ctrl+O|Button_1" c051="Ctrl+U|" c052="F3|" c053="Shift+F3|" c054="Alt+F3|" c055="|" c056="|" c057="|" c058="|" c059="Ctrl+H|" c060="Shift+I|" c061="I|" c062="Alt+I|" c063="Ctrl+F2|" c064="Alt+R|" c065="|" c066="|" c100="Alt+X|" c101="Alt+V|" c102="K|Play/Pause" c103="Alt+Q|" c104="Ctrl+X|" c105="F9|" c106="Shift+.|" c107="Shift+,|" c150="Ctrl+L|" c151="Ctrl+J|" c152="L|Source" c153="J|Audio" c154="Alt+L|" c155="Alt+J|" c156="Alt+Right|" c157="Alt+Left|" c158="BkSp|" c159="B|" c160="Alt+D|" c161="|" c162="O|" c163="E|" c164="Shift+E|" c165="Shift+O|" c166="Alt+E|" c167="Ctrl+E|" c168="Alt+O|" c200="`|Mode" c201="A|" c202="End|" c203="Alt+Enter|" c204="F|Full_screen" c205="Home|" c206="P|" c207="Alt+P|" c208="F11|" c209="[|" c210="]|" c211="|" c212="|" c213="|" c250="Shift+W|" c251="Alt+F|" c252="Shift+F|" c253="Ctrl+Enter|" c254=".|Ch_Down" c255=",|Ch_Up" c256="Insert|" c257="Shift+Insert|" c258="Delete|" c259="F8|" c260="Shift+Delete|" c261="|" c262="Ctrl+R|" c263="Up|" c264="Down|" c265="Ctrl+Home|" c266="|" c267="|" c268="R|" c269="Shift+R|" c270="\|" c271="|" c272="Ctrl+F|" c273="F6|" c274="Ctrl+Shift+P|" c275="|" c276="Ctrl+A|" c300="|" c301="F12|" c302="Ctrl+F12|" c303="|" c304="|" c305="|" c306="Alt+1|" c307="Alt+2|" c308="Alt+3|" c309="Alt+4|" c310="Shift+`|" c311="Shift+1|" c312="Shift+2|" c313="Shift+3|" c314="Shift+4|" c315="Shift+5|" c316="Shift+6|" c317="Shift+7|" c318="Shift+8|" c319="=|" c320="-|" c321="Shift+NP+|" c322="Shift+NP-|" c323="Ctrl+NP+|" c324="Ctrl+NP-|" c325="Alt+NP+|" c326="Alt+NP-|" c327="NP*|" c328="Alt+`|" c329="NP.|Aspect" c330="Q|" c331="|" c332="Shift+Q|" c333="Ctrl+Q|" c334="Ctrl+V|" c335="|" c336="|" c337="|" c338="|" c339="|" c340="|" c341="|" c342="|" c343="NP4|" c344="NP6|" c345="NP8|" c346="NP2|" c350="Alt+S|Button_2" c351="|" c352="S|" c353="Shift+/|Teletext" c354="Ctrl+S|" c355="Ctrl+/|" c356="Shift+S|" c357="Ctrl+,|" c358="Ctrl+.|" c359="Shift+=|" c360="Shift+-|" c400="Alt+A|" c401="/|OK" c402="Shift+A|" c403="Ctrl+Up|Vol_+" c404="Ctrl+Down|Vol_-" c405="M|" c406="NP-|" c407="NP+|" c408="|" c409="|" c410="|" c411="|" c450="Ctrl+P|" c451="F1|" c452="Ctrl+F1|" c453="|Power" c454="|Freeze" c455="|" c456="|" c457="|Sleep" c458="|" c459="|" c460="|" c461="|" c462="Shift+T|" c463="|" c464="|" c500="F4|" c501="F5|" c502="|" c503="|" c504="|" c505="|" c506="Ctrl+PageUp|" c507="Ctrl+PageDown|" c067="|" c108="|" c361="Ctrl+Shift+C|"/>
   <Config ActivePage="1" ActiveTabInterface="0" ActiveTabVideo="0" ActiveTabMouse="4" ActiveTabPlayList="0" ActiveTabOSD="3" ActiveTabKeyboard="0" ActiveTabSound="0" UserCategory="0" UserString="111111111111101"/>
@@ -175,10 +173,11 @@
     </Battery>
   </Core>
   <OnMinimize RestorePlayback="1" Pause="1"/>
-  <Playlist ReadHashOnAdd="0" SortFilesOnAdd="0" DragToPL="3" AskOnDropFiles="1" ShowOnMouseEnter="0" ShowOnMouseRClick="0" Tags="0" ExtPrecise="1" ShuffleOn="0" PlayPos="12" EraseOnExit="0" AddReplacing="0" AddInsteadReplacing="1" AddInsteadReplacing_VideoPanelToo="0" InternalPlaylistWidth="160" OnPlayListEnd="-1" Repeat="0" ShowBookmarks="0" ShowNumbers="1" ShowDuration="1" UseSkinColor="1" External="0" Pos="-4,-4" Size="1839,1088" SelectionColor="16711680" BackgroundColor="0" ReportDir="C:\Users\Arthur\Desktop\" Separator=" - " AddDoublet="0" RepeatOneFile="0" RepeatFileColor="65535" DeletedFileColor="16776960" StrikeOutDeleted="1" PlayingFileColor="16777215" BookmarkColor="16776960" BookmarkActiveColor="16776960" AddNotPlay="1" FocusPL="0" NotDeletePlayFile="1" SearchTimeOut="5" SearchInPath="1" SearchBoxVisible="0" EnableTimerSearch="1" OnlyOneFile="0" CheckDFStart="1" CheckDFOpenPL="0" CheckDFTimer="0" PlaylistSkipBrokens="1" UrlDecimal="" ProcessNetM3UPLS="1" PlaylistDir="D:\Movies\??? ???? ???? (1999-2000)\" LatestActivePlaylist="C:\Users\Arthur\AppData\Local\LightAlloy\LA.lap" PlayOnAddFromCmdLine="0">
-    <Font Name="Tahoma" Size="11" Charset="204" Color="16776960" Bold="0"/>
-    <OpenState wasClosed="1"/>
-    <List L_PL_Left="695" L_PL_Top="385" L_PL_Width="382" L_PL_Height="300"/>
+  <Playlist ReadHashOnAdd="0" SortFilesOnAdd="0" DragToPL="3" AskOnDropFiles="1" ShowOnMouseEnter="0" ShowOnMouseRClick="0" Tags="0" ExtPrecise="1" ShuffleOn="0" PlayPos="-1" EraseOnExit="0" AddReplacing="0" AddInsteadReplacing="1" AddInsteadReplacing_VideoPanelToo="0" InternalPlaylistWidth="160" Repeat="0" ShowBookmarks="1" ShowNumbers="1" ShowDuration="1" UseSkinColor="1" External="0" Pos="0,0" Size="430,500" SelectionColor="clHighlight" BackgroundColor="clBlack" ReportDir="{MYDOCS}" Separator=" - " AddDoublet="0" RepeatOneFile="0" RepeatFileColor="8421376" DeletedFileColor="128" StrikeOutDeleted="1" PlayingFileColor="16777215" BookmarkColor="8421504" BookmarkActiveColor="16777215" AddNotPlay="0" FocusPL="0" SearchTimeOut="5" SearchInPath="1" SearchBoxVisible="0" EnableTimerSearch="1" OnlyOneFile="0" CheckDFStart="1" CheckDFOpenPL="0" CheckDFTimer="0" PlaylistSkipBrokens="0" UrlDecimal="" ProcessNetM3UPLS="0" PlaylistDir="" LatestActivePlaylist="" PlayOnAddFromCmdLine="1">
+    <Font Name="Segoe Print" Size="11" Charset="204" Color="8421504" Bold="0"/>
+    <OpenState wasClosed="0"/>
+    <List L_PL_Left="-1" L_PL_Top="50" L_PL_Width="365" L_PL_Height="282"/>
+    <CustomHint Enabled="0" Template="{PATHFILENAME}&lt;br&gt;&lt;B&gt;{SIZE}&lt;/B&gt;"/>
   </Playlist>
   <FileTypes Icons="3" IconsName="Metro Black" AddToContextMenu="0">
     <EXT id="LAP" type="P" desc="Light Alloy Playlist"/>
@@ -200,6 +199,9 @@
     <EXT id="MPG" type="V" desc="Motion Picture Experts Group"/>
     <EXT id="MKV" type="V" desc="Matroska video"/>
     <EXT id="3GP" type="V" desc="Third Generation Platform "/>
+    <EXT id="3GP2" type="V" desc="Third Generation Platform "/>
+    <EXT id="3G2" type="V" desc="Third Generation Platform "/>
+    <EXT id="3GPP" type="V" desc="Third Generation Platform "/>
     <EXT id="MOV" type="V" desc="Quick Time Movie"/>
     <EXT id="ASF" type="V" desc="Advanced Streaming Format"/>
     <EXT id="DIVX" type="V" desc="AVI file compressed with DIVX coder"/>
@@ -222,6 +224,7 @@
     <EXT id="WM" type="V" desc="Windows Media"/>
     <EXT id="WMV" type="V" desc="Windows Media Video"/>
     <EXT id="VC1" type="V" desc="Windows Media Video (VC-1 RAW)"/>
+    <EXT id="M2T" type="V" desc="MPEG-II Transport Stream"/>
     <EXT id="M2TS" type="V" desc="MPEG-II Transport Stream"/>
     <EXT id="HDMOV" type="V" desc="Quick Time HD movie"/>
     <EXT id="EVO" type="V" desc="Enhanced VOB"/>
@@ -275,16 +278,10 @@
     <EXT id="TAK" type="A" desc="TAK lossless Audio"/>
     <EXT id="W64" type="A" desc="Wave64"/>
   </FileTypes>
-  <App Portable="0" UserPrefs="1" ScreenShotDir="QzpcVXNlcnNcQXJ0aHVyXFBpY3R1cmVzXExpZ2h0IEFsbG95" ShowExceptions="0" ScreenShotQuality="80" ScreenShotFormat="1" ScreenShotTimestamp="0" ScreenshotDisplaySubs="0" ScreenShotUseTags="1" ScreenShotTimestampInfo="{TITLE}{FORMAT}
-Position: {POSITION} / {DURATION}" ScreenShotPacks_Count="6" ScreenShotPacks_OpenDestination="1" HttpDownloadTimeout="1000"/>
-  <WinAMP Emulate="0"/>
+  <App Portable="0" UserPrefs="1" ScreenShotDir="C:\Users\Эльмира\Pictures\Light Alloy" ShowExceptions="0" ScreenShotQuality="80" ScreenShotFormat="1" ScreenShotTimestamp="0" ScreenshotDisplaySubs="0" ScreenShotUseTags="1" ScreenShotTimestampInfo="{TITLE}{FORMAT} \r\nPosition: {POSITION} / {DURATION}" ScreenShotPacks_Count="6" ScreenShotPacks_OpenDestination="1" HttpDownloadTimeout="1000" version="4.10.2" build="3317"/>
   <Modules>
-    <GlobalKeys enabled="1" MMKeys="1"/>
+    <GlobalKeys enabled="0" MMKeys="0"/>
     <AviSynth Enabled="0" Script="BlockBuster.avs"/>
-    <WinLIRC Enabled="0" Server="127.0.0.1" Port="8765" Focus="1" RepeatDelay="1" AutoStop="0" AutoLoad="0" ShowUnhandled="1" RepeatDelayValue="50">
-      <Sound Enabled="1" Volume="70"/>
-      <Server Path=""/>
-    </WinLIRC>
   </Modules>
   <GlobalKeys UseNumberBook="1">
     <Keys Name="102" Key="Ctrl+Alt+K" MMkey="Play/Pause"/>
@@ -306,9 +303,8 @@ Position: {POSITION} / {DURATION}" ScreenShotPacks_Count="6" ScreenShotPacks_Ope
     <Keys Name="202" Key="Ctrl+Alt+End" MMKey=""/>
     <Keys Name="205" Key="Ctrl+Alt+Home" MMKey=""/>
     <Keys Name="213" Key="Ctrl+`" MMKey=""/>
-    <Keys Name="463" Key="" MMKey=""/>
   </GlobalKeys>
-  <ExtHotKey ExpertHotKey="0" Notebook="1" GoWindow="2" ShowKeyKod="0" HotKeyEnableExpert="0" RejimNumKey="1" HotkeyRejimsInc="0" HotkeyRejimsDec="0" User1="1" User2="2" User3="3" User4="4" User5="5" User6="6" User7="7" User8="8" User9="9" User10="10" User11="11" User12="12" User13="13" User14="14" User15="15" User16="16" User17="17" User18="18" User19="19">
+  <ExtHotKey ExpertHotKey="0" Notebook="0" GoWindow="2" ShowKeyKod="0" HotKeyEnableExpert="0" RejimNumKey="1" HotkeyRejimsInc="0" HotkeyRejimsDec="0" User1="1" User2="2" User3="3" User4="4" User5="5" User6="6" User7="7" User8="8" User9="9" User10="10" User11="11" User12="12" User13="13" User14="14" User15="15" User16="16" User17="17" User18="18" User19="19">
     <KodNumPad KeyMinus="109" KeyPlus="107"/>
     <HotKeyVolume delta1="10" delta2="1"/>
     <HotKeyJump delta1="10000" delta2="300000"/>
@@ -323,10 +319,10 @@ Position: {POSITION} / {DURATION}" ScreenShotPacks_Count="6" ScreenShotPacks_Ope
     <HotKeySDelay delta1="1000" delta2="100"/>
     <HotKeyAngle delta1="10" delta2="1"/>
   </ExtHotKey>
-  <Last SeekPos="0" PlayListIdx="12"/>
-  <OnDone SwitchToNextBDPL="1" Rewind="0" AndPause="1" SwitchToOriginalSz="1" PlayDoneOnFileEnd="1"/>
+  <Last SeekPos="0" PlayListIdx="-1"/>
+  <OnDone SwitchToNextBDPL="1" Rewind="0" AndPause="1" SwitchToOriginalSz="0" PlayDoneOnFileEnd="1" UnLoadLastFile="0"/>
   <Scheduler SaveState="0">
-    <PowerOff Enabled="0" OnFileEnd="0" TimeKind="1" Action="0" Mode="0" Cond="0" TimeType="0" PlayType="1" Hour="1" Min="0"/>
+    <PowerOff Enabled="0" TimeKind="1" Action="0" Cond="0" TimeType="0" PlayType="1" Hour="1" Min="0"/>
     <Alarma Enabled="0" DoVolume="0" Volume="50" PlayFile="" FromPlaylistFile="" Hour="7" Min="0" EveryHour="0"/>
   </Scheduler>
   <Shaders PreResizeEnabled="0">

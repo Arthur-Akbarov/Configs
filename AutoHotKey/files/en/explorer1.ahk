@@ -109,14 +109,15 @@ Return
             Return
 
         FileAppend, , %UserInput%
+        ; TODO open by editor
         ; Run, %UserInput%
 Return
 
-; require ASCI format to remove russian prefix "(^ัะดั€ะตั: )"
+; require ASCI format to remove russian prefix "(^ภไ๐ๅ๑: )"
 GetCurrentPath:
         WinGetText, text, A
         StringSplit, pathArray, text, `r`n
         fullPath = %pathArray1%
         fullPath := RegExReplace(fullPath, "(^Address: )", "")
-        fullPath := RegExReplace(fullPath, "(^ัะดั€ะตั: )", "")
+        fullPath := RegExReplace(fullPath, "(^ภไ๐ๅ๑: )", "")
 Return

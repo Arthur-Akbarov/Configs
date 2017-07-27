@@ -11,6 +11,10 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance Force        ; Forced replacement older instance of this script with newer one.
 #NoTrayIcon
 
+GroupAdd, Console, ahk_class PuTTY
+GroupAdd, Console, ahk_class ConsoleWindowClass
+GroupAdd, Console, ahk_class ahk_class mintty
+
 ;*********************************************************************
 ;*                  end of the auto-execute section                  *
 ;*********************************************************************
@@ -46,20 +50,13 @@ WheelUp::       Send, {Left}
 WheelDown::     Send, {Right}
 
 
-; cmd
-#IfWinActive ahk_class ConsoleWindowClass
-^+C::           Send, {Enter}
+#IfWinActive ahk_group Console
+^+C::           Send, {Enter}           ; Send, {Ctrl}{Insert}
 ^V::            Send, {Raw}%ClipBoard%  ; whithout {Row} plus sign will be missed
 !F4::           WinClose, A
 MButton::       Send, {Enter}
 PgUp::          Send, {WheelUp 10}
 PgDn::          Send, {WheelDown 10}
-
-
-; MinGW
-#IfWinActive ahk_class mintty
-^+C::           Send, {Ctrl}{Insert}
-^V::            Send, {Raw}%ClipBoard%  ; whithout {Row} plus sign will be missed
 
 
 ; Open/Save Dialog Box

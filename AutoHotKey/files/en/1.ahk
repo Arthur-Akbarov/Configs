@@ -27,6 +27,7 @@ NumLock::       Return
 
 Capslock::      MouseClick, Left
 ^CapsLock::     Return
+!CapsLock::     Return
 +CapsLock::     Return
 
 Insert::        Return

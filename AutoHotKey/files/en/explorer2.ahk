@@ -19,14 +19,14 @@ GroupAdd, Explorer, ahk_class WorkerW
 
 EnvGet, drive, SystemDrive
 
-subl = 
+subl =
 IfExist %drive%\Program Files\Sublime Text 3\sublime_text.exe
     subl = %drive%\Program Files\Sublime Text 3\sublime_text.exe
 Else
     IfExist %drive%\Program Files (x86)\Sublime Text 3\sublime_text.exe
         subl = %drive%\Program Files (x86)\Sublime Text 3\sublime_text.exe
         
-notepad = 
+notepad =
 IfExist %drive%\Program Files\Notepad++\notepad++.exe
     notepad = %drive%\Program Files\Notepad++\notepad++.exe
 Else
@@ -61,7 +61,6 @@ Else
 Return
 
 
-; Explorer group
 #IfWinActive ahk_group Explorer
 !Down::         Send, {Enter}
 !Right::        Send, {Enter}

@@ -36,7 +36,6 @@ GroupAdd, Editors, ahk_class Notepad++        ; Notepad++
 ^#L::Shutdown, 0
 
 ; Alt+CapsLock or RCtrl+NumPad7 to edit all scripts
-!CapsLock::
 >^NumPad7::
         Run, %editor% %A_ScriptFullPath%
         Loop %A_ScriptDir%\%lang%\*.ahk
