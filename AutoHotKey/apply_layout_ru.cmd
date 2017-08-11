@@ -5,7 +5,7 @@ set dir=%AppData%\Microsoft\Windows\Start Menu\Programs\Startup
 set name=main_ru.ahk
 set file=%dir%\%name%.lnk
 
-cscript util\make_shortcut.vbs "%file%" "%CD%\files\%name%" >NUL
+cscript ..\utils\make_shortcut.vbs "%file%" "%CD%\files\%name%" >NUL
 start "" "%file%"
 pause
 
