@@ -20,7 +20,7 @@ RegRead, OutputVar, HKEY_CLASSES_ROOT, AutoHotkeyScript\Shell\Edit\Command
 StringReplace, OutputVar, OutputVar, "
 SplitPath, OutputVar, , OutDir, , OutNameNoExt, OutDrive
 editor = %OutDir%\%OutNameNoExt%.exe
-    
+
 GroupAdd, Editors, ahk_class PX_WINDOW_CLASS  ; Sublime Text 3
 GroupAdd, Editors, ahk_class Notepad++        ; Notepad++
 
@@ -32,7 +32,7 @@ GroupAdd, Editors, ahk_class Notepad++        ; Notepad++
 ~#Home::        Suspend, Off
 ~#End::         Suspend, On
 
-; Ctrl+Win+L to logoff
+; Ctrl+Win+L to log off
 ^#L::Shutdown, 0
 
 ; Alt+CapsLock or RCtrl+NumPad7 to edit all scripts

@@ -36,7 +36,7 @@ GroupAdd, Console, ahk_class ahk_class mintty
             ;Run, cmd /C If exist %ClipBoard% (start /max explorer /select`, %ClipBoard% ) else (start /max explorer =), , hide
             IfExist %ClipBoard%
                 Run, explorer /select`, %ClipBoard%, , max
-            Else 
+            Else
                 Run, explorer =, ,max
         ClipBoard := ClipSaved
         ClipSaved =  ; free memory
@@ -52,7 +52,7 @@ WheelDown::     Send, {Right}
 
 #IfWinActive ahk_group Console
 ^+C::           Send, {Enter}           ; Send, {Ctrl}{Insert}
-^V::            Send, {Raw}%ClipBoard%  ; whithout {Row} plus sign will be missed
+^V::            Send, {Raw}%ClipBoard%  ; without {Row} plus sign will be missed
 !F4::           WinClose, A
 MButton::       Send, {Enter}
 PgUp::          Send, {WheelUp 10}
@@ -102,7 +102,7 @@ RemoveToolTip:
 Return
 
 
-; Shift+MiddleClick on window titlebar to minimize it, Ctrl+MiddleClick to close
+; Shift+MiddleClick on window title bar to minimize it, Ctrl+MiddleClick to close
 #If MouseIsOverTitlebar()
 !MButton::      WinMinimize
 ^MButton::      WinClose
