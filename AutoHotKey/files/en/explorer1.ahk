@@ -99,7 +99,10 @@ Return
 ^!N::
         Gosub, GetCurrentPath
         SetWorkingDir, %fullPath%
-
+        
+        If ErrorLevel
+            SetWorkingDir, %A_Desktop%
+        
         If ErrorLevel
             Return
 
