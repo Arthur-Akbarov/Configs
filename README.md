@@ -1,12 +1,6 @@
 # configs
-Configuration files for different apps to set preferences and shortcuts
- - AIMP
- - AutoHotKey
- - Light Alloy
- - Process Hacker
- - Sublime Text 3
- - VLC media player
+Configuration files and tweaks for different apps to set preferences, shortcuts.
+Also hosts file, cmd aliases and tweaks of Windows itself.
 
-Also hosts file and Windows tweaks.
-
-Pull scripts to apply configs from this repo and push to clone your current to repo.
+Use "pull" batch scripts to apply configs from this repo
+and "push" to clone your current app config to repo.
