@@ -1,0 +1,6 @@
+Windows Registry Editor Version 5.00
+
+; change default cmd code page to 1251
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Nls\CodePage]
+"OEMCP"="1251"

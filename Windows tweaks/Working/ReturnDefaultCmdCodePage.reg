@@ -1,0 +1,6 @@
+Windows Registry Editor Version 5.00
+
+; return default cmd code page
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Nls\CodePage]
+"OEMCP"="866"
