@@ -32,6 +32,16 @@ IfExist %drive%\Program Files\Notepad++\notepad++.exe
 Else
     IfExist %drive%\Program Files (x86)\Notepad++\notepad++.exe
         notepad = %drive%\Program Files (x86)\Notepad++\notepad++.exe
+
+conemu =
+IfExist %drive%\Program Files\ConEmu\ConEmu64.exe
+    conemu = %drive%\Program Files\ConEmu\ConEmu64.exe
+Else
+    IfExist %drive%\Program Files (x86)\ConEmu\ConEmu.exe
+        conemu = %drive%\Program Files (x86)\ConEmu\ConEmu.exe
+    Else
+        IfExist %drive%\Program Files\ConEmu\ConEmu.exe
+            conemu = %drive%\Program Files\ConEmu\ConEmu.exe
 ;*********************************************************************
 ;*                  end of the auto-execute section                  *
 ;*********************************************************************
@@ -42,7 +52,7 @@ Else
 ~^#End::        ExitApp
 
 
-; Win+C to open cmd in current directory
+; Win+C to open conemu or cmd in current directory
 #C::
         If WinActive("ahk_group Explorer")
         {
@@ -54,10 +64,14 @@ Else
                     dir := RegExReplace(dir, "%20", " ")
                     Break
                 }
-            Run, cmd, % dir
         }
-        Else 
-            Run, cmd, D:\Workspace
+        Else
+            dir = D:\Workspace
+
+        If conemu
+            Run, %conemu% -Dir "%dir%" -run {Shells::cmd}
+        Else
+            Run, cmd, % dir
 Return
 
 

@@ -58,6 +58,9 @@ MButton::       Send, {Enter}
 PgUp::          Send, {WheelUp 10}
 PgDn::          Send, {WheelDown 10}
 
+#IfWinActive ahk_class VirtualConsoleClass
+MButton::       Send, {MButton}{Enter}
+
 
 ; Open/Save Dialog Box
 #IfWinActive ahk_class #32770
@@ -99,10 +102,10 @@ RemoveToolTip:
 Return
 
 
-; MiddleClick on window titlebar to minimize it, with Shift to close
+; Shift+MiddleClick on window titlebar to minimize it, Ctrl+MiddleClick to close
 #If MouseIsOverTitlebar()
-MButton::       WinMinimize
-+MButton::      WinClose
+!MButton::      WinMinimize
+^MButton::      WinClose
 
 MouseIsOverTitlebar() {
         static WM_NCHITTEST := 0x84, HTCAPTION := 2

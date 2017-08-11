@@ -60,8 +60,8 @@ Insert::        Return
 #+Up::          SoundSet, +1
 #+Down::        SoundSet, -1
 
->^NumPad1::     SoundSet, -1
->^NumPad2::     SoundSet, +1
+>^NumPad1::     SoundSet, -3
+>^NumPad2::     SoundSet, +3
 
 #^+Up::         SoundSet, 0, , mute
 #^+Down::       SoundSet, 1, , mute
@@ -69,8 +69,11 @@ Insert::        Return
 >^NumPad5::     SoundSet, 0, , mute
 >^NumPad4::     SoundSet, 1, , mute
 
-PrintScreen::   Run, SnippingTool.exe;
+>^NumPadEnter:: Run, Calc.exe
+PrintScreen::   Run, SnippingTool.exe
 
+
+; Ctrl+; to add semicolon to the end of the line 
 ^`;::           Send, {End}`;
 
 !'::
