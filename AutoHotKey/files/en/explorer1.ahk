@@ -11,7 +11,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance Force        ; Forced replacement older instance of this script with newer one.
 #NoTrayIcon
 
-GroupAdd, Explorer, ahk_class CabinetWClass  ; Standart Windows Explorer window
+GroupAdd, Explorer, ahk_class CabinetWClass  ; Standard Windows Explorer window
 GroupAdd, Explorer, ahk_class #32770         ; Open/Save Dialog Box
 GroupAdd, Explorer, ahk_class Progman        ; Desktop
 GroupAdd, Explorer, ahk_class ExploreWClass
@@ -29,7 +29,7 @@ GroupAdd, Explorer, ahk_class WorkerW
 
 ; Explorer group
 #IfWinActive ahk_group Explorer
-; Alt+D to put the cursor into the address bar 
+; Alt+D to put the cursor into the address bar
 !D::
         ControlFocus, ToolbarWindow322
         Send, {Space}
@@ -80,7 +80,7 @@ Return
         }
 Return
 
-; Alt+C to copy paths of selected files or current folder if no selected
+; Alt+C to copy paths of selected files or current folder if none selected
 !C::
         Clipboard =
         Send, ^{SC02e}
@@ -95,7 +95,7 @@ Return
 Return
 
 ; https://gist.github.com/davejamesmiller/1965432
-; Ctrl+Alt+N to create and open new file in explorer
+; Ctrl+Alt+N to create and open new file
 ^!N::
         Gosub, GetCurrentPath
         SetWorkingDir, %fullPath%
@@ -116,7 +116,7 @@ Return
         ; Run, %UserInput%
 Return
 
-; require ASCI format to remove russian prefix "(^Адрес: )"
+; require ASCI? format to remove Russian prefix "(^Адрес: )"
 GetCurrentPath:
         WinGetText, text, A
         StringSplit, pathArray, text, `r`n
