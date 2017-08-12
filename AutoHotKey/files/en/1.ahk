@@ -8,7 +8,7 @@
 #Warn           ; Enables warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-#SingleInstance Force        ; Forced replacement older instance of this script with newer one.
+#SingleInstance force        ; Forced replacement older instance of this script with newer one.
 #NoTrayIcon
 
 ;*********************************************************************
@@ -51,7 +51,7 @@ Insert::        Return
 #^+Right::      Run, ..\nircmd-x64\nircmd.exe setbrightness 100
 #^+Left::       Run, ..\nircmd-x64\nircmd.exe setbrightness 0
 
-; Win+Esc to turn off the monitor 
+; Win+Esc to turn off the monitor
 #Esc::          SendMessage, 0x112, 0xF170, 2, , Program Manager
 
 !WheelUp::      SoundSet, +1
@@ -73,7 +73,7 @@ Insert::        Return
 PrintScreen::   Run, SnippingTool.exe
 
 
-; Ctrl+; to add semicolon to the end of the line 
+; Ctrl+; to add semicolon to the end of the line
 ^`;::           Send, {End}`;
 
 !'::

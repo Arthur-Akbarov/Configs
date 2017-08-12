@@ -8,7 +8,7 @@
 #Warn           ; Enables warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-#SingleInstance Force        ; Forced replacement older instance of this script with newer one.
+#SingleInstance force        ; Forced replacement older instance of this script with newer one.
 #NoTrayIcon
 
 GroupAdd, Explorer, ahk_class CabinetWClass  ; Standard Windows Explorer window
@@ -99,10 +99,10 @@ Return
 ^!N::
         Gosub, GetCurrentPath
         SetWorkingDir, %fullPath%
-        
+
         If ErrorLevel
             SetWorkingDir, %A_Desktop%
-        
+
         If ErrorLevel
             Return
 
