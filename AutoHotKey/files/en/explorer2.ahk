@@ -94,7 +94,10 @@ Return
             Send, ^{SC02e}
             ClipWait, 0.2
             If ErrorLevel = 0
+            {
                 Run, %notepad% `"%ClipBoard%`"
+                WinWait ahk_class Notepad++
+            }
             ClipBoard := ClipSaved
             ClipSaved =  ; free memory
         }
