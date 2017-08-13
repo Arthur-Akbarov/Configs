@@ -8,7 +8,7 @@
 #Warn           ; Enables warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-#SingleInstance Force        ; Forced replacement older instance of this script with newer one.
+#SingleInstance force        ; Forced replacement older instance of this script with newer one.
 
 ; run all scripts in appropriate folder
 lang := SubStr(A_ScriptName, 6, 2)
@@ -28,21 +28,22 @@ GroupAdd, Editors, ahk_class Notepad++        ; Notepad++
 ;*                  end of the auto-execute section                  *
 ;*********************************************************************
 
-~^#End::        ExitApp
+; Win+End to suspend all scripts, Win+Home to rise back, Ctrl+Win+End to close
 ~#Home::        Suspend, Off
 ~#End::         Suspend, On
+~^#End::        ExitApp
 
 ; Ctrl+Win+L to log off
 ^#L::Shutdown, 0
 
-; Alt+CapsLock or RCtrl+NumPad7 to edit all scripts
+; RightCtrl+NumPad7 to edit all scripts
 >^NumPad7::
         Run, %editor% %A_ScriptFullPath%
         Loop %A_ScriptDir%\%lang%\*.ahk
             Run, %editor% %A_LoopFileFullPath%
 Return
 
-; RCtrl+NumPad8 to reload all scripts
+; RightCtrl+NumPad8 to reload all scripts
 >^NumPad8::     Reload
 
 ; Ctrl+Shift+S to save current and update all scripts while working with anyone

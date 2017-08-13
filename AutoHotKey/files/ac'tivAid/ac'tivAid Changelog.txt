@@ -1,0 +1,1105 @@
+I want to inform you, that this version is an development version. I try to do
+my best to keep everything working, but it comes with no warranty.
+
+Have Fun with it, Michael
+
+1.3.2 development version
+
+General:
+  - New extension: DesktopIcons
+    Stores the position of icons on the Desktop and restores them on change of
+    resolution.
+  - New extension: MouseGestures
+  - New extension: TaskbarTools
+      - makes task buttons movable
+      - allows closing Windows by clicking the task button
+  - Deactivation of extensions through the tray menu showed an error
+    message. (Thanks Henning Völlm #1525)
+  - At multi column menus the wrong icon was changed after de-/activating
+    an extension in the second column.
+  - Miniature event system inserted
+  - ac'tivAid is able to accept messages from other scripts
+  - Gdi+ standard library 1.19 by Tic added
+    http://www.autohotkey.com/forum/viewtopic.php?t=32238
+  - Tango Icons "prepared"
+  - gdi+ based multifunctional On Screen Display added. It can be
+    activated in "Additional settings" in tab activAid.
+    It requires the gdiplus.dll, which is available by default for WinXP,
+    for previous versions it can be installed.
+  - GDI+ check added. If GDI+ is activated, but not available, a
+    message box including a download link is displayed.
+  - Main script divided into logical subskripts.
+  - small GUI improvements
+  - Adjustment of all OS tests
+  - Fixed font size calculation
+
+AppLauncher:
+  - If a link is renamed, AppLauncher does not open the containing folder.
+    but throws an error. (Thanks Jan FS#1612)
+
+CommandLine:
+  - replaced global Hotkey by specific Hotkey (Eric)
+
+CronJobs:
+  - Egg timer integrated.
+
+FileHandle:
+  - Preparation to integrate into Explorer context menu.
+  - Retry button is available, when retry action is provided as parameter.
+
+FilePaste:
+  - Only abort replacements on empty replacement string, not on first
+    successful replacement (Thanks Arnim)
+
+FileRenamer:
+  - FIX: Uses clipboard for file recognition under Win7
+
+HotStringHotkey:
+  - First Hotstring is not emptied any longer (Thanks Eric)
+
+JoyControl:
+  - Allows program specific profiles.
+
+LookThrough:
+	- Aero is disabled automatically during use of LookThrough
+
+MusicPlayerControl:
+  - New function "Show Player" (Thanks Ralf FS#1675)
+
+NewFolder:
+  - Resolved a bug when moving selected files on UNC paths.
+    (Thanks Ismus #F15046715)
+  - A message will be displayed if something goes wrong while
+    moving selected files.
+
+PastePlain:
+  - Enhanced RegEx replacement (Thanks Arnim)
+
+QuickChangeDir:
+  - No endless loop in indexing any longer when drive-space change monitoring
+    is chosen. (Thanks Norbert Grün)
+
+RemoveDriveHotkey:
+  - Recurrent error message hopefully eliminated
+    (Danke an Jörg Grieger FS#1615)
+
+ScreenLoupe:
+  - Now also works unter Win7 (Aero is disabled automatically)
+  - Removed hardcoded keys for size modification, size can be modified in
+    fixed mode now
+
+ScreenShots:
+  - Option to upload screenshots to an FTP-Server.
+  - Option to upload screenshots to Imageshack.us.
+  - Upload to upload screenshots to abload.de.
+
+Surrounder:
+  - Squared and curly brackets now also work without AltGr.
+    (Thanks Dietrich Pank FS#1561)
+
+VolumeControl:
+  - GDI+ OSD added
+  - GDI+ OSD now has an exact volume status bar. (Thanks Tom FS#905)
+  - Mute mode is correctly recognized under Win7 (no permanent OSD)
+
+
+1.3.2 beta1 - 2008-06-09 13:00
+
+RemapKeys:
+  - b1: At "Simulate windows-key" it's now possible to enter CapsLock,
+    but I haven't tested it yet.
+
+RemoveDriveHotkeys:
+  - b1: Drives can be opened in explorer using Ctrl+Driveletter
+    (Thanks Leopold Schabel #1422)
+  - b1: The notification "No drives available" only occurs on key press.
+    (Thanks Stefan Mann #1379)
+
+UserHotkeys:
+  - b1: "<PerformAction>EnableDisable,Extension" can be used to
+    enable/disable single extensions by using a hotkey.
+    (Thanks Peter Binding #F15026188)
+
+_____________________________________________________________________________
+1.3.1 - 2008-06-06 08:24
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+General:
+  - New extension: InputBlocker
+  - New extension: CronJobs by David Hilberath
+  - T9Keys has been renamed to TypeWith9Keys.
+    (Thanks Stefan Burkert #1497)
+  - b10: Accidentally there was a duplicate LeoToolTip script. This will be
+    deleted while updating. (Thanks Mathias Kalb #1510)
+  - b10: After an update the settings folder sometimes changed to "All Users".
+    (Thanks Eric Werner #1469)
+  - b6: The apply button was sometimes activated when changing the
+    configuration page. (Thanks Mathias Kalb #1453)
+  - b6: The search function in the help is working again.
+    (Thanks Matthias Büttner #1492)
+  - b5: The display of description in the extension manager was sometimes
+    empty. (Thanks Lars Hupel #1475)
+  - b5: Middle mouse button on the tray icon works again.
+    (Thanks Eric Werner #1468)
+  - b5: The context menu with all functions does not block the configuration
+    anymore.
+  - b4: The tray menu icons are now on the correct position if there is no
+    extension visible in the tray menu (Thanks Tronje Bäßler #1477)
+  - b2: The changelog is now available in English
+    (Many Thanks Michael Janszen)
+  - b2: func_ChangeDir can now open directories with a colon in the path name
+    (Thanks Harald Brennecke #1474)
+  - b2: The last selected extension will now be remebered even if ac'tivAid
+    is quitted manually. (Thanks Tronje Bäßler #1476)
+
+AppLauncher:
+  - b11: Speeded up the list building, so the windows shows up faster
+    (Thanks The man who loves the Eifel #1487)
+  - b7: Automatic column width will be applied while building the list
+
+AutoShutDown:
+  - b2: Wrong characters corrected. (Thanks Sven Knurr #1481)
+
+CharacterAid:
+  - b8: It's now possible to use characters like { and }.
+    (Thanks Max Kottwitz #1496)
+
+ComfortDrag:
+  - b11: As moving sidebar gadgets in Vista destroyed their appearance
+    they're now ignored by the temporary desktop
+    (Thanks Kristof Eschberger #1511)
+
+HotStrings:
+  - b6: Syntax checking works again in multi-user mode.
+    (Thanks Kristof Eschberger #1488)
+  - b3: The next update won't deactivate HotStrings anymore.
+    (Thanks Henning Völlm #1438)
+  - b2: Clicking onto the HotStrings configuration has changed the
+    configuration page (Thanks Eric Werner #1478)
+  - b2: HotStrings have been deactivated after a reload.
+    (Thanks Holger #1438)
+
+HotStringsHotkey:
+  - b7: The cursor does not jump to the wrong field anymore.
+    (Thanks Eric Werner #1493)
+
+LeoToolTip:
+  - b11: pda.leo.org is working again (Thanks Sebastian #1507)
+  - b10: The result cache is disabled if the option to show forum topics is
+    enabled. (Thanks Mathias Kalb #1507)
+  - b10: The tooltip won't hide anymore if lots of extensions are activated.
+  - b9: A menu with orthographically similar words is presentet if there is
+    no search result. Previously LeoToolTip automatically used the first
+    Orthographically similar word. (Thanks Kongo #1507)
+  - b9: It's now possible to show matching forum topics in the menu.
+    (Thanks Kongo #1507)
+
+LimitMouse:
+  - b10: New option: "Automatically limit to primary montior when ac'tivAid
+    starts" (Thanks Jascha Hilz)
+  - b8: The mouse can now be limited to the client area of the active window.
+    (Thanks Simon Musall #1494)
+  - b8: The mouse can now be temporary limited horizontally or vertically.
+    (Thanks Dirk Schwarzmann #1454)
+
+MusicPlayerControl:
+  - b11: New hotkeys for Shuffle and Repeat
+
+QuickChangeDir:
+  - b3: Indexing of paths with a % character is working again.
+    (Thanks to Henning Völlm #1461)
+
+QuickNote:
+    b10: When "Look for modifications to the note file" is enabled, sometimes
+    the cursor jumped to the home position while typing.
+    (Thanks for many tips #1337)
+
+ScreenShots:
+  - b4: Double click is working again (Thanks Juerg Sommer #1486)
+
+Surrounder:
+  - b6: New option „use special quotation marks”
+
+UserHotkeys:
+  - b2: Very long commands could cause to crash ac'tivAid on loading
+    (Thanks Sebastian Hütter #1479)
+
+_____________________________________________________________________________
+1.3.0 - 2008-05-23 14:04
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+General:
+  - We now have a complete help file in English.
+    (Many thanks to Michael Telgkamp for major work)
+  - b120: Turning off extensions is directly displayed in the list
+  - b120: After an update the settings should not be expected under
+    All Users any more (Thanks Eric Werner #1469)
+  - b120: DebugView is started minimized en doesn't cause ac'tivAid to crash
+  - b119: When cleaning up the settings file, updates from some extensions
+    were started. This let do corrupt settings. (Thanks Mathias
+    Kalb #1452)
+  - b117: Fixed numerous typos and grammar errors
+    (Thanks Stephan Ehrmann)
+  - b117: When cleaning up the settings file, many settings were lost
+    (Thanks Mathias Kalb #1452)
+  - b117: In in a deactivated ac'tivAid, clicking 'Cancel' in the
+    config windows caused some extensions to turn on again.
+    (Thanks Michael #1456)
+  - b116: You can now turn off the confirmation for checking for updates
+    through 'Additional Settings' (Thanks Thomas Maibaum #1450)
+  - b116: Alert sound in search now is optional
+    (Thanks Thomas Maibaum # 1449)
+  - b115: New extension 'FileHandle', split off off RemoveDriveHotkey
+  - b113: New option in settings file: DelayedUpdateCheck
+    (see readme)
+  - b113: The list of all installed extensions can now display icons
+  - b107: You can now place your own icons.ini in the settings-map to define
+    your own icon set (see emptyIcons.ini)
+  - b107: Fit templates to icons
+  - b107: New extension by David Hilberath: SpeechAction. Needs to have
+    MS Speech SDK 5.1 installed (d/l free of charge from Microsoft).
+    With this you can assign actions to voice commandos. Not quite
+    Star Trek, but still fun.
+  - b106: Right click in configuration sometimes caused error messages
+    (Thanks Leopold Schabel #1414)
+  - b106: You can now define what action should be taken when the tray icon
+    is left-, right- or middleclicked.
+  - b106: RemoveDriveHotkey-menu can be defines sa TrayClick-menu
+  - b106: Extensions can now define their own menu icons
+  - b104: Removed all progress bars from configuration, they aren't necessary
+    after the streamlining.
+  - b102: Fixed the automatic update so it doesn't fail any more when you
+    use TypeWith9Keys. (Thanks Leopold Schabel #1326)
+  - b102: You can now press Ctrl-A in the hotkey overview to highlight the
+    complete text.
+  - b102: The configration window is creted much faster
+  - b102: The extension MusicControl was split into the two extensions
+    MusicPlayerControl and VolumeControl
+    (Thanks Michael for great work)
+  - b100: New extension by Eric Werner: Surrounder. Inserts typical surrouder-
+    characters context sensitive.
+    (Quotes, brackets ...).
+  - b99: When cleaning settings, occasionally settings were forgotten
+    (Thanks Tronje Bäßler #1384)
+  - b94: ac'tivAid turns itself off automatically as soon as the installer
+    is in the foreground. Tist guarantees that loaded help-DLLs (e.g.,
+    sqlite) don't prevent the installation. (Thanks Tom #1351)
+  - b93: If extensions are installed twice (unknown reasons) ac'tivAid doesn't
+    crash anmyore but fixes itself after a warning
+    (Thanks Jürgen Meurer #F14647049)
+  - b93: Managing extensions is now more logical
+    (Thanks Michael)
+  - b92: Error "Max window number is 99" fixed (Thanks Sven Knurr #1360
+    and Udo Nesshoever #1356)
+  - b89: With the entry DebugToFile = C:\logdatei.txt in the ini-file you can
+    create a log file (you also have to set DebugLevel = ALL and Debug = 1)
+  - b89: New extension by David Hilberath: JoyControl
+  - b89: New extension by David Hilberath: RealExpose
+  - b88: The two-column tray menu (on small screens) always hid the first
+    menu optin in the second column
+  - b85: The configuration window showed the green AutoHotkey icon on
+    first call. (Thanks Michael #1313)
+  - b83: Using "Additional Settings" you can set the doubleclick-action of
+    the tray icon to a single click.
+  - b82: "Dump Variables" now always is visible in the help menu
+  - b82: When a new version is available, you can use "What's new" to view
+    the change log in the browser.
+    (Thanks Ingo Freitag #1309)
+  - b80: New extension MinimizeToTray by David Hilberath
+  - b80: New extension TypeWith9Keys by David Hilberath
+  - b76: extensions like EditWith or FileRenamer now work more reliably
+    when called through the context menu
+    (Thanks Bastian #1277)
+  - b74: Conflict check of Windows hotkeys showed an error message
+    (Thanks R. Seidl #1292)
+  - b73: Conflicts with default Windows hotkeys are displayed
+    (Only when defining new hotkeys)
+  - b69: If the working directory wasn't set, the button "check for updates"
+    showed no error messages at all anymore. (Thanks Mark Gerber #1279)
+  - b68: If the working directory wasn't set, the button "check for updates"
+    showed an error message. (Thanks Mark Gerber #1279)
+  - b68: On update the wrong settings were loaded.
+    (Thanks Sven Knurr #1280)
+  - b67: Some special keys which were displayed in ac'tivAid as SC112 or
+    similar now are displayed with names. This uses the names Microsoft
+    defined, so it is possible these names don't fit e.g. on a Logitech
+    keyboard. (Thanks Maic Pippig)
+  - b65: Double extensions and not displayed in extension management, but a
+    warning is displayed.
+    (Thanks Michael #1278)
+  - b63: Ctrl+, can be used as a hotkey
+    (Thanks Dirk Schwarzmann #1276)
+  - b60: You can select the working directory in the configuration
+  - b57: Manual update under Vista now loads the correct settings after the
+    installer starts ac'tivAid. (Thanks Stephan Ehrmann)
+  - b54: In extension management the description wasn't always updated
+    cprrectly (Thanks Sven Knurr #1261)
+  - b52: When updateing through the menu the menu all emnu options were
+    unselected (Thanks Sebastian #1262)
+  - b50: New extension KeyboardLayout, can be used to swap the keyboard
+    layout.
+  - b49: The tray menu is split in vertical columns if the screen is
+    too small for it. (Thanks Tom Krumpschmid #1227)
+  - b48: If a hotkey for changing the lay-out is selected, ac'tivAid warns
+    about potential problems.
+  - b48: Messages during loading now are displayed one after the other,
+    not simultaneously anymore.
+  - b44: New extension: EditWith (Thanks Jens Rossbach #1236)
+  - b42: New extension: MouseWheel (Thanks Matt Drayton #F14113299)
+  - b41: Win+Shift+Q can now be used as hotkey
+    (Thanks Markus Müller #1240)
+  - b37: If Portable_ac'tivAid is not started from a USB stick and there are
+    no write permissions in the map of ac'tivAid, the user profile is used
+    to save the settings.
+    (Thanks Christoph #F14160531)
+  - b34: In most extensions variables now can be used in paths
+    (Thanks Sebastian #1218)
+  - b32: Multilevel hotkeys auch as in Calendar aren't detected as doubles
+    anymore if the master hotkey is set.
+    (Thanks Igor Sweet #1216)
+  - b29: New extension LimitMouse:
+    traps the mouse in a window or application
+    (Thanks Jack Tissen)
+  - b24: InfoScreen() down't collide with ReadingRuler any more
+    (Thanks Markus Mueller #1204)
+  - b21: when removing a hotkey conflict ac'tivAid is reloaded so that the
+    hotkeys work correctly (Thanks Stephan Ehrmann)
+  - b16: Dump Variables doesn't show error messages on invalid characters
+    (Thanks Lars Hupel #1181)
+  - b16: Under Vista 64 bit the settings map is now created correctly
+    (Thanks Bastian Schulz #1183)
+  - b16: The horkey overview can be copied to the clipboard worh CTRL-C when
+    the cursor is in the list.
+    (Thanks Albert Winter)
+  - b8: If some installed extensions cannot be loaded, these are automatically
+    reinstalled after an error message
+    (Thanks Stephan Ehrmann)
+  - b6: "Portable ac'tivAid.exe" renamed to "Portable_ac'tivAid.exe" to
+    prevent problems with an autorun.inf (Thanks S. Leuther #1167)
+  - b2: In extension management the languages were swapped around
+    (Thanks Michael Janszen #1135)
+  - b1: The English descriptions of non-installes extensions are displayed,
+    too (Thanks Michael Janszen #1135)
+
+AppLauncher:
+  - b118: You can now copy entries to UserHotkeys straight from AppLauncher
+    (Thanks Jossekin Beilharz #881)
+  - b115: If Enter is pressed during the start, AppLauncher doesn't crash.
+    (Thanks Leopold Schabel #1375)
+  - b103: Using the context menu you can vioew the properties of links
+    (Thanks Michael)
+  - b103: You can now also exclude directories using ExcludedFiles.dat
+    (Thanks Leopold Schabel #1411)
+  - b102: Windows height is saved again. (Thanks Manuel Kappelhoff)
+  - b101: Icons of programs that aren't indexed but called through the
+    PATHvariable (explorer.exe, cmd.exe)are now determined correctly
+    (Thanks Michael und Mathias #1387)
+  - b91: Copying paths to clipboard now also works in simplified view
+    (Thanks Michael #1330)
+  - b73: You can add special entries to CustomNames.dat that make certain
+    that during indexing programs in a directory are provided with a link
+    (see readme) (Thanks Ingo Freitag #1151)
+  - b72: The index is recreated afte an update only if necessary
+    (Thanks Michael)
+  - b72: Closing the indexer window now can stop indexing.
+    (Thanks Michael)
+  - b64: The simplified view that only displays the search field in the start,
+    now wiorks in all circumstances (Thanks Jens Rossbach #1157)
+  - b64: Words in brackets and between other envelopers are found
+  - b62: ac'tivAid functions without hotkey were displayed wrongly
+  - b61: If the index has to be updated after a program update, this is now
+    suggested automatically. (Thanks Andreas Brikalin #1271)
+  - b55: If the configuration window was visible, calling another
+    configuration with AppLauncher caused a crash.
+    (Thanks Mark Gerber #1263)
+  - b54: If RunAsHelper crashes, no error message is displayed
+    (Thanks Klaus #1253)
+  - b53: Creating the history can be stopped by entering more characters.
+    (Thanks Stephan Ehrmann)
+  - b52: Several minor bugfixes (Thanks Sebastian #1258)
+  - b51: You can rename entries with F2 and assign your own names. The new
+    name is visible only in AppLauncher, the opriginal file isn't changed.
+    (Thanks Sebastian #1258)
+  - b51: The icons of MSC files (e.g. devige manager, devmgmt.msc) are now
+    displayed correctly (Thanks Michael)
+  - b51: Links without target can now be indexed
+    (e.g. the link to Software in the control panel)
+    (Thanks Michael)
+  - b48: New option 'Alternative method for "Run as ..."' te fix crash
+    problem for some users. (Thanks Klaus und Michael #1253)
+  - b47: Fixed some bugs related to Portable ac'tiAid
+    (Thanks Thomas Maibaum #1251)
+  - b46: In Portable ac'tivAid twi index files are maintained. One is
+    independent from the computer and always refers to the drive where
+    ac'tivAid is running- Thus indexing doesn't reindex the stick when
+    the computer is changed. This works only if one of the paths contains
+    the variable %drive%
+    (Thanks Sebastian #1219)
+  - b45: Automatic reindeing on changnig computers now is optional
+  - b45: Index files for Portable ac'tivAid are separate for each computer
+    Thanks Sebastian #1219)
+  - b44: When directly entering commands, variables are now supported
+    (Thanks Michael)
+  - b42: Problems with %-character in paths fixed (Thanks Klaus #1244)
+  - b41: New option green/grey check box forcommands and functions of
+    ac'tivAid
+    (Thanks Michael)
+  - b40: Improved icon display. In the list the correct 16x16 icons are
+    displayed, not downscaled 32x32 icons. (Thanks Michael)
+  - b38: If Portable ac'tivAid is run on a different computer from last time,
+    the indexer starts automatically in the background (about 8 seconds after
+    the start) (Thanks Sebastian #1219)
+  - b38: There is a sort of phonetic search that rtries to find similar
+    terms if no direct hit was made
+    (Thanks Sebastian #1219)
+  - b37: The options in %Drive% was expanded so that variables such as
+    A_Desktop or A_Programs can be used
+    (Thanks Sebastian #1219)
+  - b37: An entry in the ExcludedFiles.dat that was entered unding Ctrl-Del
+    also is removed from the history so it doesn't show up after being run
+    (Thanks Markus Müller #1229)
+  - b36: New extended setting "use path variable in index", this is handy
+    to have on USB sticks. (Thanks Sebastian #1219)
+  - b35: If dynamic indexing lasts more than 1 second, a message is displayed.
+  - b34: A message in the configuration reminds that ExcludedFiles.dat exists.
+  - b27: Once a command from the context menu was selected, it is reused
+    on normal Run'.
+    (Thanks Mark Gerber #1211)
+  - b26: The contextmenu doesn't show up only aftermoving the mouse
+    if the right mouse button has been assigned.
+    (Thanks Mark Gerber #1212)
+  - b25: In AppLauncher.ini you can enter applications that are listed in
+    the context menu as "Run with %program%"
+    This is interesting e.g. for MachMichAdmin (also see help file)
+    (Thanks Mark Gerber #1212)
+  - b21: Link parameters are displayed and copied with Ctrl-Shift-C.
+    That way you can determine e.g. the complete call path for Jedit.
+  - b19: Added context menu (Thanks Stephan Ehrmann)
+  - b16: Ctrl+C/Ctrl+Shift+C can copy the path of the selected entry to
+    the clipboard (Thanks Stephan Ehrmann)
+  - b10: Entries can be run while the list is being built.
+    (Thanks Stephan Ehrmann)
+  - b4: Fixed problems with high system load
+    (Thanks for many tips #1157)
+  - b2: Manually (with Ctrl+Del) removed entries are removed from index
+    permanently (Thanks Ingo Freitag #1150)
+  - b1: Commands are added to history that are not in the index.
+   (Thanks E. Hahn #1077)
+  - b1: Search terms that don't hit still showed a path
+    (Thanks Lars Hupel #1132)
+
+AutoDeactivate:
+  - b113: Applications can be added by searching for the file
+  - b113: In the list the icons for extensions are displayed if the
+    option "Show icons in the extension list" under "ac'tivAid" is turned on.
+  - b89: You can select not to regularly ask the current window but let
+    Windows send a message to AutoDeactivate when a new windows is
+    activated (or: ShellHook is integrated). (Thanks David Hilberath)
+  - b17: You can sleect whether to auto-deactivate all of ac'tivAid or single
+    extensions
+    (Thanks David Obernöder)
+
+AutoShutDown:
+  - b82: There is a new option so that programs that are supposed to run
+    before shutdown are also run on stand-by / sleep.
+    (Thanks Grosser Manitu #464)
+  - b51: In the window the focus is on "Shutdown options", even when several
+    operating systems can be elected (Boot.ini)
+    (Thanks Patrick #F14204475)
+  - b47: The option "Take a screenshot before shutting down the computer"
+    was moved to the extension ScreenShots so that the function also
+    works with the extension PowerControl.
+
+CalculAid:
+  - b5: Changing the view with tab now also works on larger sytsem fonts.
+    (Thanks H. U. Leibundgut)
+
+Calendar:
+  - b33: On the master hotkey ac'tivAid is shut off temporarily, so that the
+    further keys don't collide with other hotkeys.
+    (Thanks Igor Sweet #1216)
+  - b19: Some options were moved to "Extended settings".
+    Added option for window transparency Option and always-on-top.
+    If the option Wenn die Option "close window if it gets inactive" is turned
+    off, the calendar doesn't close if a date is inserted.
+    (Thanks Peter Musch #1197)
+  - b2: On a minimized calendar the wrong poaition was ssaved.
+    (Thanks Michael Aly)
+  - b1: You can select whether to copy the date additionally or exclusively
+    to the clipboard (Thanks Horst Gössel)
+  - b1: Default values for the month view have been changed to account for
+    readability on smaller resolutions. (Thanks Lars Hupel #1131)
+
+CharacterAid:
+  - b106: Characters 21-30, are now replaced again as indicated in the ini file
+    (Thanks Matthias Büttner #1420)
+  - b89: Checking for invalid characters in de letter lists.
+    (Thanks Josef Hinteregger #1349)
+  - b25: Letters are again used in the correct order for replacement.
+    (Thanks Tom Krumpschmid #1213)
+  - b19: You can set the number of keystrokes before replacement.
+    (Thanks for the anonymous tip #1063)
+
+ClipboardFilesManager:
+  - b37: Removed default key assignment to prevent conflicts and
+    involuntary deletion of files. (Thanks Tom Krumpschmid #1224)
+  - b17: Corrected prefix in ClipboardFilesManager. (Thanks Jack Tissen)
+
+ComfortResize:
+  - b114: Interactive selection by ScreenShots is ignored now.
+    (Thanks Eric)
+  - b12: You can swap behaviour of "right and left mouse button" in the
+    INI file (Thanks Günther Kaul)
+  - b9: New hotkey: right and left mouse button.
+    (Thanks Ludwig Kusch #1172)
+
+CommandLine:
+  - b100: You can now also set the command line parameters
+    (Thanks Wolfgang Wahlhütter #1397)
+
+DateTimeDisplay:
+  - b4: You can set the window size manually
+
+DriveIcons:
+  - b108: On deinstallation the icons are now deleted again
+    (Thanks Daniel Merbecks #1412)
+  - b99: You can set several places simultaneously for the icons to appear.
+    (Thanks hsli #F14741192)
+  - b99: The drive icons can no be added to the favorite links in Vista.
+    (Thanks hsli #F14741192)
+  - b42: Improved determining the drive name of network drives.
+    (Thanks Peter Schauder #1243)
+  - b37: The variable FileBrowserWithTree (ac'tivAid.ini) is now followed.
+    (Thanks Peter Schauder #1234)
+
+Eject:
+  - b37: Changed default hotkey from Ctrl+Alt+E (€ on German keyboards) to
+    Alt+Shift+E (Thanks Tom Krumpschmid #1224)
+
+ExplorerHotkeys:
+  - b2: Next / previous in history now also works in file dialogues
+    (Thanks Eric Werner)
+
+FileRenamer:
+  - b105: In search and replace strings leading and trailing spaces are
+    not removed anymore.  (Thanks Udo Nesshoever #1419)
+  - b101: There are a couple of sample RegEx (Thanks Mathias #1186)
+  - b99: Replace now also accepts regular expressions if you prefix "Replace"
+    with 'RegEx:'
+    (Thanks Jossekin Beilharz #1383)
+  - b89: The renaming window always is moved to the visible area.
+    (Thanks Udo Nesshoever #1348)
+  - b84: Hotkeys are now ignored in special file managers (Total Commander
+    etc.) so that the same hotkeys can be set for those programs.
+    (Thanks Jens Rossbach #1323)
+  - b77: Workaround for 64 bit systems (Thanks Bastian #1277)
+  - b71: You can rename desktop icons located under All Users that are also
+    diplayed on the user's desktop.
+  - b71: File names over several lines weren't selected completely.
+    (Thanks Christian #1287)
+  - b71: You can now delete an entry through the context menu
+    (Thanks Mathias Kalb #1186)
+  - b70: A message appears if no file was selected.
+  - b70: The context menu doesn't appear twice if the right mouse button
+    has been assigned extra funcntions.
+  - b70: You can sort the file list on date using the context menu
+    (Thanks Mathias Kalb #1186)
+  - b37: The cursor is placed at the end of the highlight again
+    (Thanks Christian #1231)
+  - b29: You can use the current date when renaming
+  - b29: New option to always show the large Rename-window, even if only one
+    file is selected.
+  - b17: The dialog for single files works again.(#1193)
+  - b16: New option so that the name isn't highlighted when renaming single
+    files. (Thanks Mathias Kalb #1186)
+  - b16: New Option "Allow slashes", thus you can create subfolders.
+    (Thanks Franz-Richard Kunze #1184)
+  - b16: New option "Overwrite existing files".
+    (Thanks Mathias Kalb #1186)
+  - b16: New option "Increase numbering staring after renaming"
+  - b15: You can now also use the date from Exif data. This is experimental.
+    The first date is used that can be found in the first 1024 bytes of the
+    file. (Thanks Ludwig Kusch #1174)
+  - b14: There is no default setting for counter, time and date format.
+    (Thanks Ludwig Kusch #1174)
+  - b13: Date of creation and change were swapped around.
+    (Thanks Ludwig Kusch #1174)
+  - b11: ll values are saved an on next rename reset into the dialog if no
+    defaults are set.
+    (Thanks Ludwig Kusch #1174)
+  - b11: Repeating the last renaming now works correctly.
+
+FreeSpace:
+  - b79: The option "Format numbers with local user preferences" uses the
+    number format of the real country and not only that of the main language.
+    (Thanks Markus Bubendorf #1295)
+
+HotStrings:
+  - b115: You can use ac'tivAid functions as AutoHotkey without alerting
+    the syntax checker (e.g. performAction() )
+  - b1: When clicking OK HotStrings now remembers the last selected HotString.
+
+KeyState:
+  - b6: You can select the ICL file using the INI file.
+    (Thanks Andreas Wirth)
+  - b4: Status display in the tray is correctly reset
+    (Thanks Andreas Wirth)
+
+LeoToolTip:
+  - b118: When pasting translations, not only the text in front of the comma
+    is inserted (Danke Leopold Schabel #1464)
+  - b102: Added Italian-German to translations
+    (Thanks Tony Modica #1407)
+  - b95: Adapted LeoToolTips to the changes on dict.leo.org so that
+    correct results are displayed again.
+    (Thanks Andreas Brikalin #1373)
+  - b91: The last search term is displayed in the window "Enter search item"
+    again (Thanks Michael #1359)
+  - b79: The tooltip sometimes worked only once.
+    (Thanks Günther Kaul)
+  - b78: Now hotkeys like the right mouse button also work.
+    (Thanks Günther Kaul)
+  - b62: New option tries to auto-select the word under the cursor if no
+    text is selected. (Thanks Ingo Freitag #1274)
+  - b47: New option in the INI file: HistoryFileOnMenuCall
+    This selects whether to add to the history only on selecting a menu item,
+    more in the help (Thanks Grosser Manitu and Denik from the
+    AutoHotkey forum)
+  - b36: Error messages aren't placed in the cache and the last search item
+    isn't cached by default.
+    (Thanks Sven Knurr #1220
+
+LikeDirkey:
+  - b13: When LikeDirkeyMenu was installed, no settings could be saved
+    (Thanks Eric Lavarde #1171)
+  - b6: Double hotkey assignment is now displayed
+    (Thanks Günther Kaul)
+
+MiddleButton:
+  - b102: When minimizing the last window, a window was restored that
+    was already minimized. (Thanks Manuel Kappelhoff)
+
+MultiClipboard:
+  - b116: There is now also access to the copy function using
+    performAction("MultiClipboard_Copy1") (e.g. from HotStrings)
+  - b1130: Fixed error message on first use of MultiClipboard
+    (Thanks Jack Thissen)
+  - b95: If the copy options aren't displayed in the menu, the keys 1 through
+    9 can be used for the separate menu entries.
+  - b95: Added ClearClipboard as Additional Setting so that the option
+    also is avaiable in the menu.
+  - b16: After insertion via hotkey no more clipboards could be added.
+    (Thanks Hayo für den Bugfix #1192)
+  - b14: Not all changes in the clipboard were passed through to
+    MutliCliptboard (Thanks Jack Tissen for the Bugfix #1178)
+  - b5: New option to generally use the clipboards as pure text without
+    formatting (Thanks Alex #1165)
+  - b5: Fixed wrong display and processing of "Additional Settings"
+  - b2: Improved handling of binary data, now screenshots are added
+    to the menu correctly. (Thanks Frank Pawlak #1145)
+
+MultiMonitor:
+  - b100: maxMonitors is saved to hopefully fix #1392 and #1393
+
+MusicPlayerControl:
+  - b115: Replaces the extension MusicControl, which was split into
+    MusicPlayerControl and VolumeControl
+  - MC b41: In Foobar 0.9.5 all commandos work again
+    (Thanks Thomas Kutzner #1242)
+  - MC b37: Foobar2000 v0.9.5 is now supported, the class name was changed
+    (Thanks Thomas Kutzner #1223)
+  - MC b25: Changed Play/Pause behavior for Winamp (Was Pause/Unpause)
+    (Thanks Michael)
+  - MC b25: Turning off media keys is observed if no player was found
+    (Thanks Michael)
+  - MC b2: Windows Media Player is now supported directly
+    (Thanks Simon #1141)
+  - MC b1: Media keys now can also be simulated. Thus many more music
+    players, such as Windows Music Player or JetAudio are supported
+    (Thanks for the tips #1140, #1141)
+
+NewFile:
+  - b67: If no map (no file) could be created, an error message appears.
+
+NewFolder:
+  - b67: If no map (no file) could be created, an error message appears.
+
+PastePlain:
+  - b30: In the "strings to rmove before pasting" you can now user regular
+    expressions to replace strings.
+    (Thanks Igor Sweet #1214)
+  - b26: AutoTrim still removed newlines in the option "Copy instead of
+    Paste". (Thanks Igor Sweet #1214)
+  - b20: AutoTrim removed newlines
+    (Thanks Ingo Gabriel #1201)
+
+PowerControl:
+  - b95: You can select like with AutoShutdown that one OnShutDown-action
+    is to be run before stand-by / sleep.
+    (Thanks R. Seidl #1342)
+  - b1: New hotkey for "Lock workstation" (Thanks Knarf #1139)
+
+QuickChangeDir:
+  - b115: There is now an option to support variable paths like in AppLauncher
+    (%Drive%) (Thanks Manuel Kappelhoff)
+  - b115: The index looked for the icon in the wrong place in multi-user mode.
+    (Thanks Kristof Eschberger #1434)
+  - b98: The indexer now doesn't use the icon of the task manager any more,
+    this led to problems on a terminal. (Thanks Harald Brennecke)
+  - b28: The length of the history can be set using the entry HistoryLength in
+    QuickChangeDir.ini (Thanks Henning Völlm #1202)
+
+QuickNote:
+  - b102: Run selection (Ctrl+R) now automatically selects the word or URL
+    under the cursor if nothis has been selected
+  - b100: The date (Ctrl+D) is now entered I local format
+    (Thanks Michael)
+  - b100: New option to automatically paste selected text to the end position
+    (Thanks Sascha Larscheid #1388)
+  - b89: New option: window title displays the file name
+    (Thanks Ronny Jaekel)
+  - b89: the maximum number of undo steps can be configured using the entry
+    MaxUndos = 50 in the INI file. (Thanks Michael)
+  - b89: Writing the undo file now needs considerably fewer hard disk
+    accesses. (Thanks Michael)
+  - b89: You can now swap between QuickNotes using Ctrl+Tab
+    (Thanks Michael)
+  - b84: Made mute cancelling optional.
+    (Thanks Andreas Wirth #1316)
+  - b56: New option to select whether quickNote always runs on top
+    (Thanks Kristof Eschberger #1267)
+  - b49: Improved variable handling in the path to the note file
+  - b48: New option so that QuickNote is only shut on pressing the hotkey
+    if the window way active, otherwise it is activated
+    (Thanks Carlos #F14187231)
+  - b21: QuickNote can now also be displayed in the task bar, thus it is
+    also visible when swapping tasks with Alt-Tab
+    (Thanks Dirk Schwarzmann #1203)
+  - b12: New option "Show note window for 10 seconds at shutdown"
+    (Thanks Andreas Brikalin #1177)
+
+ReadingRuler:
+  - b53: If you press Ctrl twice quickly while ReadingRules is visible with
+    startind end end position, the startposition is reset.
+    (Thanks Hermann Ruckerbauer #1143)
+  - b3: Screenshot function was removed. The extension ScreenShots now
+    automatically uses the area marked in Reading Ruler as selection.
+    (Thanks Mathias #1155)
+
+RecentDirs:
+  - b96: Changes in the submenu "Additional settings" didn't cause the
+    "Apply" button to activate. (Thanks M. Kalb #1376)
+  - b95: You can fold open the content of the directories in a submenu.
+  - b95: Added "Clear all recent documents" to "Additional settings".
+  - b24: Menu entries can be numbered (Thanks David Obernöder)
+
+RemapKeys:
+  - b120: NumLock kan now de turned off / on permanently
+    (checkbox gray / green) (Thanks Michael)
+  - b119: New options to also automatically reset NumLock status
+    (Thanks Tom Krumpschmid #1448)
+  - b72: Added information about real change of keyboard lay-out to help
+    file.
+  - b16: ScrollLock key can now also be reassigned.
+    (Thanks Holger Moltrecht)
+
+RemoveDriveHotkey:
+  - b115: Moved FileHandling part to separate extension 'FileHandle'
+  - b89: ac'tivAid context menu extended (can use icons)
+  - b89: Option to replace "Safely Remove Hardware"
+  - b89: If SysInternals's handle.exe is available on failed ejects the
+    responsible processes and handles are displayed.
+    (3 times Thanks David Hilberath)
+  - b70: No wrong information any more if a CD drive is addressed
+    (Thanks Michael)
+  - b9: On some systems the CD eject message wasn't displayed correctly.
+  - b9: Removed rhe check whether a drive is readable because it needed
+    to spin au the drive if a CD was in the drive.
+  - b9: The CD tray can also be closed with RemoveDriveHotkey
+    (Thanks Andreas Wirth)
+
+ScreenShots:
+  - b117: Double click works again (Thanks Bernhard Sturm #1465)
+  - b107: Further improvements for interactive selection.
+  - b107: Tools palette can be reduced in size (black arrow over the buttons)
+  - b106: Reworked interactive selection. You can now insert a tool palette
+    where you can insert measures numerically and other parameters such
+    as file names before the screen shot is taken. (Hasn't been extensively
+    tested)
+  - b106: New option to improve performance of interactive selection
+  - b91: Conetxt menus from Firefox are detected
+  - b90: You can select JPG quality
+    (Thanks Susanne Gritsch #F14626843)
+  - b89: The map with the screen shot can now be opened correctly, even if
+    there are commas in the file name.
+  - b89: The function 'Active window' accepts contextmenus stretching beyond
+    the window. (Thanks  Tom Krumpschmid #1351)
+  - b89: Changed ScreenShots so that it can start .ahk-files automatically
+    (for FTP upload) (Thanks David Hilberath)
+  - b50: If the option "Filename of screenshot in clipboard" and in
+    MultiClipboard grau grün/grau aktiviert, dann kann über MultiClipboard
+    neben dem ScreenShot auch auf den Dateinamen zurückgegriffen werden
+    (Thanks Hermann Ruckerbauer #1143)
+  - b47: New option "Take a screenshot before shutting down the computer".
+    This only works when shutting down with AutoShutDown of PowerControl.
+  - b11: Leading zeroes are now applied correctly again.
+  - b7: The target map for the screen shots is automatically appended with a
+    \ if it is missing. (Thanks Mathias Kalb #1156)
+  - b6: If the map for the file doesn't exist, it is created.
+    (Thanks Christian #1156)
+  - b5: Java Swing dialogues are also detected as problematic in interactive
+    selection and the checkbox for shooting hidden windows is automatically
+    deactivated.
+    (Thanks Dirk Schwarzmann #1133)
+  - b5: Fixed problems with Ctrl+C and Open files automatically
+  - b4: 3-layer checkbox "Save to file"
+  - b4: Pipe symbol and " are replaced by underscores in file names. (#1160)
+  - b3: If an area is highlighted in ReadingRuler, that is automatically used
+    as a selection. (Thanks Mathias #1155)
+  - b1: New option to generally turn off support for hidden windows.
+    (Thanks Holger #1129)
+  - b1: Message if GdiPlus.dll isn't available (Thanks Holger #1129)
+  - b1: The crosshairs are now visible on all backgrounds
+    (Thanks for the many messages #1133)
+  - b1: Some users encountered the problem that on interactive selection
+    the release of the left mouse button wasn't detected.
+    (Thanks for the many messages #1133)
+  - b1: Java windows are detected as problematic on interactive selection
+    and the checkbos for shooting hidden windows is deactivated
+    automatically. (Thanks Dirk Schwarzmann #1133)
+  - b1: The transparency value of the dimming can be set using the variable
+    DimTransparency in the INI file.
+  - b1: New option to let ScreenShots forget the selection.
+    (Thanks Juerg Sommer)
+  - b1: image files now can be opened automatically in an editor.
+    (Thanks Frank Pawlak #1078)
+  - b1: New option to confirm selection by releasing the left mouse button.
+
+TextAid:
+  - b118: The option "Keep multiple linebreaks" can be selected again.
+    (Thanks Michael #1460)
+  - b95: Added application of regular expressions to selection.
+    (Thanks Carsten #1367)
+  - b65: "Edit text with an external text editor" now recognizes HTML and
+    adds .html to the temporary files so that the editor's syntax highlighting
+    is applied correctly.
+  - b63: If no line length or a length of 0 is supplied, the text is not
+    wrapped, but depending on the settings newlines are removed from
+    paragraphs.
+  - b63: Reworked "Reformat selection" (was Rewrap) and placed the options for
+    this on a separate button ("More...")
+  - b57: Added 4 new options to wrapping. It now supports paragraphs, quotes
+    from e-mails and lists. (Thanks Maic Pippig #1270)
+  - b21: New command: edit text with a text editor, more about this in the
+    readme. (Thanks Stephan Ehrmann)
+
+ThesauroToolTip:
+  - b79: The tooltip sometimes worked only once.
+    (Thanks Günther Kaul)
+  - b78: Hotkeys such als Ctrl-right mouse button now work, too
+    (Thanks Günther Kaul)
+  - b76: Improved handling of umlauts
+    (Thanks Sebastian #1273)
+  - b75: Change to use OpenThesaurus.de, because querying the university
+    Leipzig doesn't work any more. (Thanks Ingo Freitag)
+  - b62: New option to automatically try the word under the cursor if no
+    text is selected. (Thanks Ingo Freitag #1274)
+
+TransparentWindow:
+  - b18: Automatic transparfency for Windows under the mouse can be turned
+    off. (Thanks Tom Krumpschmid #1062)
+
+UserHotkeys:
+  - b121: <getControlText> can now copy text from ListViews, ComboBoxes,
+    DropDown-lists and the window title. (see readme).
+    (Thanks Michael)
+  - b116: MouseMoveTo/By support multiple monitors, but lose the option
+    to select the speed.
+    (Thanks Dirk Schwarzmann #1439)
+  - b100: On the menu option for the command <Config> all extensions are
+    now listed.
+  - b96: Can now run Actions. Parameters can be handed over separated by ",",
+    e.g..: <PerformAction>ChangeProfile,Standard causesd JoyControl
+    to change the profile to "Standard".
+  - b89: After you clicked on the delete button when no entry was available,
+    you got an error message if you then tried to create a new entry.
+    (Thanks Michael #1331)
+  - b82: <OnShutDown> npow runs programs so that the system waits for them
+    to finish.
+  - b73: The button "Insert special command" now shows on <ShowExtensionMenu>
+    a submenu with all extensions.
+  - b52: New variables %SelectionURL% and %SelectionURLPaste%, they pass the
+    selected text with URL-coding (space = %20 etc.).
+    (Thanks Jens #F14205916)
+  - b47: New special command <OnShutDown>
+  - b22: Changing the window title can be turned on in <AOT> with
+    AOTModifyTitle in the INI file.
+  - b14: Added special command <ControlClick> to enable virtual mouse clicks
+    on a control or a GUI co-ordinate.
+    (Thanks Dirk Schwarzmann)
+  - b7: In the <send>-commando spaced between HTML tags were removed
+    (Thanks Stephan Ehrmann)
+
+VolumeControl:
+  - b108: Removed double horkeys. (Thanks Manuel Kappelhoff)
+  - b107: Created full comatibility with Windows Vista.
+  - b107: You can handle two devices / controllers indepentently with
+    separate hotkey sets.
+
+VolumeSwitcher:
+  - b119: The option 'Reset volume to "Volume 1" when ac'tivAid is launched"
+    ius now saved correctly. (Thanks Günther Kaul)
+  - b111: New option that returns the volume to Volume 1 on launching
+    ac'tivAid.
+  - b107: Created full compatibility to Windows Vista.
+  - b57: VolumeSwitcher now recalls the control settings.
+    (Thanks Günther Kaul)
+  - b41: The two hotkeys can be provided with a specific volume by turning off
+    the second volume control.(Thanks Tom Krumpschmid #1225)
+
+WebSearch:
+  - b89: The WebSearch window is split into several columns if the screen
+    is too small. (Thanks Christian Riehl #1346)
+  - b37: Direct hotkeys start the search window and run the search
+    immediately so you can see the hotkey was pressed.
+    (Thanks Tom Krumpschmid #1226)
+
+WindowsControl:
+  - b22: The function "Window always on top" can now change the window title
+    again. (Thanks Sebastian #1205)
+  - b20: New function to minimize Windows to the title bar. (WindowShade)
+    (Thanks error00)
+  - b18: New option to turn transparent Windows into click-through Windows.
+    (Thanks Andreas Wirth #1085)
+
+
+_____________________________________________________________________________
+1.2.1 - 2007-11-09 07:39
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+General:
+  - Behaviour for changing to admin-mode was changed:
+    ac'tivAid doesn't change the user rioghts of the current user, because
+    it doesn't apply the methods from machMichAdmin anymore, but uses the
+    system functions again.
+    (Thanks Jens Meißner #888 and Mark Gerber #1105)
+  - b73: On a failed update the old version is recovered automatically.
+    (Thanks Mark Gerber #1011)
+  - b72: Further reworking of the update function (#1011, #1117)
+  - b68: Update nor correctly reloads ac'tivAid
+    (Thanks Mark Gerber #1011)
+  - b68: More debug-messages (für DbgView.exe) on applying the changes
+  - b67: Extended FAQ with tips how to speed up configuration
+    (Thanks Stephan Ehrmann)
+  - b67: Removing an extension from the configuration doesn't remove it
+    from the tray menu
+  - b66: DevEject wasn't correctly moved to Library/Tools
+    (Thanks Mathias Kalb #1090)
+  - b65: Trial: change to admin-mode is done with system functions to bypass
+    the drawbacks of MachMichAdmin (#1105)
+  - b65: Corrected newlines in the statistics
+  - b64: madse statistic Windows more compact
+  - b64: removed small bugs in statistics
+  - b63: Statistics now display load time and generation time for the
+    configuration window.
+  - b57: Fixed problems with InfoScreen(), this  affected especially
+    RemoveDriveHotkey (Thanks Michael)
+  - b56: Fixed bug with continuous reloading (can be stopped with Ctrl-+)
+  - b54: InfoScreen now keeps the monitor in mind where the active program
+    runs (Thanks Dirk Schwarzmann #1100)
+  - b54: Message explaining the cleanup function
+    (Thanks Stephan Ehrmann)
+  - b54: Vista-message that seetings map is moved only appears if it makes
+    sense
+  - b53: The parameter "nosplash" to suppress the load symbol of ac'tivAid
+    works again (Thanks Mark Gerber #1102)
+
+AppLauncher:
+  - b66: If the extension ScreenShots isn't installed, no error message
+    appears (Thanks Steffen Sauter #1115)
+  - b61: Indeexing state doesn't mix with the status bar of the configuration
+    window
+  - b61: When indexing the proces priority is turned even further down to
+    cause less load for the system
+  - b60: The option whether ac'tivAid functions should be indexed is now
+    applied correctly (Thanks maibaum1)
+  - b60: You can now include maps in the index
+    (Thanks maibaum1)
+  - b60: Searching always starts at the beginning of the words, so the list
+    to remove words from the search string is unnecessary.
+    (Thanks maibaum1)
+  - b53: Entries in history now display the correct icon again.
+    (Thanks for the messages under #1094)
+  - b51: In links the file extensions aren't detected wrongly any more
+    (Thanks Tronje Bäßler #1094)
+  - b51: The configuration Windows of ac'tivAid extensions are now indexed
+    separately.
+
+AutoShutDown:
+  - b63: Before chutdown a screenshot can be made.
+    (Thanks Waldemar Litke)
+  - b63: You can edit the time or delay for the shutdown if you click on wait.
+
+ComfortDrag:
+  - b63: Fixed possible cause for double minimizing with right mouse
+    button (Thanks Mark Gerber #1113)
+
+DateTimeDisplay:
+  - b63: Occasionally no info window was displayed
+    (Thanks Dirk Schwarzmann #1100)
+  - b52: Transparency setting now is applied.
+    (Danke Stephan Ehrmann)
+
+DriveIcons:
+  - b61: Keeps Vista SideBar now in mind, even if it isn't always on top.
+    (Thanks for the anonymous tip #1109)
+
+Eject:
+  - b53: Ejecting now works again through desktop / computer
+    Thanks for the anonymous tip #1098)
+
+HotStrings:
+  - b53: #Include doesn't cause situation any more that no HotStrings cannot
+    be edited.
+
+LeoToolTip:
+  - b65: Error messages aren't cached any more.
+    (Thanks Eric Werner # 1114)
+
+LikeDirkey:
+  - b62: Can now be called from AppLauncher
+
+LookThrough:
+  - b62: A tooltip remained on screen (Thanks Andres Kohlbach #1110)
+  - b57: AutoHotkey Windows from other scripts are correctly rebuilt.
+  - b55: The original window form cannot be changed any more, you can
+    set the corner radius of the hole, up to a circular hole.
+
+MultiClipboard:
+  - b63: Monitoring the clipboard works again
+    (Thanks Andres Kohlbach #921)
+
+PowerControl:
+  - b52: Changed behaviour of the password protected screen saver so that
+    it works more reliably and under Vista.
+    (Thanks Stephan Ehrmann)
+
+RemoveDriveHotkey:
+  - b63: Ocaasionally, no info window was displayed.
+    (Thanks Dirk Schwarzmann #1100)
+
+ScreenShots:
+  - b52: New hotkey "Directly last interactive selection"
+  - b51: Support for multimonitor use.
+
+TextAid:
+  - b51: corrected FlipSlashes (Thanks Mathias Kalb #1092)
+
+UserHotkeys:
+  - AHK scripts now van also be called with parameters
+    (Thanks complx85)
+  - b67: New special commando <Config>
+  - b62: New special commando <ShowExtensionMenu>
+
+WebSearch:
+  - b54: using a value in the INI file (see readme) a delay between multiple
+    requests can be set. (Thanks Karsten Paulini #1103)
+  - b54: Added tip for IE to the readme. (Thanks Karsten Paulini #1103)
+

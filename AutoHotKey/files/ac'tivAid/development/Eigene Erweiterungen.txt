@@ -1,0 +1,724 @@
+=============================================================================
+
+                     ##          ##                 ###       ##         ##
+                    ##   ##                        ## ##                 ##
+    #####    #####       ##     ###   ##     ##    ## ##     ###     ######
+        ##  ##   ##    ######    ##   ##     ##   ##   ##     ##    ##   ##
+    ######  ##           ##      ##    ##   ##    #######     ##    ##   ##
+   ##   ##  ##   ##      ##      ##     ## ##    ##     ##    ##    ##   ##
+    ######   #####        ###  ######    ###     ##     ##  ######   ######
+                                                                  ac'tivAid
+   ________________________________________________________________________
+   |  -=> Regeln zur Erstellung eigener Erweiterungen für ac'tivAid! <=-  |
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+=============================================================================
+Inhaltsverzeichnis
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+1. Einleitung
+2. Die Grundregeln
+3. Notwendige Variablen
+   3.1. Sprachvariablen
+4. Notwendige Unterroutinen
+   4.1. Wichtige Unterroutinen/Funktionen von ac'tivAid
+5. Funktionen von ac'tivAid zur Verwendung in Erweiterung
+   5.1. Unterstützung von mehreren Bildschirmen
+6. Anhang
+   6.1. Vergeben Präfixe
+   6.2. Vergebene GUI-Nummern
+   6.3. Von ac'tivAid verwendete Variablen
+   6.4. Dateien und Verzeichnisse
+_____________________________________________________________________________
+ 1. Einleitung
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Ac'tivAid kann man als Framework für kleine ac'tivAid-Skripte bezeichnen. Es
+bietet eine einheitliche Oberfläche wo man diese kleinen, Erweiterungen
+genannten, Skripte installieren, deinstallieren und vor allem auch
+konfigurieren kann. Hier soll für den Skriptentwickler erläutert werden, wie
+er eigene Skripte in ac'tivAid integrieren kann. Damit sich ein Skript bzw.
+eine Erweiterung auch mit ac'tivAid und anderen Erweiterungen verträgt, muss
+es einige Grundregeln einhalten. Um den Einstieg zu erleichtern gibt es im
+Verzeichnis "development" die Vorlagedatei "template.ahk". Diese sollte man
+duplizieren und ins Verzeichnis "extensions" kopieren, wenn man eine neue
+Erweiterung erstellen möchte. Will man eine mitgelieferte Erweiterung
+anpassen, sollte sie ebenfalls dupliziert und die Datei umbenannt werden,
+damit beim nächsten Update nicht alle Änderungen wieder verloren gehen.
+
+Zum besseren Verständnis ist es auch immer sehr hilfreich, sich vorhandene
+Erweiterungen anzuschauen. Besonders geeignet ist hierzu die Erweiterung
+NewFolder, da sie recht einfach ist und ausführlicher kommentiert.
+_____________________________________________________________________________
+ 2. Die Grundregeln
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Regel 1 - Erweiterungen müssen im Verzeichnis "extensions" als AHK-Datei
+          angelegt werden
+
+Regel 2 - Variablen, Unterroutinen und Funktionen müssen ein eindeutiges
+          Präfix vorangestellt bekommen, wie z.B. "nf_main_NewFolder". Das
+          Präfix ist in diesem Fall "nf_". Wird das nicht eingehalten, kann
+          es zu Konflikten mit ac'tivAid kommen, falls die Variable schon
+          dort verwendet wird. Im Anhang gibt es eine Auflistung aller
+          bereits verwendeten Präfixe.
+
+Regel 3 - Eine Erweiterung muss einen eindeutigen Namen ohne Leer- und
+          Sonderzeichen bekommen, nur _ ist erlaubt. Dieser Name wird nämlich
+          auch für die vorgeschriebenen Unterroutinen und in der Ini-Datei
+          als Sektion verwendet, wo eben keine Sonderzeichen erlaubt sind.
+          Zu besseren Lesbarkeit kann man allerdings mit den Namen mit
+          Großbuchstaben gliedern. Bei der späteren Verwendung ist die Groß-/
+          Kleinschreibung allerdings irrelevant.
+
+Regel 4 - Erweiterungen mit eigenen Dialogen müssen diese mit einer eigenen
+          GUI-Nummer versehen. Das erreicht man z.B. mit "Gui, 23:Add, Text"
+          oder indem man "Gui, 23:Default" vor die GUI-Befehle setzt.
+          Im letzten Fall ist darauf zu achten, dass es für jeden Thread wie
+          z.B. Unterroutinen von Schaltfläche erneut angegeben werden muss.
+          Alle verwendeten GUI-Nummern sind im Anhang weiter unten
+          aufgelistet.
+_____________________________________________________________________________
+ 3. Notwendige Variablen
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Ac'tivAid setzt einige Variablen voraus, die unbedingt von einer Erweiterung
+bei der Initialisierung gesetzt werden müssen. In der folgenden Übersicht
+steht PRE für Präfix der Erweiterung und NDE für Name der Erweiterung. Diese
+Abkürzungen sind natürlich durch die entsprechenden Vorgaben der Erweiterung
+zu ersetzen.
+
+Prefix                  Hier muss das Präfix der Erweiterung angegeben werden
+
+%Prefix%_ScriptName     Der Name der Erweiterung ohne Leerzeichen und
+                        Sonderzeichen. (_ ist erlaubt)
+
+%Prefix%_ScriptVersion  Die Versionsnummer der Erweiterung
+
+RequireExtensions       Wenn eine Erweiterung von einer anderen Erweiterung
+                        abhängig ist, diese also installiert sein muss,
+                        können hier deren Namen aufgeführt werden. Damit
+                        verweigert die Erweiterungs-Verwaltung die
+                        Installation, wenn die erforderlichen Erweiterungen
+                        nicht installiert sind.
+
+AddSettings_NDE         Wenn eine Erweiterung es ermöglicht, dass
+                        Einstellungen nicht nur importiert, sondern auch
+                        hinzugefügt werden können, muss diese Variable den
+                        Wert 1 haben. Dadurch wird das 'Pfeil'-Menü unten
+                        links um einen Eintrag erweitert.
+
+ConfigFile_NDE          Werden Einstellungen in einer separaten Datei
+                        gespeichert, muss der relative Pfad dorthin hier
+                        angegeben werden. Diese Variable wird nur benötigt
+                        wenn AddSettings_NDE den Wert 1 hat.
+
+CustomHotkey_NDE        Mit dem Wert 1 wird ac'tivAid dazu gebracht, dass
+                        es automatisch der Erweiterung ein Tastaturkürzel
+                        zur Verfügung stellt und entsprechend die
+                        Konfigurations-Seite um eine Schaltfläche zur Abfrage
+                        diese Kürzels ergänzt.
+
+Hotkey_NDE              Wurde noch keine Tastaturkürzel definiert, wird das
+                        hier angegeben als Standard-Kürzel verwendet
+
+HotkeyPrefix_NDE        Bei einigen Erweiterungen mag es sinnvoll sein, dass
+                        deren Kürzel immer ein Steuerzeichen vorangestellt
+                        bekommen. So könnte man durch ~ festlegen, dass
+                        Kürzel nicht abgefangen, sondern auch an die aktive
+                        Anwendung weitergeleitet werden.
+
+HideSettings            Wenn ein Erweiterung nicht konfigurierbar sein soll
+                        muss hier der Wert 1 eingetragen werden. Dadurch
+                        verschwindet die entsprechende Seite im
+                        Konfigurations-Dialog
+
+MenuName                Der Name des Menüeintrags im Tray-Menü
+
+Description             Kurze Beschreibung für, welche in der Erweiterungs-
+                        Verwaltung angezeigt wird.
+
+EnableTray_NDE          Soll eine Erweiterung nicht im Tray-Menü aufgeführt
+                        werden, muss der Wert 0 betragen
+
+DisableIfCompiled_NDE   Ist es wie bei HotStrings nicht möglich, dass man
+                        eine Erweiterung in kompilierter Form deaktivieren
+                        oder aktivieren kann, muss der Wert 1 betragen.
+                        Damit verschwindet die Erweiterung automatisch aus
+                        dem Tray-Menü und lässt sich auch über den
+                        Konfigurationsdialog nicht mehr umschalten.
+
+SettingsDir             Enthält den Pfad zum settings-Verzeichnis
+
+A_AutoHotkeyPath	Pfad von AutoHotkey (ohne AutoHotkey.exe)
+
+_____________________________________________________________________________
+ 3.1. Sprachvariablen
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Die Template-Datei ist schon so vorbereitet, dass man seine Erweiterung
+zweisprachig anlegen kann. Standardmäßig wird in ac'tivAid neben Deutsch
+Englisch als alternative Sprache verwendet. Mann sollte also bei allen
+GUI-Elementen, Meldungen und Menüs auf Variablen zurückgreifen, statt direkt
+die Text anzugeben. Es empfiehlt sich dabei das Format lng_PRE_StringName, um
+Verwechslungen mit andern Variablen zu vermeiden.
+
+Zudem gibt es noch spezielle ToolTip-Variablen wie bei HotStrings zu sehen.
+Sie haben das feste Format tooltip_NAMEDESGUIELEMETS. Steht die Maus über
+ein GUI-Element, welches eine ToolTip-Variable hat, wird nach 1000 ms der
+ToolTip angezeigt.
+
+_____________________________________________________________________________
+ 4. Notwendige Unterroutinen
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Damit ac'tivAid die Erweiterung steuern kann, müssen einige vorgegebene
+Unterroutinen existieren. Sie haben einen festen Namensteil und einen
+variablen Teil (NDE), der durch den Namen der Erweiterung zu ersetzen ist.
+
+init_NDE                Diese Routine wird direkt beim Laden von ac'tivAid
+                        ausgeführt und setzt alle notwendigen Variablen.
+                        Hier müssen auch alle Einstellungen aus der
+                        Ini-Datei eingelesen werden. Tastaturkürzel und
+                        Timer dürfen hier noch nicht aktiviert werden.
+
+SettingsGui_NDE         Wenn ac'tivAid den Konfigurations-Dialog aufbaut
+                        wird diese Funktion aufgerufen. Hier werden alle
+                        Elemente der Konfigurationsseite der Erweiterung
+                        definiert. Das erste Element sollte die Position
+                        "XS+10 Y+5" haben. Die Option "Section" ist hier
+                        in keinem Element erlaubt. Zudem muss jedes
+                        bearbeitbare Element die Unterroutine
+                        "sub_CheckIfSettingsChanged" aufrufen, damit
+                        ac'tivAid Veränderungen an den Einstellungen
+                        feststellen kann und somit bei einer Bestätigung
+                        die Speicherung einleitet.
+
+SaveSettings_NDE        Wird aufgerufen, wenn der Konfigurations-Dialog mit
+                        Ok oder Übernehmen bestätigt wird. Hier müssen alle
+                        Einstellungen und Tastaturkürzel in die Ini-Datei
+                        geschrieben werden. Ist danach ein Neustart von
+                        ac'tivAid notwendig, kann noch die Variable Reload
+                        auf 1 gesetzt werden.
+
+AddSetting_NDE          Die Unterroutine ist nur notwendig, wenn die
+                        gleichnamige Variable den Wert 1 hat. Sie wird
+                        aufgerufen, wenn Einstellungen zu den aktuellen
+                        über das 'Pfeil'-Menü hinzugefügt werden.
+
+CancelSettings_NDE      In seltenen Fällen ist es notwendig Werte zurück-
+                        zusetzen wenn der Konfigurations-Dialog abgebrochen
+                        wird. Das geschieht dann in dieser Routine.
+
+DoEnable_NDE            Wird beim Starten von ac'tivAid aufgerufen, wenn die
+                        Erweiterung aktiv ist (Enable_NDE = 1). Wird zudem
+                        beim manuellen reaktivieren einer Erweiterung
+                        aufgerufen. Hier werden Tastaturkürzel und Timer
+                        aktiviert.
+
+DoDisable_NDE           Analog zu DoEnable wird diese Routine aufgerufen,
+                        wenn eine Erweiterung manuell deaktiviert wird.
+                        Hier werden Tastaturkürzel und Timer ausgeschaltet.
+
+DefaultSettings_NDE     Normalerweise stehen hier keine Befehle, da ac'tivAid
+                        selbst dafür sorgt, dass beim Rückstellen der
+                        Einstellungen diese aus der Ini-Datei gelöscht
+                        werden. In einigen Fällen kann es aber sinnvoll sein
+                        beim Rückstellen auf die Standardwerte noch eine
+                        Aktion auszuführen.
+
+OnExitAndReload_NDE     Unter gewissen Umständen kann es notwendig sein,
+                        dass eine Erweiterung beim Beenden oder neu Laden
+                        von ac'tivAid eine Unterroutine ausführen muss.
+                        So setzt FreeSpace beispielsweise die veränderten
+                        Fenstertitel zurück.
+
+_____________________________________________________________________________
+ 4.1. Wichtige Unterroutinen/Funktionen von ac'tivAid
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+sub_CheckIfSettingsChanged
+-----------------------------------------------------------------------------
+Jedes GUI-Element welches eine Einstellung repräsentiert, sollte mittels
+eines g-Labels auf diese Unterroutine verweisen. Sie ermittelt automatisch,
+ob sich Einstellungen seit dem Aufruf des Konfigurationsdialogs geändert
+haben. Wichtig ist, dass das GUI-Element mit 'v' einen eigenen Namen hat.
+Sollte für ein Element eine eigene Unterroutine nötig sein, kann man
+sub_CheckIfSettingsChanged auch in der Unterroutine aufrufen. Bei komplexeren
+Konfigurationsmasken wie sie z.B. WebSearch, HotStrings oder UserHotkeys
+haben, funktioniert das nicht, da GUI-Elemente nicht für eine einzige
+Einstellung stehen, sondern dynamische Werte haben. Für diesen Fall ist die
+Funktion func_SettingsChanged gedacht.
+
+
+func_SettingsChanged( "Name der Erweiterung" )
+-----------------------------------------------------------------------------
+Wird diese Funktion mit dem Namen der Erweiterung als Parameter aufgerufen,
+weiß der Konfigurationsdialog, dass sich Einstellungen für diese Erweiterung
+geändert haben. Bei alle Erweiterungen, die als nicht 'verändert' gelten,
+werden dann keine Speicherroutinen (SaveSettings_NDE) aufgerufen.
+
+_____________________________________________________________________________
+ 5. Funktionen von ac'tivAid zur Verwendung in Erweiterungen
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Ac'tivAid bietet einige Funktionen, um schnell eine leicht konfigurierbare
+Erweiterung zu erstellen. Wichtig ist zu wissen, dass Variablen und Parameter
+bei Funktionen anders angegeben werden. Texte werden in Anführungszeichen
+gesetzt und Variablen nicht in %-Zeichen. Gibt man Variablen mit %-Zeichen
+an, wird der Inhalt der Variable Bestandteil des eigentlich Variablennamens.
+Das ist Praktisch um z.B. Arrays zu verwenden,
+z.B. Function( Array%A_Index% )
+
+
+func_HotkeyAddGuiControl( Text, "Variable", "Optionen", ["Single"] )
+-----------------------------------------------------------------------------
+Hiermit wird eine Schaltfläche zur Abfrage eines Tastaturkürzels in die
+Konfiguration einer Erweiterung eingefügt. Text steht dabei für den Text, der
+vor der Schaltfläche platziert wird. Im Normalfall gibt man hier also eine
+Sprachvariable (ohne %) an, welche den Text enthält. Bei "Variable" gibt man
+einen Variablennamen als String an, worin das Kürzel gespeichert wird (intern
+wird noch das Präfix Hotkey_ vorangestellt). Unter "Optionen" gibt man die
+normalen GUI-Element-Optionen wie z.B. "xs+10 y+10 w160" an. Sie beziehen
+sich dabei auf den Text vor der 300 Pixel breiten Schaltfläche. Um die
+Schaltfläche z.B. schmaler zu machen, muss man Text mit "" leer lassen, womit
+sich dann die Optionen auf die Schaltfläche selber beziehen. Optional gibt es
+noch den Parameter "Single". Ist er gesetzt, wird nur ein Taste abgefragt ohne
+Shift, Strg, Alt und Windows.
+
+
+func_HotkeyRead( "Variable", Dateiname, Sektion, "Schlüssel",
+                 "Unterroutine", "Kürzel", "Präfix", "Klassen" )
+-----------------------------------------------------------------------------
+Diese Funktion sollte nur in der init-Routine einer Erweiterung aufgerufen
+werden und sorgt dafür, dass das Tastaturkürzel aus der Ini-Datei eingelesen
+wird und einer Unterroutine zugeordnet wird. "Variable" gibt den
+Variablennamen (als String!) an, worin das Kürzel gespeichert wird.
+"Dateiname" lautet im Normalfall ConfigFile (ohne % und ") und "Sektion"
+nf_ScriptName. Mit "Schlüssel" ist der Name gemeint, worunter das Kürzel in
+der Ini-Datei zu finden ist. Die Routine, welche mit dem Kürzel aufgerufen
+wird, gibt man unter "Unterroutine" an. Steht nichts in der Ini-Datei wird
+das unter "Kürzel" angegeben Tastaturkürzel als Standardwert zugewiesen. Bei
+"Präfix" kann man Steuerzeichen wie ~ vor das Kürzel setzen lassen, was in
+diesem Fall bedeutet, dass die Kürzel nicht abgefangen, sondern
+durchgeschleift werden. Bitte beachten Sie, dass zu jedem eingelesenen Kürzel
+auch die Funktionen func_HotkeyEnable unter DoEnable_NDE und
+func_HotkeyDisable unter DoDisable_NDE verwendet werde muss.
+Mit "Klassen" kann man Tastaturkürzel auf Programme beschränken. Mehrere
+Klassennamen werden dabei mit Komma getrennt. Gibt man dort einen Variablen-
+namen an, der mit Hotkey_ beginnt, wird das Kürzel abhängig vom Inhalt
+der Variable als global (Varuable ist leer) oder beschränkt auf den
+Variablennamen angesehen. Das nutzt z.B. Calendar für seine Multilevel-
+Hotkeys.
+
+
+func_HotkeyWrite( "Variable", "Dateiname", "Sektion", "Schlüssel" )
+-----------------------------------------------------------------------------
+Analog zu func_HotkeyRead schreibt diese Funktion ein Tastaturkürzel wieder
+in die Ini-Datei.
+
+
+func_HotkeyEnable( "Variable" )
+func_HotkeyDisable( "Variable" )
+-----------------------------------------------------------------------------
+Diese beiden Funktionen dienen dazu, ein Tastaturkürzel zu aktivieren, oder
+zu deaktivieren. Werden diese Funktionen nicht in den Unterroutinen
+DoEnable_NDE/DoDisable_NDE verwendet, funktionieren die Kürzel nicht.
+
+
+func_HotkeyGetVar( "HotkeyArray", "Anzahl", "GetArray", "Präfix" )
+-----------------------------------------------------------------------------
+Wenn in einer Erweiterung mehrere Tastaturkürzel in einem Array abgelegt
+wurden ist es mit func_HotkeyGetVar recht einfach, ein zum Tastaturkürzel
+(HotkeyArray) passenden Wert aus einem anderen Array (GetArray) auszulesen.
+So hat z.B. die Erweiterung Eject ein zwei Arrays mit 11 Elementen. Im Array
+ej_Hotkey liegen die Tastaturkürzel und im Array ej_Drive sind die
+entsprechenden Laufwerksbuchstaben abgelegt. Da jedem der 11 Hotkeys die
+gleiche Unterroutine zugewiesen ist, braucht es nur eine Zeile, um zu
+ermitteln, welches Laufwerk zum gedrückten Tastaturkürzel gehört:
+ej_Drive := func_HotkeyGetVar( "ej_Hotkey",11,"ej_Drive" )
+
+
+func_HotkeyDecompose( "Tastaturkürzel", Kurze Darstellung )
+-----------------------------------------------------------------------------
+Tastaturkürzel werden von AutoHotkey mit einer rechte eigenwilligen Syntax
+definiert, welche sich einem einfachen Anwender nicht auf Anhieb erschließt.
+Mit dieser Funktion wird ein Tastaturkürzel im Klartext zurückgegeben. Ist
+"Kurze Darstellung" auf 1 gesetzt, ist der zurückgegebene Name etwas kürzer,
+also ohne Leerzeichen und einigen kürzeren Tastenamen.
+
+
+func_ChangeDir( "Pfad", Neues Fenster, Verzeichnisbaum )
+-----------------------------------------------------------------------------
+Mit dieser Funktion kann man seine eigenen Erweiterungen leicht mit einem
+Verzeichniswechsel ausrüsten. Der Wechsel geschieht wenn möglich im gerade
+aktiven Fenster. Ist der Wechsel nicht möglich, passiert nichts. Soll der
+Wechsel dann alternativ ein neues Fenster öffnen, ist "Neues Fenster" auf -1
+zu setzen. Hat es den Wert 1 wird generell ein neues Explorer-Fenster
+geöffnet. Setzt man "Verzeichnisbaum" auf 1, werden neue Explorer-Fenster mit
+Verzeichnisbaum geöffnet.
+
+
+func_GetDir( Fenster-ID )
+-----------------------------------------------------------------------------
+Versucht das aktuelle Verzeichnis eines Fensters (Explorer) zu ermitteln.
+Kann es nicht ermittelt werden ist der Rückgabewert leer.
+
+
+func_AddMessage( "ID", "Unterroutine" )
+-----------------------------------------------------------------------------
+Damit mehrere Erweiterungen die AutoHotkey-Funktion OnMessage( mit der
+gleichen Message-ID verwenden können, muss eine Umweg über func_AddMessage(
+gemacht werden. Populäres Beispiel dafür ist die Message WM_KEYDOWN, welche
+immer gesendet wird, wenn eine Taste gedrückt wurde. Diese lässt sich dafür
+verwenden, um Fenstern eigene Tastaturkürzel zu geben, wie das z.B. bei
+QuickNote mit func_AddMessage(0x100, "qn_OnMessage_EditKeys") gemacht wurde.
+Bei jedem Tastendruck wird die Unterroutine qn_OnMessage_EditKeys aufgerufen.
+Dabei werden die von OnMessage( bekannten Parameter in den Variablen
+%#wParam%, %#lParam%, %#msg% und %#hwnd% abgelegt. Bei WM_KEYDOWN enthält
+#wParam beispielsweise den Wert der gedrückten Taste.
+
+
+func_RemoveMessage( "ID", "Unterroutine" )
+-----------------------------------------------------------------------------
+Analog zu func_AddMessage( wird mit dieser Funktion eine Unterroutine wieder
+aus dem OnMessage(-Array ausgetragen. Diese Funktion sollte aufgerufen
+werden, wenn ein GUI geschlossen wird.
+
+
+func_StrTranslate( "String", "Von", "Nach" )
+-----------------------------------------------------------------------------
+Hiermit lasen sich Zeichen in einem String durch andere Zeichen ersetzen.
+func_StrTranslate( "abcdef", "ad", "14" ) ergibt z.B. "1bc4ef".
+
+
+func_StrLeft( "String", Anzahl der Zeichen )
+-----------------------------------------------------------------------------
+Diese Funktion ist äquivalent zu dem Befehl StringLeft, kann aber direkt
+in If-Abfragen verwendet werden.
+
+
+func_StrLower ( "String" )
+-----------------------------------------------------------------------------
+Diese Funktion ist äquivalent zu dem Befehl StringLower, kann aber direkt
+in If-Abfragen verwendet werden.
+
+
+func_Hex ( Wert, Unicode )
+-----------------------------------------------------------------------------
+Wandelt einen String in Hex-Werte um, womit sich daraus z.B. Arrays bilden
+lassen, wo ja nicht alle Zeichen erlaubt sind.
+
+
+func_BeautifyIniFile( "Ini-Datei" )
+-----------------------------------------------------------------------------
+Hübscht eine angegebene Ini-Datei mit gleichmäßigen Einrückungen auf.
+Kommentare gehen dabei allerdings verloren.
+
+
+func_Download( "URL", "Ziel-Datei", "Hinweis", "Titel", Größe )
+-----------------------------------------------------------------------------
+Lädt eine Datei von einer "URL" zu einer "Ziel-Datei" und zeigt dabei einen
+Statusbalken (Größe angegeben) oder die heruntergeladene Datenmenge an.
+
+
+BalloonTip("Titel", "Text", "Symbol", OnlyOnce, AlwaysMessageBox, TimeOut)
+-----------------------------------------------------------------------------
+Zeigte eine Sprechblase am Tray-Symbol von ac'tivAid oder, falls im
+Sprechblasen im System deaktiviert sind, ein normales Hinweis-Fenster.
+"Symbol" kann weggelassen werden oder den Wert "Info", "Warning" und "Error"
+enthalten. Das bestimmt, welches Symbol in der Sprechblase zu sehen ist.
+Mit OnlyOnce=1 wird ein ToolTip nur einmal angezeigt und danach bis zum
+Neustart von ac'tivAid nicht mehr.
+Sind Sprechblasen im System nicht erlaubt, werden automatisch Hinweisfenster
+angezeigt. Mit AlwaysMessageBox=1 wird immer ein Hinweisfenster eingeblendet.
+Bei AlwaysMessageBox=-1 wird niemals ein Hinweisfenster eingeblendet, auch
+wenn Sprechblasen im System deaktiviert sind.
+Mit TimeOut kann man angeben nach wievielen Sekunden die Sprechblase oder
+das Hinweisfenster verschwinden soll. Fehlt TimeOut bleiben Sprechblasen
+wie vom System vorgegeben stehen und Hinweisfenster müssen bestätigt werden.
+
+
+func_GetMonitorNumber("Modus")
+-----------------------------------------------------------------------------
+Diese Funktion ermittelt auf welchem Monitor sich die Maus (Modus = "Mouse")
+oder das angegebene Fenster (Modus = "FensterTitel") befindet. Ist ein
+Fenster auf mehreren Monitoren zu sehen, wird die Nummer des Monitors
+zurückgegeben wo der größte Teil des Fenster zu sehen ist. Das gerade active
+Fenster wird durch "ActiveWindow" angegeben.
+
+
+func_WildcardMatch("Heuhaufen", "Nadel", Groß/Klein)
+-----------------------------------------------------------------------------
+Führt einen String-Vergleich mit Wildcards (*) durch. Wird Groß/Klein auf 1
+gesetzt wird zudem die Groß-/Kleinschreibung berücksichtigt. Es sind nur
+*-Wildcards möglich, keine ?-Wildcards.
+
+
+func_GetSelection(NurText,NurKopieren,Warten)
+-----------------------------------------------------------------------------
+Kopiert den ausgewählten Text in einer Anwendung in die Variable %Selection%.
+Ist NurText=0, wird der Zwischenablagen-Inhalt binär abgelegt, womit auch
+Metainformationen und Bilder verarbeitet werden. Ist NurKopieren=1 wird
+der vorherige Inhalte der Zwischenablage wiederhergestellt. Der Wert bei
+Warten bestimmt die Sekunden, bis die Funktion aufgibt den markierten
+Text zu ermitteln (ClipWait).
+
+
+CreateGuiID("NameDerGUI")
+-----------------------------------------------------------------------------
+Um Konflikte mit GUI-IDs (z.B. Gui, 2:Add, Text...) in verschiedenen
+Erweiterungen zu vermeiden, muss in der init_Routine einer Erweiterung
+eine GUI-ID 'angefordert' werden. Es empfiehlt sich für jede GUI einen
+eigenen eindeutigen Namen zu vergeben. Bei Aufruf dieser Funktion wird die
+nächste freie GUI-ID in der Variable GuiID_NameDerGUI abgelegt. Man hat damit
+also z.B. über Gui, %GuiID_NameDerGUI%:Destroy direkten Zugriff auf die
+GUI-ID. Die Labels GuiClose, GuiEscape etc. bekommen mit dieser Methode
+zudem neue Namen. Also statt z.B. 5GuiClose muss das Label nun
+NameDerGUIGuiClose lauten. Beachten Sie, dass diese Label nicht mehr gültig
+sind, wenn Sie per :Destroy eine GUI beenden. Falls Sie wieder Zugriff auf
+die GUI benötigen, müssen Sie GuiDefault("NameDerGUI") aufrufen.
+
+
+GuiDefault("NameDerGUI", "Optionen")
+-----------------------------------------------------------------------------
+Alle folgenden Gui-Befehle beziehen sich auf die GUI mit dem angegebenen
+Namen. Diese Befehl sollte generell vor dem Aufbau einer GUI angegeben
+werden, damit garantiert werden kann, dass die speziellen Labels
+(NameDerGUIGuiClose ...) registriert werden. Wenn man auf GuiDefault()
+verzichtet, muss man manuell die Label mit folgenden Befehl registrieren:
+Gui, %GuiID_NameDerGUI%:+LabelNameDerGUIGui
+Beachten Sie, dass diese Label nicht mehr gültig sind, wenn Sie per :Destroy
+eine GUI beenden, sie müssen also später erneut registriert werden, was durch
+die obene empfohlene Vorgehensweise mit GuiDefault() automatisch geschieht.
+Derzeit hat AutoHotkey noch das Problem, dass +Label z.B. nicht vor +Owner
+ausgeführt werden kann. Aus diesem Grund gibt es den zweiten Parameter
+"Optionen", wie Sie z.B. "+Owner1 +AlwaysOnTop" angeben können.
+
+
+RegisterAdditionalSetting("Prefix", "Name", Standardwert, "Optionen")
+-----------------------------------------------------------------------------
+Ermöglicht es, die Schaltfläche "Weitere Optionen ..." um eigene Menüpunkte
+zu ergänzen. Dabei muss man nur RegisterAdditionalSetting angeben, für das
+Ergänzen des Menüs und das Lesen/Schreiben der Einstellung sorgt ac'tivAid.
+Bei Prefix, muss das Prefix der Erweiterung angegeben werden auf der das Menü
+erscheinen soll. Name gibt schlicht einen griffigen Namen der Einstellung
+ohne Leerzeichen an. Die Einstellung selber ist über die Variable Prefix_Name
+verfügbar und ist 1, wenn der Menüpunkt aktiviert ist, sonst 0. Über
+Standardwert legt man den Wert fest, welcher verwendet wird, wenn kein
+Eintrag in der ac'tivAid gefunden wurde. Der Text eines Menüpunkts muss
+in einer Sprachvariable in der Form lng_Prefix_Name abgelegt werden.
+Zudem stehen noch folgende Parameter zur Verfügung:
+Type:SubRoutine   - In diesem Fall ist der Menüpunkt keine Optionen, sondern
+                    ruft die Unterroutine Prefix_Name auf.
+Disabled          - Der Menüpunkt ist deaktiviert
+SeparateMenu:Name - Der Menüpunkt wird nicht in das Standardmenü aufgenommen,
+                    sondern kann über die Funktion
+                    SeparateAdditionalSettingsButton("Name","Gui-Optionen")
+                    auf einen separaten Button gelegt werden.
+Um Optionen zu gruppieren, so dass immer nur eine Option in einer Gruppe
+aktiviert werden kann, muss man Name um Zahlen ergänzen, also "Name1", "Name2"
+etc.
+
+_____________________________________________________________________________
+ 5.1. Unterstützung von mehreren Bildschirmen
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Ac'tivAid stellt einige Variablen und Funktionen zur Verfügung um einfacher
+mit mehreren Bildschirmen zurecht zu kommen.
+
+Variablen:
+-----------------------------------------------------------------------------
+NumOfMonitors                   Anzahl der erkannten Monitore
+
+WorkAreaLeft                    Maße der gesamten Arbeitsfläche
+WorkAreaRight                   (Alle Monitor eingerechnet)
+WorkAreaTop
+WorkAreaBottom
+WorkAreaWidth
+WorkAreaHeight
+
+WorkArea#Left                   Maße der Arbeitsfläche von einem Monitor
+WorkArea#Right                  (# = Nummer des Monitors)
+WorkArea#Top
+WorkArea#Bottom
+WorkArea#Width
+WorkArea#Height
+
+Monitor#Left                    Maße eines gesamten Monitors
+Monitor#Right                   (einschl. Taskleiste, # = Nummer des Monitors)
+Monitor#Top
+Monitor#Bottom
+Monitor#Width
+Monitor#Height
+
+Funktionen:
+-----------------------------------------------------------------------------
+func_GetMonitorNumber("Modus")  Diese Funktion ermittelt auf welchem Monitor
+                                sich die Maus (Modus = "Mouse") oder das
+                                gerade aktive Fenster (Modus = "ActiveWindow")
+                                befindet. Ist ein Fenster auf mehreren
+                                Monitoren zu sehen, wird die Nummer des
+                                Monitors zurückgegeben wo der größte Teil
+                                des Fenster zu sehen ist.
+
+_____________________________________________________________________________
+ 6. Anhang
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+_____________________________________________________________________________
+ 6.1. Vergebene Präfixe
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+al              AppLauncher
+as              AutoShutdown
+cal             Calendar
+cd              ComfortDrag
+ca              CharacterAid
+cd              ComfortDrag
+cfm             ClipboardFilesManager
+cl              CommandLine
+cr              ConfortResize
+di              DriveIcons
+dtd             DateTimeDisplay
+ej              Eject
+eh              ExplorerHotkeys
+er              EmptyRecycler
+esh             ExplorerShrinker
+fp              FilePaste
+frn             FileRenamer
+fs              FreeSpace
+hs              HotStrings
+hh              HotStringsHotkey
+jc              JoyControl
+ks              KeyState
+lc              reserviert für LibCurl
+leo             LeoToolTip
+ld              LikeDirkey
+ldm             LikeDirkeyMenu
+lm              LimitMouse
+look            LookThrough
+lup             ScreenLoupe
+mbt             MiddleButton
+mtt             MinimizeToTray
+mc              MouseClip
+mcb             MultiClipboard
+mpc             MusicPlayerControl
+muc             MusicControl (bis Version 1.2.2)
+mm              ClipboardFilesManager
+nd              NewFile
+nf              NewFolder
+pc              PowerControl
+pgo             PackAndGo
+pop				PopUpKiller
+pp              PastePlain
+ps              PasteSerial
+qc              QuickChangeDir
+qn              QuickNote
+rd              RecentDirs
+rdh             RemoveDriveHotkey
+rmp             RemapKeys
+rr              ReadingRuler
+t9k             TypeWith9Keys
+ta              TextAid
+TRA             TransparentWindow
+ttt             ThesauroToolTip
+uc              UnComment
+uh              UserHotkeys
+ws              WebSearch
+wc              WindowsControl
+wom             WebSearchOnMButton
+
+_____________________________________________________________________________
+ 6.2. Vergebene GUI-Nummern
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+Seit ac'tivAid 1.1.3.5 werden die Gui-Nummern dynamisch vergeben. Näheres
+dazu in der Beschreibung zu CreateGuiID() und GuiDefault().
+Vorhandene Erweiterungen, welche noch feste Gui-Nummern verwenden, müssen
+angepasst werden.
+
+_____________________________________________________________________________
+ 6.3. Von ac'tivAid verwendete Variablen
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Hier eine Liste der wichtigsten Variablen. Um sie in Funktionen verwenden zu
+können, müssen sie mit dem Befehl global in der Funktion als global angegeben
+werden.
+
+- Folgende globale Variablen stehen zur Verfügung:
+  Zur Verwendung in Funktionen müssen Sie mit "Global Var1,Var2 ..."
+  verfügbar gemacht werden.
+
+  ScriptName        - Name von ac'tivAid ohne Sonderzeichen
+                      (activAid, z.B. für die INI-Sektion)
+  ScriptNameFull    - Name von ac'tivAid mit Sonderzeichen (ac'tivAid)
+  ScriptVersion     - Version von ac'tivAid
+  ScriptTitle       - Fenstertitel mit Versionsnummer für Dialoge
+  ConfigFile        - Name und Pfad zur INI-Datei
+  Debug             - 1 = Debug-Modus über die Ini-Datei aktiviert
+  Devel             - 1 = Entwickler-Modus aktiviert
+
+  Extension[x]               - Array mit den Namen aller installierten
+                               Erweiterungen
+  ExtensionPrefix[x]         - Präfix der Erweiterung Nr. x
+  ExtensionMenuName[x]       - Tray-Menü-Name der Erweiterung Nr. x
+  ExtensionHideSettings[x]   - %HideSettings%
+  Extension[Name]            - Nr. der Erweiterung mit dem Namen 'Name'
+  ExtensionDescription[Name] - Beschreibung der Erweiterung 'Name'
+  ExtensionVersion[Name]     - Version der Erweiterung 'Name'
+
+- Sprachabhängige Variablen:
+  lng_exit          = Beenden
+  lng_Left          = linke
+  lng_Right         = rechte
+  lng_MouseButton   = Maustaste
+  lng_Win           = Windows-Taste
+  lng_Alt           = Alt-Taste
+  lng_Shift         = Shift-Taste
+  lng_Ctrl          = Strg-Taste
+  lng_ScriptReload  = %ScriptName% aktualisiert.
+  lng_Readme        = Informationen
+  lng_Changelog     = Änderungen
+  lng_Browse        = &Durchsuchen ...
+  lng_cancel        = Abbrechen
+  lng_OK            = OK
+  lng_Apply         = Übernehmen
+
+  weitere stehen natürlich auch in ac'tivAid.ahk, welche jeder Erweiterung
+  zur Verfügung stehen.
+
+_____________________________________________________________________________
+ 6.4. Dateien und Verzeichnisse
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+ac'tivAid.ahk                           Das Hauptskript – die Schaltzentrale
+ac'tivAid LiesMich.txt                  Informationen und Hilfe zu den Erw.
+ac'tivAid Changelog.txt                 Versions-Historie
+
+Settings                                Verzeichnis für die Einstellungen
+   ac'tivAid.ini                        Konfigurationsdatei für ac'tivAid
+                                        und den meisten Erweiterungen
+   HotStrings.ini                       Alle Hotstrings
+   QuickNote.txt                        Beispielnotiz für Quicknote
+   extensions_header.ini                wird automatisch erstellt/verwaltet
+   extensions_main.ini                  wird automatisch erstellt/verwaltet
+
+   WebSearch                            Unterverzeichnis für WebSearch-Icons
+   QuickChangeDir                       Unterverzeichnis für die QCD-Indexe
+   ClipBoards                           Unterverzeichnis für gespeicherte
+                                        Zwischenablagen
+
+Library
+   ac'tivAid.ico                        32x32-Icon für Konfigurationsdialog
+   ac'tivAid_on.ico                     16x16-Icon für den Aktiv-Status
+   ac'tivAid_off.ico                    16x16-Icon für den Inaktiv-Status
+   #ParseFunctionParameters.ahk         Wird innerhalb einer Function mit
+                                        #Include verwendet, um mehrere
+                                        Parameter in einem String zu
+                                        extrahieren
+
+Development                             Unterverzeichnis für Entwickler
+   Eigene Erweiterungen.txt             Diese Datei mit Hinweisen für Entwi.
+   Template (Full).ahk                  Vorlagen-Datei für eigene Erweiterungen
+   Template (Small).ahk                 Gekürzte Vorlagen-Datei für eigene
+ 					Erweiterungen
+   Language-File Creator.ahk            Hilfsskript für die language.ini
+
+
+Extensions                              Unterverzeichnis mit den Erweiterungen
+   ac'tivAid_*.ahk                      Mitgelieferte Erweiterungen
+
+   Media                                Unterverzeichnis mit Sounds/Bildern
+                                        zu einigen Erweiterungen
+
+   UserHotkeys-scripts                  Beispielskripte für UserHotkeys
+      320MPH New.ahk                    320 MPH von Rajat
+      320MPH Old.ahk                    320 MPH von Rajat, simple Version

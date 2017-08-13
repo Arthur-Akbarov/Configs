@@ -1,0 +1,4037 @@
+Ich möchte darauf hinweisen, dass diese Version eine inoffizielle
+Entwicklerversion ist. Ich gebe mir Mühe, dass alles funktioniert, kann aber
+für nichts garantieren.
+
+Viel Spaß damit, Michael
+
+
+1.3.2 Entwicklerversion
+
+Allgemein:
+  - Neue Erweiterung: DesktopIcons
+    Speichert die Positionen der Icons auf dem Desktop und stellt sie bei
+    Auflösungswechsel automatisch wieder her.
+  - Neue Erweiterung: MouseGestures
+  - Neue Erweiterung: TaskbarTools
+      - macht Taskbarbuttons verschiebbar
+      - erlaubt das Schließen von Fenstern durch anklicken des Taskbuttons
+  - Beim Deaktivieren von Erweiterungen über das Tray-Menü gab es eine
+    Fehlermeldung. (Danke Henning Völlm #1525)
+  - Bei mehrspaltigen Menüs wurde in der zweiten Spalte das falsche Icon
+    verändert, wenn man eine Erweiterung de-/aktiviert hatte.
+  - Miniatur Eventsystem eingerichtet
+      - Erweiterungen können nun über bestimmte Events benachrichtigt werden,
+        dadurch müssen manche Timer nicht "doppelt" gestartet werden.
+        Zusätzlich erleichtert dies das Schreiben von Erweiterungen, welche
+        auf bestimmte Ereignisse wie Auflösungswechsel, etc. reagieren.
+  - ac'tivAid kann nun Befehle von anderen Skripten empfangen
+    (Vorbereitung ac'tivAid ins Kontextmenu des Windows Explorers
+    integrieren zu können (ECM))
+  - Gdi+ standard Library 1.19 von Tic eingebunden
+    http://www.autohotkey.com/forum/viewtopic.php?t=32238
+  - Tango Icons "vorbereitet"
+  - gdi+ basiertes multifunktional On-Screen Display hinzugefügt. Es kann
+    unter "Weitere Optionen" bei activAid aktiviert werden.
+    Benötigt allerdings die gdiplus.dll, welche ab WinXP mitgeliefert wird,
+    für Vorgängerversionen aber nachinstalliert werden kann.
+  - GDI+ Funktionalitätsabfrage hinzugefügt. Falls gdi+ aktiviert sein
+    soll, aber nicht vorhanden, so erscheint eine Messagebox, welche einen
+    Downloadlink anbietet.
+  - Hauptscript aufgeteilt in einzelne logische Subskripte
+  - kleine Verbesserungen der GUI
+  - Anpassung aller OS Tests
+  - Korrektur der Berechnung der Schriftgröße
+
+AppLauncher:
+  - Wenn ein Link umbenannt wird, öffnet AppLauncher nicht den übergeordneten
+    Ordner sondern gibt einen Fehler aus (Danke Jan FS#1612)
+
+CommandLine:
+  - globaler Hotkey durch spezifischen Hotkey ersetzt (Eric)
+
+CronJobs:
+  - Eieruhr-Weck-Funktion integriert.
+
+FileHandle:
+  - Vorbereitung zur Intergration ins Explorer Context Menu.
+  - Retry Knopf ist nun nur da, wenn eine Retry Action im Parameter
+    übergeben wird.
+
+FilePaste:
+  - Ersetzungen nur bei leerem Ersetzungsstring abbrechen, nicht bei erster
+    erfolgreicher Ersetzung (Danke an Arnim)
+
+FileRenamer:
+  - Nutzt unter Win7 als Quickfix die Zwischenablage zur Dateierkennung
+
+HotStringHotkey:
+  - erster Hotstring wird nicht mehr geleert (Danke an Eric)
+
+JoyControl:
+  - Erlaubt nun anwendungsspezifische Profile, das Laden von bestimmten
+    Profilen beim Wechsel in eine dazu spezifizierte Anwendung.
+
+LookThrough:
+  - Aero wird automatisch deaktiviert während LookThrough aktiv ist
+
+MusicPlayerControl:
+  - Neue Funktion "Player anzeigen" (Danke Ralf FS#1675)
+
+NewFolder:
+  - Beim Verschieben der markierten Dateien gab es Probleme mit
+    UNC-Pfaden. (Danke Ismus #F15046715)
+  - Falls das Verschieben markierter Dateien nicht klappt, wird
+    nun ein Hinweis mit den entsprechenden Dateien angezeigt.
+
+PastePlain:
+  - RegEx replacement verbessert (Danke an Arnim)
+
+QuickChangeDir:
+  - Indexierung nicht mehr in Endlosschleife wenn Veränderung des freien 
+    Speichers bei der Planung aktiv ist. (Danke an Norbert Grün)
+
+RemoveDriveHotkey:
+  - Wiederkehrende Fehlermeldung hoffentlich beseitigt
+    (Danke Jörg Grieger FS#1615)
+
+ScreenLoupe:
+  - Funktioniert nun auch unter Win7, Aero wird automatisch deaktiviert
+  - Hart kodierte Tasten zur Veränderung der Größe entfernt, Größe kann im
+    fixed mode geändert werden
+
+ScreenShots:
+  - Option zum Hochladen auf FTP-Server hinzugefügt.
+  - Option zum Hochladen auf Imageshack.us hinzugefügt.
+  - Upload zu abload.de hinzugefügt
+
+Surrounder:
+  - Eckige und geschweifte Klammer funktioniert nun auch ohne AltGr
+    (Danke Dietrich Pank FS#1561)
+
+VolumeControl:
+  - GDI+ OSD hinzugefügt
+  - GDI+ OSD hat eine genaue Lautstärkeanzeige. (Danke Tom FS#905)
+  - Mute Modus wird auch unter Win7 richtig erkannt (kein Dauer-OSD)
+
+
+1.3.2 beta1 - 2008-06-09 13:00
+
+RemapKeys:
+  - b1: Bei "Windows-Taste simulieren" kann nun auch CapsLock eingegeben
+    werden, getestet habe ich das allerdings noch nicht.
+
+RemoveDriveHotkeys:
+  - b1: Laufwerke können mit Strg+Laufwerksbuchstabe im Explorer geöffnet
+    werden. (Danke Leopold Schabel #1422)
+  - b1: Der Hinweis "Keine Laufwerke" erscheint nur noch auf Tastendruck.
+    (Danke Stefan Mann #1379)
+
+UserHotkeys:
+  - b1: Mittels "<PerformAction>EnableDisable,Erweiterung" lassen sich nun
+    Erweiterungen per Tastaturkürzel de-/aktivieren.
+    (Danke Peter Binding #F15026188)
+
+_____________________________________________________________________________
+1.3.1 - 2008-06-06 08:24
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Allgemein:
+  - Neue Erweiterung: InputBlocker
+  - Neue Erweiterung: CronJobs von David Hilberath
+  - T9Keys wurde in TypeWith9Keys umbenannt. (Danke Stefan Burkert #1497)
+  - b10: Mit dem Update auf b9 wurde versehentlich ein doppeltes LeoToolTip
+    Skript ausgeliefert. Dieses wird beim Update auf b10 wieder gelöscht.
+    (Danke Mathias Kalb #1510)
+  - b10: Nach einem Update wurde bei einigen Anwendern der Settings-Ordner
+    unter "All Users" erwartet. (Danke Eric Werner #1469)
+  - b6: Der Übernehmen-Button wurde gelegentlich beim Wechsel der
+    Konfigruationseite aktiviert. (Danke Mathias Kalb #1453)
+  - b6: Die Suche funktioniert wieder in der Hilfe.
+    (Danke Matthias Büttner #1492)
+  - b5: Die Anzeige der Erweiterungsbeschreibung in der Erweiterungs-
+    konfiguration zeigte manchmal keine Beschreibung an.
+    (Danke Lars Hupel #1475)
+  - b5: Die mittlere Maustaste auf dem ac'tivAid-Icon funktioniert nun
+    (Danke Eric Werner #1468)
+  - b5: Das Kontextmenü mit allen Funktionen blockiert nicht mehr die
+    konfiguration
+  - b4: Hatte man alle Erweiterungen aus dem Traymenü ausgeblendet, waren
+    die Menü-Icons an der falschen Position. (Danke Tronje Bäßler #1477)
+  - b2: Das Changelog liegt nun ebenfalls in Englisch vor.
+    (Vielen Dank an Michael Janszen)
+  - b2: func_ChangeDir öffnet nun auch Verzeichnisse mit einem Komma im Pfad.
+    (Danke Harald Brennecke #1474)
+  - b2: Die zuletzt ausgewählte Erweiterung wird nun auch beim Beenden von
+    ac'tivAid gespeichert. (Danke Tronje Bäßler #1476)
+
+AppLauncher:
+  - b11: Aufbau der Liste beschleunigt, so dass das Fenster wieder schneller
+    erscheint. (Danke The man who loves the Eifel #1487)
+  - b7: Die automatische Spaltenbreite wird schon angewendet während
+    die Liste aufgebaut wird.
+
+AutoShutDown:
+  - b2: Falsche Zeichen in der Konfiguration korrigiert.
+    (Danke Sven Knurr #1481)
+
+CharacterAid:
+  - b8: Es können nun auch Zeichen wie { und } verwendet werden.
+    (Danke Max Kottwitz #1496)
+
+ComfortDrag:
+  - b11: Da das Bewegen von Sidebar Gadgets in Vista zu Darstellungsproblemen
+    führt, werden diese nun vom temporären Desktop ignoriert
+    (Danke Kristof Eschberger #1511)
+
+HotStrings:
+  - b6: Syntaxcheck funktioniert nun auch wieder im Mehrbenutzermodus.
+    (Danke Kristof Eschberger #1488)
+  - b3: Beim nächsten Update werden die HotStrings nicht mehr deaktiviert
+    sein. (Danke Henning Völlm #1438)
+  - b2: Beim Anklicken der Erweiterung in der Konfiguration wurde
+    versehentlich die Konfigruationseite gewechselt.
+    (Danke Eric Werner #1478)
+  - b2: Die Hotstrings waren nach einem Reload nicht mehr verfügbar.
+    (Danke Holger #1438)
+
+HotStringsHotkey:
+  - b7: Der Cursor springt nicht mehr in das falsche Feld.
+    (Danke Eric Werner #1493)
+
+LeoToolTip:
+  - b11: pda.leo.org funktioniert wieder (Danke Sebastian #1507)
+  - b10: Der Ergebniscache wird nun deaktiviert, falls die Anzeige der
+    Foren-Beiträge aktiviert ist. (Danke Mathias Kalb #1507)
+  - b10: Der ToolTip verschwindet nun nicht mehr wenn viele Erweiterungen
+    aktiviert sind.
+  - b9: Wird der Suchbegriff nicht gefunden, gibt es nun eine Auswahl mit
+    den orthographisch passenden Vorschlägen, statt automatisch den ersten
+    Vorschlag zu verwenden. (Vielen Dank an Kongo #1507)
+  - b9: Man kann im Menü nun passende Forums-Beiträg anzeigen lassen.
+    (Vielen Dank an Kongo #1507)
+
+LimitMouse:
+  - b10: Neue Option: "Beim Start von ac'tivAid automatisch auf Hauptmonitor
+    beschränken" (Danke Jascha Hilz)
+  - b8: Der Mauszeiger kann nun auch auf den Arbeitsbereich des aktiven
+    Fensters beschränkt werden. (Danke Simon Musall #1494)
+  - b8: Der Mauszeiger kann nun temporär horizontal oder vertikal beschränkt
+    werden. (Danke Dirk Schwarzmann #1454)
+
+MusicPlayerControl:
+  - b11: Neue Tastaturkürzel für Zufall und Wiederholen
+
+QuickChangeDir:
+  - b3: Die Indexierung von Pfaden mit %-Zeichen funktioniert wieder
+    (Danke Henning Völlm #1461)
+
+QuickNote:
+  - b10: Die Option "Notiz-Datei auf Veränderung überwachen" führte manchmal
+    dazu, dass beim Tippen der Cursor an den Anfang der Notiz sprang.
+    (Danke für die vielen Hinweise #1337)
+
+ScreenShots:
+  - b4: Doppelklick geht wieder. (Danke Juerg Sommer #1486)
+
+Surrounder:
+  - b6: Option für „spezielle Anführungszeichen” (unten/oben) eingebaut.
+
+UserHotkeys:
+  - b2: Sehr lange Befehle konnten ac'tivAid beim Start zum Absturz bringen
+    (Danke Sebastian Hütter #1479)
+
+_____________________________________________________________________________
+1.3.0 - 2008-05-23 14:04
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Allgemein:
+  - Es liegt nun eine komplett englische Hilfe vor.
+    (Großen Dank an Michael Telgkamp für diesen Marathon-Job)
+  - b120: Deaktivieren von Erweiterungen wird direkt in der Liste dargestellt
+  - b120: Nach einem Update sollten die Settings nicht mehr in All Users
+    erwartet werden (Danke Eric Werner #1469)
+  - b120: DebugView wird nun minimiert gestartet und lässt ac'tivAid nicht
+    mehr abstürzen
+  - b119: Beim Aufräumen der Einstellungsdatei wurden Update-Routinen von
+    einigen Erweiterungen ausgeführt, was zu fehlerhaften Einstellungen
+    führte. (Danke Mathias Kalb #1452)
+  - b117: Eine Menge Tipp- und Grammatikfehler behoben
+    (Danke Stephan Ehrmann)
+  - b117: Beim Aufräumen der Einstellungsdatei sind viele Einstellungen
+    verloren gegangen (Danke Mathias Kalb #1452)
+  - b117: Wurde bei einem deaktiverten ac'tivAid in der Konfiguration auf
+    Abbrechen gedrückt, haben sich teilweise einige Erweiterungen wieder
+    aktiviert (Danke Michael #1456)
+  - b116: Die Sicherheitsabfrage bei der Aktualisierungs-Prüfung ist nun auch
+    über Weitere Optionen abschaltbar (Danke Thomas Maibaum #1450)
+  - b116: Signalton bei der Suchfunktion ist nun optional
+    (Danke Thomas Maibaum # 1449)
+  - b115: Neue Erweiterung 'FileHandle', abgetrennt von RemoveDriveHotkey
+  - b113: Neue Option in der Einstellungsdatei: DelayedUpdateCheck
+    (Siehe Liesmich)
+  - b113: Die Liste mit allen installierten Erweiterungen zeigt nun optional
+    Icons an
+  - b107: Es kann nun eine icons.ini im Settings-Ordner abgelegt werden
+    um ein eigenes IconSet zu definieren (siehe emptyIcons.ini).
+  - b107: Templates an Icons angepasst
+  - b107: Neue Erweiterung von David Hilberath: SpeechAction. Benötigt ein
+    installiertes MS Speech SDK 5.1 (kostenloser Download bei Microsoft).
+    Damit lassen sich Aktionen auf bestimmte Sprachkommandos
+    legen. Nicht ganz Star Trek, aber "Computer! Play Music!"
+    macht trotzdem Spaß.
+  - b106: Rechtsklick in der Konfiguration führte in einigen Fällen zu einer
+    Fehlermeldung (Danke Leopold Schabel #1414)
+  - b106: Man kann jetzt genau bestimmen welche Aktion bei einem
+    Links-, Rechts- oder Mittelklick auf das Traysymbol
+    ausgeführt werden soll.
+  - b106: RemoveDriveHotkey-Menü als TrayClick-Menü definierbar.
+  - b106: Erweiterungen können jetzt eigene Menüicons spezifizieren.
+  - b104: Alle Fortschrittsbalken aus der Konfiguration entfernt, die sie
+    Wegen der Optimierung nicht mehr notwendig sind.
+  - b102: Anpassung des automatischen Updates, so dass es wieder funktioniert,
+    wenn TypeWith9Keys eingesetzt wird. (Danke Leopold Schabel #1326)
+  - b102: In der Tastaturkürzel-Übersicht kann man nun Strg+A drücken, um den
+    gesamten Text zu markieren
+  - b102: Das Konfigurationsfenster wird nun deutlich schneller aufgebaut
+  - b102: Die Erweiterung MusicControl wurde in die zwei Erweiterungen
+    MusicPlayerControl und VolumeControl aufgeteilt
+    (Danke Michael für die vorzügliche Arbeit)
+  - b100: Neue Erweiterung von Eric Werner: Surrounder. Umklammert
+    ausgewählten Text mit den üblichen Zeichen
+    (Anführungszeichen, Klammern ...).
+  - b99: Beim Aufräumen der Einstellungsdateien werden nun nicht mehr
+    vereinzelt Einstellungen vergessen. (Danke Tronje Bäßler #1384)
+  - b94: ac'tivAid deaktiviert sich selbsttätig, sobald der Installer im
+    Vordergrund ist. Dadurch wird gewährleistet, dass geladene Hilfs-Dlls
+    (z. B. sqlite) die Installation nicht verhindern. (Danke Tom #1351)
+  - b93: Falls Erweiterungen doppelt installiert sind (Ursache noch nicht
+    bekannt) stürzt ac'tivAid nun nicht ab, sondern es repariert sich nach
+    einem Hinweis quasi selbst. (Danke Jürgen Meurer #F14647049)
+  - b93: Die Verwaltung der Erweiterungen verhält sich nun logischer
+    (Danke Michael)
+  - b92: Fehler "Max window number is 99" behoben (Danke Sven Knurr #1360
+    und Udo Nesshoever #1356)
+  - b89: Mit dem Eintrag DebugToFile = C:\logdatei.txt in der ini-Datei
+    kann man nun auch ein Logfile erzeugen. (zusätzlich ist
+    DebugLevel = ALL und Debug = 1 zu setzen)
+  - b89: Neue Erweiterungen von David Hilberath: JoyControl
+  - b89: Neue Erweiterungen von David Hilberath: RealExpose
+  - b88: Das zweispaltige Traymenü (falls Bildschirm zu klein) hatte immer
+    den ersten Menüpunkt in der zweiten Spalte 'verschluckt'.
+  - b85: Das Konfigurationsfenster zeigte beim ersten Aufruf das grüne
+    AutoHotkey-Icon. (Danke Michael #1313)
+  - b83: Über "Weitere Optionen" lässt sich nun die Doppelklick-Aktion des
+    Tray-Symbols auf einen Einfachklick umstellen
+  - b82: "Dump Variables" ist nun immer im Hilfe-Menü sichtbar
+  - b82: Wenn eine neue Version verfügbar ist, kann man über die Schaltfläche
+    "Was ist neu?" direkt das Changelog im Browser anzeigen lassen.
+    (Danke Ingo Freitag #1309)
+  - b80: Neue Erweiterung MinimizeToTray von David Hilberath
+  - b80: Neue Erweiterung TypeWith9Keys von David Hilberath (noch ohne Hilfe)
+  - b76: Erweiterungen wie EditWith oder FileRenamer funktionieren nun
+    zuverlässiger, wenn Sie über das Kontextmenü aufgerufen werden.
+    (Danke Bastian #1277)
+  - b74: Die Konfliktprüfung von Windows-Kürzeln zeigte eine
+    Fehlermeldung (Danke R. Seidl #1292)
+  - b73: Es wird nun auf Konflikten mit Standard-Windows-Kürzeln hingewiesen
+    (Nur bei Neudefinition)
+  - b69: Wenn das Arbeitsverzeichnis noch nicht gesetzt wurde, zeigte die
+    Schaltfläche "Auf Aktualisierung prüfen" generell keine Fehlermeldung
+    mehr. (Danke Mark Gerber #1279)
+  - b68: Wenn das Arbeitsverzeichnis noch nicht gesetzt wurde, zeigte die
+    Schaltfläche "Auf Aktualisierung prüfen" eine Fehlermeldung.
+    (Danke Mark Gerber #1279)
+  - b68: Beim Update wurden die falschen Einstellungen geladen
+    (Danke Sven Knurr #1280)
+  - b67: Einige Spezialtasten, welche in ac'tivAid zuvor als SC112 oder
+    ähnliches angezeigt wurden, werden nun mit Namen angezeigt.
+    Dabei wird der Name angezeigt, welcher von Microsoft definiert wurde.
+    Da es sich nicht um Standards handelt, kann es sein, dass die Namen
+    z. B. auf Logitec-Tastaturen nicht passen. (Danke Maic Pippig)
+  - b65: Doppelte Erweiterungen werden in der Erweiterungsverwaltung nicht
+    mehr aufgeführt, stattdessen erscheint dort ein HINWEIS
+    (Danke Michael #1278)
+  - b63: Strg+, kann nun als Kürzel verwendet werden
+    (Danke Dirk Schwarzmann #1276)
+  - b60: Das Arbeitsverzeichnis lässt sich nun in der Konfiguration bestimmen
+  - b57: Ein manuelles Update unter Vista lädt nun die korrekten Einstellungen
+    nachdem der Installer ac'tivAid startet. (Danke Stephan Ehrmann)
+  - b54: In der Erweiterungsverwaltung wurde der Beschreibungstext nicht
+    immer korrekt aktualisiert (Danke Sven Knurr #1261)
+  - b52: Beim Aktualisieren über das Menü werden nicht mehr versehentlich alle
+    Menüpunkte deaktiviert (Danke Sebastian #1262)
+  - b50: Neue Erweiterung KeyboardLayout, mit welche man das Tastaturlayout
+    wechseln kann.
+  - b49: Das Tray-Menü wird nun in vertikale Spalten geteilt, falls es zu
+    groß für den Bildschirm ist. (Danke Tom Krumpschmid #1227)
+  - b48: Wenn ein Systemkürzel für den Tastaturlayoutwechsel definiert
+    ist, weist ac'tivAid beim ersten mal auf etwaige Probleme hin
+  - b48: Meldungen, die beim Laden angezeigt werden müssen, erscheinen nun
+    alle nacheinander und nicht mehr teilweise gleichzeitig
+  - b44: Neue Erweiterung: EditWith (Danke Jens Rossbach #1236)
+  - b42: Neue Erweiterung: MouseWheel (Danke Matt Drayton #F14113299)
+  - b41: Win+Shift+Q kann nun als Kürzel verwendet werden
+    (Danke Markus Müller #1240)
+  - b37: Wird Portable_ac'tivAid.exe nicht von einem USB-Stick gestartet und
+    es fehlen Schreibrechte im Verzeichnis von ac'tivAid, dann wird das
+    Benutzerprofil verwendet, um die Settings zu speichern.
+    (Danke Christoph #F14160531)
+  - b34: In den meisten Erweiterungen können nun Variablen in Pfadangaben
+    verwendet werden (Danke Sebastian #1218)
+  - b32: Multilevel-Hotkeys wie bei Calendar werden nicht mehr als
+    Duplikate erkannt, wenn das Master-Hotkey gesetzt ist.
+    (Danke Igor Sweet #1216)
+  - b29: Neue Erweiterung LimitMouse:
+    Einsperren der Maus in Bildschirme oder Anwendungen
+    (Danke Jack Tissen)
+  - b24: InfoScreen() kollidiert nicht mehr mit ReadingRuler
+    (Danke Markus Mueller #1204)
+  - b21: Beim Aufheben eines Kürzelkonflikts wird ac'tivAid neu geladen,
+    damit alle Kürzel korrekt funktionieren (Danke Stephan Ehrmann)
+  - b16: Dump Variables zeigt bei ungültigen Zeichen keine Fehlermeldung mehr
+    an. (Danke Lars Hupel #1181)
+  - b16: Unter Vista 64-Bit wird nun das Settings-Verzeichnis korrekt
+    angelegt. (Danke Bastian Schulz #1183)
+  - b16: Die Tastaturkürzel-Übersicht kann nun direkt mit Strg+C in die
+    Zwischenablage kopiert werden, wenn der Cursor in der Liste steht.
+    (Danke Albert Winter)
+  - b8: Falls nicht alle installierten Erweiterungen geladen werden konnten,
+    werden diese nun nach einem Hinweis automatisch neu installiert
+    (Danke Stephan Ehrmann)
+  - b6: "Portable ac'tivAid.exe" in "Portable_ac'tivAid.exe" umbenannt, um
+    Probleme mit einer autorun.inf zu vermeiden (Danke S. Leuther #1167)
+  - b2: In der Erweiterungsverwaltung waren die Sprachen vertauscht
+    (Danke Michael Janszen #1135)
+  - b1: Es werden nun auch die englischen Beschreibungen von nicht
+    installierten Erweiterungen angezeigt. (Danke Michael Janszen #1135)
+
+AppLauncher:
+  - b118: Es können nun direkt aus AppLauncher Einträge in UserHotkeys
+    übernommen werden (Danke Jossekin Beilharz #881)
+  - b115: Wird während dem Aufbau des Verlaufs schon Enter gedrückt, bleibt
+    AppLauncher nicht mehr bis zum Neustart hängen
+    (Danke Leopold Schabel #1375)
+  - b103: Über das Kontextmenü können nun die Eigenschaften von Verknüpfungen
+    angezeigt werden (Danke Michael)
+  - b103: Es können nun über ExcludedFiles.dat auch ganze Verzeichnisse
+    ausgeschlossen werden. (Danke Leopold Schabel #1411)
+  - b102: Die Fensterhöhe wird wieder gespeichert (Danke Manuel Kappelhoff)
+  - b101: Korrekte Ermittlung des Icons bei Programmen die nicht indexiert
+    wurden, aber über die PATH-Variable aufgerufen wurden (explorer.exe,
+    cmd.exe) (Danke Michael und Mathias #1387)
+  - b91: Das Kopieren der Pfade in die Zwischenablage funktioniert nun auch in
+    der vereinfachten Darstellung (Danke Michael #1330)
+  - b73: Die CustomNames.dat kann um spezielle Einträge ergänzt werden,
+    welche automatisch bei der Indexierung dafür sorgen, dass
+    Programme eines Verzeichnisses mit einem Kürzel versehen werden.
+    (siehe Liesmich) (Danke Ingo Freitag #1151)
+  - b72: Der Index wird nach einem Update nur noch dann neu aufgebaut, wenn
+    es notwendig ist (Danke Michael)
+  - b72: Durch schließen des Indexer-Fensters kann man die Indexierung
+    nun abbrechen. (Danke Michael)
+  - b64: Die vereinfachte Darstellung, welche zu Beginn nur das Suchfeld zeigt
+    funktioniert nun in allen Situationen (Danke Jens Rossbach #1157)
+  - b64: Es werden nun auch Wörter in Klammern und zwischen anderen
+    Sonderzeichen gefunden
+  - b62: ac'tivAid-Funktionen ohne Tastaturkürzel wurden falsch angezeigt
+  - b61: Wenn nach einem Update der Index aktualisiert werden muss, wird dies
+    nun automatisch vorgeschlagen. (Danke Andreas Brikalin #1271)
+  - b55: Wenn das Konfigurationsfenster sichtbar war und man mit AppLauncher
+    eine andere Konfigruation aufgerufen hat, kam es zu einem Absturz
+    (Danke Mark Gerber #1263)
+  - b54: Wenn RunAsHelper abstürzt, wird keine Fehlermeldung mehr ausgegeben
+    (Danke Klaus #1253)
+  - b53: Der Aufbau des Verlaufs (History) kann nun auch direkt durch Eingabe
+    weiterer Zeichen abgebrochen werden (Danke Stephan Ehrmann)
+  - b52: Einige Macken beseitigt (Danke Sebastian #1258)
+  - b51: Mit F2 kann man Einträge nun umbenennen und somit einen benutzer-
+    definierten Namen vergeben. Der neue Name ist nur im AppLauncher sichtbar,
+    die Originaldatei wird nicht verändert. (Danke Sebastian #1258)
+  - b51: Von MSC-Dateien (z. B. Gerätemanager, devmgmt.msc) werden nun die
+    Icons korrekt dargestellt (Danke Michael)
+  - b51: Verknüpfungen ohne Verknüpfungsziel können nun indexiert werden
+    (z. B. eine Verknüpfung auf Software aus der Systemsteuerung)
+    (Danke Michael)
+  - b48: Neue Option "Alternative Methode für Ausführen als ..." um
+    bei einigen Anwendern, das Absturzproblem zu beheben
+    (Danke Klaus und Michael #1253)
+  - b47: Einige Fehler im Zusammenhang mit Portable ac'tiAid behoben
+    (Danke Thomas Maibaum #1251)
+  - b46: Bei Portable ac'tivAid werden nun zwei Index-Dateien gepflegt.
+    Eine Datei ist Computerabhängig und die andere bezieht sich
+    immer auf das Laufwerk, auf welchem ac'tivAid läuft. Somit
+    aktualisiert die Indexierung beim Computerwechsel nicht
+    erneut den Index eines USB-Sticks. Das ganze passiert nur,
+    wenn bei den Pfaden einer die Variable %Drive% enthält.
+    (Danke Sebastian #1219)
+  - b45: Die automatische Indexierung, wenn der Computer gewechselt wurde,
+    ist nun optional (erweiterte Einstellungen)
+  - b45: Die Index-Dateien sind bei Portable ac'tivAid nun für jeden
+    Computer unterschiedlich (Danke Sebastian #1219)
+  - b44: Bei der Direkteingabe von Befehlen werden nun auch Variablen
+    unterstützt. (Danke Michael)
+  - b42: Probleme mit %-Zeichen Pfaden behoben (Danke Klaus #1244)
+  - b41: Neue Option grüne/graue Checkbox für Befehle und Funktionen von
+    ac'tivAid bewirkt ausschließlich Anzeige der Einträge zur einfachen
+    Konfiguration und nicht aller ac'tivAid Erweiterungen und aller Befehle
+    (Danke Michael)
+  - b40: Verbesserung der Icon-Darstellung. In der Liste werden nun die
+    korrekten 16x16-Icons angezeigt und nicht mehr herunterskalierte
+    32x32-Icons (Danke Michael)
+  - b38: Wenn Portable ac'tivAid auf einem anderen Computer als beim letzten
+    mal ausgefürt wird, startet der Indexer automatisch im Hintergrund (ca.
+    8 Sekunden nach dem Start) (Danke Sebastian #1219)
+  - b38: Es gibt nun eine Art phonetische Suche, welche versucht ähnliche
+    Begriffe zu finden, falls kein direkter Treffer erzielt werden konnte
+    (Danke Sebastian #1219)
+  - b37: Die Option mit %Drive% so erweitert, dass auch Variablen wie
+    A_Desktop oder A_Programs verwendet werden
+    (Danke Sebastian #1219)
+  - b37: Ein mit Strg+Entf in die ExcludedFiles.dat aufgenommener Eintrag
+    wird nun auch aus der History entfernt, so dass der Eintrag nicht
+    mehr im Suchergebnis auftaucht, wenn er schon mal ausgeführt wurde
+    (Danke Markus Müller #1229)
+  - b36: Neue erweiterte Einstellung "Laufwerksbuchstaben ?: im Index
+    durch %Drive% ersetzen", welche besonders für USB-Sticks
+    praktisch ist. (Danke Sebastian #1219)
+  - b35: Wenn die dynamische Indexierung länger als 1 Sekunde dauert,
+    wird ein Hinweis angezeigt
+  - b34: Ein Hinweistext in der Konfiguration weist darauf hin, dass die
+    Datei ExcludedFiles.dat existiert
+  - b27: Wurde einmal ein Befehl aus dem Kontextmenü ausgewählt, wurde er
+    später auch beim normalen "Ausführen" verwendet.
+    (Danke Mark Gerber #1211)
+  - b26: Das Kontextmenü erscheint bei belegter rechter Maustaste nun nicht
+    erst nach einer Mausbewegung (Danke Mark Gerber #1212)
+  - b25: In der AppLauncher.ini kann man nun Anwendungen eintragen, welche
+    im Kontextmenü als "Mit %Programm% ausführen" aufgeführt werden.
+    Das ist z. B. für MachMichAdmin interessant. (Siehe auch die Hilfe)
+    (Danke Mark Gerber #1212)
+  - b21: Es werden nun auch Parameter einer Verknüpfung angezeigt und mit
+    Strg+Shift+C kopiert. So kann z. B. der komplette Aufrufpfad von
+    JEdit ermittelt werden.
+  - b19: Kontextmenü hinzugefügt (Danke Stephan Ehrmann)
+  - b16: Mit Strg+C/Strg+Shift+C kann der Pfad des ausgewählten Eintrags
+    in die Zwischenablage kopiert werden (Danke Stephan Ehrmann)
+  - b10: Es können nun schon Einträge ausgeführt werden, während sich die
+    Liste noch aufbaut. (Danke Stephan Ehrmann)
+  - b4: Probleme mit hoher Systemauslastung behoben
+    (Danke für die vielen Hinweise #1157)
+  - b2: Manuell (mit Strg+Entf) entfernte Einträge werden dauerhaft aus dem
+    Index entfernt (Danke Ingo Freitag #1150)
+  - b1: Es werden nun auch Befehle im Verlauf aufgenommen, die nicht im Index
+    sind. (Danke E. Hahn #1077)
+  - b1: Bei Suchbegriffen, welche keinen Treffer erzielen, wurde trotzdem ein
+    Pfad angezeigt (Danke Lars Hupel #1132)
+
+AutoDeactivate:
+  - b113: Man kann Anwendungen jetzt auch durch Suchen der Datei hinzufügen.
+  - b113: In der Liste werden jetzt die Erweiterungs-Icons angezeigt, falls
+    die Option "In der Liste der Erweiterungen Icons anzeigen" unter
+    "activAid" aktiviert ist.
+  - b89: Statt regelmäßig das aktive Fenster abzufragen, kann man jetzt
+    optional einstellen ob Windows eine Nachricht an AutoDeactivate senden
+    soll, sobald ein anderes Fenster aktiviert wird (kurz: ShellHook
+    integriert). (Danke David Hilberath)
+  - b17: Es kann nun festgelegt werden ob ac'tivAid komplett oder nur einzelne
+    Erweiterungen automatisch deaktiviert werden sollen
+    (Danke David Obernöder)
+
+AutoShutDown:
+  - b82: Es gibt nun eine Option, um Programme welche vor dem Herunterfahren
+    ausgeführt werden sollen auch beim Standby/Ruhezustand auszuführen.
+    (Danke Grosser Manitu #464)
+  - b51: Im Dialog ist nun immer der Fokus auf "Optionen fürs
+    Herunterfahren", auch wenn mehrere Betriebssystem zu Auswahl angeboten
+    werden (Boot.ini) (Danke Patrick #F14204475)
+  - b47: Die Option "ScreenShot beim Herunterfahren" wurde in die Erweiterung
+    ScreenShots ausgelagert, damit die Funktion auch mit der Erweiterung
+    PowerControl zusammenarbeitet.
+
+CalculAid:
+  - b5: Das Umschalten der Ansicht mit Tab funktioniert nun auch bei größerer
+    Systemschrift (Danke H. U. Leibundgut)
+
+Calendar:
+  - b33: Beim Master-Hotkey wird ac'tivAid kurzfristig deaktiviert, damit
+    die weiteren Tasten nicht ggf. mit anderen Kürzeln im Konflikt
+    stehen. (Danke Igor Sweet #1216)
+  - b19: Einige Optionen wurden verschoben nach "Weitere Optionen".
+    Option hinzugefügt für Fenster-Transparenz und Always-on-top.
+    Wenn die Option "Kalender schließen, wenn anderes Fenster aktiv wird"
+    deaktiviert ist, schließt sich der Kalender nun auch nicht mehr, wenn ein
+    Datum eingefügt wird. (Danke Peter Musch #1197)
+  - b2: Bei einem minimierten Kalender wird nicht mehr die falsche Position
+    gespeichert (Danke Michael Aly)
+  - b1: Man kann nun bestimmen, ab das Datum zusätzlich oder ausschließlich
+    in die Zwischenablage kopiert werden soll (Danke Horst Gössel)
+  - b1: Default-Werte für die Monatsansicht anders gesetzt, so dass sie auch
+    auf kleinen Auflösungen besser lesbar sind. (Danke Lars Hupel #1131)
+
+CharacterAid:
+  - b106: es werden auch wieder Zeichen 21-30, die in der ini angegeben
+    werden ersetzt. (Danke Matthias Büttner #1420)
+  - b89: Überprüfung nach ungültigen Zeichen in den Buchstabenlisten
+    (Danke Josef Hinteregger #1349)
+  - b25: Es werden wieder die Buchstaben in der korrekten Reihenfolge zum
+    Ersetzen genutzt. (Danke Tom Krumpschmid #1213)
+  - b19: Man kann jetzt die Anzahl der Tastendrücke vor der Ersetzung
+    einstellen (Danke für den anonymen Hinweis #1063)
+
+ClipboardFilesManager:
+  - b37: Standard-Tastaturbelegung entfernt, um Konflikte und versehentliches
+    Löschen von Dateien zu vermeiden (Danke Tom Krumpschmid #1224)
+  - b17: Prefix im ClipboardFilesManager korrigiert. (Danke Jack Tissen)
+
+ComfortResize:
+  - b114: Die interaktive Auswahl von ScreenShots wird nun ignoriert
+    (Danke Eric)
+  - b12: Verhalten von "Rechte und Linke Maustaste" lässt sich in der
+    INI-Datei umschalten (Danke Günther Kaul)
+  - b9: Neues Kürzel: Rechte und Linke Maustaste (Danke Ludwig Kusch #1172)
+
+CommandLine:
+  - b100: Es können nun auch die Kommandozeilenparameter festgelegt werden
+    (Danke Wolfgang Wahlhütter #1397)
+
+DateTimeDisplay:
+  - b4: Die Fenstergröße kann nun manuell eingestellt werden.
+
+DriveIcons:
+  - b108: Beim Deinstallieren werden nun wieder die Icons gelöscht
+    (Danke Daniel Merbecks #1412)
+  - b99: Es können mehrere Orte gleichzeitig aktiviert werden, wo die Icons
+    erscheinen sollen (Danke hsli #F14741192)
+  - b99: Die Laufwerks-Icons können nun auch in die Linkfavoriten von Vista
+    eingefügt werden (Danke hsli #F14741192)
+  - b42: Die Ermittlung des Laufwerknamens von Netzlaufwerken verbessert
+    (Danke Peter Schauder #1243)
+  - b37: Die Variable FileBrowserWithTree (ac'tivAid.ini) wird nun
+    berücksichtigt (Danke Peter Schauder #1234)
+
+Eject:
+  - b37: Standardkürzel von Strg+Alt+E (€) auf Alt+Shift+E geändert
+    (Danke Tom Krumpschmid #1224)
+
+ExplorerHotkeys:
+  - b2: Im Verlauf Vorwärts/Rückwärts funktioniert nun auch in Dateidialogen
+    vollständig (Danke Eric Werner)
+
+FileRenamer:
+  - b105: Bei den Suchen-/Ersetzen-Strings werden nun keine Leerzeichen mehr
+    am Anfang oder Ende entfernt. (Danke Udo Nesshoever #1419)
+  - b101: Es gibt nun einige Beispiel-RegEx (Danke Mathias #1186)
+  - b99: Die Ersetzen-Funktion akzeptiert nun auch Reguläre Ausdrücke indem
+    man bei 'Ersetze' das Prefix 'RegEx:' voranstellt
+    (Danke Jossekin Beilharz #1383)
+  - b89: Das Umbenennen-Fenster wird nun immer in den sichtbaren Bereich
+    verschoben (Danke Udo Nesshoever #1348)
+  - b84: Die Kürzel werden nun in speziellen Dateimanagern (Total Commander
+    etc.) ignoriert, um dort die gleichen Kürzel direkt im Programm belegen
+    zu können (Danke Jens Rossbach #1323)
+  - b77: Workaround für 64-Bit-Systeme (Danke Bastian #1277)
+  - b71: Es lassen sich nun auch Schreibtischsymbole umbenennen, die unter
+    All Users liegen und auch auf dem Schreibtisch des Benutzers angezeigt
+    werden.
+  - b71: Mehrzeilige Dateinamen (auf Desktop) wurden nicht komplett markiert
+    (Danke Christian #1287)
+  - b71: Das Löschen eines Eintrags über das Kontextmenü funktioniert nun
+    (Danke Mathias Kalb #1186)
+  - b70: Es erscheint nun eine Fehlermeldung, wenn keine Datei ausgewählt
+    wurde.
+  - b70: Das Kontextmenü erscheint nicht mehr doppelt, wenn die rechte
+    Maustaste mit zusätzlichen Funktionen belegt ist
+  - b70: Über das Kontextmenü kann die Dateiliste nun auch nach Datum sortiert
+    werden (Danke Mathias Kalb #1186)
+  - b37: Der Cursor steht wieder am Ende der Markierung
+    (Danke Christian #1231)
+  - b29: Man kann nun auch das aktuelle Datum (Jetzt) bei der Benennung
+    verwenden
+  - b29: Neue Option, um immer das große Umbenennen-Fenster zu zeigen,
+    auch wenn nur eine Datei ausgewählt ist.
+  - b17: Der Dialog für einzelne Dateien funktioniert wieder (#1193)
+  - b16: Neue Option, um beim Umbenennen einzelner Dateien den Namen nicht zu
+    markieren. (Danke Mathias Kalb #1186)
+  - b16: Neue Option "Schrägstriche zulassen", um Unterordner anlegen zu
+    können. (Danke Franz-Richard Kunze #1184)
+  - b16: Neue Option "Bereits existierende Dateien überscheiben".
+    (Danke Mathias Kalb #1186)
+  - b16: Neue Option "Nummerierungsbegin nach der Umbenennung automatisch
+    erhöhen"
+  - b15: Es besteht nun die Möglichkeit auch das Datum aus den Exif-Daten
+    zu verwenden. Dies ist momentan mehr experimentell. Es wird das erste
+    Datum verwendet, welches in den ersten 1024 Bytes der Datei gefunden
+    wurde. (Danke Ludwig Kusch #1174)
+  - b14: Es gibt nun keine standardmäßige Vorbelegung für den Zähler, dem
+    Zeit- und dem Datumsformat mehr. (Danke Ludwig Kusch #1174)
+  - b13: Änderungs- und Erstellungsdatum waren vertauscht
+    (Danke Ludwig Kusch #1174)
+  - b11: Es werden nun alle Werte gespeichert und beim nächsten Umbenennen
+    wieder in dem Dialog gezeigt, falls keine Vorgabewerte gesetzt wurden.
+    (Danke Ludwig Kusch #1174)
+  - b11: Das Wiederholen der letzten Umbenennung funktioniert nun korrekt
+
+FreeSpace:
+  - b79: Bei der Option "Zahlen mit regionalen Einstellungen formatieren"
+    wird nun das Zahlenformat des tatsächlichen Landes berücksichtigt und
+    nicht nur das der Hauptsprache. (Danke Markus Bubendorf #1295)
+
+HotStrings:
+  - b115: Man kann bei AutoHotkey-Befehlen nun auch ac'tivAid-Funktionen
+    wie z.B. performAction() verwenden, ohne dass die Syntaxprüfung
+    fehlschlägt.
+  - b1: Auch beim Klicken auf OK merkt sich HotStrings nun den zuletzt
+    gewählten HotString
+
+KeyState:
+  - b6: Die ICL-Datei mit den Tray-Icons lässt sich über die INI-Datei
+    festlegen (Danke Andreas Wirth)
+  - b4: Die Statusanzeige im Tray wird nun korrekt zurückgesetzt
+    (Danke Andreas Wirth)
+
+LeoToolTip:
+  - b118: Beim Einfügen von Übersetzungen wird nicht mehr nur der Text
+    vor dem Komma eingefügt (Danke Leopold Schabel #1464)
+  - b102: Italienisch-Deutsch zu den Übersetzungen hinzugefügt
+    (Danke Tony Modica #1407)
+  - b95: Anpassung von LeoToolTip an die Änderungen bei dict.leo.org, so dass
+    nun wieder korrekt die Ergebnisse angezeigt werden
+    (Danke Andreas Brikalin #1373)
+  - b91: Der letzte Suchbegriff wird wieder im Fenster "Suchbegriff eingeben"
+    angezeigt. (Danke Michael #1359)
+  - b79: Das Tooltip funktionierte in manchen Fällen nur ein mal.
+    (Danke Günther Kaul)
+  - b78: Es funktionieren nun auch Kürzel wie Strg+Rechte Maustaste
+    (Danke Günther Kaul)
+  - b62: Neue Option, welche versucht automatisch das Wort am Cursor
+    auszuwählen, falls kein Text markiert ist (Danke Ingo Freitag #1274)
+  - b47: Neue Option in der INI-Datei: HistoryFileOnMenuCall
+    Diese bestimmt, ob ein Eintrag in die History-Datei nur
+    beim Auswählen eines Menüeintrags ergänzt wird, näheres dazu
+    in der Hilfe (Danke Grosser Manitu und Denik aus dem
+    AutoHotkey-Forum)
+  - b36: Es wird nun keine Fehlermeldung mehr im Cache abgelegt und der
+    letzte Suchbegriff nicht mehr generell gecached.
+    (Danke Sven Knurr #1220)
+
+LikeDirkey:
+  - b13: Wenn LikeDirkeyMenu installiert war, konnten keine Einstellungen
+    gespeichert werden (Danke Eric Lavarde #1171)
+  - b6: Doppelbelegung von Tastaturkürzeln wird nun angezeigt.
+    (Danke Günther Kaul)
+
+MiddleButton:
+  - b102: Beim Minimieren des letzten Fensters wurde ein bereits minimiertes
+    Fenster wiederhergestellt (Danke Manuel Kappelhoff)
+
+MultiClipboard:
+  - b116: Es gibt nun auch Zugriff auf die Copy-Funktion mittels
+    performAction("MultiClipboard_Copy1") (z. B. aus HotStrings)
+  - b113: Fehlermeldung bei der ersten Verwendung von MultiClipboard behoben
+    (Danke Jack Thissen)
+  - b95: Wenn die Kopieroptionen im Menü nicht angezeigt werden, können die
+    Tasten 1-9 für die einzelnen Menüeinträge verwendet werden.
+  - b95: ClearClipboard als Additional Setting eingetragen, damit die Option
+    auch im Menü zur Verfügung steht.
+  - b16: Nach dem Einfügen per Hotkey konnte keine weiteren Zwischenablagen
+    mehr aufgenommen werden. (Danke Hayo für den Bugfix #1192)
+  - b14: Es wurden nicht immer Änderungen an der Zwischenablage an
+    MutliCliptboard weitergeleitet (Danke Jack Tissen für den Bugfix #1178)
+  - b5: Neue Option, um generell die Zwischenablagen als reinen Text ohne
+    Formatierung zu behandeln (Danke Alex #1165)
+  - b5: Fehlerhafte Darstellung und Verarbeitung von "Weitere Optionen"
+    korrigiert
+  - b2: Umgang mit Binärdaten verbessert, womit nun auch Screenshots korrekt
+    in das Menü aufgenommen werden (Danke Frank Pawlak #1145)
+
+MultiMonitor:
+  - b100: maxMonitors wird gespeichert um FS#1392 und FS#1393 hoffentlich zu
+    beheben.
+
+MusicPlayerControl:
+  - b115: Ersetzt die Erweiterung MusicControl, welche in MusicPlayerControl
+    und VolumeControl aufgeteilt wurde
+  - MC b41: In Foobar 0.9.5 funktionieren nun wieder alle Kommandos
+    (Danke Thomas Kutzner #1242)
+  - MC b37: Foobar2000 v0.9.5 wird nun unterstützt, der Klassenname hatte
+    sich verändert (Danke Thomas Kutzner #1223)
+  - MC b25: Play/Pause Verhalten für Winamp geändert (War Pause/Unpause)
+    (Michael)
+  - MC b25: Deaktivierung der Medientasten wird beachtet, wenn kein Player
+    gefunden wurde. (Michael)
+  - MC b2: Windows Media Player wird nun direkt unterstützt
+    (Danke Simon #1141)
+  - MC b1: Es können nun auch die Medien-Tasten simuliert werden, womit
+    automatisch viele weitere Musik-Player wie z. B. der Windows Media Player
+    oder JetAudio unterstützt werden. (Danke für die Hinweise #1140, #1141)
+
+NewFile:
+  - b67: Wenn kein Ordner (keine Datei) angelegt werden kann, erscheint eine
+    Fehlermeldung
+
+NewFolder:
+  - b67: Wenn kein Ordner (keine Datei) angelegt werden kann, erscheint eine
+    Fehlermeldung
+
+PastePlain:
+  - b30: Bei den zu entfernenden Zeichenfolgen kann man nun Reguläre
+    Ausdrücke verwenden, um Zeichenfolgen zu ersetzen.
+    (Danke Igor Sweet #1214)
+  - b26: Die AutoTrim-Funktion hatte bei der Option "Kopieren statt Einfügen"
+    auch  weiterhin Zeilenumbrüche entfernt (Danke Igor Sweet #1214)
+  - b20: Die AutoTrim-Funktion hatte Zeilenumbrüche entfernt
+    (Danke Ingo Gabriel #1201)
+
+PowerControl:
+  - b95: Wie bei AutoShutdown kann man nun einstellen, dass vor
+    Standby/Ruhezustand eine OnShutDown-Aktion ausgeführt werden soll.
+    (Danke R. Seidl #1342)
+  - b1: Neues Kürzel für "Arbeitstation sperren" (Danke Knarf #1139)
+
+QuickChangeDir:
+  - b115: Es gibt nun eine Option, um wie bei AppLauncher variable Pfade
+    zu unterstützen (%Drive%) (Danke Manuel Kappelhoff)
+  - b115: Der Index hat das Icon im Mehrbenutzermodus an einer falschen
+    Stelle gesucht. (Danke Kristof Eschberger #1434)
+  - b98: Der Indexer verwendet nun nicht mehr das TaskManager-Icon, weil das
+    zu Problemen auf einem Terminal Server führte. (Danke Harald Brennecke)
+  - b28: Die Länge der History ist mit dem Eintrag HistoryLength in der
+    QuickChangeDir.ini konfigurierbar (Danke Henning Völlm #1202)
+
+QuickNote:
+  - b102: Auswahl ausführen (Strg+R) markiert nun automatisch das Wort bzw.
+    eine URL am Cursor, falls nichts markiert ist.
+  - b100: Datum (Strg+D) wird nun im lokalen Format eingetragen.
+    (Danke Michael)
+  - b100: Neue Option, um ausgewählten Text automatisch ans Ende einfügen zu
+    können. (Danke Sascha Larscheid #1388)
+  - b89: Neue Option, mit der der Fenstertitel den Dateinamen anzeigt
+    (Danke Ronny Jaekel)
+  - b89: Die maximale Anzahl der Undo-Schritte ist über den Eintrag
+    MaxUndos = 50 in der INI-Datei konfigiruerbar. (Danke Michael)
+  - b89: Das Schreiben der Undo-Datei geschieht nun mit deutlich weniger
+    Festplattenzugriffen (Danke Michael)
+  - b89: Mit Strg+Tab kann man nun zwischen den QuickNotes hin und her
+    wechseln (Danke Michael)
+  - b84: Stummschaltungsaufhebung optional gemacht
+    (Danke Andreas Wirth FS#1316)
+  - b56: Neue Option, um zu bestimmen, ob QuickNote immer im Vordergrund
+    gehalten wird (Danke Kristof Eschberger #1267)
+  - b49: Umgang mit Variablen im Pfad zur Notizdatei verbessert.
+  - b48: Neue Option, mit welcher QuickNote beim Drücken des Kürzels
+    nur dann geschlossen wird, wenn das Fenster schon aktiv war,
+    ansonsten wird es aktiviert. (Danke Carlos #F14187231)
+  - b21: Optional kann QuickNote nun auch in der Taskleiste angezeigt werden,
+    womit es dann auch beim Taskwechsel mit Alt+Tab sichtbar ist
+    (Danke Dirk Schwarzmann #1203)
+  - b12: Neue Option "QuickNote beim Herunterfahren für 10 Sekunden anzeigen
+    lassen" (Danke Andreas Brikalin #1177)
+
+ReadingRuler:
+  - b53: Drückt man zwei mal schnell hintereinander Strg während ReadingRuler
+    mit Start- und Endposition sichtbar ist, wird die Startposition
+    neu gesetzt. (Danke Hermann Ruckerbauer #1143)
+  - b3: Die Bildschirmfoto-Funktion wurde entfernt. Die Erweiterung
+    ScreenShots übernimmt nun automatisch den in ReadingRuler aufgezogenen
+    Bereich als Ausschnitt. (Danke Mathias #1155)
+
+RecentDirs:
+  - b96: Die Änderungen im Untermenü “Weitere Optionen” führten nicht dazu,
+    dass der Button “Übernehmen” aktiviert wird. (Danke M. Kalb #1376)
+  - b95: Möglichkeit den Inhalt der Verzeichnisse in einem Untermenü
+    aufklappen zu lassen.
+  - b95: "Recent Ordner komplett leeren" unter Weitere Optionen hinzugefügt.
+  - b24: Die Menüeinträge können optional durchnummeriert werden
+    (Dank an David Obernöder)
+
+RemapKeys:
+  - b120: NumLock lässt sich nun wahlweise dauerhaft an- oder ausschalten
+    (über Checkbox Grau/Grün) (Danke Michael)
+  - b119: Neue Optionen, um auch den NumLock-Status automatisch zurücksetzen
+    zu können (Danke Tom Krumpschmid #1448)
+  - b72: Hilfe um Hinweis auf echte Neubelegung des Tastaturlayouts ergänzt.
+  - b16: Die Rollen-Taste kann nun ebenfalls neu belegt werden.
+    (Danke Holger Moltrecht)
+
+RemoveDriveHotkey:
+  - b115: FileHandling-Teil in eigene Erweiterung 'FileHandle' ausgelagert.
+  - b89: Kontextmenü von ac'tivAid erweitert (wer will auch mit Icons)
+  - b89: Möglichkeit "Safely Remove Hardware" zu ersetzen
+  - b89: Falls SysInternals's handle.exe vorhanden ist wird bei zu
+    entfernenden Laufwerken und Misserfolg angezeigt, welche Prozesse mit
+    welchen Handles dafür verantwortlich sind.
+    (3 mal Danke David Hilberath)
+  - b70: Keine fehlerhafte Information mehr, wenn ein CD-Laufwerk angesprochen
+    wird (Michael)
+  - b9: Auf manchen Systemen wurde die CD Auswurfmeldung nicht korrekt gezeigt
+  - b9: Die Überprüfung ob ein Laufwerk lesbar ist wurde entfernt da sie bei
+    eingelegter CD ein Hochfahren des Laufwerks benötigte
+  - b9: Die CD Schublade kann nun auch mit RemoveDriveHotkey geschlossen
+    werden (Danke Andreas Wirth)
+
+ScreenShots:
+  - b117: Doppelklick geht wieder (Danke Bernhard Sturm #1465)
+  - b107: Weitere Verbesserungen bei der interaktiven Ausschnittswahl.
+  - b107: Die Werkzeug-Palette kann nun verkleinert werden (schwarze Pfeil
+    über den Buttons)
+  - b106: Überarbeitung der Interaktiven Ausschnittswahl. Es lässt sich nun
+    eine Werkzeug-Palette einblenden, wo man die Maße numerisch und andere
+    Parameter wie Dateiname vor dem Screenshot ändern kann. (noch nicht
+    ausgiebig getestet)
+  - b106: Neue Optionen, um die Performance der Interaktiven Auswahl zu
+    beeinflussen
+  - b91: Es werden nun auch Kontextmenüs von Firefox erkannt.
+  - b90: Die JPG-Qualität lässt sich nun einstellen.
+    (Danke Susanne Gritsch #F14626843)
+  - b89: Der Ordner mit den Screenshots wird nun auch ohne Fehler geöffnet,
+    wenn Kommata im Dateinamen vorkommen
+  - b89: Die Funktion 'Actives Fenster' berücksichtigt nun auch Kontextmenüs
+    welche über das Fenster hinausragen (Danke  Tom Krumpschmid #1351)
+  - b89: ScreenShots so angepasst, dass es auch automatisch .ahk dateien
+    starten kann (für direkten ftp-upload) (Danke David Hilberath)
+  - b50: Ist die Option Dateiname in Zwischenablage und in Datei speichern
+    grau grün/grau aktiviert, dann kann über MultiClipboard neben
+    dem ScreenShot auch auf den Dateinamen zurückgegriffen werden
+    (Danke Hermann Ruckerbauer #1143)
+  - b47: Neue Option "ScreenShot beim Herunterfahren". Dies gilt nur
+    beim Herunterfahren mit AutoShutDown oder PowerControl
+  - b11: Führende Nullen werden wieder korrekt beachtet.
+  - b7: Beim Zielordner für die Bildschirmfotos wird nun automatisch ein \ am
+    Ende angefügt falls er fehlt. (Danke Mathias Kalb #1156)
+  - b6: wenn das Verzeichnis für die Datei nicht existiert, wird es angelegt
+    (Danke Christian FS#1156)
+  - b5: Java Swing-Dialoge werden nun ebenfalls bei der interaktiven Auswahl
+    als problematisch erkannt und die Checkbox für das abfotografieren
+    verdeckter Fenster automatisch deaktiviert.
+    (Danke Dirk Schwarzmann #1133)
+  - b5: Probleme mit Strg+C und Datei automatisch öffnen behoben
+  - b4: 3-stufige Checkbox "In Datei speichern". Grün/Grau: Bildschirmfoto
+    wird als Datei und gleichzeitig in die Zwischenablage abgelegt.
+  - b4: Pipe Symbol und " wird in Dateinamen jetzt auch durch
+    Underscore ersetzt. ( #1160)
+  - b3: Ist ein mit ReadingRuler markierter Bereich sichtbar, wird dieser
+    automatisch als Ausschnitt verwendet  (Danke Mathias #1155)
+  - b1: Neue Option, um die Unterstützung für verdeckte Fenster generell zu
+    deaktivieren (Danke Holger #1129)
+  - b1: Hinweis, wenn GdiPlus.dll nicht verfügbar ist (Danke Holger #1129)
+  - b1: Das Fadenkreuz ist nun auf allen Hintergründen sichtbar
+    (Danke für die vielen Hinweise #1133)
+  - b1: Einige Nutzer hatten das Problem, dass bei der interaktiven
+    Ausschnittswahl das Loslassen der linken Maustaste nicht registriert
+    wurde. (Danke für die vielen Hinweise #1133)
+  - b1: Java-Fenster werden bei der interaktiven Auswahl als problematisch
+    erkannt und die Checkbox für das abfotografieren verdeckter Fenster
+    automatisch deaktiviert. (Danke Dirk Schwarzmann #1133)
+  - b1: Der Transparenz-Wert der Abdunklung lässt sich nun über die Variable
+    DimTransparency in der INI-Datei einstellen.
+  - b1: Neue Option, womit ScreenShots sich nicht mehr die Auswahl merkt
+    (Danke Juerg Sommer)
+  - b1: Bilddateien können nun auch automatisch in einem
+    Bildbearbeitungsprogramm geöffnet werden. (Danke Frank Pawlak #1078)
+  - b1: Neue Option, mit welcher die Ausschnittswahl direkt durch loslassen
+    der linken Maustaste bestätigt wird.
+
+TextAid:
+  - b118: Die Option "Mehrfachzeilenumbrüche nicht entfernen" lässt sich nun
+    wieder auswählen (Danke Michael #1460)
+  - b95: Regulären Ausdruck auf Auswahl anwenden hinzugefügt.
+    (Danke Carsten #1367)
+  - b65: "Mit Texteditor bearbeiten" erkennt nun HTML-Code und fügt
+    entsprechend .html der Temporären Datei hinzu, damit das
+    Syntaxhighlighting des Editors passend ausgewählt wird.
+  - b63: Wird keine Zeilenlänge oder eine Zeilenlänge von 0 angegeben, wird
+    der Text nicht neu umbrochen, sondern je nach Einstellung nur die
+    Zeilenschaltungen aus den Absätzen entfernt.
+  - b63: Text neu formatieren (vormals Zeilenumbrüche neu einstellen)
+    überarbeitet und die zugehörigen Optionen auf einen separaten Button
+    (Mehr ...) gelegt.
+  - b57: Die Funktion "Zeilenumbrüche neu einstellen" um 4 weitere Optionen
+    ergänzt. Sie unterstüzt nun Absätze, E-Mail-Zitate und Aufzählungen.
+    (Danke Maic Pippig #1270)
+  - b21: Neuer Befehl: Text mit einem Texteditor bearbeiten, genaueres dazu
+    in der Hilfe/Liesmich. (Danke Stephan Ehrmann)
+
+ThesauroToolTip:
+  - b79: Das Tooltip funktionierte in manchen Fällen nur einmal.
+    (Danke Günther Kaul)
+  - b78: Es funktionieren nun auch Kürzel wie Strg+Rechte Maustaste
+    (Danke Günther Kaul)
+  - b76: Umgang mit Umlauten verbessert (Danke Sebastian #1273)
+  - b75: Umstellung auf OpenThesaurus.de, da die Abfrage bei der Uni Leipzig
+    nicht mehr funktioniert. (Danke Ingo Freitag)
+  - b62: Neue Option, welche versucht automatisch das Wort am Cursor
+    auszuwählen, falls kein Text markiert ist (Danke Ingo Freitag #1274)
+
+TransparentWindow:
+  - b18: Die automatische Transparenz für Fenster unter der Maus ist nun
+    abschaltbar (Danke Tom Krumpschmid #1062)
+
+UserHotkeys:
+  - b121: <getControlText> kann nun auch den Text aus ListViews, ComboBoxen,
+    DropDown-Listen und dem Fenstertitel kopieren (siehe Liesmich).
+    (Danke Michael)
+  - b116: MouseMoveTo/By unterstützen nun mehrere Bildschirme, verlieren
+    dadurch aber die Möglichkeit die Geschwindigkeit anzugeben
+    (Danke Dirk Schwarzmann #1439)
+  - b100: Beim Menüeintrag zum Spezialbefehl <Config> werden nun alle
+    Erweiterungen mit aufgelistet.
+  - b96: Kann jetzt Actions ausführen. Parameter können mit , getrennt
+    übergeben werden, z.B.: <PerformAction>ChangeProfile,Standard veranlaßt
+    JoyControl das Profil auf "Standard" zu wechseln.
+  - b89: Klickte man auf die Löschen-Schalftläche, wenn kein Eintrag
+    vorhanden war führte das zu einer Fehlermeldung, wenn man dann versuchten
+    einen neuen Eintrag anzulegen (Danke Michael #1331)
+  - b82: <OnShutDown> führt Programme nun so aus, dass gewartet wird, bis sie
+    beendet wurden.
+  - b73: Die Schalftläche "Spezialbefehl einfügen" zeigt nun bei
+    <ShowExtensionMenu> ein Untermenü mit allen Erweiterungen an
+  - b52: Neue Variablen %SelectionURL% und %SelectionURLPaste%, welche den
+    markierten Text URL-kodiert (Leerzeichen = %20 etc.) übergeben.
+    (Danke Jens #F14205916)
+  - b47: Neuer Spezialbefehl <OnShutDown>
+  - b22: Die Änderung des Fenstertitels kann bei <AOT> mit AOTModifyTitle in
+    der Ini-Datei eingeschaltet werden.
+  - b14: Spezialbefehl <ControlClick> eingebaut, um einen virtuellen
+    Mausklick auf einem Control oder einer GUI-Koordinate ausführen zu können
+    (Danke Dirk Schwarzmann)
+  - b7: Beim <send>-Befehl wurden Leerzeichen zwischen HTML-Tags entfernt
+    (Danke Stephan Ehrmann)
+
+VolumeControl:
+  - b108: Doppelte Tastaturkürzel entfernt (Danke Manuel Kappelhoff)
+  - b107: Volle Kompatibilität zu Windows Vista hergestellt.
+  - b107: Es lassen sich nun zwei Geräte/Regler unabhängig voneinander
+    mit eigenen Tastaturkürzel steuern.
+
+VolumeSwitcher:
+  - b119: Die Option "Lautstärke beim Start von act'ivAid auf "Lautstärke 1"
+    zurücksetzen" wird nun korrekt gespeichert (Danke Günther Kaul)
+  - b111: Neue Option, welche die Lautstärke beim Start von ac'tivAid
+    auf Lautstärke 1 zurücksetzt.
+  - b107: Volle Kompatibilität zu Windows Vista hergestellt.
+  - b57: VolumeSwitcher merkt sich nun die Einstellung des Reglers.
+    (Danke Günther Kaul)
+  - b41: Die beiden Tastaturkürzel können nun auch mit einer festen
+    Lautstärke belegt werden, in dem man den zweiten Lautstärkeregler
+    deaktiviert (Danke Tom Krumpschmid #1225)
+
+WebSearch:
+  - b89: Wenn des WebSearch-Fenster wird nun in mehrere Spalten aufgeteilt,
+    wenn es nicht mehr auf den Bildschirm passt
+    (Danke Christian Riehl #1346)
+  - b37: Die direkten Tastaturkürzel zeigen nun den Suchdialog an und führen
+    ihn sofort aus, so dass man merkt, dass das Kürzel gedrückt wurde
+    (Danke Tom Krumpschmid #1226)
+
+WindowsControl:
+  - b22: Die Funktion 'Fenster im Vordergrund halten' kann nun optional den
+    Fenstertitel wieder verändern. (Danke Sebastian #1205)
+  - b20: Neue Funktion, um Fenster auf die Titelleiste zu minimieren
+    (WindowShade) (Danke error00)
+  - b18: Neue Option, um transparente Fenster durchklickbar zu machen
+    (Danke Andreas Wirth #1085)
+
+
+_____________________________________________________________________________
+1.2.1 - 2007-11-09 07:39
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Allgemein:
+  - Das Verhalten für den Wechsel zum Admin-Modus wurde verändert:
+    ac'tivAid verändert nicht mehr die Benutzerrechte des aktuellen Benutzers,
+    da nicht mehr mit der Methode von MachMichAdmin, sondern wieder mit den
+    Systemroutinen gearbeitet wird.
+    (Danke Jens Meißner #888 und Mark Gerber #1105)
+  - b73: Bei einem fehlerhaften Update wird die alte Version automatisch
+    wiederhergestellt. (Danke Mark Gerber #1011)
+  - b72: Update-Funktion weiter überarbeitet (#1011, #1117)
+  - b68: Update-Funktion lädt ac'tivAid nun korrekt neu.
+    (Danke Mark Gerber #1011)
+  - b68: Mehr Debug-Meldungen (für DbgView.exe) beim Übernehmen der Änderungen
+  - b67: FAQ um Tipps erweitert, wie man die Konfiguration beschleunigen
+    kann (Danke Stephan Ehrmann)
+  - b67: Das Entfernen einer Erweiterung aus der Konfiguration, entfernt
+    sie nicht mehr generell aus dem Tray-Menü
+  - b66: DevEject wurde nicht korrekt nach Library/Tools verschoben
+    (Danke Mathias Kalb #1090)
+  - b65: Versuchsweise wird der Wechsel in den Admin-Modus mit Systemroutinen
+    vollzogen, um die Nachteile von MachMichAdmin zu umgehen (#1105)
+  - b65: Zeilnumbrüche in der Statistik korrigiert
+  - b64: Statistikfenster ist nun kompakter
+  - b64: Kleine Fehler in der Statistik beseitigt
+  - b63: Die Statistik zeigt nun auch die Ladezeit und die Aufbauzeit des
+    Konfigurationsfensters an
+  - b57: Probleme mit InfoScreen() behoben, was insbesondere RemoveDriveHotkey
+    betraf (Danke Michael)
+  - b56: Bug mit ständigem Neuladen behoben (lässt sich mit Strg+.
+    unterbrechen)
+  - b54: Die Funktion InfoScreen berücksichtigt nun den Monitor auf welcher
+    die aktive Anwendung läuft (Danke Dirk Schwarzmann #1100)
+  - b54: Hinweisdialog, welcher die Aufräumen-Funktion erläutert
+    (Danke Stephan Ehrmann)
+  - b54: Vista-Hinweis, dass der Settings-Ordner verschoben wird, erscheint
+    nur noch, wenn es Sinn ergibt
+  - b53: Der Parameter "nosplash", welcher das Ladesymbol von ac'tivAid
+    unterdrückt, funktioniert wieder (Danke Mark Gerber #1102)
+
+AppLauncher:
+  - b66: Wenn die Erweiterung ScreenShots nicht installiert ist, erscheint
+    keine Fehlermeldung mehr. (Danke Steffen Sauter #1115)
+  - b61: Der Indexierungsstatus vermischt sich nicht mehr mit dem Statusbalken
+    des Konfigruationsfensters
+  - b61: Bei die Indexierung wird die Prozesspriorität noch weiter
+    heruntergesetzt, um das System noch mehr zu entlasten.
+  - b60: Die Option, ob ac'tivAid-Funktionen indexiert werden sollen wird nun
+    korrekt berücksichtigt (Danke maibaum1)
+  - b60: Es können nun auch Ordner mit in den Index augenommen werden
+    (Danke maibaum1)
+  - b60: Es wird nun immer am Wordanfang gesucht, so dass die List zum
+    Entfernen von Wörtern aus den Suchstrings überflüssig ist
+    (Danke maibaum1)
+  - b53: History-Einträge zeigen wieder das korrekte Icon
+    (Danke für die Meldungen unter #1094)
+  - b51: Bei Verknüfungen werde die Dateierweiterungen nicht mehr falsch
+    ermittelt (Danke Tronje Bäßler #1094)
+  - b51: Die Konfigurationsfenster von ac'tivAid-Erweiterung werden nun
+    einzeln indexiert.
+
+AutoShutDown:
+  - b63: Optional kann vor dem Herunterfahren ein Screenshot erstellt werden
+    (Danke Waldemar Litke)
+  - b63: Man kann nun den Zeitpunkt oder die Verzögerung zum Herunterfahren
+    bearbeiten, wenn man auf Warten klickt.
+
+ComfortDrag:
+  - b63: Mögliche Ursache für das doppelte Minimieren mit der rechten
+    Maustaste behoben (Danke Mark Gerber #1113)
+
+DateTimeDisplay:
+  - b63: Unter gewissen Umständen wurde kein Infofenster angezeigt
+    (Danke Dirk Schwarzmann #1100)
+  - b52: Die Transparenzeinstellung wird nun berücksichtigt
+    (Danke Stephan Ehrmann)
+
+DriveIcons:
+  - b61: Die Vista-SideBar wird nun auch berücksichtigt, wenn sie nicht immmer
+    im Vordergrund steht. (Danke für den anonymen Hinweis #1109)
+
+Eject:
+  - b53: Auswerfen klappt nun auch wieder über Arbeitsplatz/Computer
+    (Danke für den anonymen Hinweis #1098)
+
+HotStrings:
+  - b53: #Include führt nicht mehr dazu, dass überhaupt keine HotStrings mehr
+    bearbeitet werden können.
+
+LeoToolTip:
+  - b65: Fehlermeldungen werden nicht mehr im Cache abgelegt
+    (Danke Eric Werner # 1114)
+
+LikeDirkey:
+  - b62: Aufruf aus AppLauncher funktioniert nun
+
+LookThrough:
+  - b62: Vesehentlich blieb ein Tooltip stehen (Danke Andres Kohlbach #1110)
+  - b57: Fremde AutoHotkey-Fenster werden korrekt wiederhergestellt
+  - b55: Die ursprüngliche Fensterform wird nicht mehr verändert und man kann
+    nun den Eckenradius des Lochs einstellen, bis hin zu einem kreisrunden
+    Loch
+
+MultiClipboard:
+  - b63: Die Überwachung der Zwischenablage funktioniert wieder
+    (Danke Andres Kohlbach #921)
+
+PowerControl:
+  - b52: Verändertes Verhalten des kennwortgeschützten Bildschirmschoners, so
+    dass er zuverlässiger und vor allem unter Vista funktioniert
+    (Danke Stephan Ehrmann)
+
+RemoveDriveHotkey:
+  - b63: Unter gewissen Umständen wurde kein Infofenster angezeigt
+    (Danke Dirk Schwarzmann #1100)
+
+ScreenShots:
+  - b52: neue Tastenkombination "Sofort letzte interaktive Auswahl"
+  - b51: Unterstützung für Multi-Monitor-Betrieb
+
+TextAid:
+  - b51: Flip Slashes korrigiert (Danke Mathias Kalb #1092)
+
+UserHotkeys:
+  - AHK-Skripte können nun auch mit Parameter aufgerufen werden
+    (Danke complx85)
+  - b67: Neuer Spezialbefehl <Config>
+  - b62: Neuer Spezialbefehl <ShowExtensionMenu>
+
+WebSearch:
+  - b54: Über einen Wert in der INI-Datei (siehe Liesmich), kann man nun
+    eine Verzögerung zwischen mehrfachen Abfragen festlegen
+    (Danke Karsten Paulini #1103)
+  - b54: Hinweis zum IE in die Liesmich hinzugefügt
+    (Danke Karsten Paulini #1103)
+
+
+_____________________________________________________________________________
+1.2 - 2007-10-25 13:49
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Ich möchte mich an dieser Stelle mal ganz herzlich bei Michael Telgkamp und
+Eric Werner bedanken. Ohne euch wäre v1.2 so nicht möglich gewesen.
+
+Allgemein:
+  - b50: Das Deaktivieren aller Erweiterungen funktioniert nun
+  - b49: Die Anzeige der Tastaturkürzel-Konflikte hatte noch einen Fehler
+  - b48: Die Anzeige der Tastaturkürzel-Konflikte berücksichtigt nur aktiviere
+    Erweiterungen (Danke Tom Krumpschmid #904)
+  - b47: Ob die Tastaturkürzel-Übersicht immer im Vordergrund steht, ist nun
+    optional (Danke Tom Krumpschmid #904)
+  - Die Konflikt-Warnung zeigt nun jedes Vorkommen der Kürzel auf
+    (Danke Tom Krumpschmid #904)
+  - b46: ac'tivAid erkennt unter Vista, wenn AutoHotkey im
+    XP-Kompatibilitätsmodus läuft und kann somit wieder korrekt auf UAC
+    zugreifen
+  - b45: RemoveDrive.exe und Deveject.exe werden nun immer mitgeliefert und
+    liegen jetzt unter Library/Tools
+  - b44: Die Duplikat-Verwaltung wurde verbessert
+  - b43: Die Tastaturkürzelabfrage bleibt nicht mehr hängen
+  - b41: Doppelt belegte Tastaturkürzel werden bereits beim Laden erkannt und
+    angezeigt.
+  - Neue Erweiterung von Eric Werner: CalculAid
+  - Bei Erweiterungen mit eigenen Fenstern, gibt es nun in der Konfiguration
+    im Menü Erweiterungen die Möglichkeit Fensterpositionen zurückzusetzen
+    (indirekten Dank an Manuel Kappelhoff ;-))
+  - b39: func_GetDir unterstützt nun Verknüpfungen von Vista. Vorher war es
+    unter Vista fatal, wenn man einen Ordner über eine Verknüpfung öffnet
+    und dort z. B. einen neuen Ordner angelegt hat. Dieser erschien nicht
+    an der korrekten Stelle.
+  - b37: Verzeichniswechsel (LikeDirkey etc.) funktionieren nun auch mit
+    UltraExplorer (Adressleiste muss sichtbar sein)
+    (Danke Dirk Schwarzmann #1051)
+  - b36: Änderungen am Mehr- und Einzelbenutzermodus - bitte testen, ob der
+    Wechsel überall funktioniert
+  - b36: Unter Vista kann ac'tivAid auch wieder im eigenen Verzeichnis seine
+    Einstellungen ablegen, wenn es beschreibbar ist.
+  - b36: Neue Erweiterung VolumeSwitcher (Vielen Dank an an Jossekin Beilharz
+    für dir Vorarbeit #1059)
+  - b36: Neue Erweiterung AutoDeactivate, welche es ermöglicht ac'tiAid z.B.
+    in Spielen automatisch zu deaktivieren (Danke Tom Krumpschmid #1061)
+  - b36: Beim Definieren eines Tastaturkürzels kann man nun gleichzeitiges
+    Drücken beider Strg-Tasten, umschalten, ob die in ac'tivAid (also auch
+    RemapKeys) definierten Kürzel berücksichtigt werden sollen.
+    (Danke Tobias Henoeckl #1066, Tom Krumpschmid #1065)
+  - b36: AllowMultipleInstances = 1 in der Ini-Datei erlaubt mehrere Instanzen
+    von ac'tivAid (es wird keine Warnung ausgegeben) (Danke Michael)
+  - b36: Im ac'tivAid-Menü gibt es nun eine Funktion, welche die Ini-Datei
+    komplett neu schreibt und somit unnötigen Ballast entfernt.
+    (Danke Michael)
+  - b34: Neue Erweiterungen von Michael: RemoveDriveHotkey, DateTimeDisplay
+    Weitere Informationen in der Hilfe (ac'tivAid LiesMich.txt).
+  - b34: Einstellungen von Erweiterungen, welche eine andere Erweiterung
+    erweitern, werden nun automatisch gespeichert. (Danke Patrick #1031)
+  - b34: Beim Installieren/Deinstallieren von Erweiterungen wird der
+    Beschreibungstext auf den nächsten Eintrag aktualisiert
+    (Danke Michael Baas #1030)
+  - b33: Portable ac'tivAid merkt sich nun den Mehr-Computer-Modus.
+  - b33: Strg+Shift+Q lässt sich nun als Tastaturkürzel verwenden
+    (Danke Eric Werner #1019)
+  - b32: Das Konfigurationsfenster merkt sich nun die Position
+    (Danke Peter Murschall #1016)
+  - b28: func_GetMonitorNumber("ActiveWindow") funktioniert wieder
+    (Danke für den anonymen Hinweis #1015)
+  - b27: 'Neu laden' überarbeitet, so dass es evtl. Fehler erkennt. Zudem
+    wird vor dem neu Laden die Priorität hochgesetzt, in der Hoffnung, dass
+    dadurch die Wahrscheinlichkeit weiter sinkt, dass ac'tivAid gelegentlich
+    einen zweiten Prozess lädt.
+  - b26: ac'tivAid startet automatisch den Debug-Modus, wenn DbgView.exe
+    im Verzeichnis von ac'tivAid liegt. (Genaueres dazu im FAQ)
+  - b25: In der INI-Datei kann man unter [ac'tivAid] mit WinModifierFirst = 1
+    bestimmen, dass die Reihenfolge der Steuerungstasten wie folgt aussieht:
+    Win, Strg, Alt, Umschalt (Danke Henning Völlm #1006)
+  - b24: Die Statistik lässt sich zwecks Fehlersuche nun mit Zusatzinfos
+    in die Zwischenablage kopieren
+  - b23: Die Reihenfolger der Steuerungsasten ist nun in der Darstellung immer
+    gleich. Es wird folgende Reihenfolge verwendet: Strg, Win, Alt, Umschalt
+    (Danke Henning Völlm #1006)
+  - b22: 'SilentUpdate' funktionierte noch nicht richtig.
+    (Danke Dirk Schwarzmann #1005)
+  - b21: Die Suchfunktion (Tastaturkürzel-Übersicht etc.) springt wieder an
+    den Anfang, wenn am Ende kein Ergebnis passt
+    (Danke Henning Völlm #1006)
+  - b20: SilentUpdate war noch nicht vollständig umgesetzt
+    (Danke Dirk Schwarzmann #1005)
+  - b20: Weitere Verbesserungen an der Suchfunktion
+    (Danke Henning Völlm #1006)
+  - b18: Du Suchfunktion für die Hilfe und die Tastaturkürzel-Übersicht wurde
+    überarbeitet, so dass im Suchfeld nun mit den Cursor- und Bild-Tasten
+    gescrollt werden kann. Zudem wurde die Kapitelauswahl so angepasst, dass
+    sich das DropDown-Feld nicht immer direkt schließt. Das Suchergebnis wird
+    nun auch immer in der Mitte angezeigt. (Danke Henning Völlm #1006)
+  - b17: In der Ini-Datei kann nun SilentUpdate = 1 gesetzt werden, damit
+    keine Update-Hinweisfenster erscheinen. Es wird dann allerdings auch
+    keine Fehlermeldung mehr gezeigt. (Danke Frank Pawlak #1005)
+  - b14: Anpassung vieler Erweiterungen, dass die Optionen nicht bei großer
+    Schriftart versehentlich umbrechen (Danke Eric Werner #997)
+  - b13: Win+Umschalt+Ziffernblock0…9 wird nun korrekt unterstützt.
+    (Danke für den anonymen Hinweis #995)
+  - b9: Es gibt nun zwei neue Menüpunkte: "Alle Erweiterungen aktivieren"
+    und "Alle anderen Erweiterungen deaktivieren". Mit letzterer Funktion
+    kann man schnell mal eine Erweiterung isoliert betrachten, um zu testen,
+    ob bei Problemen nicht evtl. ein andere Erweiterung schuld ist.
+  - b8: Änderung am Versionsschema von Beta-Versionen
+  - b7: Der maximale Speicherverbrauch von Variablen wurde von 64 MB auf
+    512 MB erhöht, damit bei großen Bilder in der Zwischenablage keine
+    Fehlermeldung mehr erscheint, wenn MultiClipboard diese überwacht.
+    (Danke Markus Bubendorf #957)
+  - b7: Der Balken unter dem Splashscreen ist nun unter jeder
+    Schrifteinstellung gleich groß (Danke Carsten Pache)
+  - b5: Zwei neue Erweiterungen von Michael: CharacterAid und TextAid
+  - b5: Das Konfigurationsfenster reagierte machmal nicht mehr, wenn es
+    automatisch beim Laden erschien
+  - b4: Mit "NetworkTimeout = X" kann man nun in der ini-Datei festlegen,
+    ab wieviel Sekunden erfolglosem Zugruff auf das Internet die automatische
+    Aktualisierung deaktiviert wird.
+  - b2: Unter Vista wird das settings-Verzeichnis korrekt noch ProgramData
+    kopiert. (Danke Jürgen Kehren #882)
+  - b2: Workaround aus 1.1.8.1 entfernt, da der Bug in AutoHotkey nun behoben
+    wurde
+
+AppLauncher:
+  - b51: Bei Verknüfungen werde die Dateierweiterungen nicht mehr falsch
+    ermittelt (Danke Tronje Bäßler #1094)
+  - b44: Mit gedrückter Shift-Taste wird der entsprechende Ordner geöffnet
+  - b41: Funktionen und Befehle von ac'tivAid werden nun ebenfalls indexiert
+    (unter den weiteren Optionen abschaltbar)
+  - Die zu indexierenden Verzeichnes werden ebenfalls in den Index mit
+    aufgenommen (Danke Manuel Kappelhoff)
+  - Unter Vista werden von Standardverknüpfungen die deutschen Namen
+    angezeigt
+  - b36: Darstellungsfehler bei der vereinfachten Darstellung behoben
+  - Die Konfigurationsfenster von ac'tivAid-Erweiterung werden nun
+    einzeln indexiert.
+  - b34: Im Speicherpfad des Indexes werden nun Variablen unterstützt.
+    (Danke _may_)
+  - b33: Wird beim Starten eines Programms die ALT-Taste gedrückt gehalten,
+    wird gefragt, mit welchem Benutzeraccount das Programm gestartet werden
+    soll. (Danke für den anonymen Hinweis #1026)
+  - b24: AppLauncher versucht Probleme beim Registry-Eintrag von
+    Verknüpfungen (lnkfile) zu erkennen und zu beheben.
+  - b3: Unter "Weitere Optionen ..." gibt's nun die Möglichkeit den Verlauf
+    (History) mit allen indexierten Anwendungen zu füllen, so dass
+    AppLauncher direkt mit allen Anwendungen aufgerufen wird.
+    (Danke Stephan Ehrmann)
+
+AutoShutDown:
+  - b11: Neue Option "Einmalig", welche das zeitgesteuerte Herunterfahren
+    nur einmal ausführt und dann automatisch deaktiviert.
+    (Danke Frank Pawlak #989)
+
+CalculAid:
+  - b41: Tray-Menü-Eintrag korrigiert
+
+Calendar:
+  - b17: Die Schriftgröße des Kalenders ist nun einstellbar.
+    (Danke Frank Pawlak #996)
+  - b12: Man kann nun einstellen, dass monats- statt seitenweise durch die
+    Monate geblättert wird.
+    (Danke Henning Völlm und Jürgen Lüdicke #931, #988)
+
+CharacterAid:
+  - b34: Bei deaktivierten Buchstaben funktioniert die Ausgabe der aktiven
+    Buchstaben wieder fehlerfrei. (Danke Udo Nesshoever #1033)
+  - b12: Bei alternativer Ausgabe wird der Inhalt der Markierung überprüft
+    um falsche Ersetzungen zu verhindern
+  - b11: Über die Ini-Datei lassen sich nun mit ExcludeApps Anwendungen
+    definieren, bei welchen CharacterAid nicht aktiv wird. Standardmäßig
+    ist dort nun Calc.exe eingetragen, damit man dort Binärzahlen eingeben
+    kann. (Danke Manuel Kappelhoff)
+  - b9: Die Speicherung der Textlisten wurde geändert. Man kann jetzt in
+    der Konfigurationsdatei beliebige Tasten angeben. Im Einstellungsdialog
+    sind die ersten 15 Listen bearbeitbar.
+    (Danke Rainer Thiel und Dirk Schwarzmann #972 #985)
+  - b7: Es gibt eine alternative Ausgabemethode für die Sonderzeichen. Diese
+    kann für spezielle Fensterklassen aktiviert werden.
+    (Danke  Rainer Thiel #972)
+
+CommandLine:
+  - b43: Anpassung für Vista
+
+Eject:
+  - b36: Unter gewissen Umständen wurde das Kürzel als Klartext ausgegeben.
+    (Danke Stephan Ehrmann)
+
+ExplorerHotkeys:
+  - b7: Die Umschaltung der Explorer-Ansicht führt nicht mehr unter gewissen
+    Umständen zum Verschwinden der Dateinamen in der Miniaturansicht
+    (Danke Markus Bubendorf #912)
+
+FileRenamer:
+  - b41: Die Fensterposition wird nun gesichert
+  - b16: Man kann wieder ausgewählte Dateien umbenennen, wenn keine
+    Dateierweiterungen im Explorer angezeigt werden.
+    (Danke Eric Werner #975)
+  - b15: Die Nummerierung mit führenden Nullen funktionierte nicht immer
+    (Danke für den anonymen Hinweis #999)
+  - b15: Das Umbenennen klappt nun auch bei der Suchergebnissliste
+    (Danke für den anonymen Hinweis #999)
+  - b2: Unter Windows Vista wird der Dateiname beim Umbenennen einer einzelnen
+    Datei wieder korrekt markiert. (Danke Christian #965)
+
+HotStrings:
+  - b33: Die Konfiguration merkt sich nun den zuletzt ausgewählten Eintrag.
+    (Danke Peter Murschall #1016)
+  - b13: Es gibt nun einige spezielle Kommentarzeichen, die verhindern,
+    das die Kommentare von manuell bearbeiteten HotString-Dateien in der
+    Konfiguration angezeigt werden. (Danke Thomas Wölk #994)
+  - b11: Wenn man per #Include in der HotStrings.ini weitere
+    HotStrings-Dateien (z.B. von einem Server) mit ac'tivAid laden lässt
+    werden diese nun auch in der Konfiguration angezeigt. Per #Include
+    geladene HotStrings lassen sich nicht über die Konfiguration ändern.
+    (Danke Ronny Jaekel)
+  - b9: HotStrings mit Beschränkung auf Programme wurden nicht korrekt
+    gespeichert (Danke Eric Werner #976)
+
+KeyState:
+  - b11: funktioniert nun auch (endlich) unter Vista.
+    (Danke Jürgen Kehren und AE #983)
+
+LeoToolTip:
+  - b39: Bei Verbindungsfehlern wird dieser Fehler nicht mehr in das
+    HistoryFile geschrieben (Danke Michael)
+  - b34: Die Suchergebnisse werden nun in einem Cache im Ram
+    zwischengespeichert (Danke für den Anonymen Hinweis #1038)
+  - b24: Klappt die Verbindung mit pda.leo.org nicht, wird es direkt
+    mit dict.leo.org erneut versucht. (Danke für den anonymen Hinweis #1010)
+
+LookThrough:
+  - b36: Man kann nun Fensterklassen angeben, welche nicht durchlöchert werden
+    sollen. (Danke für den anonymen Hinweis #1046)
+  - b34: Neue Option: Nachträglich erscheinende Fenster/Menüs werden nicht
+    'durchlöchert' (Danke für den anonymen Hinweis #1037)
+  - b30: Das Loch bleibt nicht mehr unter gewissen Umständen hängen
+    (Danke Michael Mayr und Andreas Wirth)
+
+MiddleButton:
+  - b48: Funktioniert wieder (Danke Manuel Kappelhoff)
+
+MouseClip:
+  - b48: Funktioniert wieder (Danke für den anonymen Hinweis #1087)
+
+MultiClipboard:
+  - b44: Wird ein Menüpunkt mit gedrückter Strg-Taste ausgewählt, wird der
+    Text wie bei PastePlain ohne Formatierung eingefügt. (Danke rpnfan)
+  - b11: Es lassen sich Programme (z. B. Excel.exe) von der Überwachung
+    mittels der Variable ExcludeApps (siehe Liesmich) ausschließen.
+  - b9: Die Einstellung ClipSizeLimit wird nun in MB angegeben und der
+    Vorgabewert ist nicht mehr 16 KB, sondern 16 MB
+  - b8: In der Ini-Datei kann über "ClipSizeLimit = X" (Kilobyte) eingestellt
+    werden, bis zu welcher Größe Zwischenablagen von der automatischen
+    Überwachung von Strg+C/X verarbeitet werden.
+  - b6: Die Überwachung von Strg-C/X zeigte versehentlich Debug-Meldung in
+    Form eines meist leeren Dialogs und eines Tooltips
+    (Danke Andres Kohlbach #921 und Ronny Brandt #968)
+
+MusicControl:
+  - b41: Flackern bei schneller Lautstärke-Änderung behoben
+  - Die Unsterstützung für Winamp, iTunes, Foobar lässt sich gezielt
+    ausschalten
+  - Die Herstellung der Vista-Kompatibilität kann nun unter weitere Optionen
+    nachgeholt werden
+  - b36: Beim ersten Start unter Vista bietet MusicControl an, ac'tivAid in
+    den XP-Kompatibilitäts-Modus zu versetzen, damit es wie gewohnt
+    funktioniert (Danke Kai Meder #787)
+
+NewFolder:
+  - b41: Die Fensterposition wird nun gesichert
+  - b15: Die Optionen im Dialog lassen sich nun auch optional direkt
+    speichern und werden nicht mehr auf die Voreinstellung zurückgesetzt
+    (Danke Eric Werner #1001)
+  - b15: Werden die Optionen im Dialog mit einem Alt-Kürzel gesetzt, wird
+    der Fokus auf das Eingabefeld zurückgesetzt. (Danke Eric #1001)
+
+PastePlain:
+  - b39: Neue Option, um Leerzeichen am Zeilenanfang und -ende zu entfernen
+    (Danke rpnfan)
+
+PowerControl:
+  - b48: Wird bei den Verzögerungswerten 0 oder nichts eingegeben,
+    erscheint kein Hinweisfenster (Danke Eric Werner #1089)
+
+QuickChangeDir:
+  - b34: Im Speicherpfad des Indexes werden nun Variablen unterstützt.
+    (Danke _may_)
+  - b28: Das Ergebnisfenster wurde unter gewissen Umständen falsch
+    dargestellt (Danke Klaus Walte #991)
+
+QuickNote:
+  - b41: Beim Exportieren der Einstellungen wird auch der Inhalt der
+    Notizdatei mit gesichert. (Danke Manuel Kappelhoff)
+  - b39: Verhalten der Cursorpositionierung verändert
+  - b37: QuickNote merkt sich nun die genaue Position des Scrollbalkens
+  - Bei großen Dateien wird nun nicht mehr gelegentlich die ganze
+    Notiz gelöscht (Danke Andreas #802)
+  - b34: Manuell eingegebene Schriftgrößen werden korrekt übernommen
+  - b34: Die Farben lassen sich nun auch über den Systemfarbwähler auswählen
+  - b21: Existiert die angegebene Notizdatei nicht oder das entsprechende
+    Laufwerk ist nicht verfügbar, wird nun eine Fehlermeldung ausgegeben.
+    (Danke Werner Dittrich #700)
+  - b8: Der Schriftstil kann nun ebenfalls ausgewählt werden
+    (Danke Günther Kaul)
+  - b2: Der Alarm ertönt nun direkt und nicht erst, wenn das Notizfenster
+    aktiviert wurde (Danke Matthias Büttner #955)
+
+ReadingRuler:
+  - b34: Neue Funktion Bildschirmfoto aufspannen. (Informationen dazu in der
+    Hilfe)
+  - b34: Die Informationsanzeige weicht nun Mauszeiger und Bildschirmrand aus.
+  - b34: Die Position der Informationsanzeige wird nun auch bei
+    gleichbleibendem Inhalt angepasst.
+  - b34: Die Linien werden bei mehreren Bildschirmen nun auch in den Bereichen
+    links und oben vom Hauptbildschirm angezeigt.
+    (Danke für den anonymen Hinweis #1014)
+  - b9: Das bewegliche Kreuz hatte nicht die angegebene breite sondern war
+    immer ein Pixel breit (Danke anonymen Hinweis #987)
+
+RemoveDriveHotkey:
+  - b45: Da RemoveDrive nun immer dabei ist, wurde der Code entfernt, womit
+    man RemoveDrive.exe suchen konnte.
+  - b36: Man kann jetzt Laufwerke festlegen, bei denen nicht versucht wird das
+    Laufwerk auszuwerfen, sondern die CD Schublade zu geöffnet wird
+
+ScreenShots:
+  - b51: Unterstützung für Multi-Monitor-Betrieb
+  - b50: Funktioniert nun endlich korrekt bei Foto von aktiver maximierter
+    Anwendung (Danke Michael)
+  - Neue Option "Zielordner nach Screenshot öffnen"
+    (Danke Eric Werner #1093)
+  - b48: Probleme behoben, wenn die Taskleiste nicht unten ist.
+    (Danke Michael)
+  - b47: Maximierte Fenster sollten nun richtig abfotografiert werden
+  - b46: Probleme mit \t und \n behoben
+  - b45: Fehler beim Abfotografieren des aktiven Fensters behoben
+  - b44: Die Schriftglättung wird nun auch in XP richtig deaktiviert
+  - b43: ESC geht wieder
+  - b41: Die Schriftglättung kann optional vor einem Screenshot ausgeschaltet
+    werden
+  - Der Ausschnitt kann mit den Cursortasten verschoben und vergrößert werden
+  - Beim Aufziehen des Ausschnitts kann er mit Space wie in Photoshop
+    verschoben werden
+  - Flexiblere Dateinamen-Vorgaben
+  - Steht die Maus unten rechts in der Auswahl, wird ein Eingabefeld für die
+    Verkleinerung angezeigt
+  - Man kann mit der CheckBox vor dem Fensternamen eines angeklickten Fensters
+    entscheiden, ob das Fenster oder einfach nur der Bereich abfotografiert
+    wird
+  - b39: Fehlermeldung beim Laden beseitigt
+  - Es gibt nun eine Option, um die Bildateien direkt zu skalieren
+  - Mit Shift lassen sich in der interaktiven Auswahl Fensterelemente
+    auswählen
+  - Es gibt nun eine Bereichsauswahl, mit welcher man auch Fenster anklicken
+    kann
+  - Verdeckte Fenster werden nun ebenfalls korrekt abfotografiert
+
+TextAid:
+  - b51: Flip Slashes korrigiert (#1092)
+  - b41: Vista-Kompatibilität wieder hergestellt
+  - Neue Option "Text nach Umwandlung erneut auswählen"
+  - Neues Tastaturkürzel "Text mit Zeichen umschließen" (Danke Eric Werner)
+  - b37: Neue Funktion, um die Schreibweise umzukehren (Wort=>wORT)
+    (Danke Hans Overtoom)
+  - b36: Strg+Win+T war schon von TransparentWindow vergeben; in Strg+Win+X
+    geändert. (Danke Stephan Ehrmann)
+  - b36: Die Kürzel funktioneren nun auch wieder unter Vista (Sendplay durch
+    Send getauscht). (Danke Stephan Ehrmann)
+  - b33: Zeilenumbrüche nach X Zeichen
+  - b12: Text zu jeder Zeile hinzufügen fragt nun zwei Textteile ab. Der
+    erste wird vorne angefügt, der zweite hinten.
+  - Schrägstrichrichtung tauschen im markierten Text ist jetzt möglich
+    (Danke Eric Werner)
+  - Text am Anfang jeder Linie hinzufügen (Danke Wolfgang #978)
+
+ThesauroToolTip:
+  - b32:Die Suchergebnisse werden nun in einem Cache im Ram
+    zwischengespeichert (Danke für den Anonymen Hinweis #1038)
+
+TransparentWindow:
+  - b41: Die Transparenz der aktiven Fenster ist bei der automatischen
+    Transparenzs nun ebenfalls einstellbar (Danke Tom Krumpschmid #1062)
+  - Man kann nun Fenster fixe Transparenzen zuweisen
+    (Danke Tom Krumpschmid #1062)
+  - b37: Performance der automatischen Transparenz unter Windows etwas
+    verbessert. Gute Performance ist nur unter Vista mit Aero erreichbar.
+  - b36: Es gibt nun zwei Modi: Wie gehabt, manuelle Transparent per
+    Win+Mausrad und die automatische Transparenz, welche die Fenster
+    unterschiedlich transparent macht, je nachdem ob ein Fenster aktiv, in
+    aktiv, zum aktiven Programm gehörend oder untder der Maus ist.
+    (Danke Sven Knurr #1062)
+
+UnComment:
+  - b117: schaltet nun standardmäßig die Kommentarzeichen an/aus (optional)
+  - b117: wenn nichts markiert ist wird nach einem anderen Kommentarzeichen
+    gefragt.
+  - b117: Markierung wiederherstellen eingebaut
+  - b7: Fehler beim Entfernen der Kommentare behoben (Danke Christian #973)
+
+UserHotkeys:
+  - b43: Neuer Spezialbefehl <activAid> um ac'tivAid-eigene Unterroutinen
+    ausführen zu können. Die Namen nützlicher Routinen zeigt z. B. der neue
+    AppLauncher an (sub_bla_...)
+  - b33: Leere Einträge (kein Kürzel und kein Befehl) erzeugen nun im
+    Kategoriemenü eine Trennlinie (Danke Michael Baas #258)
+  - b33: Wird <CategoryMenu> ohne Kategorie aufgerufen, erscheint ein
+    Menü mit allen Einträgen von UserHotkeys, wobei Kategorien in Untermenüs
+    einsortiert werden. (Danke Michael Baas #258)
+  - b33: Es gibt nun auch <SendPlay> (Danke Michael Baas #1023)
+  - b31: <Send> und <SendRaw> kennen nun eine zusätzliche Option Delay,
+    um die Ausgabe zu verzögern: <Send Delay:X>. (Danke Florian)
+  - b28: <SingleInstanceKill> nochmal überarbeitet
+    (Danke Andreas Wirth #1013)
+  - b25: Neuer Befehl <SingleInstanceKill>, da <SingleInstanceClose> nicht
+    mit allen Programmen funktioniert. (Danke Andreas Wirth #1013)
+  - b24: <SingleInstanceClose> schließt Fenster testweise mit einer
+    zusätzlichen 'Methode' (Danke Andreas Wirth #1013)
+
+VolumeSwitcher:
+  - b48: Die Einstellungen werden nun korrekt gespeichert
+    (Danke Andreas Brikalin #1088)
+  - Es gibt nun zwei unterschiedlich belegbare Kürzel
+
+WebSearch:
+  - b50: Die Kürzel hinter den Schaltflächen werden nun korrekt angezeigt
+    (Danke Tom Krumpschmid #1062)
+
+WindowsControl:
+  - b29: Win+X schließt nicht mehr den Desktop (Danke Michael Mayr)
+
+_____________________________________________________________________________
+1.1.8.1 - 2007-06-14 17:40
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Leider zeigte sich v1.1.8 auf einigen Systemen sehr instabil, so dass es
+nichteinsetzbar war. Da es sich um einen Fehler in AutoHotkey handelt,
+welcher nicht bei allen Systemen auftritt, ist der Fehler erst nach der
+Veröffentlichung aufgefallen. Mit v1.1.8.1 wird der Fehler gewissermaßen
+'umgangen', es ist aber gut möglich, dass er bei einigen Systemen weiterhin
+auftritt. In diesem Fall wird ac'tivAid erst mit einer neuen Version von
+AutoHotkey funktionieren, welche momentan noch in Arbeit ist.
+
+Allgemein:
+  - Die Installation funktioniert nun auch, wenn für das ac'tivAid-Verzeichnis
+    Schreibrechte existieren, für die AutoHotkey-Installation jedoch nicht.
+    (Danke Michael)
+  - Workaround, damit ac'tivAid auf einigen Systemen nicht mehr direkt beim
+    Starten abstürzt.
+    (Danke für die vielen Meldungen #945,#946,#949,#950,#954)
+  - Die Konfiguration wird nun nicht mehr mit Enter geschlossen, womit man nun
+    bei Suchfeldern (Liesmich/Änderungen/Tastatürkürzelübersicht) mittels
+    Enter eine Suche ausführen kann. (Danke Eric Werner #951)
+
+ComfortResize:
+  - Drückt man ein Kürzel zweimal wird nun auch die Ursprungsposition wieder
+    hergestellt
+  - Die Taskleiste wird nun korrekt berücksichtigt (Danke Michael #942)
+
+UserHotkeys:
+  - Bei Windows Vista wurde die Liste mit den Tastaturkürzeln unter Aero zu
+    groß dargestellt (Danke Stephan Ehrmann)
+
+_____________________________________________________________________________
+1.1.8 - 2007-06-08 13:20
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Allgemein:
+  - ac'tivAid lässt sich nun unter Windows Vista installieren und
+    funktioniert nun größtenteils mit Windows Vista. Einige Erweiterungen
+    (z. B. MusicControl) arbeiten aber nicht wie unter XP gewohnt, da
+    AutoHotkey noch nicht in allen Bereichen an Vista angepasst wurde.
+  - b56: Die halbautomatischen Aktualisierung wurde aufgrund vieler Probleme
+    wieder entfernt. Zudem wurde das Fenster bei "manuell aktualisieren"
+    überarbeitet. (Danke u.a. an Dirk Schwarzmann #972)
+  - b56: Die Tastaturkürzel-Übersicht wird beim Neuladen von ac'tivAid nicht
+    mehr größer
+  - b56: Die Tastaturkürzel-Übersicht blockierte auf einigen Systemen einige
+    Erweiterungen (Danke Michael)
+  - b54: Die Erweiterung WindowShrinker wurde in ExplorerShrinker umbenannt
+  - b52: ac'tivAid weist nun darauf hin, wenn ein bereits ein weiteres
+    ac'tivAid läuft. Das funktioniert aber nur, wenn alle Prozesse
+    schon in der Version Beta 52 oder höher vorliegen. (Danke Michael)
+  - b52: Es sind nun nicht mehr zwei Trennlinien sichtbar, wenn keine
+    Erweiterung im Tray-Menü angezeigt wird (Danke Michael)
+  - b47: Unterstützung für Sondertasten von Spezialtastaturen oder Notebooks
+    (nicht alle Modelle) (Danke Stefan Strahl #259)
+  - b44: Probleme mit Tastaturkürzelzuweisung unter Parallels Desktop behoben
+  - b42: Viele versteckte Optionen einzelner Erweiterungen, welche vormals nur
+    über die Ini-Datei zu erreichen waren, sind nun über ein Kontext-Menü,
+    über eine Schaltfläche und über das Erweiterung-Menü erreichbar.
+  - b39: Statistik ergänzt, so dass man sehen kann ob und welche Erweiterungen
+    die mittlere oder rechte Maustaste um eigene Funktionen erweitern.
+    Das ist Nüztlich um Inkompatibilitäten mit andern Anwendungen auszuräumen.
+    (Entsprechende Erweiterungen deaktivieren oder umkonfigurieren)
+  - b37: Mit aktivem StrokeIt werden Kontextmenüs in Listen nicht mehr
+    doppelt angezeigt (Danke Dirk Schwarzmann #865)
+  - b37: Wenn die Festplatte voll ist, werden die Einstellungen nicht mehr
+    gelöscht (Danke Heiko Bertsch #877)
+  - b37: Über die Ini-Datei kann unter [activAid] nun eine Variable
+    FullScreenApps mit Programmen und Fenstern belegt werden, bei welchen
+    die OSD-Anzeige von KeyState oder MusicControl deaktiviert wird.
+  - b34: Bei sehr langsamen Netzwerkverbindungen wird das automatische
+    Update nun deaktiviert (mit Hinweis). (Danke Frank Pawlak #828)
+  - b32: Sicherheitsmechanismus integriert, so dass nicht zwei Instanzen
+    von ac'tivAid gleichzeitig laufen können. (Danke Jens Meißner #848)
+  - b31: Neue Erweiterung UnComment von J. Lachmann
+  - b30: Über settings\includescript.ahk lässt sich ac'tivAid.ahk nun um
+    eigene Funktionen erweitern. (Danke Thomas Wölk)
+  - b27: Wenn des Temp-Verzeichnis nicht existiert, wird es automatisch
+    erzeugt. (Danke für den anonymen Hinweis #840)
+  - b20: Die automatische Überprüfung auf Aktualisierungen wird nun
+    zusätzlich alle 24 Stunden durchgeführt, wenn die Option "automatisch bei
+    jedem Start von ac'tivAid prüfen" aktiviert ist.
+    Somit bekommen auch Rechner die 24 Stunden eingeschaltet sind eine
+    Aktualisierung mit. (Danke Oliver Wilsky)
+  - b14: Einige Probleme mit der Updatefunktion bei eingeschränkten
+    Benutzern beseitigt
+  - b13: Die Tastaturkürzel-Übersicht funktioniert nun auch, wenn man
+    Änderungen mit Übernehmen bestätigt hat.
+  - b13: Erweiterungen lassen sich nun korrekt über das Tray-Menü
+    deaktivieren (Danke Sven Knurr #803)
+  - b9: Generell können ac'tivAid-Fenster nun mit dem Mausrad gescrollt
+    werden, auch wenn sie nicht aktiv sind. (Nützlich für QuickNote)
+  - b8: Neues Tastaturkürzel, um ac'tivAid neu zu laden
+  - b6: Maustasten-Abfrage wird auch durch Deaktivieren von ComfortDrag und
+    ComfortResize abgeschaltet (Danke André Berg #755)
+  - b6: Probleme mit Umgebungsvariablen behoben
+    (Danke Peter Murschall #752)
+  - b4: Es ist nun möglich in der ac'tivAid.ini den Standard-Dateimanager
+    festzuliegen (siehe FAQ).
+  - b4: Verzeichniswechsel (LikeDirkey etc.) funktionieren nun auch mit
+    Directory Opus
+
+AppLauncher 0.7:
+  - b53: Vereinfachte Ansicht wird nicht mehr bei jedem Aufruf 2 Pixel kleiner
+    (Danke Robert Deimel)
+  - b47: Duplikate werden nun mit dem Dateinamen samt Erweiterung ermittelt
+    (Danke Daniel Merbecks #909)
+  - b44: Es gibt nun die Möglichkeit das Datum anzeigen zu lassen und danach
+    zu sortieren (Danke Günther Kaul)
+  - b44: Die vereinfachte Darstellung startet nun optional ohne
+    Ergebnisliste. Sie wird dann erst eingeblendet wenn man etwas eingibt
+    oder die Cursortasten betätigt.
+  - b27: Beim Indexieren werden nicht verfügbare Netzwerkverknüpfungen nicht
+    mehr in den Index aufgenommen (Danke Jossekin Beilharz #845)
+  - b20: Programme werden nun mit ihrem eigenen Verzeichnis als
+    Arbeitsverzeichnis gestartet (Danke Mayor Alex #821)
+  - b10: Der Indexierungsstatus lässt sich nun verschieben oder minimieren
+    (Danke Oliver Wilsky)
+  - b10: Die Indexierung lässt sich nun regelmäßig automatisch im
+    Hintergrund druchführen (Danke Oliver Wilsky)
+
+Calendar 0.5:
+  - b60: Die 3-Monatsansicht kann nun so konfiguriert werden, dass der
+    aktuelle Monat immer in der Mitte steht.
+  - b60: Nach dem Öffnen einer Kalenderansicht löst die RETURN-Taste direkt
+    den Datums-Button aus (praktisch für schnelles Einfügen des aktuellen
+    Datums im gewählten Format).
+
+ComfortDrag 1.2:
+  - b14: Das verstecken von Explorer-Fenstern mit der rechten Maustaste
+    klappt wieder (Danke Manuel Kappelhoff)
+
+ComfortResize 0.9:
+  - b46: Das Fenster wird nicht mehr falsch skaliert, wenn das Einrasten
+    am Rand aktiviert wurde (Danke Michael #897)
+  - b25: Man kann nun angeben, dass gewisse Programme oder auch
+    Fensterbereiche nicht mehr auf das Kürzel reagieren, was z.B
+    bei Spielen sinnvoll ist.
+
+DriveIcons 0.7:
+  - b60: Laufwerkszugriffe reduziert (Danke Michael)
+  - b60: Die Überprüfung der Laufwerke wird nun nur noch alle 1,5 Sekunden
+    statt 250 Millisekunden durchgeführt (Danke Michael)
+  - b34: Bei einem CHKDSK /X LW: wird nun nicht mehr ständig das
+    Auswerfen-Symbol eingeblendet. (Danke #824)
+
+Eject 1.2:
+  - b34: Das Löschen von Symbolen kann nun überall zum Auswerfen genutzt
+    werden (Danke Torben Schachmeyer #857)
+
+ExplorerHotkeys 0.3:
+  - b61: "Verzeichnisebene hoch" funktioniert nun auch wieder auf dem
+    Arbeitsplatz, allerdings dort wieder mit {Backspace}
+    (Danke Eric Werner #933)
+  - b50: "Verzeichnisebene hoch" wird nun nicht mehr mit {Backspace}
+    simuliert, sondern mit func_ChangeDir() (Danke Eric Werner #920)
+  - b49: Das Warten auf das Loslassen von Shift wurde wieder entfernt.
+    Nun kann man bei der fehlerhaften Darstellung das Kürzel einfach
+    nochmal drücken.
+  - b48: Beim Umschalten der Ansicht wird nun gewartet bis die Shift-Taste
+    losgelassen wurde, da sonst bei der Filmstreifen- und  Miniaturansicht
+    bei jedem zweiten Aufruf die Dateinamen verschwinden oder erscheinen.
+    (Danke Markus Bubendorf #912)
+  - b29: Verbesserungen bei "Dateiliste durchsuchen"
+    (Danke Jossekin Beilharz #844)
+  - b23: Es lassen sich nun auch Ordner duplizieren
+    (Danke Eric Werner #796)
+  - b3: Neues Kürzel um die Erweiterungen von bekannten Dateitypen
+    ein- und auszublenden (Danke Jens Meißner #749)
+  - b2: Neues Kürzel um versteckte Dateien ein- und auszublenden
+    (Danke and Jens Meißner #749)
+
+ExplorerShrinker 0.3:
+  - b54: WindowShrinker heißt nun ExplorerShrinker
+  - b48: Funktioniert wieder in der Detail-Ansicht
+    (Danke Markus Bubendorf #911)
+
+FilePaste 1.2:
+  - b7: UNC-Pfade enthalten keinen Laufwerksbuchstaben mehr bei Dateien
+    aus dem Root-Verzeichnis (Danke für den anonymen Hinweis #773)
+
+FileRenamer 1.5:
+  - b59: Das Umbenennen funktioniert nun wieder in der Ordnerleiste
+    (Danke Christian #937)
+  - b45: Der Umgang mit vielen Dateien wurde verbessert und der Aufbau
+    der Dateiliste drastisch beschleunigt, falls die Adressleiste sichtbar
+    ist. (Danke Roland #891)
+  - b42: Ist keine Datei markiert wird nun wie bei F2 die eingerahmte
+    Datei umbenannt (Danke Christian #889)
+  - b37: Die Dateiliste lässt sich nun auch per Drag'n'Drop sortieren
+  - b36: Die Dateiliste lässt sich nun manuell sortieren
+    (Danke Arne Pelka #865)
+  - b36: Die Historie der Ersetzungsstrings wird nun korrekt gespeichert
+    (Danke Christian #875)
+  - b27: FileRenamer kommt nun auch mit einer sehr großen Anzahl von Dateien
+    klar (Danke für den anonymen Hinweis #843)
+  - b16: Unter bestimmten Umständen wurden zu wenig führende Nullen
+    vorangestellt. (Danke Jens Meißner #809)
+
+FreeSpace 1.0:
+  - b25: Das Komma wird bei der Anzeige des Prozentwerts nicht mehr gelöscht.
+    (Danke Ronny Brandt #827)
+  - b21: Man kann große Zahlen jetzt auf Wunsch mit Tausendertrennzeichen
+    formatiert anzeigen lassen. (Danke David Balazic #822)
+  - b20: Bei Ordnernamen mit einem Buchstaben wurde Anzeige des freien
+    Speichers mehrmals angezeigt. (Danke David Balazic #820)
+
+HotStrings 1.1:
+  - b57: Der SendPlay-Modus lässt sich nun über die Konfigruation einschalten,
+    um z. B. die Kompatibilität zu Spielen zu erhöhen
+    (Danke Thomas Maibaum)
+  - b53: Die Schaltfläche "auf Fehler überprüfen" erscheint nun über
+    der Übernehmen-Schaltfläche, womit nun deutlicher zu erkennen ist, warum
+    man kein OK/Übernehmen anklicken kann
+  - b8: Erkennung doppelter Hotstrings verbessert
+    (Danke Dirk Schwarzmann #766)
+
+HotStringsHotkey 0.3:
+  - b49: Es gibt nun zwei Kürzel, womit einmal der markierte Text als
+    Abkürzung oder als Textbaustein verwendet wird.
+    (Danke Eric Werner #914)
+
+KeyState 0.6:
+  - b37: Es kann nun durch das OSD hinduchgeklickt werden (Click-Through)
+  - b15: Die akustischen Signale lassen sich für jede Taste getrennt
+    konfigurieren (Danke Jan Peter)
+
+LeoToolTip 0.8:
+  - b50: Neue Option, mit welcher man das Menü kompakter darstellen kann.
+    (danke an Ruben Bridgewater #917)
+  - b48: HTML-Zeilenumbrüche (<br>) werden aus der Anzeige entfernt.
+  - b41: 'Kommastellen' wird über das Menü wieder korrekt eingefügt
+    (Danke Eric Werner #892)
+  - b33: Weitere Verbesserungen bei der Verarbeitung der Suchergebnisse
+    (Danke Michael)
+  - b32: Suchbegriffe mit Zeilenumbrüchen funktionieren nun
+    (Danke Michael)
+  - b31: Diverse Verbesserungen bei der Verarbeitung der Suchergebnisse
+    (Danke Michael für die Umsetzung in Reguläre Ausdrücke)
+  - b31: Möchte man z.B. PHP-Variablen ($example) mit samt dem
+    Variablenzeichen (hier $) übersetzen, wird es nach dem Auswählen eines
+    Menüpunkts wieder mit eingefügt ($Beispiel).
+  - b30: Ist kein Text markiert, fragt LeoToolTip nun nach einem Suchbegriff
+    (Danke Jossekin Beilharz #842)
+  - b29: Bei pda.leo.org wurde kein Ergebnis angezeigt (#842)
+  - b28: Das Menü lässt sich nach ESC wieder direkt aufrufen
+    (Danke Jossekin Beilharz #842)
+  - b27: Im Menü wird das Sprachekürzel angezeigt
+  - b26: Die Erkennung, welche Sprache eingefügt werden soll, funktioniert
+    nun zuverlässiger (Danke Michael #838)
+  - b26: pl. wird nicht mehr eingefügt.
+  - b26: Textteile nach " - " werden nicht mehr eingefügt. Zusammengesetzte
+    Wörter werden noch komplett eingefügt.
+  - b18: also: und rarely: werden nun ebenfalls nicht mit eingefügt
+  - b17: Beim Einfügen aus dem Menü werden vorher Begriffe wie "adj." oder
+    "adv." entfernt. (Danke Michael #762)
+  - b12: Aus rechtlichen Gründen lässt sich nun nicht mehr die
+    Anzahl der angezeigten Suchergebnisse konfigurieren
+  - b12: Suchergebnisse mit (AE) oder (BE) führen nicht mehr dazu,
+    dass bei dem Menü die falsche Sprache eingefügt wird
+    (Danke Michael #762)
+  - b6: Die Suche nach "inquired" zeigt keine HTML-Tags mehr an
+    (Danke Michael #762)
+
+LikeDirkey 1.1:
+  - b11: War LikeDirkeyMenu aktiv, konnten die Einstellungen nicht
+    mehr gespeichert werden (Danke Jossekin Beilharz #775)
+
+LookThrough 0.2:
+  - b7: Ist Option "Nur das aktive Fenster 'durchbohren'" aktiv,
+    wird nun beim Wechsel der aktiven Anwendung das Loch in
+    der zuvor aktivierten Anwendung wieder entfernt (Danke Maic Pippig)
+
+MiddleButton 0.6:
+  - b8: Neue Option "Klick auf Titelleiste schließt ein Fenster"
+    (Danke für den anonymen Hinweis #757)
+
+MultiClipboard 0.5:
+  - b49: Dateien lassen sich wieder einfügen (Danke Holger Schick #910)
+  - b48: Diverse Korrekturen (Danke Holger Schick #860, #866, #894)
+  - b48: Dateipfade werden nicht mehr vesehentlich als << Datei >> erkannt
+    (Danke Holger Schick #910)
+  - b43: Neue Optionen um Leerzeichen und Zeilenumbrüche am Anfang und
+    Ende entfernen zu lassen (Danke Holger Schick #894)
+  - b41: Für die zusätzlichen Einstellungsmöglichkeiten gibt es nun ein
+    "Weitere Optionen"-Menü
+  - b38: Weitere Option welche eine eingefügte
+    Zwischenablage an den Anfang des Menüs schiebt (Also Ablage Nr. 1)
+    (Danke Andres Kohlbach #866)
+  - b35: Tastenkürzel wurden von MultiClipboard blockiert
+    (Danke Holger Schick #860)
+  - b34: Wird ein Menüpunkt mit der Shift-Taste bestätigt, wird die
+    entsprechende Zwischenablage und alle Zwischenablagen darüber eingefügt
+    (Danke Holger Schick #860)
+  - b33: Die Anzahl der Zwischenablagen ist über die Ini-Datei nun einstellbar
+    (Danke Holger Schick #861)
+  - b2: Die Überwachung von Strg+C funktionierte nicht mehr zuverlässig
+    (Danke Sebastian #745)
+
+MusicControl 0.9:
+  - b46: iTunes wird nun direkt über COM angesprochen, womit es nun schneller
+    und zuverlässiger reagiert.
+  - b46: Simpler Workaround für Vista, so dass wieder die globale Lautstärke
+    eingestellt werden kann. Leider funktioniert auch weiterhin das OSD nicht
+    korrekt, da AutoHotkey keinen Zugriff auf die globale Lautstärke unter
+    Windows Vista hat.
+  - b37: Die Winamp/iTunes-Lautstärkeregelung kann nun auf Wave umgeschaltet
+    werden (Danke Arthur #880)
+  - b37: Es kann nun durch das OSD hinduchgeklickt werden (Click-Through)
+  - b37: Das OSD wir nun auch beim ersten Aktivieren richtig angezeigt
+    (Danke Eric Werner #879)
+  - b24: Ton-Aus Anzeige geht wieder aus, wenn man auf "Stumm schalten"
+    gedrückt hat. (Danke Thomas Unruh #826)
+  - b19: Das OSD wird nun auch angezeigt, wenn die Lautstärke bereits maximal
+    oder minimal ist und der Hotkey gedrückt wird (Danke Thomas Unruh #818)
+  - b16: Die Position stimmt nun auch, wenn die Bildschirmauflösung verändert
+    wird (Danke Michael #816)
+  - b12: Die Unterstützung von Foobar2000 verbessert
+    (Danke Alexander Töws #797)
+  - b8: Anpassungen von Daniel Maier integriert, womit MusicControl nun auch
+    Foobar2000 unterstützt
+  - b1: Die Lautstärkenregelung von WinAmp berücksichtigt nun die
+    Schrittweite (Danke Eric Werner #741)
+
+NewFolder 1.4:
+  - b8: Es gibt eine neue Vorgabeoption für "markierte Dateien verschieben"
+    und die Vorgabeoption "in den neuen Ordner wechseln" funktioniert nun
+    korrekt. (Danke Patrick #771)
+  - b4: Der automatische Verzeichniswechsel funktioniert nun auch auf dem
+    Desktop (Danke Eric Werner #675)
+
+NewFile 0.5:
+  - b25: Der Dateiname wird nun von links nach rechts markiert
+    (Danke Jossekin Beilharz #830)
+
+PackAndGo 0.8:
+  - b8: Ist Hotstrings deaktiviert, kommt keine Fehlermeldung mehr
+    (Danke Klaus Walte #778)
+  - b1: Ein benutzerdefiniertes Icon wird nun mit aufgenommen
+    (Danke Jens Meißner #729)
+
+PowerControl 0.2:
+  - b41: Die Verzögerung bem Auschalten/Stand-by des Bildschirms lässt
+    sich nun konfigurieren und mit ESC abbrechen (Danke Michael)
+
+QuickChangeDir 1.2:
+  - b49: Neu hinzugefügte Laufwerke/Verzeichnisse werden nun automatisch
+    indexiert (Danke Ruben Bridgewater #902)
+  - b5: Es werden bei fehlenden Index-Dateien nur noch die Laufwerke
+    indexiert, wo die Dateien auch fehlen (Danke Jens Meißner #751)
+  - b5: Mit der Option HiddenOnUnix = 1 unter [Config] in der Datei
+    QuickChangeDir.ini wird den Index-Dateien ein Punkt vorangestellt,
+    um diese Dateien auch auf einem Unix-Server zu verstecken.
+
+QuickNote 1.3:
+  - b52: Zwei neue Optionen, um die Trennlinie automatisch am Anfang
+    oder Ende der Notiz einzufügen (Danke Patrick-Mav)
+  - b52: In der Trennlinie werden nun Variablen unterstützt (z. B. %A_YYYY%)
+  - b47: QuickNote aktualisiert die Notiz automatisch, wenn die Datei
+    von einer anderen Anwendung verändert wurde. (optional)
+  - b33: Mit der Variable "TimerMenu" kann über die Ini-Datei nun
+    das Timer-Menü individuell angepasst werden (Siehe Liesmich)
+    (Danke Jan #849)
+  - b32: 12 Minuten (Fertigpizza) zum Timermenü hinzugefügt
+    (Danke Jan #849)
+  - b27: Weitere Optionen, um die Sicherheitsabfrage beim Drucken zu
+    unterdrücken und eine Schaltfläche [P] für die Druckfunktion einzublenden
+    (Danke Torben Schachmeier # 841)
+  - b25: Das globale Kürzel für alle QuickNotes schließt oder öffnet nun
+    generell alle Fenster und schaltet nicht jedes für sich separat um
+    (Danke Michael #836)
+  - b21: Ist das Notiz-Fenster beim Beenden oder Neuladen geöffnet, wird es
+    beim Start von ac'tivAid direkt wieder angezeigt. (Danke Michael)
+  - b21: Die Text- und Hintergrundfarbe lässt sich nun auch über die
+    Konfiguration einstellen (Danke Franz-Richard Kunze #451)
+  - b6: Bei großen Schriftarten geriet der Konfigurationsdialog
+    durcheinander (Danke Klaus Walte #765)
+  - b6: Das Mausrad funktioniert nun auch bei abgeschalteten Scrollbalken
+    (Danke Michael #759)
+  - b6: Mit Strg+Hoch/Runter kann man nun scrollen, ohne dass der Cursor
+    bewegt wird (Danke Michael #759)
+
+ReadingRuler 0.9:
+  - b41: Bei mehreren Monitoren wird die Linie nun über den gesamten
+    virtuellen Monitor gezeichnet. (Danke Andres Kohlbach #885)
+  - b41: Neue Option: Anzeige des Fensters unter der Maus
+  - b32: Das Loch war verschoben, wenn die Taskleiste nicht unten am
+    Bildschirm angezeigt wurde. (Danke Michael #852)
+  - b32: Das Loch ist nun nicht mehr zwingend notwendig, da nun alle
+    Mausklicks durch die Linie hindurch gehen. (ClickThrough)
+
+RemapKeys 0.3:
+  - b59: Neue Option "Großschreibmodus zurücksetzen" (Michael)
+  - b58: Neue Option "Im Großschreibmodus werden Buchstaben mit der
+    Umschalt-Taste nicht mehr klein geschrieben"
+  - b58: Neue Option "Ungewolltes aktivieren der Feststelltaste verhindern".
+    Verhindert Aktivieren bei gleichzeitig gedrückter anderer Taste. (Michael)
+  - b34: Manuelle Eingaben werden nun auch in der Konfiguration angezeigt
+    (Danke für den anonymen Hinweis #867)
+
+RecentDirs 0.7:
+  - b33: Laufwerksbuchstaben werden nicht mehr doppelt dargestellt
+    (Danke Holger Schick #862)
+
+ScreenLoupe 0.3:
+  - b47: Mittels Alt+Shift kann man nun während die Lupe angezeigt wird
+    die Breite und Höhe anpassen. (Danke Tom Krumpschmid #907)
+
+ThesauroToolTip 0.5:
+  - b30: Ist kein Text markiert, fragt ThesauroToolTip nun nach einem
+    Suchbegriff
+
+UserHotkeys 1.9:
+  - b61: Hinzufügen, Löschen und wieder hinzufügen eines Kürzels führt nicht
+    mehr zu der Meldung, dass das Kürzel bereits verwendet wird
+    (Danke Eric Werner #934)
+  - b58: Bei <CategoryLaunchAll> wird nun die Reihenfolge beibehalten, wenn
+    <Send> und <SendRaw> in einer Kategrie gemischt vorkommen.
+  - b58: Das Arbeitsverzeichnis wird für gestartete Batch- oder Skript-Dateien
+    nun auf das Verzeichnis gesetzt wo die Datei liegt, womit z. B. Batch-
+    Dateien mit relativen Pfaden arbeiten können. (Danke Günther Kaul)
+  - b56: In der Tastuturkürzelübersicht wird nun die Beschreibung wie
+    in der Konfiguration aufgeführt (Danke Michael)
+  - b41: Zeilenumbrüche (Strg+Enter) werden beim Speichern in `n umgewandelt
+    und nicht mehr abgeschnitten
+  - b37: Die Liste lässt sich nun auch per Drag'n'Drop sortieren
+  - b36: Die manuelle Sortierung wird nicht mit Strg-Kürzel angesprochen,
+    sondern mit Alt-Kürzel, zudem funktioniert das Kontextmenü wieder
+  - b23: Kürzel lassen sich nun über das Kontextmenü oder mit Strg+D
+    duplizieren (Danke Eric Werner #760)
+  - b17: <FilePaste> erkennt nun, ob es sich um eine Textdatei oder um
+    eine Zwischenablage-Datei handelt (Danke Mario Klug)
+  - b16: <FilePaste> funktioniert nun wieder (Danke Mario Klug #815)
+  - b2: Neuer Spezialbefehl %SelectionPaste%, welcher nur im Zusammenhang
+    mit <Send> funktioniert. An der Stelle wo der Befehl steht wird dieser
+    durch Strg+V ausgetauscht, wobei vorher der ausgewählte Text in die
+    Zwischenablage gespeichert wird. (Danke Eric Werner #737)
+
+WebSearch 1.5:
+  - b51: Unterstützung für mehrere Parameter (##1##, ##2## ...)
+    (Danke Tom Krumpschmid #718)
+  - b41: Unicode-Texte (z.B. Chinesisch) werden nun als UTF-8 in WebSearch
+    übernommen. Dadurch wird er zwar in WebSearch selber unleserlich, aber
+    korrekt an die Suchmaschinen übermittelt. (Danke Daniel Seiler #893)
+  - b22: Markierter Text wird nun korrekt in den Dialog eingetragen
+    (Danke Mathias Kalb #685)
+  - b22: Es kann nun direkt in der Konfiguration bestimmt werden, ob
+    Suchbegriffe im Verlauf gespeichert werden. Zudem lässt sich der Verlauf
+    direkt löschen (Danke Mathias Kalb #679)
+  - b8: Es wird nun auch bei "Direktes Tastaturkürzel" auf bereits verwendete
+    Tastaturkürzel hingewiesen (Danke Günther Kaul)
+
+WindowsControl 0.8:
+  - b32: Fenster, die sich eigentlich nicht maximieren lassen und über die
+    Option "ResizeFixedWindows" doch maximiert werden, überlagern nun nicht
+    mehr die Taskleiste, was allerdings nicht auf allen System funktioniert
+    (Danke Stefan Offermann #854)
+  - b6: Minimieren funktioniert nun zuverlässiger
+    (Danke Peter Murschall #753)
+
+WindowShrinker:
+  - b54: WindowShrinker heißt nun ExplorerShrinker
+
+_____________________________________________________________________________
+1.1.7 - 2007-01-18 14:06
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Ich möchte mich erneut für die rege Mitarbeit bedanken. Es wurden wieder
+viele Fehler behoben, Erweiterungen verbessert und drei neue Erweiterungen
+hinzugefügt.
+
+Allgemein:
+  - Es gibt drei neue Erweiterungen:
+       TransparentWindows 0.1 von Werner Piel
+       Calendar 0.4 von Dirk Schwarzmann
+       PasteSerial von Alexander Taubenkorb
+  - b47: Wird ac'tivAid frisch bei einem eingeschränkten Benutzer installiert,
+    hängt es sich nicht mehr in einer Endlosschleife auf.
+  - b43: Abfrage der rechten Maustaste verbessert
+  - b39: %A_YY% ist nun mit der zweistelligen Jahreszahl belegt
+  - b24: Verzeichniswechsel funktioniert in Dialogen auch wenn ein
+    Datei ausgewählt wurde (Danke Eric Werner #672)
+  - b20: Verzeichniswechsel funktionieren nun auch mit xplorer²
+    (Danke für den anonymen Hinweis #667)
+  - b19: func_ChangeDir zeigt Fehler nun mit einem Sprechblasenhinweis an
+  - b17: Versuche, um den Fehler "GetClipboardData" zu umgehen
+  - b11: Installierte Erweiterungen werden nun auch immer automatisch
+    aktiviert.
+  - b9: Bei LikeDirkey und UserHotkeys funktioniert wieder die Angabe
+    von "control" für die Systemsteuerung (Jens Meißner #642)
+  - b7: FAQ ergänzt.
+  - b3: Portable ac'tivAid lässt sich wieder in Verzeichnissen mit
+    Leerzeichen installieren. (Danke für den anonymen Hinweis #593)
+  - b2: ComfortResize, MiddleButton und MouseClip werden nun auch in der
+    Tastaturkürzel-Übersicht aufgeführt
+  - b1: Kürzel wie "Rechte Maustaste & Mausrad hoch" sind nun möglich
+    (Danke Dietrich #603)
+
+AppLauncher:
+  - b13: Bei Dateien ohne Endung wird nun nicht mehr die Indexierung
+    abgebrochen (Danke A. Koch und Karsten Paulini #624)
+  - b12: Verändertes Verhalten bei der Anzeige des Suchergebnisses, womit
+    das Flackern beim Tippen verringert wird.
+
+ComfortDrag 1.1:
+  - b45: Das Verstecken von Fenstern mit Linksklick+Rechtsklick funktioniert
+    wieder zuverlässiger (Danke Lars Hupel)
+  - b3: Wurde CapsLock mit RemapKeys umbelegt, klappt nun das festhalten
+    von CapsLock in ComfortDrag, ohne dass die Großschreibung aktiviert wird.
+
+ComfortResize 0.8:
+  - b9: Es gibt nun 6 benutzerdefinierte Fenstergrößen, wobei die Bildschirm-
+    formate nur voreingestellt sind (Danke Michael N. #639)
+
+DriveIcons 0.6:
+  - b11: Mit dem Eintrag "SkipIcons = x" in ac'tivAid.ini unter [DriveIcons]
+    kann man bestimmen, um wieviele Icons die Anordnung nach unten verschoben
+    wird (Danke Simon)
+  - b1: Das Hinzugfügen von Problem-Programmen funktionierte nicht immer
+    (Danke Paul Henkel #598)
+  - b1: Die Taskleiste muss nicht mehr an der Standardposition sein, damit
+    die Icons korrekt positioniert werden (Danke R. Seidl #568)
+
+Eject 1.1:
+  - b9: Fehlerhinweise werden nun als BallonTips ausgegeben
+    (Danke Michael #644)
+  - b9: Unterstützung für RemoveDrive von Uwe Sieber (Danke Axel #567)
+
+ExplorerHotkeys 0.2:
+  - b15: Neues Kürzel für die Filmstreifen-Ansicht. Hat nur eine Wirkung,
+    wenn die allgemeinen Ordneraufgaben aktiviert sind.
+    (Danke Jens Meißner #657)
+  - b2: Maximierte Fenster werden nun korrekt dupliziert
+    (Danke Mathias Kalb #612)
+
+FileRenamer 1.4:
+  - b29: Die manuelle Änderung der Schreibweise (groß/klein) ist nun möglich
+    (Danke Christian #687)
+  - b23: FileRenamer wird nun nicht mehr ungewollt in einigen Dialogen
+    aufgerufen. (Danke Eric Werner #670)
+  - b22: Die Umbenennung klappt nun auch auf dem Desktop, wenn vorher Win+D
+    gedrückt wurde (Danke Alexander Taubenkorb #666)
+  - b12: Die Verzögerung, bis der Dateiname markiert wird, wurde entfernt
+    (Danke Christian #600)
+  - b6: Die Option Gross-/Kleinschreibung ist nun immer aktiv
+  - b6: Verbesserung beim Umgang mit sehr vielen Dateien
+    (Danke für den anonymen Hinweis #600)
+
+FreeSpace 0.9:
+  - b32: Der Aktualisierungsintervall lässt sich nun frei einstellen
+    (Danke Maelcum #702)
+
+HotStrings 1.0:
+  - b30: Fehler bei der Auswertung der Programmbeschränkung behoben
+    (Danke Jan Wedekind #701)
+  - b12: Die Konfiguration hatte Probleme mit HotStrings, welchen Programmen
+    zugewiesen sind.
+  - b1: HotStrings zu verschiedenen Anwendungen werden nicht mehr als doppelt
+    angesehen (Danke R. Seidl #568)
+
+HotstringsHotkey 0.2:
+  - b43: Funktioniert nun auch, wenn das Konfigruationsfenster von ac'tivAid
+    bereits geöffnet ist. (Danke Eric Werner #739)
+
+KeyState 0.5:
+  - b41: Es können nun Fenster von KeyState komplett ausgeschlossen werden
+    (Danke Stephan)
+  - b3: Die Anzeige stimmt nun wieder wenn FreeSpace deaktiviert ist.
+    (Danke Mathias Kördel)
+
+LeoToolTip 0.7:
+  - b36: Beim Menü gibt es nun eine Option, welche die ausgewählte
+    Übersetzung in die Zwischenablage speichert und nicht direkt
+    einfügt. (Danke Christian Hartwig #718)
+  - b10: Wörter wie "order" wurden nicht korrekt eingefügt
+    (Danke Niko Bärsch)
+  - b10: Bei Phrasen mit Leerzeichen konnte nicht die Übersetzung eingefügt
+    werden (Danke Niko Bärsch)
+  - b9: Über "HistoryFile = XXX" in der ini-Datei lassen sich gefundene oder
+    übernommene Übersetzungen in die angegebene Datei geschrieben.
+    (Danke NiCo #622)
+
+LikeDirkey 1.0:
+  - b21: Die Strg-Kürzel sind nun nur noch in den entsprechenden Programmen
+    gültig, also z.B. Explorer-Fenster. (Danke Jens Meißner #668)
+
+LikeDirkeyMenu 0.5:
+  - b45: Ist LikeDirkeyMenu installiert, speichert es nicht mehr ständig
+    die Einstellungen, auch wenn nichts geändert wurde (Danke Lars Hupel)
+
+MiddleButton 0.5:
+  - b37: Der Umgang mit Klassen-Ausnahmen wurde optimiert
+    (Danke Matthias Hillebrand)
+
+MouseClip 1.0:
+  - b44: Verhalten verändert, so dass die mittlere Maustaste in Firefox
+    zuverlässiger funktioniert (Danke Alex)
+
+MultiClipboard 0.4:
+  - b41: Die Anzahl der automatisch gespeicherten Zwischenablagen kann von
+    9 auf 19 erhöht werden (Danke Reto Probst für den Code)
+  - b37: Aufbau des Menüs beschleunigt (Danke Alexander Taubenkorb #723)
+  - b2: Verändertes Verhalten beim Einfügen (Danke Wilhelm Schweers #606)
+
+MusicControl 0.8:
+  - b45: Die Schrittweite der Lautstärkeregelung kann nun eingestellt werden
+    (Danke Eric Werner #741)
+  - b34: Das OSD lässt sich nun ebenso wie das akustische Signal unterdrücken
+    (Danke Christian #707)
+  - b20: Play/Pause spielt nun auch ab, wenn vorher Stop gedrückt wurde
+    (Danke für den anonymen Hinweis #655)
+
+NewFolder 1.3:
+  - b41: Wurde der Desktop mit Win+D angezeigt, wurde der neue Ordner nicht
+    korrekt ausgewählt (Danke Sven Knurr #728)
+  - b34: Das automatische Öffnen des neuen Ordnern funktioniert wieder
+    (Danke für die vielen Hinweise #705)
+  - b34: Es werden nun auch Variablen im Ordnernamen unterstützt und man
+    kann den vorgegebenen Ordnernamen konfigurieren (Danke Patrick #708)
+  - b29: Das Kürzel für das direkte Anlegen der Unterordner funktioniert
+    wieder. (Danke für den anonymen Hinweis #688)
+  - b24: Funktioniert wieder besser auf dem Desktop
+    (Danke Eric Werner #675)
+
+NewFile 0.4:
+  - b33: Dateien werden nun korrekt zur Bearbeitung geöffnet und bei
+    Problemen wird nun ein Hinweis angezeigt.
+    (Danke Alexander Taubenkorb #703)
+  - b25: Funktioniert wieder besser auf dem Desktop
+    (Danke Eric Werner #675)
+
+PackAndGo 0.7:
+  - b39: Fehler im Mehrbenutzermodus beseitigt (Danke Jens Meißner #721)
+
+PastePlain 0.4:
+  - b43: Beim Einfügen von Text in eine Konsolenanwendung wird nun geprüft,
+    ob evtl. Zeilenumbrüche vorhanden sind und eine Warnung ausgegeben.
+    (Danke Christian #738)
+  - b35: Es ist nun möglich ist den Inhalt der Zwischenablage in eine
+    Konsolenanwendung wie CMD.EXE oder Putty einzufügen.
+    (Danke Thomas Geißenhöner für den Code)
+
+QuickNote 1.2:
+  - b41: Es kann nun konfiguriert werden, ob die Trennlinie in der aktuellen
+    Zeile oder unter der aktuellen Zeile eingefügt wird
+    (Danke Mark Gerber #732)
+  - b20: Man kann nun auch die Auswahl drucken (Danke Günther Kaul)
+  - b18: Strg+Y zeigte manchmal ein seltsames Fenster an
+    (Danke Günther Kaul)
+  - b9: Das QuickNote-Skript lässt sich nun auch im Mehrbenutzer-Modus
+    duplizieren (Danke Jens Meißner #635)
+  - b9: In der Ini-Datei kann man nun durch Angabe von "UndoFile = xxx"
+    bestimmen, wo die Undo-Datei abgelegt wird (Danke Günther Kaul)
+  - b3: Wird vor dem Pfad zur Notizdatei ein * gesetzt, sucht QuickNote
+    zuerst im derzeit aktiven Explorerfenster nach der Datei und zeigt sie
+    statt der Standardnotiz an. Das ist nützlich für Notizen in einem
+    Projektordner. (Danke maelcum)
+
+QuickChangeDir 1.1:
+  - b34: Die Unterstütung von Umlauten wurde verbessert
+    (Danke Andreas Lechner #710)
+
+ReadingRuler 0.8:
+  - b37: Die Anzeigen von Klassen wurde verbessert
+  - b29: Horizontale/Vertikale Linie lässt sich nun einzeln an-/abschalten
+    (Danke Michael Janszen #693)
+  - b29: Es lässt sich nun "nur" die Startposition anzeigen
+    (Danke Michael Janszen #693)
+  - b24: Farbwert wird nun auch in Dezimalwerten angezeigt
+    (Danke Axel Busenius #671)
+  - b13: Die Löchgröße ist nun konfigurierbar
+    (Danke Stadler Reto #619)
+  - b12: Es ist nun auch die Transparenz einstellbar
+    (Danke Stadler Reto #619)
+  - b12: Der Versatz zur Maus ist einstellbar
+    (Danke Stadler Reto #619)
+
+RecentDirs 0.6:
+  - b3: Mit dem Verzeichnisfilter ist es nun möglich unerwünschte
+    Verzeichniss auszufiltern (Danke Mathias Kalb #614)
+
+RemapKeys 0.2:
+  - b38: Beim Deaktivieren von Tasten wurde immer {XBUTTON4} eingesetzt
+    (Danke Mathias Kalb #727)
+  - b9: LShift und RShift werden nun unterstützt (ganz am Ende)
+    (Danke Gerth Klein)
+  - b9: Die NumLock-Taste kann nun ebenfalls ausgeschaltet werden
+    (Danke Niko Bärsch)
+  - b8: @-Zeichen zu Auswahl hinzugefügt (Danke Florian #636)
+
+ScreenLoupe 0.2:
+  - b1: Vergrößerung geschieht nun in feineren 25-%-Schritten
+    (Danke R. Seidl #568)
+
+UserHotkeys 1.8:
+  - b38: Befehle, welche in Anführungszeichen eingeschlossen waren (z.B.
+    Textdateien mit Leerzeichen) wurden nicht korrekt gespeichert
+  - b37: %Seletion% wird nun für <Send> so aufbereitet, dass Sonderzeichen
+    wie +,! und # korrerkt ausgegeben werden (Danke Eric Werner #712)
+  - b28: Neue Spezialbefehle (<WheelUp>, <WheelDown>), um per Tastatur
+    das Mausrad zu simulieren (Danke Manuel Kappelhoff)
+
+WebSearch 1.4:
+  - b48: Es kann nun eingestellt werden, wodurch ein Leerzeichen ersetzt wird
+    (Danke Thomas #742)
+  - b33: Fehlerhafte Tastaturkürzel führen nicht mehr zum Absturz von
+    ac'tivAid (Danke Heiner Bunjes #704)
+  - b27: Diverse Fehler in der SearchHistory behoben
+    (Danke Mathias Kalb #685, #686)
+  - b27: Durch DisableHistory=1 unter [WebSearch] in der ac'tivAid.ini lässt
+    sich das Aufzeichnen der letzten Sucheingaben verhindern
+    (Danke Mathias Kalb #679)
+  - b26: Die Eintrage lassen sich nun manuell sortieren
+    (Danke Mathias Kalb #679)
+  - b26: Einzelene Einträge lassen sich deaktivieren.
+    (Danke Mathias Kalb #679)
+
+_____________________________________________________________________________
+1.1.6 - 2006-10-13 14:47
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Allgemein:
+  - Kapitel 3.2 in der Hilfe um einen Absatz ergänzt, wie man
+    evtl. Verbindungsprobleme mit LeoToolTip/ThesauroToolTip behebt.
+  - Neue Option in der ac'tivAid.ini: ReloadOnWakeUp (Siehe FAQ)
+    (Danke Claus Ziegler)
+  - Verbesserte Unterstützung für benutzerdefiniertes
+    settings-Verzeichnis (Danke Jürgen Binder #487)
+  - Tastaturkürzel kurzfristig deaktivieren funktioniert wieder
+    (Danke Günther Kaul)
+  - Kontextmenü mit allen Funktionen funktioniert wieder
+  - Anpassungen und Update auf AutoHotkey 1.0.44.13
+  - func_ChangeDir unterstützt nun auch Visual Studio und Powershell
+    (Danke Thomas Liebethal #527,#528)
+  - Der Cursor bleibt nun in den Suchen-Feldern (Hilfe, Änderungen ...)
+    stehen, so dass die Eingabe nicht mehr ungewohnt wirkt
+  - ToolTips werden nun angezeigt, wenn man in ein Feld klickt oder
+    mit der Tastatur in der Konfiguration navigiert (abschaltbar)
+  - Tastaturkürzel-Übersicht verursachte Fehler, wenn die
+    Konfiguration sichtbar ist (Danke Günther Kaul)
+  - Vor einem Update kann nun ein automatisches Backup des ac'tivAid-
+    Verzeichnisses angelegt werden (Danke Andreas Wirth #510)
+  - Tastaturkürzel-Übersicht war fehlerhaft (Danke Stephan Ehrmann)
+  - Doppelt belegte Kürzel werden wieder in UserHotkeys erkannt
+    (Danke Günther Kaul)
+  - FAQ um einen Abschnitt über die Datensicherung hinzugefügt
+
+AppLauncher:
+  - Mit F5 oder Strg+R wird nun der Indexer gestartet
+    (Danke Robert Deimel)
+  - Verknüpfungen auf Netzwerklaufwerke werden nun nicht mehr
+    analysiert, so dass der Aufruf von AppLauncher sich nicht mehr
+    stark verzögert (Danke André Berg #519)
+
+AutoShutdown:
+  - Beim sofortigen Herunterfahren wird nun nicht mehr die Boot.ini
+    so verändert, dass der nächste Systemstart fehlschlägt
+    (Danke Robert Trapp)
+
+ComfortResize:
+  - Bei einigen Systemen führte das Skalieren zu wildem 'Gepiepse'
+    (Danke Andres Kohlbach #556)
+
+ComfortDrag:
+  - Beim kurzfristigen Desktop wird das aktive Fenster nicht mehr
+    zurückgesetzt (Danke für den anonymen Hinweis #566)
+
+DriveIcons:
+  - Das Umbenennen von Laufwerks-Verknüpfungen wirft nun nicht mehr
+    das entsprechende Laufwerk aus (Danke Kay #589)
+  - Beim Wechsel der Option "Laufwerksbuchstabe vor dem Mediennamen"
+    werden keine doppelten Icons mehr angelegt (Danke Mathias Kalb #417)
+  - Es werden nun nicht nur Klassennamen, sondern auch Fenstertitel bei
+    der Ausnahmeliste für (Brenn-)Programme akzeptiert
+    (Danke Ronny Brandt #524)
+
+Eject:
+  - Bei 'Gerätenamen zuweisen' stehen nun auch Laufwerksbuchstaben und
+    Laufwerksnamen zur Auswahl (ganz unten in der Auswahlliste).
+
+ExplorerHotkeys:
+  - Eine neue "Find As You Type"-Funktion, mit welcher man Dateien auch
+    durch Eingabe von Namensteilen auswählen kann (Danke jcghost)
+  - Die Funktion für Umbenennen ohne Erweiterung wurde wieder entfernt,
+    da sie nun komplett von FileRenamer abgedeckt wird
+  - Neue Funktion, um Dateien zu duplizieren (Danke Kay #521)
+  - Bei "Verzeichnisebene hoch" wurde manchmal der falsche Ordner
+    ausgewählt (Danke Eric Werner #507)
+  - Neues Tastaturkürzel, um ein Explorer-Fenster zu duplizieren.
+
+FileRenamer:
+  - Neuer Platzhalter \c für den Inhalt der Zwischenablage. Ist
+    die Zwischenablage mehrzeilig, wird für jeden Dateinamen die entsprechende
+    Zeile verwendet (Danke Eric Werner #581)
+  - Bei Ordnern wird nicht mehr angenommen, es gäbe eine
+    Datei-Erweiterung (Danke maelcum)
+  - Zusätzliches Tastaturkürzel für das Umbenennen ohne Dialog (#552)
+  - Das Umbenennen von mehrzeiligen Dateinamen funktioniert nun
+    (Danke für den anonymen Hinweis #529)
+  - Es können nun Dateien in mehreren Ordnern gleichzeitig (Suchergebnis)
+    umbenannt werden (Danke Ronny Brandt #523)
+  - Die Zwischenablage wird nicht mehr überschrieben
+    (Danke Eric Werner #520)
+  - Lässt sich nun korrekt mit F2 belegen (Danke Eric Werner)
+  - Ordner wurden nicht korrekt umbenannte (Danke Eric Werner #506)
+  - Nur aus einem Leerzeichen bestehende Ersetzungsstrings werden nun
+    gespeichert
+
+FreeSpace:
+  - Abstürze behoben (Danke Tim #557)
+  - Anzeige in Prozent möglich (Danke Gilgeam)
+  - Anzeige korrigiert (Danke Tim Maler #540)
+
+LikeDirkey:
+  - Zuweisung von Kürzel nun auch über das globale Kontext-Menü möglich
+  - Registry-Schlüssel werden nur noch verändert, wenn man in LikeDirkey
+    ein # voran stellt (#HKEY...) (Danke Ronny Brandt #538)
+
+LeoToolTip
+  - Wird der Server pda.leo.org verwendet, wird nun auch nach ähnlichen
+    Begriffen gesucht, falls die Suche fehlschlägt (Danke Eric Werner #585)
+  - Es lässt sich nun festlegen, in welchem Browser das Suchergebnis
+    angezeigt werden soll (Danke Kristof #579)
+  - Die Menüpunkte sind nun durchnummeriert und lassen sich direkt mit
+    den Zahlentasten aufrufen. (Danke Kristof #578)
+  - ToolTip bleibt nun wieder stehen, wenn die Maus den ToolTip berührt
+    (Danke Henning Völlm #553)
+  - Bei einigen Kürzeln wurde versehentlich das Start-Menü aufgerufen
+    (Danke Stefan Salvador)
+
+LookThrough:
+  - Weitere Konfigurationsmöglichkeiten (Danke Chris #547)
+  - Neue Option, um das Loch erst dann zu bewegen, wenn der Mauszeiger
+    stehen bleibt. (Danke Rainer #473)
+  - Fehler behoben, welcher LookThrough beim zweiten Aufruf nicht mehr
+    angezeigt hat (Danke Klaus #513)
+  - Neue Option, um den Ausschnitt generell am Mauspfeil zu zentrieren
+    (Danke Klaus #513)
+
+MiddleButton:
+  - Neue Option, um ein Fenster zu schließen (Danke Patrick #534)
+
+MusicControl:
+  - Neue Option, um die WinAmp-Unterstützung zu deaktivieren
+    (Danke Alexander Gecks)
+
+PastePlain:
+  - Zuverlässigkeit erhöht und es erscheint nun ein Hinweis, da das
+    konvertieren der Zwischenablage manchmal etwas dauert.
+    (Danke Günther Kaul)
+
+QuickNote:
+  - Das akustische Signal des Timers lässt sich nun gleichzeitig über
+    die Soundkarte und den PC-Speaker ausgeben.
+    (Danke Michael Janszen #537)
+  - Mittels des Eintrags "SoundFile" in der ac'tivAid.ini kann man die
+    Wav-Datei für das akustische Signal auch selber festlegen.
+    (Danke Michael Janszen #537)
+
+RemapKeys:
+  - Wird ein Buchstabe für die simulierten Windows-Taste verwendet
+    wird er nicht mal als Großbuchstabe angesehen (Danke Mark Gerber #571)
+  - Verändertes Verhalten, so dass sich mit den neu belegten Tasten
+    auch ac'tivAid-Funktionen aufrufen lassen. (Danke für den Hinweis #535)
+
+ThesauroToolTip:
+  - Es lässt sich nun festlegen, in welchem Browser das Suchergebnis
+    angezeigt werden soll (Danke Kristof #579)
+  - Es werden nun automatisch verschiedene Schreibweisen (Groß/Klein)
+    durchprobiert (Danke Stephan Ehrmann)
+  - ToolTip bleibt nun wieder stehen, wenn die Maus den ToolTip berührt
+    (Danke Henning Völlm #553)
+  - Bei einigen Kürzeln wurde versehentlich das Start-Menü aufgerufen
+    (Danke Stefan Salvador)
+
+UserHotkeys:
+  - War eine Kategorie ausgewählt wurde ein neues Tastaturkürzel nicht
+    korrekt gespeichert (Danke Michael Pinnecke #569)
+  - Die Liste mit den Kürzeln lässt sich nun manuell über das
+    Kontextmenü oder mit Strg+Hoch/Runter und Strg+Pos1/Ende sortieren
+    (Danke Bärbel Brummel #570)
+
+WindowsControl:
+  - Fenster minimieren funktionierte nicht immer
+    (Danke Thomas Ferdinand #574)
+
+_____________________________________________________________________________
+1.1.5 - 2006-09-15 02:21
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Allgemein:
+  - Neue Erweiterung: ExplorerHotkeys
+  - Kleine Spielerei: LookThrough bohrt Löcher in Anwendungsfenster, damit man
+    auf den Desktop schauen kann. (noch nicht ganz ausgereift)
+  - Update-Mechanismus für Mehrbenutzersystem verbessert
+  - Ergänzung der Hilfe zu LikeDirkey und UserHotkeys um Beispielvariablen
+    (Danke Christian #492)
+  - Ergänzung der Hilfe um einen FAQ-Eintrag (Danke Christian #462)
+  - In der Tastaturkürzel-Übersicht ist der zuletzt verwendete Suchbegriff
+    nun bei erneutem Aufruf markiert, so dass er direkt überschrieben
+    werden kann (Danke Henning Völlm #489)
+  - Strg+Löschen klappt nun auch in den Suchfeldern der Hilfe und
+    der Tastaturkürzel-Übersicht
+  - Der Installer funktioniert wieder, wenn noch kein AutoHotkey installiert
+    war (Danke Marcel Mißbach #469)
+  - Die Simulation der Windows-Taste wurde von WindowsControl nach RemapKeys
+    verschoben, welches auch eine Umbelegung der Feststellen-Taste ermöglicht
+    (Danke Frank Pawlak)
+  - Sprechblasenhinweise lassen sich nun generell zu Hinweisfenstern
+    umschalten (Danke für den anonymen Hinweis #465)
+  - Kompatibilität zu StrokeIt verbessert (Danke Andres Kohlbach #279)
+
+AppLauncher:
+  - Button zum History-Löschen hinzugefügt (Danke für den anonymen Hinweis)
+  - Beim Betätigen von Enter wird gewartet, bis die Suche vollendet
+    (Danke für den anonymen Hinweis #468)
+  - Strg+Entf (Eintrag in Historie löschen) funktionierte nicht mehr
+
+ComfortResize:
+  - Mehr Auswahl an Mauskombinationenen, mit welchen ComfortResize
+    ausgeführt wird (Danke Stephan Heuel #479)
+
+DriveIcons:
+  - Laufwerk B wird nun nicht mehr einer Sonderbehandlung unterzogen,
+    da es heutzutage wohl kaum noch Rechner mit zwei Diskettenlaufwerken
+    gibt (Danke Nico Wiedemann #484)
+  - Symbole aus Autorun.inf werden nun berücksichtigt.
+    (Danke Franz-Richard Kunze #454)
+
+FilePaste:
+  - Leerzeilen werden nicht mehr entfernt (Danke Eric Werner #463)
+
+FileRenamer:
+  - Neue Option, um einzelne Dateien ohne Dialog umbenennen zu können
+  - Änderungsdatum wird wieder korrekt ermittelt
+  - Die Sortierung folgt nun 'logisch', also File10 steht nicht mehr
+    zwischen File1 und File2, sondern hinter File 9
+    (Danke Eric Werner #424)
+  - Neues Nummerieren von Dateien ist nun auch möglich, wenn z.B. aus
+    Datei1, Datei2, Datei3 -> Datei2,Datei3,Datei4 werden soll.
+    (Danke Eric Werner #496)
+  - Neue Option, welche dafür sorgt, dass Datei-Erweiterungen nicht
+    mehr geändert werden können und die Angabe von .\x nicht mehr
+    nötig ist. (Danke Eric Werner #480)
+  - Die Nummerierungseinstellung wird nun gespeichert und falls keine
+    Angaben in den Voreinstellungen gemacht werden, wird sie auch
+    nicht mehr zurückgesetzt (Danke Eric Werner #496)
+
+HotStrings:
+  - kleinere Bugs in der Konfiguration beseitigt.
+
+KeyState:
+  - Das akustische Signal lässt sich in den angegebenen Fenstern
+    ausschalten (Danke Carsten)
+  - Das Signal der Einfg-Taste ist konfigurierbar (Danke Carsten)
+  - OSD sollte nun immer im Vordergrund erscheinen (Danke Christian #472)
+  - TrayIcon wird nun korrekt dargestellt (Danke Christian #472)
+  - Akustische Signale (Speaker/Wave) sind nun gleichzeitig aktivierbar
+    (Danke Michael Janszen #460)
+  - Wave-Datei über Ini-Datei wählbar (SoundFile = X:\datei.wav)
+    (Danke Michael Janszen #460)
+  - Anzeige der Uhrzeit war nicht korrekt (Monat statt Minuten)
+
+LeoToolTip/ThesauroTooltip:
+  - ToolTip sollte nun nicht mehr sofort verschwinden
+  - Hinweis, wenn evtl. ein Problem mit einem Proxy besteht
+
+MiddleButton:
+  - Fehlermeldung behoben, wenn man ComfortDrag nutzen wollte
+    (Danke Christian #459)
+
+NewFile:
+  - Zwischenablage wird wiederhergestellt um wieder zuvor ausgeschnittene
+    Dateien verschieben zu können. (Danke Franz-Richard Kunze #456)
+
+NewFolder:
+  - Markierte Dateien können nun automatisch in den neuen Ordner
+    verschoben werden (Danke Eric Werner #483)
+  - Zwischenablage wird wiederhergestellt um wieder zuvor ausgeschnittene
+    Dateien verschieben zu können. (Danke Franz-Richard Kunze #456)
+
+PastePlain:
+   - Verbesserungen in der Zusammenarbeit mit Adobe-Anwendungen?
+
+QuickNote:
+  - Vor dem Alarm wird die Stummschaltung dekativiert (Danke R. Seidl)
+  - Neues Kürzel (Strg+K), um die Kompakte Darstellung direkt umschalten zu
+    können (Danke Franz-Richard Kunze #450)
+
+QuickChangeDir:
+  - Nicht verfügbare Laufwerke starten nun nicht mehr die Indexierung
+
+RecentDirs:
+  - Fenster können nun optional mit Verzeichnisbaum geöffnet werden
+    (Danke Franz-Richard Kunze #457)
+
+RemapKeys:
+  - Das Ziffernblock-Komma kann man durch einen Punkt ersetzen lassen
+    (Danke Eric Werner #493)
+  - Die Einfg-Taste kann neu belegt oder deaktiviert werden
+    (Danke Eric Werner #493)
+
+UserHotkeys:
+  - Die Menüpunkte eines Kategorie-Menüs funktionierten nicht mehr
+    (Danke Achim Laumann #475)
+
+WebSearch:
+  - Es wird nun eine Fehlermeldung angezeigt, wenn ein angegebener Browser
+    nicht gestartet werden kann (Danke Manuel Kappelhoff)
+
+WindowsControl:
+  - "Fenster immer im Vordergrund" verändert nun nicht mehr das Aussehen von
+    Fenstern (Danke Michael Mayr)
+
+WindowShrinker:
+  - funktioniert nun auch mit maximierten Fenstern
+    (Danke Franz-Richard Kunze #458)
+
+_____________________________________________________________________________
+1.1.4 - 2006-08-17 17:58
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Hinweis für Erweiterungs-Entwickler:
+  - Mit AutoHotkey 1.0.44.09 ist es nun möglich geworden, die GUI-IDs
+    (Gui, 5:Add...) dynamisch zu vergeben. Dadurch hat sich der Umgang
+    mit GUIs in Erweiterungen grundlegend geändert. Nähere Informationen
+    finden Sie dazu unter CreateGuiID() in der Datei
+    development/erweiterungen.txt
+
+Allgemein:
+  - Beim Installieren von Erweiterungen springt die Liste der Erweiterungen
+    nicht mehr nach ganz oben, zudem ist nun auch eine Mehrfachauswahl von
+    Erweiterungen möglich (Danke Mark Gerber #447)
+  - AutoStart ohne Startbildschirm nun auch im Mehrbenutzermodus möglich
+    (Danke Mark Gerber #438)
+  - Mausrad-Unterstützung verbessert (Danke Günther Kaul)
+  - Der Installer installiert kein älteres AutoHotkey mehr
+    (Danke Mark Gerber #437)
+  - Interne Änderungen für dynamische GUI-ID-Vergabe
+    (möglicherweise funktioniert noch nicht alles reibungslos!)
+  - Kontextmenü mit allen Funktionen wurde nicht korrekt aufgebaut
+    (Danke Artur Aschmoneit #425)
+  - Automatisches Update einer selbstkompilierten Version ist nun
+    nicht mehr möglich, da sinnlos (Danke Eric Werner #386)
+  - Statistik ist im Einzelbenutzermodus nicht mehr Computerbezogen
+    (Danke Michael Mayr)
+  - Probleme mit dem Mausrad in der Konfiguration teilweise behoben
+
+AppLauncher 0.5:
+  - Ordnerverknüpfungen können nun ebenfalls indexiert werden
+    (Danke André Berg #430)
+
+AutoShutDown 0.4:
+  - Bietet nun die Möglichkeit das Betriebssystem, welches beim
+    nächsten Start gestartet werden soll, auszuwählen
+    (Danke Christian Hartwig #412)
+
+ComfortDrag 1.0:
+  - StrokeIt wird nun temporär deaktiviert, wenn bei einer Drag&Drop-Aktion
+    die rechte Maustaste betätigt wird.
+
+ComfortResize 0.7:
+  - Das Einrasten am Bildschirmrand kann mit zusätzlich gedrückter
+    Strg-Taste umgangen werden.
+
+DriveIcons 0.5:
+  - Netzwerk-Laufwerke erhalten nun den Freigabename statt des
+    Laufwerknamens (Danke Björn #443)
+  - Bei Auflösungsänderung werden die Icons neu angeordnet
+    (Danke für den anonymen Hinweis #411)
+
+Eject 1.0:
+  - Bei "Gerätenamen zuweisen" hat man nun mehr Einfluss auf DevEject. Bei
+    Pfaden (ROOT\...) wird -EjectID, bei normalen Texten (ohne ' und \)
+    -EjectName und bei Laufwerksbuchstaben (F:) -EjectDrive verwendet
+    (Danke Mark Gerber #436)
+
+FileRenamer 1.2:
+  - Platzhalter funktionierten nicht beim Umbenennen einer Datei
+    (Danke Kristof #421)
+  - Tastaturkürzel für das direkte Umbenennen mit den zuletzt
+    verwendeten Einstellungen (Danke Thorsten Albrecht)
+
+FreeSpace
+  - Optional ist nun auch die Anzeige der Gesamtkapazität möglich
+    (Danke Reto Probst)
+
+KeyState 0.4:
+  - Das kleine OSD in der Titleleiste erscheint nun nicht mehr
+    in der Tastkleiste (Danke Günther Kaul)
+  - Die Einfügen-Taste gibt (falls aktiviert) nun auch ein akustisches
+    Signal. Ein Anzeige im OSD macht keinen Sinn, da der richtige
+    Status programmabhängig ist und nicht ermittelt werden kann.
+    (Danke Ralf Kotthoff)
+  - Anzeige einer Mini-Uhrzeit im Mini-OSD möglich (Danke H.D. #420)
+
+LeoToolTip 0.6:
+  - Es besteht nun die Möglichkeit für jede Sprache von Leo ein eigenens
+    Kürzel zu vergeben (Danke Udo Schleucher)
+
+LikeDirkeyMenu:
+  - ist wieder sichtbar (Danke für den anonymen Hinweis #422)
+
+MiddleButton 0.4:
+  - Ließ sich nicht installieren, wenn ComfortDrag deinstalliert war
+    (Danke Frank Pawlak)
+  - Doppelklick funktionierte nicht immer (Danke Michael Pinnecke #413)
+
+MultiClipboard 0.3:
+  - Neue Option, um Strg+C und Strg+X zu überwachen.
+    (Danke Wolfgang Schaedle)
+
+MusicControl:
+  - WinAmp startet nicht zweimal, wenn es minimiert ist
+    (Danke Heinrich Schäfer #446)
+
+NewFolder:
+  - Zweimaliges Drücken des Kürzels mit Dialog legt nicht mehr zwei Ordner an
+    (Danke Eric Werner #423)
+
+QuickNote 1.1:
+  - Die Schriften werden nun alphabetisch sortiert
+    (Danke Mark Gerber #445)
+  - Es besteht nun direkt die Möglichkeit mittels der Schaltfläche
+    "QuickNote-Skript duplizieren" ein Duplikat der QuickNote-Erweiterung zu
+    erzeugen. Dadurch erhält man weitere unabhängige Notizzettel.
+
+UserHotkeys 1.7:
+  - Neues Beispielskript: extensions/UserHotkeys-scripts/dpiCalc.ahk
+  - <SingleInstance> und <SingleInstanceClose> überarbeitet, so dass auch
+    direkt Dokumente angegeben werden können (funktioniert evtl. noch nicht
+    perfekt)
+
+WindosControl 0.7:
+  - Programm/Fenster schließen kann nun so konfiguriert werden, dass es
+    auch Programme mit mehreren Fenstern (Thunderbird) komplett geschlossen
+    werden (Danke Manuel Kappelhoff)
+
+_____________________________________________________________________________
+1.1.3 - 2006-07-28 16:16
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Allgemein:
+  - Belegung vorhandener Kürzel funktioniert nun auch innerhalb von
+    UserHotkeys (Danke Günther Kaul)
+  - Bei Fensterklassen-Angaben werden nun Wildcards unterstützt (MouseClip
+    und MiddleButton)
+  - Bereits vergebene Tastaturkürzel wurden manchmal nicht erkannt
+    (Danke Stephan Ehrmann)
+  - Portable ac'tivAid kann nun auch mittels USBAgent gestartet werden
+    (Danke für die vielen Hinweise)
+  - Das Update bricht nicht mehr mit einer Fehlermeldung ab, wenn man
+    MusicControl oder KeyState verwendet hat.
+  - Die Hilfe wird in der englischen Version nicht mehr durch eine 1 ersetzt
+    (Danke Ingmar Gutberlet)
+  - Kontextmenü mit allen Funktionen (Danke Stephan Ehrmann)
+  - Der Doppelklick auf das Tray-Icon ist konfigurierbar
+    (Danke Christian #319)
+  - Die globalen Tastaturkürzel stehen nun auf einer eigenen Konfigurations-
+    Seite
+  - Einstellungen lassen sich nun auch von Benutzern zum Einzelbenutzer-Modus
+    exportieren (Danke Jens Meißner #355)
+  - Einstellungen lassen sich nun auch im Einzelbenutzer-Modus vom Benutzer
+    importieren (Danke Jens Meißner #355)
+  - Die Erweiterung WindowToBottom wurde durch die Erweiterung MiddleButton
+    ersetzt und bietet mehr Auswahlmöglichkeiten.
+  - Das FAQ kann direkt über das Hilfemenü angesprungen werden
+  - Relative Pfadangabe bei eigenen Icons werden nun unterstützt
+    (Danke christian #317)
+  - Deaktivieren und wieder Reaktivieren funktionierte nicht
+    (Danke christian #318)
+  - Kompatibilität zu StrokeIt verbessert (Rechte Maustaste verliert
+    teilweise die Belegung in ac'tivAid)
+  - Vertauschte Maustasten werden wieder unterstützt (Danke Franz Kores)
+  - Probleme mit ungewöhnlichen Umgebungsvariablen behoben:
+    Error: This variable or function name contains an illegal character.
+    (Danke für die vielen Hinweise)
+  - Auf einigen Systemen war die Tastaturkürzel-Übersicht rechtsbündig
+  - HotStrings werden nun in der Tastaturkürzel-Übersicht aufgelistet
+    (Danke Günther Kaul)
+
+AutoShutdown 0.3:
+  - Das Kürzel für's direkte herunterfahren wird nun korrekt gespeichert
+    (Danke Rainer Sieger)
+  - Ein Wechsel der Herunterfahr-Option hält den Timer an (von Patrick Eder)
+  - Ein Doppelklick auf eine Herunterfahr-Option führt diese direkt aus
+    (von Patrick Eder)
+
+AppLauncher 0.4:
+  - Die vereinfachte Darstellung 'klebt' nun nicht mehr am Start-Knopf
+    (Danke Robert Deimel)
+
+ComfortResize 0.6:
+  - Ein einfacher Win+Rechtsklick holt nun inaktive Fenster in den Vordergrund
+    (Danke Eric Werner #334)
+  - Der Mauspfeil zeigt nun an wie das Fenster angepasst wird.
+  - Es besteht nun die Möglichkeit das Skalieren/Verschieben mit der
+    Umschalt-Taste auf ein frei definierbares Raster zu beschränken
+  - Es können nun zwei Benutzerdefinierte Fenstergrößen angegeben werden
+  - Die Größenänderung ist nun auch ohne Windows-Taste möglich
+    (Danke and Heiko Bertsch)
+  - Das Einrasten am Bildschirmrand wird nun auch beim Skalieren auf feste
+    Fenstergrößen berücksichtigt.
+
+DriveIcons 0.4:
+  - Neue Option, um neue Medien direkt im Explorer zu öffnen
+  - Wegen der Inkompatibilitäten wird DriveIcons beim ersten Start deaktiviert
+  - Die Option für das Auswerfen manuell gelöschter Laufwerke lässt sich
+    nun deaktivieren (Danke Michael Janszen)
+  - Option, um den Laufwerksbuchstaben vor den Mediennamen zu setzen
+    (Danke Sven-Uwe Urban)
+
+Eject 0.9:
+  - Es können nun auch einzelne Medien eines Kartenlesers ausgeworfen werden.
+  - Es lassen sich mehrere Laufwerke nacheinander auswerfen, indem man z.B.
+    "E,F,G" als Laufwerk angibt. (Danke Michael Mayr #382)
+  - Zusätzlich gibt es nun noch die Möglichkeit mittels "AllCD" alle
+    CD-Laufwerke auswerfen zu lassen (Danke Michael Mayr #382)
+
+EmptyRecycler 0.2:
+  - Die Sicherheitsabfrage lässt sich nun abschalten (Danke Patrick Eder)
+  - Wenn beim Entleeren Probleme auftreten, wird ein Hinweis angezeigt
+    (Danke Jens Meißner #363)
+
+FilePaste 1.1:
+  - Fehlerhafte Ausgabe von UNC-Pfaden (Danke für den anonymen Hinweis #398)
+  - Neue Option, um die Ausgabe nach Benutzerangaben zu formatieren, womit
+    nun auch das Datum, die Uhrzeit und die Dateigröße mit ausgegeben werden
+    kann. (Danke Sebastian van Laak)
+
+FileRenamer 1.1:
+  - Neue Option, um den Dateinamen von Sonderzeichen zu befreien (Web-Safe)
+  - Neue Optionen, um Texte zu ersetzen (Danke Dirk Schwarzmann)
+  - Neue Optionen für Groß-/Kleinschreibung (Danke Dirk Schwarzmann)
+  - Funktioniert wieder auf dem Schreibtisch (Danke Frank Pawlak)
+  - Es können nun auch Ordner umbenannt werden
+  - Dateisymbole werden nun mit angezeigt
+  - Tooltips für Datum- und Zeitformat
+
+KeyState 0.3:
+  - Ständige Festplattenzugriffe bei erstem Aufruf beseitigt.
+    (Danke Michael)
+
+LeoToolTip 0.5:
+  - Beim Anzeigen der Web-Site sind nun Quellen-Links aktiviert
+    (Danke Eric Werner #396)
+  - Das Menü wurde um einen Menüpunkt ergänzt, um die Suchergebnisse im
+    Browser anzuzeigen (Danke Eric Werner #325)
+  - Existieren bei einem nicht gefundenen Begriff orthographische
+    Alternativvorschläge, wird die Suche erneut damit ausgeführt.
+    (Danke Eric Werner #325)
+
+MusicControl:
+  - WinAmp wird bei Play gestartet, falls es nicht geladen ist.
+    (Danke Klaus Reiter #383)
+
+NewFile/NewFolder:
+  - Die Kürzel werde nun nicht mehr geblockt, wenn kein Explorer-Fenster
+    aktiv ist. (Danke Eric Werner #365)
+
+WindowsControl 0.6:
+  - Das Wiederherstellen der ursprünglichen Fenstergröße funktionierte nicht
+    mit allen Auflösungen (Danke Henning Völlm #361)
+  - Werden Mauskürzel vergeben, bezieht sich eine Aktion auf das angeklickte
+    Fenster (Danke and Heiko Bertsch)
+  - Auf Höhe/Breite maximieren lässt sich nun so kombinieren, dass man
+    Fenster vierteln kann. (Danke and Heiko Bertsch)
+  - Fenster mit festen Größen werden nun nicht mehr verändert.
+    (Danke Eric Werner #385)
+
+UserHotkeys 1.6:
+  - Neuer Spezialbefehl: <Single> (Danke Christian #376)
+  - Die Spezialbefehle befinden sich nun zur einfacheren Verwendung in einem
+    Menu unterhalb des Eingabefelds
+  - Neue Spezialbefehle: <AltTab>, <ShiftAltTab>, <AltTabAndMenu>,
+    <AltTabMenuDismiss> (Danke Patrick #165)
+  - Neuer Spezialbefehl: <PostMessage>
+
+_____________________________________________________________________________
+1.1.2 - 2006-06-30 17:45
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Vielen Dank für die vielen Lesermeldungen. Diesmal wurde eine erheblich
+Anzahl an Ungereimtheiten aus der Welt geschafft. Also Trost für die lange
+Wartezeit gibt's dafür noch die neue Erweiterung EmptyRecycler und ein paar
+Verbesserungen bei einzelnen Erweiterungen.
+
+Allgemein:
+  - Absturz bei der Exe-Version behoben. (Danke für die vielen Hinweise)
+  - Bricht man die Mauskürzel-Abfrage ab, wird die Konfiguration nicht mehr
+    abgebrochen. (Danke Eric Werner #307)
+  - Ein sehr langes Passwort wurde sichtbar, wenn man wiederholt den
+    Dialog aufgerufen hat. (Danke Jens Meißner #280)
+  - Die Hilfe, die Änderungen und die Tastaturkürzel-Übersicht haben nun
+    Suchfelder (Vorwärtsuche/Rückwärtsuche mit F3/Shift-F3)
+    (Danke Günther Kaul)
+  - ac'tivAid zeigt beim Laden jetzt ein kleines Startfenster. (lässt sich
+    für den Autostart-Eintrag ausschalten: Haken bei der Option für den
+    Autostart grau/grün)
+  - Die Portable-Version funktioniert nun auch auf normalen Laufwerken
+    oder Netzlaufwerken.
+  - Unter Hilfe gibt es nun eine kleine Statistik
+  - Im Erweiterung-Menu kann man nun einzes nun eine kleine Statistik
+  - Im Erweiterung-Menu kann man nun einzelne Erweiterung aus dem
+    Konfigurationsfenster entfernen. Das praktisch, um das Fenster
+    etwas zu entschlacken, wenn man z.B. einige Erweiterung nicht mehr
+    konfigurieren muss. (Danke Michel Mayr)
+  - Man kann über die Datei settings\custom-variables.ini eigene Variablen
+    definieren, welche dann mittels %VARIABLE% in UserHotkeys und Hotstrings
+    verfügbar sind.
+  - Es lassen sich nun auch Maustasten und Joystickknöpfe als Tastatur-
+    kürzel verwenden. Dazu muss man mit Alt oder Shift auf die Schaltfläche
+    zur Tastaturkürzelabfrage klicken.
+  - Das NumLock-Kürzel wurde wegen weiterer Probleme durch die Druck-Taste
+    ersetzt. (ggf. manuell umstellen)
+  - Mittels Einträge in der ac'tivAid.ini ist es nun möglich nach einem
+    Update unerwünschte Dateien wie z.B. 320MPH zu löschen. (Siehe FAQ)
+    (Danke Peter Musch)
+  - Startmenüeintrag kann manuell gelöscht werden (Danke Christian #298)
+  - Nutzer der Exe-Version dürfen nun ebenfalls Betas beziehen.
+  - Beim Importieren der Einstellungen vom Einzelbenutzer-Modus wird
+    vorher eine Sicherheitskopie erstellt (Verzeichnis settings_backup)
+    (Dank an Jens Meißner #315
+  - Kürzel mit Minus-Taste werden wie Plus ausgeschrieben
+    (Danke Henning Völlm)
+  - AltGr+Umschalt wird wieder richtig dargestellt
+    (Danke Jens Meißner #310)
+  - Hinweis im FAQ, wie man das Icon von ac'tivAid austauscht
+
+AppLauncher 0.3:
+  _ Option, um das Fenster automatisch zu schließen, wenn es inaktiv wird
+    (Danke Robert Deimel)
+  - Neue vereinfachte Darstellung ohne Schaltflächen
+  - Manuell eingestellte Spaltenbreiten werden gespeichert, wenn in der
+    Konfiguration die automatische Spaltenbreitenanpassung deaktiviert ist.
+    (Danke Robert Deimel)
+  - Wenn man in das Suchergebnis klickt, funktioniert das Mausrad wieder.
+  - Dateien ohne Dateiendung wurden versehentlich immer indexiert (Danke an
+    Christian #288)
+
+AutoShutdown:
+  - Der Testmodus ist nun standardmäßig deaktiviert. (Danke Jürgen Rist)
+
+ComfortResize 0.5:
+  - Ist WindowsControl aktiv, kann man mit einem Doppelklick auch
+    Fenster entsprechend maximieren. (Danke Eric Werner #305)
+  - Die Fenstergröße von nicht vergrößerbaren Fenstern lässt sich nur noch
+    optional verändern.
+
+DriveIcons 0.3:
+  - Es gibt nun keine Ausschlussliste mehr, sondern ein Liste, welche
+    Laufwerke überhaupt überwacht werden. Damit lässt sich auch eine
+    manuelle Sortierung realisieren. (Danke  Jens Meißner #278)
+  - Neue Option, die erkennt wenn ein Laufwerkssymbol vom Schreibtisch
+    gelöscht wird. Das erkannte Laufwerk wird an Erweiterung Eject weiter
+    gereicht und wenn möglich ausgeworfen. (Danke Jens Meißner #278)
+
+Eject 0.8:
+  - Netzwerklaufwerke können nun ebenfalls ausgeworfen werden.
+  - Das OSD wird nun wieder angezeigt, wenn die Taskleiste auf
+    "automatisch Ausblenden" konfiguriert ist.
+    (Danke für die vielen Hinweise)
+
+FilePaste:
+  - Funktioniert nun wieder mit Adobe Illustrator
+
+FileRenamer 1.0:
+  - Der Dialog für einzelne Dateien erscheint nun immer am Fenster wo
+    die Datei ausgewählt war.
+  - Es ist nun nicht mehr nötig, dass die Erweiterungen im Explorer angezeigt
+    werden, das Umbenennen funktioniert jetzt auch in Dateidialogen
+  - Die Adressleiste ist ebenfalls nicht mehr Pflicht
+  - Es wird bei einzelnen Dateinamen nur noch der Name ohne Erweiterung
+    markiert. (Danke Christian Schmid)
+
+HotStrings:
+  - Die Syntaen verändert werden (Danke Oliver Busa #276)
+  - Die Syntax-Überprüfung wird nicht sofort Pflicht, wenn man einen
+    HotString auswählt. (Danke Stephan Ehrmann)
+
+KeyState:
+  - Das OSD wird nun wieder angezeigt, wenn die Taskleiste auf
+    "automatisch Ausblenden" konfiguriert ist.
+    (Danke für die vielen Hinweise)
+
+LeoToolTip 0.4:
+  - Alternativ gibt es nun ein Menü, womit man direkt ein Übersetzung
+    auswählen und einfügen kann. (Danke Eric Werner #304)
+  - Mausklicks außerhalb des Tooltips schließen ebenfalls den Tooltip
+  - Anzeigedauer des Tooltips konfigurierbar
+
+MultiClipboard 0.2:
+  - Das Menü mit der Auflistung der Zwischenablagen beitet nun auch die
+    Möglichkeit die Markierung zu kopieren (Danke Frank Pawlak)
+
+MusicControl:
+  - Es konnte kein anderer Regler als MASTER ausgewählt werden.
+    (Danke Bernhard Stumpf #273)
+
+NewFile 0.3:
+  - Der Dialog ist nun auch in der Taskleiste sichtbar
+    (Danke am Eric Werner #277)
+  - die letzten 20 Eingaben werden nun gespeichert und sind im Dialog über
+    eine DropDown-Liste erreichbar
+  - Zuverlässigere Erkennung, falls die Ordneroptionen nicht stimmen.
+
+NewFolder 1.2:
+  - Der Dialog ist nun auch in der Taskleiste sichtbar
+    (Danke am Eric Werner #277)
+  - die letzten 20 Eingaben werden nun gespeichert und sind im Dialog über
+    eine DropDown-Liste erreichbar
+  - Zuverlässigere Erkennung, falls die Ordneroptionen nicht stimmen.
+
+PackAndGo:
+  - Durch die Auslagerung von MouseClip und ComfortDrag waren in
+    PackAndGo keine Erweiterungen mehr sichtbar. (Danke Peter Musch #281)
+
+PastePlain 0.3:
+  - Neue Option, womit man bestimmen kann, ob der alte Zwischen-
+    ablageninhalt wiederhergestellt werden soll (kann nämlich unter umständen
+    das Einfügen deutlich verzögern)
+  - Funktioniert nun wieder mit Adobe Illustrator
+
+QuickChangeDir:
+  - Wenn man in das Suchergebnis klickt, funktioniert das Mausrad wieder.
+  - Neuer Spezialfall für die Programmbeschränkung. Durch Angabe von
+    "ExplorerAndDialogs" gilt ein Kürzel auf alle Explorer-Fenster und
+    Dateidialoge, welche auch vom Verzeichniswechsel erkannt werden. Somit
+    ist es möglich LikeDirkey adäquat zu ergänzen.
+
+QuickNote 1.0:
+  - Rückwärtssuche mit Shift+F3.
+
+ThesauroToolTip 0.4:
+  - Mausklicks außerhalb des Tooltips schließen ebenfalls den Tooltip
+  - Anzeigedauer des Tooltips konfigurierbar
+
+UserHotkeys:
+  - Programme ohne Pfadangaben gehen wieder (Danke Michael Mayr)
+  - Userhotkeys-Scripts werden auch im Mehrbenutzer-Modus gefunden.
+    (Danke Günther Kaul)
+
+_____________________________________________________________________________
+1.1.1 - 2006-06-23 09:57
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Diese Aktualisierung bringt wieder viele Verbesserungen und
+Fehlerkorrekturen. Es wurden große Anstrengungen unternommen, um nun auch
+ComfortDrag und MouseClip als separate Erweiterungen anbieten zu können.
+Durch die gravierenden Änderungen ist es nicht ganz auszuschließen, dass
+eigene Erweiterungen nicht mehr korrekt funktionieren. Bitte kontaktieren Sie
+uns, wenn Sie Probleme entdecken.
+
+Allgemein:
+  - Änderungen an der Update-Funktion. Es wird nun kein unzip.exe mehr
+    benötigt.
+  - ComfortDrag und MouseClip wurden nun in externe Erweiterungen
+    ausgelagert.
+  - Bei bereits verwendeten Tastaturkürzeln wird nun gefragt, ob das
+    Kürzel trotzdem übernommen werden soll und die alte Belegung entfernt
+    werden soll.
+  - Liesmich im FAQ um die AltGr-Problematik erweitert (AltGr <> Strg+Alt)
+  - Deaktivierte Erweiterung waren nach einem neu Laden von ac'tivAid
+    wieder teilweise aktiv, zumindest das Tastaturkürzel
+    (Danke Eric Werner #268)
+  - Neues Kürzel, um alle Tastaturkürzel temporär zu deaktivieren.
+    Man hält dazu dieses Kürzel gedrückt und währenddessen verhalten
+    sich alle anderen Tastaturkürzel als wäre ac'tivAid nicht aktiv.
+    Kurzes antippen des Kürzels führt die normale Belegung aus.
+    (Danke Michael Burri)
+  - Darstellungsfehler bei Tastaturkürzeln behoben (seit 1.1.0.4)
+  - Der Entwicklermodus merkt nun, ob man im ac'tivAid-Verzeichnis
+    Schreibrechte hat und lädt nicht ständig ac'tivAid neu
+  - FAQ um Erläuterungen zu Darstellungsproblemen ergänzt.
+
+ComfortDrag 0.9:
+  - ComfortDrag ist nun als eigenständige Erweiterung verfügbar und nicht
+    mehr fester Bestandteil von ac'tivAid
+  - Wie beim Mac lässt sich bei einer Drag&Drop-Aktion das Fenster nun mit
+    der Leertaste (statt vormals Strg) aktivieren
+  - Fehler beim kurzfristigen Desktop behoben
+  - Total Commander mit in die Web-Browser-Aussnahmeliste aufgenommen.
+    Damit lässt sich über die Option "Web-Browser nur über die Titelleiste
+    mit der rechte Maustaste versteckbar" verhindern, dass der Total
+    Commander verschwindet, wenn man zum Verschieben von Dateien die rechte
+    Maustaste benutzt. (Danke Beauty)
+
+ComfortResize 0.4:
+  - Neue Option, um das Skalieren/Verschieben am Bildschirmrand
+    zu begrenzen
+  - Neue Option, welche das Skalieren/Verschieben verlangsamt, damit
+    auf langsamen Systemen keine 'Schlieren' entstehen
+  - Sobald die Maus stehen bleibt werden 'Schlieren' entfernt
+
+FileRenamer 0.8:
+  - die zuletzt gewählte Datumsoption wurde im Dialog nicht angezeigt
+
+HotStrings 0.9:
+  - Werden AutoHotkey-Befehle angegeben, kann die Eingabe erste übernommen
+    werden wenn die Fehlerüberprüfung erfolgreich war.
+
+KeyState 0.2:
+  - Der Titelleisten-Status bleibt nun nicht mehr gelegentlich auf dem
+    Desktop kleben.
+  - Es lassen sich nun Ausnahmen festlegen, bei welchen Fenstern der
+    Titelleisten-Status nicht angezeigt wird.
+
+MouseClip 0.9:
+  - MouseClip ist nun als eigenständige Erweiterung verfügbar und nicht
+    mehr fester Bestandteil von ac'tivAid
+
+MusicControl 0.7:
+  - Mit einer Zusatzztaste kann man nun das akustische Signal wie unter
+    OS X unterdrücken. (Danke Michael Burri)
+  - Man hat nun freie Wahl, welche Soundkarte und welcher Regler
+    von MusicControl ferngesteuert werden soll.
+
+NewFile 0.2:
+  - Bei versteckten Date-Endungen wird der komplette Dateiname ausgewählt.
+  - Abfrage auch über Dialog möglich
+  - Datei kann nun direkt zur Bearbeitung geöffnet werden
+  - Fehler beseitigt
+
+NewFolder 1.1:
+  - Es gibt eine neue Option, mit der man direkt in den neu angelegten Ordner
+    wechseln kann
+  - Fehler beseitigt
+
+PackAndGo 0.6:
+  - Es wird geprüft, ob der Compiler verfügbar ist.
+
+PastePlain 0.2:
+  - Zuverlässigkeit von PastePlain erhöht.
+  - Texte, die entfernt werden sollen, werden nun wirklich entfernt
+  - Neues zusätzliches Kürzel, um den Text ohne Zeilenumbrüche einzufügen.
+    Option können auch doppelte Leerzeichen ersetzt werden.
+
+QuickNote 0.9:
+  - Das Schließen des Notizfensters wurde beschleunigt
+  - Beim Übernehmen der Einstellungen in der Konfiguration wird die
+    Position bei sichtbarem Notizfenster nun nicht mehr auf 0 gesetzt.
+  - Neue Option, um die Scrollbalken auszuschalten
+  - Neue Option für einen kompakten Modus ohne Festertitel und Timer
+
+ThesauroToolTip 0.3:
+  - Es wurde immer "Suchbegriff nicht gefunden ..." ausgegeben
+    (Danke für den anonymen Hinweis #265)
+
+UserHotkeys 1.5:
+  - Manchmal wurden Programme im Hintergrund gestartet
+    (Danke Robert Deimel)
+
+WindowToBottom 0.2:
+  - Ist nun unabhängig von MouseClip
+
+_____________________________________________________________________________
+1.1.0 - 2006-06-07 14:50
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Dieses Update bringt neben den obligatorischen Fehlerkorrekturen vor allem
+eine Menge neuer Erweiterungen mit:
+
+* AppLauncher von Patrick Eder
+* AutoShutdown von Patrick Eder und Wolfgang Reszel
+* ComfortSize von Bernd Schandl und Wolfgang Reszel
+* DriveIcons von Wolfgang Reszel
+* FileRenamer von Wolfgang Reszel und Florian Schenk
+* HotstringsHotkey von Wolfgang Reszel
+* KeyState von Wolfgang Reszel
+* MultiClipboard von Wolfgang Reszel
+* NewFile von Dirk Schwarzmann
+* FilePaste/PastePlain von Bernd Schandl und Wolfgang Reszel
+* PowerControl von Wolfgang Reszel
+* WindowShrinker von Dirk Schwarzmann und Wolfgang Reszel
+
+Allgemein:
+  - ac'tivAid richtet nun beim ersten Start neben der Deinstallations-
+    routine auch eine Programmgruppe ein (optional).
+  - ac'tivAid erkennt, wenn es samt AutoHotkey.exe (im Unterordner
+    AutoHotkey) auf einem USB-Stick liegt und speichert alle
+    Einstellungen auf dem Stick ab. Zur besseren Unterschiedung
+    nennt sich ac'tivAid dann Portable ac'tivAid.
+  - Das Konfigurationsfenster wurde überarbeitet. Es passen nun mehr
+    Erweiterungen in die Liste.
+  - Das Pfeil-Menü wurde durch eine Menüleiste ersetzt.
+  - Im Hilfe-Menü gibt es Direktlinks zum Bugtracker und für den
+    E-Mail-Kontakt.
+  - Das Tray-Menü lässt sich optional dazu verwenden, direkt die
+    Konfigurationsseite einer Erweiterung aufzurufen
+    (Die Option befindet sich unter 'activAid')
+  - Im Task-Switcher (Alt+Tab) wird nun das hochauflösende Icon gezeigt
+    (Dank an Stephan Ehrmann)
+  - Der Verzeichniswechsel funktioniert nun auch in einem 4NT-Dos-Fenster
+  - Die Einstellungsdateien, worin gespeichert wird welche Erweiterungen
+    aktiviert sind, werden nun auch im settings-Verzeichnis abgelegt.
+    (extension_main.ini und extensions_header.ini)
+  - Es werden beim Sichern der kompletten Einstellungen auch
+    Einstellunge von HotStrings, QuickChangeDir und AppLauncher gesichert.
+    Dadurch ändert sich etwas die Bedienung. Man gibt nun keine Export-Datei
+    mehr an, sondern einen Export-Ordner. Es werden nur Einstellungen von
+    installierten Erweiterungen gesichert oder wieder geladen.
+    (Danke Manuel Kappelhoff)
+  - Alle Dialoge, bei welchen man einen Ordner auswählen muss, haben nun
+    nicht mehr ständig "Eigene Dateien" ausgewählt
+  - Die Tastaturkürzel-Übersicht ist nun in der Breite skalierbar
+
+ComfortDrag:
+  - Die in der Ignorieren-Liste eingetragenen Programme werden nun auch
+    beim temporären Desktop durch Mausberührung am Bildschirmrand
+    berücksichtig. (Danke für den anonymen Hinweis #234)
+
+Eject 0.7:
+  - Es lassen sich manuell Laufwerksbuchstaben mit Gerätenamen für
+    deveject.exe belegen. Damit lassen sich ggf. Probleme mit Geräten
+    lösen, die sich nicht auswerfen lassen.
+
+HotStrings 0.8:
+  - Es kann nun nicht nur ein HotString auf ein Programm
+    beschränkt werden, sondern für ein einziges Programm ausgeschlossen
+    werden. Also gültig für alle Programme bis auf eines.
+    (Danke für den anonymen Vorschlag #253)
+
+LikeDirkey 0.9:
+  - Die Umstellung, ob der Ziffernblock verwendet wird ist nun auch beim
+    Übernehmen der Einstellung direkt im Konfigurationsdialog sichtbar
+    (Danke Alexander Taubenkorb)
+  - Ist bei einem Kürzel ein Registry-Pfad angegeben, wird beim Neubelegen
+    des Kürzels der Registry-Wert geändert und nicht mehr der Registry-Pfad
+    überschrieben
+
+MouseClip:
+  - Ignorierte Klassen lassen nun wieder die mittlere Maustaste zu.
+  - Picasa (ytWindow) zu den Standard Ignorieren-Klassen hinzugefügt,
+    damit man wieder mit der mittleren Maustaste scrollen kann
+
+QuickChangeDir 1.0:
+  - Neue Option im Indexierungs-Planer, womit eine Indexierung beim
+    Herunterfahren/Ausschalten ausgeführt werden kann.
+    (Danke Manuel Kappelhoff)
+  - Fehler bei der Erkennung bereits vorhandener Kürzel behoben
+  - Fehler beim Hinzufügen von Verzeichnissen beseitigt. Es wurde manchmal
+    fälschlicherweise vermutet, dass schon ein Überverzeichnis
+    in der Index-Liste steht. (Danke Manuel Kappelhoff)
+
+ReadingRuler 0.7:
+  - Neue Optionen, um Fenster-Klassen und Element-Klassen anzuzeigen
+
+RecentDirs 0.5:
+  - Es gibt nun drei Darstellungsvarianten wie die Verzeichnisse im Menü
+    dargestellt werden. In der Konfiguration wurde es aus Platzmangel
+    "Alternative Darstellung" genannt und zeigt deswegen einen ToolTip
+    mit näheren Erläuterungen.
+
+UserHotkeys 1.4:
+  - Neuer Spezialbefehl <CategoryLaunchAll>, welcher alle Einträge einer
+    Kategorie aufruft
+  - Neuer Spezialbefehl <WorkingDir:"...">, welcher das Arbeitsverzeichnis
+    festlegt
+  - <Max> und <SingleInstance> funktionieren nun auch zusammen.
+  - <SingleInstance> funktioniert nun auch noch, nachdem ac'tivAid neu
+    geladen wurde
+
+WebSearch:
+  - Neue Standardeinstellung für Wikipedia.
+    aus http://de.wikipedia.org/wiki/###
+    ... wird http://de.wikipedia.org/wiki/Spezial:Search?search=###
+    Wer WebSearch bereits konfiguriert hat, muss das manuell
+    ersetzen. (Danke Alexander Taubenkorb)
+
+WindowsControl 0.5:
+  - Funktionen zum Herunterfahren, Neustarten etc. wurden in die neue
+    Erweiterung PowerControl ausgelagert
+  - Die Höhe oder Breite eines Fensters kann nun maximiert werden
+  - Man kann nun auch auf die oberen und unteren Bildschirmhälften maximieren
+  - Beim erneuten betätigen eines Maximieren-Kürzels wird die ursprüngliche
+    Fensterposition und Größe wiederhergestellt
+  - WindowsControl kann nun Fenster auch transparent setzen
+    (Danke Michael Mayr)
+
+_____________________________________________________________________________
+1.0.7.20 - 2006-06-06 11:58
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Allgemein:
+  - Kleinere Fehlerkorrekturen beim ermitteln des aktuellen Verzeichnisses
+  - Es werden nun AltGr-Kürzel angezeigt
+
+FreeSpace 0.8:
+  - Neue Option um die Sprechblasenhinweise zu deaktivieren
+  - Kommt nun damit zurecht, wenn manuell die Adressleiste bearbeitet wird
+
+QuickNote 0.8:
+  - Timer ließ sich nicht vernünftig einstellen, da er sofort Alarm schlug
+  - leicht verzögertes Speichern, um die Anzahl der Festplattenzugriffe
+    zu verringern
+
+UserHotkeys 1.3:
+  - <send> funktionierte nicht mehr (#263)
+  - kann wieder auf Umgebungsvariablen zugreifen
+  - Überschrift der Menüs nun lesbarer (nicht mehr grau)
+  - Weitere Korrekturen bei Pfaden mit Leerzeichen
+  - Darstellungsprobleme beim Scrollen in der Konfiguration behoben
+  - Bei Kategoriemenüs werden keine leeren Klammern "()" mehr gezeigt,
+    wenn einem Eintrag kein Kürzel zugewiesen wurde.
+
+WebSearch:
+  - Der Übernehmen-Knopf wird aktiv wenn man eine Einstellung löscht
+
+_____________________________________________________________________________
+1.0.7.11 - 2006-05-09 13:33
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Allgemein:
+  - Update auf AutoHotkey 1.0.43.11
+  - Das Verstecken aller Erweiterungen lässt sich nun wieder rückgängig
+    machen und funktioniert nun auch ohne Admin-Rechte.
+    (Danke Christof Elmiger)
+  - Liegt eine ac'tivAid.zip im Verzeichnis des manuellen Updates, wird
+    bei einem Neustart von ac'tivAid automatisch das Update durchgeführt.
+  - Die Fortschrittsbalken bei Downloads lassen sich nun verschieben oder
+    minimieren. (Danke Stephan Ehrmann)
+
+Eject:
+  - Das Auswerfen aus dem Explorer klappt nun nicht nur aus dem
+    Hauptverzeichnis, sondern auch aus Unterverzeichnissen
+    (Danke Alexander Taubenkorb #246)
+
+Filepaste:
+  - Beim Update wurde ein Teil der Einstellungen gelöscht
+    (Danke Patrick #249)
+
+HotStrings:
+  - Eine Datei mit Standardwerten wird nur erzeugt, wenn weder hotstrings.ini
+    noch hotstrings.ini.disabled gefunden wurde. (Danke Stephan Ehrmann)
+
+QuickChangeDir 0.9:
+  - Der Planer "alle X Stunden" wurde falsch berechnet
+    (Danke Oliver B. #235)
+  - Für die DOS-Box wird jetzt die Variable %COMSPEC% verwendet, womit auch
+    alternative Kommandozeileninterpreter wir 4NT unterstützt werden.
+    (Danke Patrick #242)
+
+UserHotkeys 1.2:
+  - In der Übersicht werden Pfade nun durch "...\" ersetzt und die
+    Übersetzung der Spezialkommandos ist nun kürzer
+  - Probleme mit <SingleInstance> und <SingleInstanceClose> behoben
+  - Bei Kürzeln, die auf ein Programm beschränkt sind, wurde das Kürzel
+    nicht 'durchgeschleift', wenn ein anderes Programm aktiv ist.
+    (Danke Dirk Schwarzmann #250)
+  - Beim Bearbeiten eines Eintrags lässt sich nun die Programmbeschränkung
+    interaktiv festlegen (Schaltfläche "-")
+  - Schaltfläche zum Bearbeiten eines Eintrags hinzugefügt und zusammen mit
+    der -/+ Schaltfläche nach unten rechts verlagert.
+  - Import (Hinzufügen) von Einstellungen verbessert.
+  - Doppelklicks in der Liste funktionieren nun zuverlässiger
+  - Bei der Beschränkung auf ein Programm sind nun auch Angaben wie
+    ahk_id oder ahk_class möglich.
+  - Neuer Spezialbefehl <ControlSend>
+
+WindowsControl:
+  - Update auf die neue AutoHotkey-Version wurde nicht berücksichtigt,
+    womit die simulierte Windows-Taste nicht immer funktionierte.
+    - hatte ich bei 1.0.7.1 vergessen (Danke Mark Gerber #238)
+
+_____________________________________________________________________________
+1.0.7.1 - 2006-04-04 16:00
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Allgemein:
+  - Update auf AutoHotkey 1.0.43.04, welches nun endlich kein unscharfes
+    Tray-Icon mehr darstellt und Abstürze beim Tippen behebt.
+  - Zuverlässigkeit beim Ermitteln des ausgewählten Texts in OpenOffice
+    erhöht. (Betrifft z.B. FilePaste) (Danke Alexander Taubenkorb #239)
+
+WebSearch:
+  - Weitere Verbesserungen an der Suchstringverarbietung. Es gibt nun keine
+    Probleme mehr mit Anführungszeichen.
+
+WindowsControl:
+  - Update auf die neue AutoHotkey-Version wurde nicht berücksichtigt,
+    womit die simulierte Windows-Taste nicht immer funktionierte.
+    (Danke Mark Gerber #238)
+
+_____________________________________________________________________________
+1.0.7 - 2006-03-30 13:11
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Allgemein:
+  - Wichtiges Update auf AutoHotkey 1.0.43.01
+  - Deaktivieren einer Erweiterung im Konfigurationsdialog deaktivierte
+    alle Kontextemenüeinträge (Danke Stephan Ehrmann)
+  - Die Tastaturkürzel-Übersicht deaktivierte den ersten Kontextmenü-Eintrag
+    (Danke Stephan Ehrmann)
+  - Dialoge des Konfigurationsfensters liegen nun immer im Vordergrund und
+    können nicht mehr vom Konfigurationsfenster verdeckt werden
+    (Danke Stephan Ehrmann)
+  - Die Prüfung, welche Tastaturkürzel belegt sind, wurde verbessert.
+    (Danke Stephan Ehrmann)
+
+ComfortDrag:
+  - Die in der Ignorieren-Liste eingetragenen Programme werden nun auch
+    beim temporären Desktop am Bildschirmrand berücksichtig.
+    (Danke für den anonymen Hinweis #234)
+
+FilePaste:
+  - Das Einfügen funktioniert nun wieder zuverlässiger.
+
+LeoToolTip 0.2:
+  - Unter Windows 98 funktioniert der ToolTip nun nicht nur beim ersten mal
+    (Danke Guido Wilkens #232)
+
+PackAndGo 0.5:
+  - Falls deveject.exe (für Eject) existiert, wir sie ebenfalls mit verpackt.
+
+ThesauroToolTip 0.2:
+  - Die Grundform wird nun wieder korrekt ermittelt (Danke Stephan Ehrmann)
+  - Unter Windows 98 funktioniert der ToolTip nun nicht nur beim ersten mal
+    (Danke Guido Wilkens #232)
+
+UserHotkeys 1.1:
+  - AHK-Skripte werden auch ausgeführt, wenn ac'tivAid von einem USB-Stick
+    gestartet wurde.
+
+WebSearch 1.3:
+  - Fehler bei der URL-Kodierung behoben (Danke für den anonymen Hinweis #231)
+  - Die Entf-Taste löscht nun nicht mehr den gesamten Eintrag
+
+_____________________________________________________________________________
+1.0.6.9 - 2006-03-16 10:21
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Allgemein:
+  - Manuelle Prüfung auf ein Update hat nicht immer funktioniert
+    (Danke Robert Krause #214)
+
+CommandLine 0.6:
+  - Auf einigen Systemen funktioniert die Enter-Taste nicht
+    (Danke Sven Knurr #220)
+
+Eject 0.6:
+  - deveject.exe wird nun auch Mehrbenutzermodus gefunden
+    (Danke Oliver Hagner)
+
+FreeSpace 0.7:
+  - Die Anzeige funktionierte nicht mehr (Danke Stephan Ehrmann)
+
+MusicControl 0.6:
+  - Wenn die Lautstärke auf stumm gestellt ist wird beim Ändern der
+    Lautstärke wieder auf laut gestellt. (Danke Alexander Taubenkorb #221)
+
+ReadingRuler 0.6:
+  - "Übernehmen" aktualisiert die Darstellung, wenn ReadingRuler aktiv ist
+  - Die Linienstärke ist konfigurierbar (Danke für den anonymen Hinweis #215)
+
+UserHotkeys 1.0:
+  - Sprechblasenhinweise für den ausgeführten Befehl und für Fehlermeldungen
+    hinzugefügt (konfigurierbar) (Danke Robert Deimel)
+
+WindowsControl 0.5:
+  - Kürzel für Fenster im Vordergrund halten konnte nicht geändert werden
+    (Danke Lars Hupel)
+
+_____________________________________________________________________________
+1.0.6.6 - 2006-03-01 14:26
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Allgemein:
+  - Wichtiges AutoHotkey-Update: 1.0.42.6
+  - Ladevorgang leicht beschleunigt
+  - Falls eine neue AutoHotkey-Version nötig ist, wird sie direkt mit
+    heruntergeladen und nun ohne Benutzereingaben aktualisiert
+  - Die Fortschrittanzeige beim Herunterladen funktioniert nun wieder
+  - Verzeichniswechsel (RecentDirs, QuickChangeDir, LikeDirkey ...)
+    funktionieren nun auch im Total Commander (Danke Alexandre Mayor)
+  - Verzeichniswechsel (RecentDirs, QuickChangeDir, LikeDirkey ...)
+    funktionieren nun auch im SpeedCommander und WinRAR
+  - Der Deinstaller löscht nun nicht mehr das gesamte Verzeichnis von
+    ac'tivAid, sondern nur die entsprechenden Dateien. Dadurch wird
+    verhindert, dass beim Deinstallieren einer PacKAndGo-Datei auf dem
+    Desktop der gesamte Desktop gelöscht wird (Danke Achim Laumann #211)
+  - Die Erweiterungsverwaltung sortiert nun automatisch die Erweiterungen
+    nach Alphabet und markiert Erweitwerungen die installiert oder de-
+    installiert wurden.
+  - Der Autor einer Erweiterung wird in der Erweiterungsverwaltung und
+    der Hilfe zu einer Erweiterung angezeigt.
+  - Die Kontexthilfe wird nun nicht nur aus der Liesmich-Datei generiert,
+    sondern kann in einer Erweiterung selbst definiert werden.
+    (NDE_Help, siehe Template.ahk)
+
+ComfortDrag 0.9:
+  - Das Tastaturkürzel für den kurzfristigen Desktop wird nicht mehr belegt
+    wenn die Funktion deaktiviert wird. (Danke Martin Sperlich)
+
+Eject 0.6:
+  - Wählt man * als Laufwerksbuchstaben aus, lässt sich das aktuell
+    ausgewählte (Icon auf Desktop, Explorer-Fenster, Laufwerk im
+    Arbeitsplatz) Laufwerk auswerfen
+
+HotStrings 0.7:
+  - Manuell gepflegte HotStrings.ini wird nun nicht mehr umsortiert,
+    wenn man HotStrings aus dem Traymenü entfernt.
+    (Danke Andre Gerdts)
+
+PackAndGo 0.4:
+  - Das Zielverzeichnis wird nun angelegt, falls es nicht existiert
+
+_____________________________________________________________________________
+1.0.6 - 2006-03-01 14:26
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Allgemein:
+  - ac'tivAid trägt sich nun in Systemsteuerung/Software ein, worüber
+    es nun auch automatisch deinstalliert werden kann.
+  - Anpassung an AutoHotkey 1.0.42.03
+  - Update ohne Admin-Rechte aber mit Schreibrechten müsste nun
+    funktionieren (Danke obii #181)
+  - Neue Erweiterung ThesauroToolTip
+  - Das ermitteln eines Verzeichnisses im aktuellen Explorer-Fenster
+    bevorzugt nun die Adressleiste (Danke für den anonymen Hinweis #188)
+  - Problem mit festhängender mittlerer Maustaste behoben
+  - Das Setzen des Kürzels für Kürzelübersicht erzeugt keinen Fehler mehr
+    (Danke Markus Leimbach #202)
+  - Erweiterungen sind wieder sichtbar, wenn man im Mehrbenutzermodus
+    arbeitet (Danke Oliver Hagner)
+  - Zuweisung von Tastaturkürzeln funktionierte nicht immer
+    (Danke Oliver Hagner)
+  - Beim manuellen Update wird nun auch ein vorhandener AutoHotkey-Installer
+    erkannt und automatisch ausgeführt
+  - Liesmich um Anmerkung zu Proxy-Servern ergänzt
+
+Eject 0.5:
+  - Wenn im ac'tivAid-Verzeichnis das Programm deveject.exe aus c't 16/03
+    existiert, lassen sich nun auch Wechseldatenträger wie z.B. USB-Sticks
+    auswerfen. (Download: ftp://ftp.heise.de/pub/ct/listings/0316-208.zip)
+  - Laufwerksbuchstaben lassen sich nun auch manuell bearbeiten.
+
+FilePaste 0.9:
+  - Es wird nun nicht mehr nur noch ein Dateiname eingefügt, wenn der Pfad
+    entfernt wird. (Danke Alexander Taubenkorb #186)
+  - Die Zwischenablage wird nun nicht mehr verändert und der Fehler mit
+    teilweise eingefügten Texten wurde behoben.
+    (Danke Alexander Taubenkorb #204)
+
+FreeSpace 0.7:
+  - Beim Ändern der Einstellungen werden nun auch die Fenster wieder
+    aktualisiert.
+
+LeoToolTip 0.2:
+  - Die Anzahl der Ergebnisse wurde versehentlich immer runtergezählt,
+    wenn man OK gedrückt hat. (Danke Dirk Schwarzmann #179)
+  - Der Inhalt der Zwischenablage wird nun nicht mehr überschrieben
+
+LikeDirkey 0.8:
+  - Die Meldung, dass der Verzeichniswechsel nur im Explorer und in Dialogen
+    funktioniert wird nur noch einmal angezeigt.
+    (Danke Alexander Taubenkorb)
+  - Der Verzeichniswechsel wird in das Recent-Verzeichnis eingetragen, womit
+    das Verzeichnis dann auch bei RecentDirs sichtbar wird
+
+HotStrings 0.6:
+  - HotStrings lassen sich nun auch auf bestimmte Programme beschränken und
+    entsprechend gruppiert anzeigen.
+  - Aus dem Inhalt der Zwischenablage kann nun automatisch ein Hotstring
+    erzeugt werden. Das ist hilfreich, um Hotstrings mit Metadaten wie
+    Formatierungen oder Bilder zu realisieren. Der Inhalt der Zwischenablage
+    wird dabei in einer Datei gespeichert und vom Hotstring geladen
+    und eingefügt. (Danke Harald Brennecke)
+  - Beim Sichern der Einstellungen wird nun eine Sicherungskopie der alten
+    Hotstrings.ini angelegt (Hotstrings.ini.bak)
+
+NewFolder 1.0:
+  - Optional lässt sich nun ein Dialog zur Abfrage eines Ordnernames
+    im Explorer einblenden. Dadurch ist es möglich direkt Unterordner
+    oder gar absolute Ordner (C:\Ordner\Unterordner) anzulegen.
+    (Danke Dirk Schwarzmann #195)
+
+MouseClip 0.8:
+  - Es können nun Fenster oder Klassen von MouseClip ausgeschlossen werden.
+    Das ist sinnvoll für Programme und Fenster die kein Strg+C unterstützen
+    (Danke Michael Kerner #114)
+
+PackAndGo 0.3:
+  - Nach der Kompilierung kann die Exe-Datei nun automatisch verschoben und
+    ein Programm/Skript ausgeführt werden. Das ist nützlich für
+    Administratoren welche nur die Exe-Version weitergeben und sie in
+    einem allgemein zugängigen Verzeichnis veröffentlichen. Mit einem
+    Skript wäre es auch möglich die neue Version automatisch per Mail zu
+    verteilen.
+  - Man kann nun angeben, ob eine verteilte Exe-Datei einen Deinstaller
+    unter Systemsteuerung/Software einrichtet
+
+RecentDirs 0.4:
+  - Der Verzeichniswechsel wird in das Recent-Verzeichnis eingetragen, womit
+    das zuletzt besuchte Verzeichnis zu oberst aufgelistet wird
+
+UserHotkeys 0.9:
+  - Einzelne Kürzel lassen sich nun auch auf Programme beschränken
+  - Wie bei HotStrings kann nun auch der Inhalt der Zwischenablage in
+    eine Datei gesichert werden und mit dem neuen Spezialbefehl <PasteFile>
+    wieder an die aktuelle Cursor-Position eingefügt werden.
+  - Der Verzeichniswechsel wird in das Recent-Verzeichnis eingetragen, womit
+    das Verzeichnis dann auch bei RecentDirs sichtbar wird
+  - Bei einem Update auf UserHotkeys 0.9 gingen plötzlich alle Hotkeys nicht
+    mehr, da diese versehentlich auf die Anwendung ERROR beschränkt wurden
+    (Danke Oliver #193)
+  - Bearbeitete Tasturkürzel wurden nicht immer gespeichert
+    (Danke für den anonymen Hinwies #197)
+  - Schalftlächen, um Einträge hinzuzufügen oder zu löschen
+  - <AOT> funktioniert nun wieder (Danke M.Hometa)
+
+QuickChangeDir 0.8:
+  - Der Indexer wird nun auch im Mehrbenutzer-Modus gefunden
+    (Danke Oliver Hagner)
+  - Aufgrund der Masse ein Einstellungen werden nun alle Konfigurations-
+    Einstellungen in die Datei settings\QuickChange.ini geschrieben.
+  - Die zuletzt eingegebenen Suchbegriffe werden nun gespeichert
+  - Der Suchvorgang wird nun optisch angezeigt
+  - Es sind nun Wildcards (*) möglich um mehrere Teilstrings im gesamten
+    Pfad zu finden (z.B: Programm*Explorer). Die Suche wird dadruch
+    allerdings etwas langsamer. Ohne Wildcard im Suchbegriff verhält sich
+    die Suche wie gewohnt. (Danke Tobi #90)
+  - Die Suche lässt sich nun auf ein Laufwerk beschränken (C:Suchbegriff)
+  - Wenn ein Verzeichniswechsel nicht funktioniert, wird eine nun Meldung
+    ausgegeben
+  - Es lässt sich nun eine Suchbegriff-Vorgabe definieren, was nützlich ist,
+    wenn man hauptsächlich nur ein Laufwerk durchsucht
+  - Neu hinzugefügte Verzeichnisse haben nicht immer die Übernehmen-
+    Schaltfläche aktiviert. (Danke Josef Blasini #121)
+  - Unter gewissen Umständen wurde der Letzte Buchstabe von Pfaden
+    abgeschnitten (Danke Josef Blasini und William Hefter #121)
+  - Der Indexer reagiert nun verlässlicher auf den rechten Mausklick, um
+    ihn z.B. abzubrechen.
+  - Mit einem Doppelklick lässt sich der Indexer anhalten/fortsetzen
+  - Indexdateien, welche im Hauptverzeichnis der Laufwerke abgelegt werden
+    enthalten nun keinen Laufwerksbuchstaben mehr im Namen. Damit ist es
+    möglich den Indexer auf einem Server laufen zu lassen wo die Laufwerks-
+    buchstaben von den Clients abweichen.
+    (Danke auch an Robert Krause #206)
+  - Das Such- und Ergebnisfenster lässt sich nun an das Ursprungsfenster
+    andocken (nur Explorer und Dialoge)
+
+QuickNote 0.7:
+  - Der Undo-Speicher wird nun beim Schließen des QuickNote-Fensters
+    ebenfalls auf Festplatte gesichert (im settings-Verzeichnis). Wenn der
+    Rechner also beim Speichern der Notiz abstürzt, kann man mit Strg+Z zum
+    letzten Schritt zurückkehren. Es werden die letzten 50 Schritte
+    gesichert. (Danke Christian #191)
+  - Die Text- und Hintergrundfarbe ist nun über die ac'tivAid.ini
+    anpassbar: BackgroundColour=RRGGBB bzw. FontColour=RRGGBB
+    (Danke für den anonymen Vorschlag #110)
+
+ThesauroToolTip 0.2:
+  - Umlaute wurden teilweise falsch dargestellt
+
+_____________________________________________________________________________
+1.0.5 - 2006-01-19 16:19
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Allgemein:
+  - Anpassungen für Windows NT4 (Danke Patrick)
+  - Der Konfigurationsdialog erscheint nicht mehr sporadisch beim
+    Systemstart. (Danke Jürgen Rist)
+  - Es gibt nun einen Einzel- und Mehrbenutzer-Modus. Im Mehbenutzer-Modus
+    hat jeder Benutzer seine eigenen Einstellungen.
+  - Bei Updates wird nach dem Administrator-Kennwort gefragt, falls man
+    nicht als Admin angemeldet ist.
+  - Es gibt nun für Erweiterungen die Möglichkeit mittels
+    OnExitAndRetload_NAMEDERERWEITERUNG eine Unterroutine beim Beenden oder
+    neu Laden von ac'tivAid auszuführen.
+  - Das Pfeilmenü funktioniert nun auch nach einem Reload.
+  - Es werden nun Sprechblasen angezeigt, wenn ein Verzeichnis nicht
+    ermittelt oder gewechselt werden kann.
+  - Neue Erweiterung: LeoToolTip 0.2
+
+Eject 0.4:
+  - Das Ausblenden funktioniert nun besser auf langsameren Rechnern
+
+FilePaste 0.9:
+  - Um die Möglichkeit ergänzt, Teile aus einem Pfad zu entfernen, womit es
+    möglich ist, relative Pfade einzufügen. (Danke Markus Adrario)
+  - Probleme mit sehr langen Pfaden in der Titelleiste behoben
+    (Danke Tetris)
+  - Strg+C wird nun nicht mehr heimlich abgefangen.
+
+FreeSpace 0.7:
+  - Funktioniert nun auch wieder mit maximierten Fenstern.
+    (Danke Manfred Seul)
+  - Beim Beenden werden nun die Fenstertitel zurückgesetzt.
+  - Der freie Speicherplatz kann nun auch in der Statuszeile
+    angezeigt werden.
+  - Freier Speicherplatz unterhalb von einem GB wird nun immmer in
+    MB angezeigt (Danke Christian)
+
+HotStrings 0.5:
+  - Doppelte Einträge können nun nicht mehr übernommen werden, so dass
+    ac'tivAid nicht am Starten gehindert werden kann. (Danke DreamFlasher)
+
+LikeDirkey 0.8:
+  - Es wurden nun auch mehrere Variablen unterstützt, welche auch nicht
+    mehr am Anfang stehen müssen. (Danke Tammo Heeren)
+
+MusicControl 0.6:
+  - Das Ausblenden funktioniert nun besser auf langsameren Rechnern
+
+NewFolder 0.9:
+  - Es gibt nun eine Fehlermeldung, wenn ein Ordner nicht angelegt
+    werden kann (Danke Alexander Kemp)
+
+PackAndGo 0.2:
+  - Fehler beim Kompilieren behoben (Danke Jürgen Rist)
+  - Überarbeitet, so dass die Erweiterung nur aufrufbar ist, wenn man
+    als Admin angemeldet ist. (siehe Allgemein)
+
+QuickNote 0.6:
+  - Der Timer kann nun auch ein akustisches Signal wiedergeben
+  - Der Timer bleibt aktiv, wenn ac'tivAid neu geladen wurde
+
+RecentDirs 0.4:
+  - Versehentlich war noch ein Meldungsfenster zu Testzwecken drin
+
+UserHotkeys 0.8:
+  - Beim Auswählen einer Datei wird ein schon angegebener Pfad als
+    Ausgangspunkt verwendet
+  - Es gibt nun die Möglichkeit Tastaturkürzel in Kategorien
+    zusammenzufassen und die Liste aller Kürzel zu sortieren
+  - Mit dem Spezialbefehl <CategoryMenu> lässt sich über ein
+    Tastaturkürzel ein Menü mit allen in der Kategorie
+    befindlichen Einträgen auflisten.
+  - In der Konfigurationsoberfläche lassen sich die Einträge
+    nach Kategorien filtern. Dem Kategorie-Menü lässt sich direkt
+    ein Tastaturkürzel zuweisen, was automatisch den entsprechenden
+    <CategoryMenu>-Eintrag erzeugt. Bei gefilterten Kategorien wird
+    der <CategoryMenu>-Eintrag nicht angezeigt.
+  - Text wurde bei <Send> verschluckt. (Danke Jürgen Rist)
+
+WebSearch 1.2:
+  - Die Fenster-Position wird nun auch beim Neuladen richtig gespeichert
+
+_____________________________________________________________________________
+1.0.4.1 - 2005-11-17 11:18
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Herzlichen Dank an alle Leser für die vielen Mails und die
+Untersützung bei der Fehlersuche. Es wurden wieder viele Fehler
+behoben und es gibt an einigen Stellen auch neue Optionen.
+WICHTIG: bei QuickChangeDir hat sich etwas Grundlegendes geändert.
+
+Neue Erweiterungen:
+  - Neue Erweiterung PackAndGo, mit welcher ac'tivAid mitsamt allen
+    Zusatzskripten und Liesmich-Dateien zu einer einzigen Exe-Datei
+    verpackt wird. (Danke Peter Musch für die Idee)
+
+MouseClip:
+  - Die Hilfe zu MouseClip um weitere Erläuterungen ergänzt. (Danke an
+    Johannes Kastl)
+
+QuickChangeDir:
+  - ACHTUNG: QuickChangeDir legt seine Index-Dateien nun versteckt
+    auf dem jeweiligen Laufwerk an, wenn kein Verzeichnis angegeben
+    wurde. In älteren Versionen wurde der Index dann unter
+    settings/QuickChangeDir abgelegt. Soll dieses Verzeichnis weiter
+    verwendet werden, muss es manuell ausgewählt werden.
+  - QuickChangeDir bietet nun eine verbesserte Planung der Indexierung.
+    Neben der Indexierung bei Änderung des Speicherplatzes gibt es
+    nun eine zeitliche Indexierung und auch eine Intervall-Indexierung.
+    (Danke Joachim Holubek und Peter Musch)
+  - QuickChangeDir kommt nun besser mit mehreren Verzeichnisangaben
+    zu einem Laufwerk klar.
+
+RecentDirs:
+  - RecentDirs berücksichtigt nun auch das Recent-Verzeichnis von
+    MS Office. (Danke Peter Musch)
+  - RecentDirs zeigte bei LikeDirkey-Einträgen versehentlich einen
+    Tooltip an. (Danke für den anonymen Hinweis und an Mihau)
+
+LikeDirkey:
+  - LikeDirkey kommt nun auch mit Class-IDs zurecht.
+    (z.B. ::{20D04FE0-3AEA-1069-A2D8-08002B30309D} für Arbeitsplatz)
+    (Danke Mitja Orzeszko)
+  - LikeDirkeyMenu öffnet nun auch ein Verzeichnis, wenn kein Explorer
+    aktiv ist. (Danke für den anonymen Hinweis)
+
+UserHotKeys:
+  - UserHotkeys kommt nun auch mit Class-IDs zurecht.
+    (z.B. ::{20D04FE0-3AEA-1069-A2D8-08002B30309D} für Arbeitsplatz)
+    (Danke Mitja Orzeszko)
+  - Weitere Probleme mit Leerzeichen behoben. (Danke Rolf Franck)
+  - <SingleInstance> und <SingleInstanceClose> verbessert,
+    so dass es nun auch richtig mit Regedit funktioniert.
+  - Neue Kommandos: <Min>, <Max> und <Hide>, um Fenster minimiert,
+    maximiert oder versteckt zu öffnen (Danke Peter Musch)
+
+HotStrings:
+  - Bei HotStrings kann man nun auch direkt AutoHotkey-Befehle wie
+    z.B. Send angeben. (Danke für den anonymen Hinweis im AHK-Forum)
+  - Fall AutoHotkey-Befehle eingesetzt werden, gibt es eine Schaltfläche
+    um einen Syntax-Check durchzuführen.
+  - HotStrings kommt nun mit Kommentaren in der INI-Datei klar und nimmt
+    dann an, dass die Datei von Hand in einem Texteditor gepflegt wird.
+    Änderungen sind dann nicht mehr im Konfigurationsdialog möglich.
+    (Danke Harald)
+  - Bei HotStrings kann man nun mit Cursor Hoch/Runter und Strg+Pos1/Ende
+    durch die Liste navigieren.
+  - HotStrings werden beim Speichern alphabetisch sortiert
+    (Danke Andreas Borutta)
+  - HotStrings zeigt nun in der kompilierten Version immer nur den Zustand an
+    der vor der Kompilierung zu eingestellt wurde. (Danke Peter Musch)
+  - Hotstrings konnte nicht mehr korrekt mit +,!,^ und # umgehen
+    (Danke Mihau)
+  - HotStrings kommt nun auch mit Doppelpunkten klar. (Danke an
+    Christof Elmiger)
+
+WebSearch
+  - Bei WebSearch lässt sich mit Entf nun auch ein Eintrag in der
+    Historie löschen
+  - WebSearch hatte beim direkten Tastaturkürzel den eingestellten
+    Browser ignoriert (Danke für den anonymen Hinweis)
+  - WebSearch ignorierte die letzte Eingabe und verwendete den ersten
+    History-Eintrag. (Danke Markus Ermert)
+
+CommandLine:
+  - Bei CommandLine kann man nun den Kommandozeilenprozesser auf
+    den Standard zurücksetzen (Danke Dirk Schwarzmann)
+  - Bei CommandLine kann man nun den Kommandoprozessor frei definieren.
+    (Ergänzung von Dirk Schwarzmann)
+
+QuickNote:
+  - Bei QuickNote ist der Suchendialog nun auch mehrsprachig
+    (Danke Dirk Schwarzmann)
+  - QuickNote hat nun auch einen Timer, wo man angibt, wie lange die
+    Notiz ausgeblendet werden soll. (Danke Stephan Heuel)
+
+FreeSpace:
+  - FreeSpace kennt nun auch eine optionale verkürzte Darstellung.
+    (Danke Klaus Westphal)
+
+MusicControl:
+  - MusicControl wurde nicht ganz deaktiviert. (Danke Dirk Schwarzmann)
+  - Damit die Lautstärke auch über der SPDIF-Ausgabe geregelt werden kann,
+    gibt es jetzt eine Option, um statt der Systemlautstärke die
+    Wave-Lautstärke zu regeln. (Danke Günther Eisele)
+
+NewFolder:
+  - NewFolder erstellt wieder neue Ordner in Dateidialogen (Danke an
+    Dirk Schwarzmann)
+
+Allgemein:
+  - Der Verzeichniswechsel funktionieren nun auch in AutoCad (Danke an
+    Alois Leimüller)
+  - Deaktivieren von ac'tivAid nach der Änderung eines Tastaturkürzels
+    führt zu einer Fehlermeldung (Danke Harald)
+  - Übernehmen-Schaltfläche war sofort aktiv (Danke Harald)
+  - DoEnable wird nun nicht mehr bei deaktivierten Erweiterungen aufgerufen
+    (Danke Dirk Schwarzmann)
+  - Probleme mit fremden Tastaturen weitgehend behoben
+    (Danke Markus Ermert)
+  - Einige Übersetzungen fehlten bei WindowControl (Danke Markus Ermert)
+  - Sprachauswahl über den Konfigurationsdialog (Danke Dirk Schwarzmann)
+  - Verbesserte Unterstützung von mehreren Sprachdateien, welche nun
+    im Verzeichnis settings/languages abegelegt werden müssen.
+    (Danke Dirk Schwarzmann)
+  - Es gibt nun eine Schaltfläche im Konfigurationsdialog, um manuell Updates
+    zu installiern. (Danke Bernd Schandl)
+  - Der Betatester-Modus lässt sich über den Konfigurationsdialog aktivieren
+  - Hinweis, dass beim versteckten Tray-Icon der Konfigurationsdialog
+    nur noch über das Tastaturkürzel zu erreichen ist (Danke Mario)
+  - Strg + Cursor hoch wurde als Strg+P erkannt (Danke Bärbel Brummel)
+  - Die Oberfläche reagiert nun zuverlässiger auf Seitenwechsel. (Danke an
+    Sven Knurr)
+  - SetKeyDelay überall auf 0 gesetzt (Danke Dirk Schwarzmann)
+
+_____________________________________________________________________________
+1.0.3.1 - 2005-10-26 12:33
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+- bei WebSearch wurde beim umdefinieren eines Kürzels das alte nicht
+  deaktiviert.
+- ac'tivAid ist unter dem Soft-Link nun auch als Standalone-EXE verfügbar
+- WebSearch speichert nun sein Tastaturkürzel (Danke Klaus Brönies)
+- Das OSD von Eject und MusicControl ist nun näher an OS X.
+  (Danke Gerd Rös)
+- FreeSpace stört nun nicht mehr LikeDirkey, CommandLine und QuickChangDir
+  (Danke Thomass)
+- QuickChangeDir konnte nicht mit der Eingabe "extensions" umgehen.
+  (Danke Tobi)
+- Bei ComfortDrag gibt es nun eine Option, mit welcher man festlegen kann
+  ob ein Fenster NUR während einer Drag&Drop-Aktion versteckt werden soll
+  wenn die linke und rechte Maustaste gleichzeitig gedrückt wird.
+  (Danke Tobi)
+- Die Prüfung auf NiftyWindows hatte einen Fehler (Danke Bernd Schandl)
+- UserHotkeys hatte Probleme mit Leerzeichen in Pfaden
+- Erweiterung der Aktualisierungs-Funktion für eine veröffentlichte
+  Exe-Version
+- Verzeichniswechsel funktionieren nun auch wenn die MSN-Toolbar aktiv ist
+  (Danke Ramin Sabet und Danke für den anonymen Hinweis)
+
+_____________________________________________________________________________
+1.0.2 - 2005-10-21 17:26
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Neue Funktionen und Verbesserungen:
+
+- Spezieller Betatester-Modus (siehe LiesMich-Datei)
+- Das Tray-Icon von ac'tivAid lässt sich nun im Konfigurationsdialog
+  unter 'activAid' verstecken. (Danke Kristian Fürst)
+- Es gibt nun eine Übersicht aller Tastaturkürzel im 'Pfeil-Menü',
+  unter 'Informationen' und auch über ein Tastaturkürzel (Win+Strg+F1)
+  (Danke Thorsten Sklarek)
+- ReadingRuler: Neue Optionen, um auch die Koordinaten oder die Distanz
+  anzuzeigen. (Danke Bernd Schandl)
+- QuickChangeDir: Option für Verzeichnisbaum (wie bei LikeDirkey)
+  hinzugefügt (Danke Bernd Schandl)
+- Versteckte Fenster werden wiederhergestellt, wenn ac'tivAid beendet
+  wird (z.B bei einem Neustart).
+
+Fehlerberichtigungen:
+
+- MouseClip reagiert nun etwas schneller
+- WindowsControl: Fehler mit simulierter Windows-Taste behoben
+  (Danke Gerd Rös)
+- Fehler mit zu großer Schrift behoben (Danke für den anonymen
+  Hinweis)
+- Probleme mit der Programmoberfläche (GUI) und Skins/Themes wie
+  z.B. http://nontroppo.org/wiki/BreezeSkin
+  (Breeze Simplified and the Windows UI) (Danke Thorsten Born)
+- WindowsControl kann nun auch mit mehreren Bildschirmen umgehen
+  (Danke Alex)
+- Die komplette grafische Oberfläche funktioniert nun auf Systemen
+  mit anderen DPI-Einstellungen. Derzeit ist die Lösung aber noch
+  nicht perfekt, da für alle Auflösungen eine gleich große Schrift
+  errechnet wird, statt alles zu skalieren. (Danke Peter Frey)
+- Die Prüfung, ob Online mittels eines PING wurde entfernt, da es
+  Probleme in Firmennetzwerken bereitet (Danke am Alois Leimüller)
+- Beim temporären Desktop wurden am Desktop verankerte Symbolleisten
+  versehentlich mit ausgeblendet (Danke für den anonymen Hinweis)
+- Verzeichniswechsel bei RecentDirs, QuickChangeDir und LikeDirkey
+  funktionierte in der Konsole nicht, wenn Sonderzeichen im Pfad
+  waren. (Danke Alois Leimüller)
+- WindowsControl kann nun nicht mehr den Desktop oder die Taskleiste
+  in den Vordergrund setzen (führte zu Fehlverhalten).
+- ComfortDrag unterstützt nun auch mehrere Bildschirme.
+  (Danke Alex und Didi Chow)
+- ESC funktioniert nun immer bei ComfortDrag (Danke Martin Wiebus)
+- Festelltaste wird bei Kürzeln nun richtig angezeigt.
+- QuickChangeDir hat nicht immer das Verzeichnis gewechselt
+  (Danke Bernd Schandl)
+- UserHotkeys: Durch das Standardkürzel AltGr+Ü funktioniert ac'tivAid
+  nicht auf Systemen mit englischer Tastatur. Das Kürzel wurde nun
+  auf AltGr+. geändert. (Danke Juergen Lumera und Andreas Lohmüller)
+- UserHotkeys: Bugs beim Löschen von Einträgen (Danke Stephan Noy für
+  die Fehlersuche und Beseitigung)
+- ReadingRuler unterstützt nun den gesamten Desktop (z.B: bei zwei
+  Bildschirmen)
+- LikeDirkeyMenu wechselt nun, statt immer ein neues Fenster zu öffnen.
+- MouseClip ist nun etwas toleranter bei langsamen Anwendungen (jEdit)
+- Versehentlich waren auch Zwischenupdates verfügbar, welche nicht für
+  die Öffentlichkeit bestimmt waren.
+- QuickChangeDir: Bug im Konfigurationsdialog, wenn die Maus den
+  Durchsuchen-Knopf berührt (Danke Günther Kaul und Helmut U. Robben)
+- LikeDirkeyMenu: Die Einstellungen werden nun auch gespeichert und
+  angewendet. (Danke Bernd Schandl)
+- QuickChangeDir: Fehler beseitigt, welcher auftrat, wenn ein Verzeichnis
+  direkt gewechselt wurde
+_____________________________________________________________________________
+1.0.0 - Wichtige Neuerungen von Version 1.0.0 (seit Version 0.9.3)
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Allgemein:
+  - Graphische Konfigurations-Oberfläche
+  - Einzelne Funktionen sind nun als Erweiterungen realisiert und lassen
+    sich über den Konfigurationsdialog aus dem Skript entfernen
+  - Alle Funktionen sind konfigurierbar
+  - Fast alle Tastaturkürzel lassen sich umdefinieren
+  - Durch die Konfigurierbarkeit macht es kaum noch sinn, eine EXE-Version
+    zu verwenden, weswegen sie nicht mitgeliefert wird. Hat man sich
+    ac'tivAid nach eigenen Wünschen konfiguriert, kann man sich es aber
+    weiterhin selber über das Kontextmenü kompilieren.
+
+ComfortDrag:
+  - temporärer Desktop verschiebt nun Fenster, statt sie zu verstecken, womit
+    die Fensteranordnung in der Taskleiste nicht mehr durcheinander gerät
+  - generell werden Fenster nicht mehr versteckt, sondern minimiert
+  - weitere Fehlerbeseitigungen
+  - kurzfristiger Desktop konfigurierbar
+  - Zielfenster einer Drag&Drop-Aktion lässt sich im Vordergrund behalten
+
+MouseClip:
+  - Verhalten eines Einfachklicks der mittleren Maustaste konfigurierbar
+  - Programme die keinen Einfüge-Cursor zeigen lassen sich zu MouseClip
+    hinzufügen
+
+LikeDirkey:
+  - komplett konfigurierbar
+  - Unterstützung von Variablen und Registry-Pfaden
+  - Explorer-Fenster lassen sich auch mit sichtbaren Verzeichnisbaum öffnen
+  - zusätzliche Erweiterung zur Auflistung der Pfade in einem Kontextmenü
+
+WebSearch:
+  - Komplett überarbeitete Konfiguration
+  - Suchen mit mehreren Suchmaschinen gleichzeitig
+  - Für jede Suchmaschinen ein eigenes Kürzel definierbar
+  - Fensterposition konfigurierbar
+  - Browser für jeder Suchmaschine konfigurierbar
+  - Icon-Ermittlung nur noch manuell möglich
+  - Erweiterung, um WebSearch direkt über die mittlere Maustaste aufzurufen
+
+FilePaste:
+  - kann nun auch komplette Pfade einfügen
+
+NewFolder:
+  - zweites Tastaturkürzel, welches Ordner mit automatischen Unterordnern
+    erstellt
+
+_____________________________________________________________________________
+Neue Funktionen (=Erweiterungen) seit Version 0.9.3
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+WindowsControl:
+  Bietet Tastaturkürzel für Minimieren, Maximieren, Schließen, Computer
+  ausschalten, Standby, Ruhezustand und die Simulation der Windows-Taste auf
+  Tastaturen ohne diese Taste.
+
+UserHotkeys:
+  Frei belegbare Tastaturkürzel. Sie lassen sich mit Programmen, Skripten,
+  Verzeichnissen, URLs und einigen Spezialbefehlen, wie die Ausgabe von Text,
+  belegen.
+
+QuickChangeDir:
+  Schneller Verzeichniswechsel durch Eingabe eines Teils des gesuchten
+  Verzeichnisnamens.
+
+MusicControl:
+  Bietet Tastaturkürzel für WinAmp/iTunes und für die Systemlautstärke,
+  welche ähnlich OS X grafisch dargestellt wird.
+
+HotStrings:
+  Ersetzt eingegebene Abkürzungen automatisch mit Textbausteinen. Eine
+  grafische Oberfläche für AutoHotkeys HotStrings-Funktionalität
+
+Eject:
+  CDs und andere Medien per Tastaturkürzel auswerfen.
+
+FreeSpace:
+  Zeigt in der Titelleiste des aktiven Explorer-Fensters den freien
+  Speicherplatz an.
+
+QuickNote:
+  Per Tastendruck wird ein Notizfenster geöffnet bzw. geschlossen, welches
+  sofort alle Eingaben im Hintergrund speichert, womit bei einem Absturz
+  nichts verloren geht.
+
+ReadingRuler:
+  Zeigt ein Lese-Lineal oder Fadenkreuz an, welches der Maus folgt.
+  Erleichtert das Lesen am Bildschirm.
+
+RecentDirs:
+  Ein spezielles Menü listet die zuletzt besuchten Verzeichnisse auf. Es wird
+  dabei das Recent-Verzeichnis von Windows verwendet, welches auch
+  automatisch aufgeräumt werden kann
