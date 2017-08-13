@@ -26,7 +26,11 @@ NumLock::       Return
 +NumLock::      Return
 
 Capslock::      MouseClick, Left
-^CapsLock::     Return
+^CapsLock::
+        Send, {Ctrl Down}
+        MouseClick, Left
+        Send, {Ctrl Up}
+Return
 !CapsLock::     Return
 +CapsLock::     Return
 
