@@ -52,7 +52,7 @@ Else
 ~^#End::        ExitApp
 
 
-; Win+C to open conemu or cmd in current directory
+; Win+C to open ConEmu or cmd in current directory
 #C::
         If WinActive("ahk_group Explorer")
         {
@@ -95,15 +95,15 @@ Return
             ClipWait, 0.2
             If ErrorLevel = 0
             {
-                Run, %notepad% `"%ClipBoard%`"
-                WinWait ahk_class Notepad++
+                RunWait, %notepad% `"%ClipBoard%`",,, pid
+                WinActivate, ahk_pid %pid%
             }
             ClipBoard := ClipSaved
             ClipSaved =  ; free memory
         }
 Return
 
-; Alt+S open selected file with Sublime Text 3
+; Alt+S to open selected file with Sublime Text 3
 !S::
         If subl
         {
@@ -112,7 +112,10 @@ Return
             Send, ^{SC02e}
             ClipWait, 0.2
             If ErrorLevel = 0
-                Run, %subl% `"%ClipBoard%`"
+            {
+                RunWait, %subl% `"%ClipBoard%`",,, pid
+                WinActivate, ahk_pid %pid%
+            }
             ClipBoard := ClipSaved
             ClipSaved =  ; free memory
         }

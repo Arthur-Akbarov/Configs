@@ -20,13 +20,25 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ~#End::         Suspend, On
 ~^#End::        ExitApp
 
-NumLock::       Return
-^NumLock::      Return
+NumLock::       MouseClick, Right
+^NumLock::
+        Send, {Ctrl Down}
+        MouseClick, Right
+        Send, {Ctrl Up}
+Return
 !NumLock::      Return
-+NumLock::      Return
++NumLock::
+        Send, {Ctrl Down}
+        MouseClick, Right
+        Send, {Ctrl Up}
+Return
 
 Capslock::      MouseClick, Left
-^CapsLock::     Return
+^CapsLock::
+        Send, {Ctrl Down}
+        MouseClick, Left
+        Send, {Ctrl Up}
+Return
 !CapsLock::     Return
 +CapsLock::     Return
 
