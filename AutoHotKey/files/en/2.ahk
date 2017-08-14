@@ -24,7 +24,9 @@ GroupAdd, Console, ahk_class ahk_class mintty
 ~#End::         Suspend, On
 ~^#End::        ExitApp
 
+
 ; Win+E to open selected path in explorer and MyComputer in error
+#IfWinNotActive ahk_class CabinetWClass
 #E::
         ClipSaved := ClipBoardAll
         ClipBoard =
