@@ -75,8 +75,8 @@ Return
             If listview = 0
                 Break
             WM_COMMAND = 0x111
-            ODM_VIEW_ICONS = 0x702a
-            SendMessage, WM_COMMAND, ODM_VIEW_ICONS, 0, , ahk_id %listview%
+            FVM_EXTRALARGE = 0x704d
+            SendMessage, WM_COMMAND, FVM_EXTRALARGE, 0, , ahk_id %listview%
         }
 Return
 
