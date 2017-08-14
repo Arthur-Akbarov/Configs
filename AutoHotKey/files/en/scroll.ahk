@@ -255,8 +255,19 @@ SettingDeph := 0
 gosub, TApp_Method_Settings
 return
 
+;Send, , {Left}, ahk_id %TWinID%
 WheelUp::
 MouseGetPos, mX, mY, TWinID, TCon
+
+WinGetClass, class, ahk_id %TWinID%
+If class = Photo_Lightweight_Viewer
+{
+	WinGet, active_id, ID, A
+	If active_id = %TWinID%
+		Send, {Left}
+	Return
+}
+
 if (TWinID <> exWin4v) or (TCon <> exCon4v)
 	{
 	axis := "v"
@@ -294,6 +305,16 @@ return
 
 WheelDown::
 MouseGetPos, mX, mY, TWinID, TCon
+
+WinGetClass, class, ahk_id %TWinID%
+If class = Photo_Lightweight_Viewer
+{
+	WinGet, active_id, ID, A
+	If active_id = %TWinID%
+		Send, {Right}
+	Return
+}
+
 if (TWinID <> exWin4v) or (TCon <> exCon4v)
 	{
 	axis := "v"

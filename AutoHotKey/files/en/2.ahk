@@ -44,10 +44,11 @@ Return
 ; for debug purpose C:\Windows\System32\drivers\etc\hosts
 
 
+; this feature have moved to scroll.ahk
 ; Windows Photo Viewer
-#IfWinActive ahk_class Photo_Lightweight_Viewer
-WheelUp::       Send, {Left}
-WheelDown::     Send, {Right}
+; #IfWinActive ahk_class Photo_Lightweight_Viewer
+; WheelUp::       Send, {Left}
+; WheelDown::     Send, {Right}
 
 
 #IfWinActive ahk_group Console
