@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2017-08-11 09:19:14" build="161206">
+		<key name=".Vanilla" modified="2017-08-25 04:51:26" build="161206">
 			<value name="StartType" type="hex" data="02"/>
 			<value name="CmdLine" type="string" data=""/>
 			<value name="StartTasksFile" type="string" data=""/>
@@ -9,21 +9,21 @@
 			<value name="StartFarFolders" type="hex" data="00"/>
 			<value name="StartFarEditors" type="hex" data="00"/>
 			<value name="ColorTable00" type="dword" data="00000000"/>
-			<value name="ColorTable01" type="dword" data="00ee0000"/>
-			<value name="ColorTable02" type="dword" data="0000cd00"/>
-			<value name="ColorTable03" type="dword" data="00cdcd00"/>
-			<value name="ColorTable04" type="dword" data="000000cd"/>
-			<value name="ColorTable05" type="dword" data="00cd00cd"/>
-			<value name="ColorTable06" type="dword" data="0000cdcd"/>
-			<value name="ColorTable07" type="dword" data="00e5e5e5"/>
-			<value name="ColorTable08" type="dword" data="007f7f7f"/>
-			<value name="ColorTable09" type="dword" data="00ff5c5c"/>
-			<value name="ColorTable10" type="dword" data="0000ff00"/>
-			<value name="ColorTable11" type="dword" data="00ffff00"/>
-			<value name="ColorTable12" type="dword" data="000000ff"/>
-			<value name="ColorTable13" type="dword" data="00ff00ff"/>
-			<value name="ColorTable14" type="dword" data="0000ffff"/>
-			<value name="ColorTable15" type="dword" data="00ffffff"/>
+			<value name="ColorTable01" type="dword" data="00e12e49"/>
+			<value name="ColorTable02" type="dword" data="0024bc25"/>
+			<value name="ColorTable03" type="dword" data="00c8bb33"/>
+			<value name="ColorTable04" type="dword" data="002136c2"/>
+			<value name="ColorTable05" type="dword" data="00d338d3"/>
+			<value name="ColorTable06" type="dword" data="0027adad"/>
+			<value name="ColorTable07" type="dword" data="00cdcccb"/>
+			<value name="ColorTable08" type="dword" data="00838381"/>
+			<value name="ColorTable09" type="dword" data="00ff3358"/>
+			<value name="ColorTable10" type="dword" data="0022e731"/>
+			<value name="ColorTable11" type="dword" data="00f0f014"/>
+			<value name="ColorTable12" type="dword" data="001f39fc"/>
+			<value name="ColorTable13" type="dword" data="00f835f9"/>
+			<value name="ColorTable14" type="dword" data="0023ecea"/>
+			<value name="ColorTable15" type="dword" data="00ebebe9"/>
 			<value name="ColorTable16" type="dword" data="00000000"/>
 			<value name="ColorTable17" type="dword" data="00800000"/>
 			<value name="ColorTable18" type="dword" data="00008000"/>
@@ -59,7 +59,7 @@
 			<value name="FontSize" type="ulong" data="24"/>
 			<value name="StatusFontHeight" type="long" data="12"/>
 			<value name="TabFontHeight" type="long" data="13"/>
-			<key name="HotKeys" modified="2017-08-11 09:19:14" build="161206">
+			<key name="HotKeys" modified="2017-08-25 04:51:26" build="161206">
 				<value name="MinimizeRestore" type="dword" data="000011c0"/>
 				<value name="KeyMacroVersion" type="hex" data="02"/>
 				<value name="Multi.Modifier" type="dword" data="0000005b"/>
@@ -250,7 +250,7 @@
 			<value name="ExtendFontBoldIdx" type="hex" data="0c"/>
 			<value name="ExtendFontItalicIdx" type="hex" data="0d"/>
 			<value name="CursorTypeActive" type="dword" data="000232c1"/>
-			<value name="CursorTypeInactive" type="dword" data="00823283"/>
+			<value name="CursorTypeInactive" type="dword" data="00823281"/>
 			<value name="ClipboardDetectLineEnd" type="hex" data="01"/>
 			<value name="ClipboardBashMargin" type="hex" data="00"/>
 			<value name="ClipboardTrimTrailing" type="hex" data="02"/>
@@ -260,7 +260,7 @@
 			<value name="ClipboardFirstLine" type="hex" data="01"/>
 			<value name="ClipboardClickPromptPosition" type="hex" data="02"/>
 			<value name="ClipboardDeleteLeftWord" type="hex" data="02"/>
-			<value name="TrueColorerSupport" type="hex" data="01"/>
+			<value name="TrueColorerSupport" type="hex" data="00"/>
 			<value name="VividColors" type="hex" data="01"/>
 			<value name="FadeInactive" type="hex" data="01"/>
 			<value name="FadeInactiveLow" type="hex" data="00"/>
@@ -365,12 +365,12 @@
 			<value name="AutoSaveSizePos" type="hex" data="01"/>
 			<value name="Cascaded" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
-			<value name="WindowMode" type="dword" data="00000520"/>
-			<value name="ConWnd X" type="long" data="738"/>
-			<value name="ConWnd Y" type="long" data="369"/>
+			<value name="WindowMode" type="dword" data="0000051f"/>
+			<value name="ConWnd X" type="long" data="0"/>
+			<value name="ConWnd Y" type="long" data="0"/>
 			<value name="LastMonitor" type="string" data="0,0,1292,768"/>
-			<value name="ConWnd Width" type="dword" data="00000044"/>
-			<value name="ConWnd Height" type="dword" data="00000010"/>
+			<value name="ConWnd Width" type="dword" data="0000004a"/>
+			<value name="ConWnd Height" type="dword" data="00000013"/>
 			<value name="16bit Height" type="ulong" data="0"/>
 			<value name="Restore2ActiveMon" type="hex" data="00"/>
 			<value name="QuakeAnimation" type="ulong" data="300"/>
@@ -424,7 +424,7 @@
 			<value name="HighlightMouseCol" type="hex" data="00"/>
 			<value name="FixFarBorders" type="hex" data="01"/>
 			<value name="Anti-aliasing2" type="hex" data="00"/>
-			<value name="FixFarBordersRanges" type="string" data="2013-25C4;"/>
+			<value name="FixFarBordersRanges" type="string" data="2500-25C4;"/>
 			<value name="ExtendUCharMap" type="hex" data="01"/>
 			<value name="EnhanceGraphics" type="hex" data="01"/>
 			<value name="EnhanceButtons" type="hex" data="00"/>
@@ -472,9 +472,9 @@
 			<value name="StatusBar.Color.Back" type="dword" data="00423607"/>
 			<value name="StatusBar.Color.Light" type="dword" data="00e3f6fd"/>
 			<value name="StatusBar.Color.Dark" type="dword" data="00a1a193"/>
-			<value name="StatusBar.Hide.VCon" type="hex" data="00"/>
+			<value name="StatusBar.Hide.VCon" type="hex" data="01"/>
 			<value name="StatusBar.Hide.CapsL" type="hex" data="01"/>
-			<value name="StatusBar.Hide.NumL" type="hex" data="00"/>
+			<value name="StatusBar.Hide.NumL" type="hex" data="01"/>
 			<value name="StatusBar.Hide.ScrL" type="hex" data="01"/>
 			<value name="StatusBar.Hide.VisL" type="hex" data="01"/>
 			<value name="StatusBar.Hide.Lang" type="hex" data="01"/>
@@ -493,27 +493,27 @@
 			<value name="StatusBar.Hide.hFocus" type="hex" data="01"/>
 			<value name="StatusBar.Hide.Zoom" type="hex" data="01"/>
 			<value name="StatusBar.Hide.Dpi" type="hex" data="01"/>
-			<value name="StatusBar.Hide.ABuf" type="hex" data="00"/>
+			<value name="StatusBar.Hide.ABuf" type="hex" data="01"/>
 			<value name="StatusBar.Hide.CPos" type="hex" data="01"/>
-			<value name="StatusBar.Hide.CSize" type="hex" data="00"/>
+			<value name="StatusBar.Hide.CSize" type="hex" data="01"/>
 			<value name="StatusBar.Hide.BSize" type="hex" data="01"/>
-			<value name="StatusBar.Hide.CurX" type="hex" data="01"/>
-			<value name="StatusBar.Hide.CurY" type="hex" data="01"/>
+			<value name="StatusBar.Hide.CurX" type="hex" data="00"/>
+			<value name="StatusBar.Hide.CurY" type="hex" data="00"/>
 			<value name="StatusBar.Hide.CurS" type="hex" data="01"/>
-			<value name="StatusBar.Hide.CurI" type="hex" data="00"/>
-			<value name="StatusBar.Hide.CellI" type="hex" data="01"/>
+			<value name="StatusBar.Hide.CurI" type="hex" data="01"/>
+			<value name="StatusBar.Hide.CellI" type="hex" data="00"/>
 			<value name="StatusBar.Hide.ConEmuPID" type="hex" data="01"/>
 			<value name="StatusBar.Hide.ConEmuHWND" type="hex" data="01"/>
 			<value name="StatusBar.Hide.ConEmuView" type="hex" data="01"/>
-			<value name="StatusBar.Hide.Srv" type="hex" data="00"/>
+			<value name="StatusBar.Hide.Srv" type="hex" data="01"/>
 			<value name="StatusBar.Hide.SrvHWND" type="hex" data="01"/>
-			<value name="StatusBar.Hide.Transparency" type="hex" data="00"/>
-			<value name="StatusBar.Hide.New" type="hex" data="00"/>
-			<value name="StatusBar.Hide.Sync" type="hex" data="00"/>
-			<value name="StatusBar.Hide.Proc" type="hex" data="00"/>
+			<value name="StatusBar.Hide.Transparency" type="hex" data="01"/>
+			<value name="StatusBar.Hide.New" type="hex" data="01"/>
+			<value name="StatusBar.Hide.Sync" type="hex" data="01"/>
+			<value name="StatusBar.Hide.Proc" type="hex" data="01"/>
 			<value name="StatusBar.Hide.Title" type="hex" data="01"/>
 			<value name="StatusBar.Hide.Time" type="hex" data="01"/>
-			<value name="StatusBar.Hide.Resize" type="hex" data="00"/>
+			<value name="StatusBar.Hide.Resize" type="hex" data="01"/>
 			<value name="Tabs" type="hex" data="01"/>
 			<value name="TabsLocation" type="hex" data="00"/>
 			<value name="TabIcons" type="hex" data="01"/>
@@ -608,18 +608,18 @@
 			<value name="Update.DownloadPath" type="string" data="%TEMP%\ConEmu"/>
 			<value name="Update.LeavePackages" type="hex" data="00"/>
 			<value name="Update.PostUpdateCmd" type="string" data="echo Last successful update&gt;ConEmuUpdate.info &amp;&amp; date /t&gt;&gt;ConEmuUpdate.info &amp;&amp; time /t&gt;&gt;ConEmuUpdate.info"/>
-			<key name="Tasks" modified="2017-08-11 09:22:47" build="161206">
+			<key name="Tasks" modified="2017-08-25 04:51:26" build="161206">
 				<value name="Count" type="long" data="9"/>
-				<key name="Task1" modified="2017-08-11 09:22:47" build="161206">
+				<key name="Task1" modified="2017-08-25 04:51:26" build="161206">
 					<value name="Name" type="string" data="{Shells::cmd}"/>
 					<value name="Flags" type="dword" data="00000003"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
-					<value name="Cmd1" type="string" data="prompt $E[32m$P$G$_$E[90m$$$S$E[0;1m &amp; cmd.exe"/>
+					<value name="Cmd1" type="string" data="prompt $E[32m$P$G$_$E[90m$$$E[0;1m &amp; cmd.exe"/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task2" modified="2017-08-11 09:22:47" build="161206">
+				<key name="Task2" modified="2017-08-25 04:51:26" build="161206">
 					<value name="Name" type="string" data="{Shells::cmd (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -628,7 +628,7 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task3" modified="2017-08-11 09:22:47" build="161206">
+				<key name="Task3" modified="2017-08-25 04:51:26" build="161206">
 					<value name="Name" type="string" data="{Shells::cmd-32}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -637,7 +637,7 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task4" modified="2017-08-11 09:22:47" build="161206">
+				<key name="Task4" modified="2017-08-25 04:51:26" build="161206">
 					<value name="Name" type="string" data="{Shells::cmd 64/32}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -647,7 +647,7 @@
 					<value name="Active" type="long" data="1"/>
 					<value name="Count" type="long" data="2"/>
 				</key>
-				<key name="Task5" modified="2017-08-11 09:22:47" build="161206">
+				<key name="Task5" modified="2017-08-25 04:51:26" build="161206">
 					<value name="Name" type="string" data="{Shells::PowerShell}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -656,7 +656,7 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task6" modified="2017-08-11 09:22:47" build="161206">
+				<key name="Task6" modified="2017-08-25 04:51:26" build="161206">
 					<value name="Name" type="string" data="{Shells::PowerShell (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -665,7 +665,7 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task7" modified="2017-08-11 09:22:47" build="161206">
+				<key name="Task7" modified="2017-08-25 04:51:26" build="161206">
 					<value name="Name" type="string" data="{Bash::Git bash}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -674,7 +674,7 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task8" modified="2017-08-11 09:22:47" build="161206">
+				<key name="Task8" modified="2017-08-25 04:51:26" build="161206">
 					<value name="Name" type="string" data="{Helper::Show ANSI colors}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -683,7 +683,7 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task9" modified="2017-08-11 09:22:47" build="161206">
+				<key name="Task9" modified="2017-08-25 04:51:26" build="161206">
 					<value name="Name" type="string" data="{Tools::Chocolatey (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -702,10 +702,10 @@
 					<value name="Count" type="long" data="1"/>
 				</key>
 			</key>
-			<key name="Apps" modified="2017-08-11 09:22:47" build="161206">
+			<key name="Apps" modified="2017-08-25 04:51:26" build="161206">
 				<value name="Count" type="long" data="0"/>
 			</key>
-			<key name="Colors" modified="2017-08-11 09:22:47" build="161206">
+			<key name="Colors" modified="2017-08-25 04:51:26" build="161206">
 				<value name="Count" type="long" data="0"/>
 			</key>
 		</key>
