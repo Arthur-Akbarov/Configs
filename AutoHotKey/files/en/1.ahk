@@ -20,27 +20,15 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ~#End::         Suspend, On
 ~^#End::        ExitApp
 
-NumLock::       MouseClick, Right
-^NumLock::
-        Send, {Ctrl Down}
-        MouseClick, Right
-        Send, {Ctrl Up}
-Return
+NumLock::       Send, {RButton}
 !NumLock::      Return
-+NumLock::
-        Send, {Ctrl Down}
-        MouseClick, Right
-        Send, {Ctrl Up}
-Return
++NumLock::      Return
+^NumLock::      Return
 
-Capslock::      MouseClick, Left
-^CapsLock::
-        Send, {Ctrl Down}
-        MouseClick, Left
-        Send, {Ctrl Up}
-Return
+Capslock::      LButton
 !CapsLock::     Return
 +CapsLock::     Return
+^CapsLock::     ^LButton
 
 Insert::        Return
 
@@ -56,6 +44,9 @@ Insert::        Return
 
 #+S::           Run, ..\nircmd-x64\nircmd.exe speak text ~$ClipBoard$
 #+A::           Run, ..\nircmd-x64\nircmd.exe win center alltop
+
+>^NumPad4::     Run, ..\nircmd-x64\nircmd.exe changebrightness -12
+>^NumPad5::     Run, ..\nircmd-x64\nircmd.exe changebrightness +4
 
 #+Right::       Run, ..\nircmd-x64\nircmd.exe changebrightness +4
 #+Left::        Run, ..\nircmd-x64\nircmd.exe changebrightness -12
@@ -78,8 +69,8 @@ Insert::        Return
 #^+Up::         SoundSet, 0, , mute
 #^+Down::       SoundSet, 1, , mute
 
->^NumPad5::     SoundSet, 0, , mute
->^NumPad4::     SoundSet, 1, , mute
+>^Numpad3::     SoundSet, 0, , mute
+>^NumPadDot::   SoundSet, 1, , mute
 
 >^NumPadEnter:: Run, Calc.exe
 PrintScreen::   Run, SnippingTool.exe

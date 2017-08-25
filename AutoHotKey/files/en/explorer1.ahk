@@ -17,6 +17,8 @@ GroupAdd, Explorer, ahk_class Progman        ; Desktop
 GroupAdd, Explorer, ahk_class ExploreWClass
 GroupAdd, Explorer, ahk_class WorkerW
 
+RegRead, conemu, HKCU, Software\ConEmu, DefTerm-ConEmuExe
+
 ;*********************************************************************
 ;*                  end of the auto-execute section                  *
 ;*********************************************************************
@@ -25,6 +27,23 @@ GroupAdd, Explorer, ahk_class WorkerW
 ~#Home::        Suspend, Off
 ~#End::         Suspend, On
 ~^#End::        ExitApp
+
+; Win+C to open ConEmu or cmd in current directory
+#C::
+        If WinActive("ahk_group Explorer")
+        {
+            dir := GetCurrentDirPath()
+            If !dir
+                dir = %A_Desktop%
+        }
+        Else
+            dir = D:\Workspace
+
+        If conemu
+            Run, %conemu% -Dir "%dir%" -run {Shells::cmd}
+        Else
+            Run, cmd, % dir
+Return
 
 
 ; Explorer group
@@ -82,45 +101,32 @@ Return
 
 ; Alt+C to copy paths of selected files or current folder if none selected
 !C::
+        ; try to copy paths of selected files
         Clipboard =
         Send, ^{SC02e}
         ClipWait, 0.2
+        
+        ; copy current folder path if none selected
         If ErrorLevel
-        {
-            Gosub, GetCurrentPath
-            ClipBoard = % fullPath
-        }
-        Else
-            Clipboard := Clipboard
+            ClipBoard := GetCurrentDirPath()
+        
+        ; wrap every path in quotes
+        StringReplace, Clipboard, Clipboard, `r`n, `" `", All
+        Clipboard = "%Clipboard%"
 Return
 
-; https://gist.github.com/davejamesmiller/1965432
-; Ctrl+Alt+N to create and open new file
-^!N::
-        Gosub, GetCurrentPath
-        SetWorkingDir, %fullPath%
 
-        If ErrorLevel
-            SetWorkingDir, %A_Desktop%
+;*********************************************************************
+;*                     functions and subroutines                     *
+;*********************************************************************
 
-        If ErrorLevel
-            Return
-
-        InputBox, UserInput, New File (example: foo.txt), , , 400, 100
-
-        If ErrorLevel
-            Return
-
-        FileAppend, , %UserInput%
-        ; TODO open by editor
-        ; Run, %UserInput%
-Return
-
-; require ASCI? format to remove Russian prefix "(^Адрес: )"
-GetCurrentPath:
-        WinGetText, text, A
-        StringSplit, pathArray, text, `r`n
-        fullPath = %pathArray1%
-        fullPath := RegExReplace(fullPath, "(^Address: )", "")
-        fullPath := RegExReplace(fullPath, "(^Адрес: )", "")
-Return
+; require cp-1251 encoding to remove Russian prefix "(^Адрес: )"
+GetCurrentDirPath() {
+        WinHWND := WinActive()
+            For win in ComObjCreate("Shell.Application").Windows
+                If (win.HWND = WinHWND) {
+                    result := SubStr(win.LocationURL, 9)  ; remove "file:///"
+                    result := RegExReplace(result, "%20", " ")
+                    Return result
+                }
+}

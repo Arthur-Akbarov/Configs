@@ -20,6 +20,18 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ~#End::         Suspend, On
 ~^#End::        ExitApp
 
+;Win+T to translate selected text by Google Translate
+#T::
+        ClipSaved := ClipBoardAll
+        ClipBoard =
+        Send, ^{SC02e}
+        ClipWait, 0.2
+        If ErrorLevel = 0
+            Run, https://translate.google.ru/#en/ru/%ClipBoard%
+        ClipBoard := ClipSaved
+        ClipSaved =  ; free memory
+Return
+
 ; Win+G to search selected text in google
 #G::
         ClipSaved := ClipBoardAll
@@ -27,10 +39,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
         Send, ^{SC02e}
         ClipWait, 0.2
         If ErrorLevel = 0
-        {
-            searchQuery = %ClipBoard%
-            Gosub, GoogleSearch
-        }
+            GoogleSearch(ClipBoard)
         ClipBoard := ClipSaved
         ClipSaved =  ; free memory
 Return
@@ -49,45 +58,27 @@ Return
         If ErrorLevel = 0
         {
             Send, ^w
-            searchQuery = http://webcache.googleusercontent.com/search?q=cache:%ClipBoard%
-            Gosub, GoogleSearch
+            Run, http://webcache.googleusercontent.com/search?q=cache:%ClipBoard%
         }
         ClipBoard := ClipSaved
         ClipSaved =  ; free memory
 Return
 
-GoogleSearch:
-        StringReplace, searchQuery, searchQuery, `r`n, %A_Space%, All
-        Loop
-        {
-            noExtraSpaces = 1
-            StringLeft, leftMost, searchQuery, 1
-            IfInString, leftMost, %A_Space%
-            {
-                StringTrimLeft, searchQuery, searchQuery, 1
-                noExtraSpaces=0
-            }
 
-            StringRight, rightMost, searchQuery, 1
-            IfInString, rightMost, %A_Space%
-            {
-                StringTrimRight, searchQuery, searchQuery, 1
-                noExtraSpaces=0
-            }
+;*********************************************************************
+;*                     functions and subroutines                     *
+;*********************************************************************
 
-            If (noExtraSpaces = 1)
-                Break
-        }
+GoogleSearch(searchQuery) {
+        searchQuery := Trim(searchQuery)
 
-        StringReplace, searchQuery, searchQuery, \, `%5C, All
-        StringReplace, searchQuery, searchQuery, %A_Space%, +, All
-        StringReplace, searchQuery, searchQuery, `%, `%25, All
-
-        IfInString, searchQuery, .
-            IfInString, searchQuery, +
-                Run, http://www.google.com/search?q=%searchQuery%
-            Else
-                Run, %searchQuery%
+        If InStr(searchQuery, "http://") = 1
+        || InStr(searchQuery, "https://") = 1
+            Run, %searchQuery%
         Else
+        {
+            searchQuery := RegExReplace(searchQuery, "\s+", " ")
             Run, http://www.google.com/search?q=%searchQuery%
-Return
+        }
+}
+; for debug purpose https://ya.ru

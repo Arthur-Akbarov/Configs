@@ -15,11 +15,11 @@ lang := SubStr(A_ScriptName, 6, 2)
 Loop %A_ScriptDir%\%lang%\*.ahk
     Run, %A_LoopFileFullPath%
 
-; get ahk editor path to var 'editor'
+; get ahk editor path
 RegRead, OutputVar, HKEY_CLASSES_ROOT, AutoHotkeyScript\Shell\Edit\Command
 StringReplace, OutputVar, OutputVar, "
 SplitPath, OutputVar, , OutDir, , OutNameNoExt, OutDrive
-editor = %OutDir%\%OutNameNoExt%.exe
+AhkEditor = %OutDir%\%OutNameNoExt%.exe
 
 GroupAdd, Editors, ahk_class PX_WINDOW_CLASS  ; Sublime Text 3
 GroupAdd, Editors, ahk_class Notepad++        ; Notepad++
@@ -38,9 +38,9 @@ GroupAdd, Editors, ahk_class Notepad++        ; Notepad++
 
 ; RightCtrl+NumPad7 to edit all scripts
 >^NumPad7::
-        Run, %editor% %A_ScriptFullPath%
+        Run, %AhkEditor% %A_ScriptFullPath%
         Loop %A_ScriptDir%\%lang%\*.ahk
-            Run, %editor% %A_LoopFileFullPath%
+            Run, %AhkEditor% %A_LoopFileFullPath%
 Return
 
 ; RightCtrl+NumPad8 to reload all scripts
@@ -60,8 +60,13 @@ Return
             Gosub, SaveAndReload
 Return
 
+
+;*********************************************************************
+;*                     functions and subroutines                     *
+;*********************************************************************
+
 SaveAndReload:
-        Send, ^s
+        Send, ^{SC01f}
         ToolTip, Scripts are updating
         Sleep, 500
         Reload

@@ -110,6 +110,11 @@ Return
 !MButton::      WinMinimize
 ^MButton::      WinClose
 
+
+;*********************************************************************
+;*                     functions and subroutines                     *
+;*********************************************************************
+
 MouseIsOverTitlebar() {
         static WM_NCHITTEST := 0x84, HTCAPTION := 2
         CoordMode Mouse, Screen

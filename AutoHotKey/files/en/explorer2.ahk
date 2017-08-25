@@ -26,22 +26,12 @@ Else
     IfExist %drive%\Program Files (x86)\Sublime Text 3\sublime_text.exe
         subl = %drive%\Program Files (x86)\Sublime Text 3\sublime_text.exe
 
-notepad =
-IfExist %drive%\Program Files\Notepad++\notepad++.exe
-    notepad = %drive%\Program Files\Notepad++\notepad++.exe
-Else
-    IfExist %drive%\Program Files (x86)\Notepad++\notepad++.exe
-        notepad = %drive%\Program Files (x86)\Notepad++\notepad++.exe
+RegRead, notepad, HKLM, Software\Notepad++
+If notepad
+    notepad = %notepad%\notepad++.exe
 
-conemu =
-IfExist %drive%\Program Files\ConEmu\ConEmu64.exe
-    conemu = %drive%\Program Files\ConEmu\ConEmu64.exe
-Else
-    IfExist %drive%\Program Files (x86)\ConEmu\ConEmu.exe
-        conemu = %drive%\Program Files (x86)\ConEmu\ConEmu.exe
-    Else
-        IfExist %drive%\Program Files\ConEmu\ConEmu.exe
-            conemu = %drive%\Program Files\ConEmu\ConEmu.exe
+txtEditor := GetDefaultAppForExt("txt")
+
 ;*********************************************************************
 ;*                  end of the auto-execute section                  *
 ;*********************************************************************
@@ -52,29 +42,7 @@ Else
 ~^#End::        ExitApp
 
 
-; Win+C to open ConEmu or cmd in current directory
-#C::
-        If WinActive("ahk_group Explorer")
-        {
-            dir = %A_Desktop%
-            WinHWND := WinActive()
-            For win in ComObjCreate("Shell.Application").Windows
-                If (win.HWND = WinHWND) {
-                    dir := SubStr(win.LocationURL, 9) ; remove "file:///"
-                    dir := RegExReplace(dir, "%20", " ")
-                    Break
-                }
-        }
-        Else
-            dir = D:\Workspace
-
-        If conemu
-            Run, %conemu% -Dir "%dir%" -run {Shells::cmd}
-        Else
-            Run, cmd, % dir
-Return
-
-
+; Explorer group
 #IfWinActive ahk_group Explorer
 !Down::         Send, {Enter}
 !Right::        Send, {Enter}
@@ -85,38 +53,122 @@ Return
 +WheelUp::      Send, +{Up}
 +WheelDown::    Send, +{Down}
 
-; Alt+N to open selected file with Notepad++
-!N::
-        If notepad
-        {
-            ClipSaved := ClipBoardAll
-            ClipBoard =
-            Send, ^{SC02e}
-            ClipWait, 0.2
-            If ErrorLevel = 0
-            {
-                RunWait, %notepad% `"%ClipBoard%`",,, pid
-                WinActivate, ahk_pid %pid%
-            }
-            ClipBoard := ClipSaved
-            ClipSaved =  ; free memory
+; https://gist.github.com/davejamesmiller/1965432
+; Ctrl+Alt+N to create new file and open files with certain extensions
+^!N::
+        path := GetCurrentDirPath()
+        SetWorkingDir, %path%
+
+        If ErrorLevel
+            Return
+
+        InputBox, UserInput, New File (example: foo.txt), , , 400, 100
+
+        If ErrorLevel
+            Return
+
+        FileAppend, , %UserInput%
+
+        If !InStr(UserInput, ".")
+
+        pos =
+        StringGetPos, pos, UserInput, `., R
+        If (pos != -1) {
+            ext := SubStr(UserInput, pos + 2, StrLen(UserInput) - pos - 1)
+            arr := ["txt", "ahk", "cmd", "go", "java"]
+            If HasVal(arr, ext)
+                Run, %txtEditor% %path%\%UserInput%
         }
+        Else
+            Run, %txtEditor% %path%\%UserInput%
 Return
 
-; Alt+S to open selected file with Sublime Text 3
+
+
+; Alt+E to open selected files with your txt editor
+!E::
+        If txtEditor
+            OpenSelectedFilesBy(txtEditor)
+Return
+
+; Alt+N to open selected files with Notepad++
+!N::
+        If notepad
+            OpenSelectedFilesBy(notepad)
+Return
+
+; Alt+S to open selected files with Sublime Text 3
 !S::
         If subl
-        {
-            ClipSaved := ClipBoardAll
-            ClipBoard =
-            Send, ^{SC02e}
-            ClipWait, 0.2
-            If ErrorLevel = 0
-            {
-                RunWait, %subl% `"%ClipBoard%`",,, pid
-                WinActivate, ahk_pid %pid%
-            }
-            ClipBoard := ClipSaved
-            ClipSaved =  ; free memory
-        }
+            OpenSelectedFilesBy(subl)
 Return
+
+
+;*********************************************************************
+;*                     functions and subroutines                     *
+;*********************************************************************
+
+; require cp-1251 encoding to remove Russian prefix "(^Адрес: )"
+GetCurrentDirPath() {
+        WinGetText, text, A
+        StringSplit, pathArray, text, `r`n
+        Return RegExReplace(pathArray1, "(^(Adress|Адрес): )", "")
+}
+
+OpenSelectedFilesBy(editor) {
+        ClipSaved := ClipBoardAll
+        ClipBoard =
+        Send, ^{SC02e}
+        ClipWait, 0.2
+        If ErrorLevel = 0
+        {
+            StringReplace, Clipboard, Clipboard, `r`n, `" `", All
+            Run, %editor% `"%ClipBoard%`", , , pid
+            WinActivate, ahk_pid %pid%
+        }
+        ClipBoard := ClipSaved
+        ClipSaved =  ; free memory
+}
+
+; https://autohotkey.com/board/topic/54927-regread-associated-program-for-a-file-extension/#post_id_344863
+GetDefaultAppForExt(ext) {
+        local pos
+
+        RegRead, type, HKCU, Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.%ext%\UserChoice, Progid
+        If ErrorLevel
+        {
+            ; default setting
+            RegRead, type, HKCR, .%ext%
+            RegRead, act , HKCR, %type%\shell
+            If ErrorLevel
+                act = open
+            RegRead, cmd , HKCR, %type%\shell\%act%\command
+        }
+        Else {
+            ; current user has overridden default setting
+            RegRead, act, HKCU, Software\Classes\%type%\shell
+            If ErrorLevel
+                act = open
+            RegRead, cmd, HKCU, Software\Classes\%type%\shell\%act%\command
+        }
+
+        pos := InStr(cmd, ".exe""")
+        If pos
+            cmd := SubStr(cmd, 1, pos + 4)
+        Else
+            cmd := SubStr(cmd, 1, InStr(cmd, ".exe") + 3)
+
+        Return cmd
+}
+
+; https://autohotkey.com/boards/viewtopic.php?p=109617&sid=a057c8ab901a3ab88f6304b71729c892#p109617
+HasVal(haystack, needle) {
+    For index, value in haystack
+        If (value = needle)
+            Return index
+
+    If !(IsObject(haystack))
+        Throw Exception("Bad haystack!", -1, haystack)
+
+    Return 0
+}
