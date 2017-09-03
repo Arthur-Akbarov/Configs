@@ -1,29 +1,24 @@
-@echo push hosts file
+@echo push current hosts file config to local configs repo
 @echo off
 
 set dir=%SystemRoot%\System32\drivers\etc
+
 set name=hosts
-set file=%dir%\%name%
+CALL :copy "%file%" files\
 
-copy "files\%name%" "%file%" 12>nul
-if %ErrorLevel% == 0 goto :eof
+pause
+EXIT /B %ErrorLevel%
 
-echo It works only with disabled UAC.
-echo You may copy hosts manually.
 
-setlocal EnableDelayedExpansion
-if not exist "%dir%" (
-	echo Folder "%dir%" can't be found.
-	choice /m "Create it"
-	if !ErrorLevel! == 2 goto :eof
-	if !ErrorLevel! == 1 (
-		mkdir "%dir%"
-		if ErrorLevel 1 (
-			echo Can't create folder "%dir%".
-			pause & goto :eof
-		)
+:copy
+if exist %1 (
+	copy %1 %2 1>NUL
+	if ErrorLevel == 0 (
+		echo File %1 copied successfully.
+	) else (
+		echo Can't copy file %1 to %2.
 	)
+) else (
+	echo File %1 can't be found.
 )
-
-choice /m "Open %dir%"
-if %ErrorLevel% == 1 explorer "%dir%"
+EXIT /B 0
