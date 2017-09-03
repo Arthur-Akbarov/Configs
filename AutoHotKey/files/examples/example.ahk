@@ -12,10 +12,20 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #NoTrayIcon
 
 ; get default browser path into var 'browser'
-RegRead, OutputVar, HKEY_CLASSES_ROOT, http\shell\open\command
-StringReplace, OutputVar, OutputVar, "
-SplitPath, OutputVar, , OutDir, , OutNameNoExt, OutDrive
-browser = %OutDir%\%OutNameNoExt%.exe
+RegRead, command, HKCR, http\shell\open\command
+StringReplace, command, command, "
+SplitPath, command, , dir, , name, drive
+browser = %dir%\%name%.exe
+MsgBox, , DEBUG, browser = "%browser%"
+
+EnvGet, drive, SystemDrive
+
+subl =
+IfExist %drive%\Program Files\Sublime Text 3\sublime_text.exe
+    subl = %drive%\Program Files\Sublime Text 3\sublime_text.exe
+Else
+    IfExist %drive%\Program Files (x86)\Sublime Text 3\sublime_text.exe
+        subl = %drive%\Program Files (x86)\Sublime Text 3\sublime_text.exe
 
 ;*********************************************************************
 ;*                  end of the auto-execute section                  *

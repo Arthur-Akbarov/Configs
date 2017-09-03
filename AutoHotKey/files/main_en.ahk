@@ -10,19 +10,19 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance force        ; Forced replacement older instance of this script with newer one.
 
+GroupAdd, Editors, ahk_class PX_WINDOW_CLASS  ; Sublime Text 3
+GroupAdd, Editors, ahk_class Notepad++        ; Notepad++
+
 ; run all scripts in appropriate folder
 lang := SubStr(A_ScriptName, 6, 2)
 Loop %A_ScriptDir%\%lang%\*.ahk
     Run, %A_LoopFileFullPath%
 
-; get ahk editor path
-RegRead, OutputVar, HKEY_CLASSES_ROOT, AutoHotkeyScript\Shell\Edit\Command
-StringReplace, OutputVar, OutputVar, "
-SplitPath, OutputVar, , OutDir, , OutNameNoExt, OutDrive
-AhkEditor = %OutDir%\%OutNameNoExt%.exe
-
-GroupAdd, Editors, ahk_class PX_WINDOW_CLASS  ; Sublime Text 3
-GroupAdd, Editors, ahk_class Notepad++        ; Notepad++
+RegRead, command, HKCR, AutoHotkeyScript\Shell\Edit\Command
+StringReplace, command, command, "
+SplitPath, command, , dir, , name, drive
+ahkEditor = %dir%\%name%.exe
+;MsgBox, , DEBUG, ahkEditor = "%ahkEditor%"
 
 ;*********************************************************************
 ;*                  end of the auto-execute section                  *
@@ -38,9 +38,9 @@ GroupAdd, Editors, ahk_class Notepad++        ; Notepad++
 
 ; RightCtrl+NumPad7 to edit all scripts
 >^NumPad7::
-        Run, %AhkEditor% %A_ScriptFullPath%
+        Run, %ahkEditor% %A_ScriptFullPath%
         Loop %A_ScriptDir%\%lang%\*.ahk
-            Run, %AhkEditor% %A_LoopFileFullPath%
+            Run, %ahkEditor% %A_LoopFileFullPath%
 Return
 
 ; RightCtrl+NumPad8 to reload all scripts

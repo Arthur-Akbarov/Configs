@@ -1,11 +1,8 @@
-@echo open Notepad++ config location in Windows
+@echo open Notepad++ config folder in Windows
 @echo off
 
 set dir=%AppData%\Notepad++
-set name=shortcuts.xml
-set file=%dir%\%name%
 
-if exist "%file%" start /max explorer /select, "%file%" & goto :eof
 if exist "%dir%" start /max explorer "%dir%" & goto :eof
 
 echo Folder "%dir%" can't be found.

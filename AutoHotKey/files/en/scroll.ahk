@@ -7,7 +7,7 @@ File structure
 
 Settings
 	-ahk script setting
-	-save setings
+	-save settings
 	-reverse scroll settings
 	-defaults method settings
 	-app method settings
@@ -55,13 +55,13 @@ CoordMode, Mouse, Screen
 ;SetScrollLockState, off
 SetWorkingDir %A_ScriptDir%
 
-useExternalAppSettings := 0
+useExternalAppSettings := 1
 extSAVEfilename := "ScrollTrekAppSettings.ini"
 SAVEdelay := -2000
 
 vReverse := 0
 hReverse := 0
-sReverse := 0		;use reverse settings above when using setting hotkeys too
+sReverse := 0  ;use reverse settings above when using setting hotkeys too
 
 vDefaultMethod := 1
 hDefaultMethod := 1
@@ -96,7 +96,7 @@ VK_RIGHT := 0x27
 VK_DOWN := 0x28
 
 if useExternalAppSettings
-	{
+{
 	iniRead, AppSettings_vMethod, %extSAVEfilename%, AppMethodSettings, AppSettings_vMethod, %AppSettings_vMethod%
 	iniRead, AppSettings_hMethod, %extSAVEfilename%, AppMethodSettings, AppSettings_hMethod, %AppSettings_hMethod%
 	iniRead, AppSettings_fMethod, %extSAVEfilename%, AppMethodSettings, AppSettings_fMethod, %AppSettings_fMethod%
@@ -104,7 +104,7 @@ if useExternalAppSettings
 	StringReplace, AppSettings_hMethod, AppSettings_hMethod, ERROR,, All
 	StringReplace, AppSettings_fMethod, AppSettings_fMethod, ERROR,, All
 	gosub, SAVEtoFILE
-	}
+}
 
 ;*********************************************************************
 ;*                  end of the auto-execute section                  *

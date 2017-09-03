@@ -18,6 +18,7 @@ GroupAdd, Explorer, ahk_class ExploreWClass
 GroupAdd, Explorer, ahk_class WorkerW
 
 RegRead, conemu, HKCU, Software\ConEmu, DefTerm-ConEmuExe
+;MsgBox, , DEBUG, conemu = "%conemu%"
 
 ;*********************************************************************
 ;*                  end of the auto-execute section                  *
@@ -105,11 +106,11 @@ Return
         Clipboard =
         Send, ^{SC02e}
         ClipWait, 0.2
-        
+
         ; copy current folder path if none selected
         If ErrorLevel
             ClipBoard := GetCurrentDirPath()
-        
+
         ; wrap every path in quotes
         StringReplace, Clipboard, Clipboard, `r`n, `" `", All
         Clipboard = "%Clipboard%"
@@ -124,7 +125,8 @@ Return
 GetCurrentDirPath() {
         WinHWND := WinActive()
             For win in ComObjCreate("Shell.Application").Windows
-                If (win.HWND = WinHWND) {
+                If (win.HWND = WinHWND)
+                {
                     result := SubStr(win.LocationURL, 9)  ; remove "file:///"
                     result := RegExReplace(result, "%20", " ")
                     Return result

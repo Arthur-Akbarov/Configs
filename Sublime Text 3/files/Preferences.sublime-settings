@@ -148,16 +148,15 @@
 		"Ургант",
 		"Ходорковским",
 		"хостинг",
-		"юнит",
+		"юнит"
 	],
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
-	"dictionary": "Packages/russian_english.dic",
 	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
 	"fade_fold_buttons": false,
 	"fallback_encoding": "Cyrillic (Windows 1251)",
-	"font_size": 19,
+	"font_size": 15,
 	"highlight_line": false,
 	"ignored_packages":
 	[
@@ -173,6 +172,5 @@
 	"show_line_endings": true,
 	"soda_classic_tabs": true,
 	"spell_check": true,
-	"theme": "SoDaReloaded Dark.sublime-theme",
 	"trim_trailing_white_space_on_save": true
 }

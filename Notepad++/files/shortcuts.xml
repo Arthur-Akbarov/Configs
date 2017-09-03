@@ -1,15 +1,7 @@
 <NotepadPlus>
-    <InternalCommands>
-        <Shortcut id="44099" Ctrl="no" Alt="no" Shift="no" Key="0" />
-        <Shortcut id="50003" Ctrl="no" Alt="no" Shift="no" Key="0" />
-        <Shortcut id="50004" Ctrl="no" Alt="no" Shift="no" Key="0" />
-        <Shortcut id="44098" Ctrl="no" Alt="no" Shift="no" Key="0" />
-        <Shortcut id="44022" Ctrl="no" Alt="yes" Shift="no" Key="90" />
-        <Shortcut id="44095" Ctrl="yes" Alt="no" Shift="no" Key="9" />
-        <Shortcut id="44096" Ctrl="yes" Alt="no" Shift="yes" Key="9" />
-    </InternalCommands>
+    <InternalCommands />
     <Macros>
-        <Macro name="Trim Trailing and save" Ctrl="no" Alt="yes" Shift="yes" Key="83">
+        <Macro name="Trim Trailing Space and Save" Ctrl="no" Alt="yes" Shift="yes" Key="83">
             <Action type="2" message="0" wParam="42024" lParam="0" sParam="" />
             <Action type="2" message="0" wParam="41006" lParam="0" sParam="" />
         </Macro>
@@ -25,10 +17,5 @@
         <Command name="Send via Outlook" Ctrl="yes" Alt="yes" Shift="yes" Key="79">outlook /a &quot;$(FULL_CURRENT_PATH)&quot;</Command>
     </UserDefinedCommands>
     <PluginCommands />
-    <ScintillaKeys>
-        <ScintKey ScintID="2338" menuCmdID="0" Ctrl="yes" Alt="no" Shift="yes" Key="68" />
-        <ScintKey ScintID="2469" menuCmdID="42010" Ctrl="yes" Alt="no" Shift="no" Key="0" />
-        <ScintKey ScintID="2455" menuCmdID="0" Ctrl="yes" Alt="no" Shift="yes" Key="67" />
-        <ScintKey ScintID="2337" menuCmdID="0" Ctrl="yes" Alt="no" Shift="yes" Key="88" />
-    </ScintillaKeys>
+    <ScintillaKeys />
 </NotepadPlus>
