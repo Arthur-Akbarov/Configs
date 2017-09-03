@@ -17,20 +17,14 @@ GroupAdd, Explorer, ahk_class Progman        ; Desktop
 GroupAdd, Explorer, ahk_class ExploreWClass
 GroupAdd, Explorer, ahk_class WorkerW
 
-EnvGet, drive, SystemDrive
+RegRead, subl, HKCU, Software\Classes\Applications\sublime_text.exe\shell\open\command
+subl := CutUnquotedExe(subl)
 
-subl =
-IfExist %drive%\Program Files\Sublime Text 3\sublime_text.exe
-    subl = %drive%\Program Files\Sublime Text 3\sublime_text.exe
-Else
-    IfExist %drive%\Program Files (x86)\Sublime Text 3\sublime_text.exe
-        subl = %drive%\Program Files (x86)\Sublime Text 3\sublime_text.exe
-
-RegRead, notepad, HKLM, Software\Notepad++
-If notepad
-    notepad = %notepad%\notepad++.exe
+RegRead, notepad, HKCU, Software\Classes\Applications\notepad++.exe\shell\open\command
+notepad := CutUnquotedExe(notepad)
 
 txtEditor := GetDefaultAppForExt("txt")
+;MsgBox, , DEBUG, txtEditor = "%txtEditor%"
 
 ;*********************************************************************
 ;*                  end of the auto-execute section                  *
@@ -58,32 +52,30 @@ txtEditor := GetDefaultAppForExt("txt")
 ^!N::
         path := GetCurrentDirPath()
         SetWorkingDir, %path%
-
         If ErrorLevel
             Return
 
         InputBox, UserInput, New File (example: foo.txt), , , 400, 100
-
         If ErrorLevel
             Return
 
         FileAppend, , %UserInput%
+        If ErrorLevel
+            Return
 
-        If !InStr(UserInput, ".")
-
-        pos =
+        pos = -1
         StringGetPos, pos, UserInput, `., R
-        If (pos != -1) {
+        If (pos != -1 && pos != 0)
+        {
             ext := SubStr(UserInput, pos + 2, StrLen(UserInput) - pos - 1)
             arr := ["txt", "ahk", "cmd", "go", "java"]
-            If HasVal(arr, ext)
-                Run, %txtEditor% %path%\%UserInput%
+            If !HasVal(arr, ext)
+                Return
         }
-        Else
-            Run, %txtEditor% %path%\%UserInput%
+
+        ;MsgBox, , Debug, %txtEditor% "%path%\%UserInput%"
+        Run, %txtEditor% "%path%\%UserInput%"
 Return
-
-
 
 ; Alt+E to open selected files with your txt editor
 !E::
@@ -124,7 +116,6 @@ OpenSelectedFilesBy(editor) {
         {
             StringReplace, Clipboard, Clipboard, `r`n, `" `", All
             Run, %editor% `"%ClipBoard%`", , , pid
-            WinActivate, ahk_pid %pid%
         }
         ClipBoard := ClipSaved
         ClipSaved =  ; free memory
@@ -132,43 +123,88 @@ OpenSelectedFilesBy(editor) {
 
 ; https://autohotkey.com/board/topic/54927-regread-associated-program-for-a-file-extension/#post_id_344863
 GetDefaultAppForExt(ext) {
-        local pos
+        local type, act, command, exePath
+
+        userApp := GetUserChoiceAppForExt(ext)
+        If userApp
+            command := userApp
+        Else
+        {
+            ;MsgBox, , DEBUG, get default settings
+
+            RegRead, type, HKCR, .%ext%
+            If ErrorLevel
+                Return
+            ;MsgBox, , DEBUG, type = %type%
+
+            RegRead, act, HKCR, %type%\shell
+            If !act
+                act = open
+
+            RegRead, command, HKCR, %type%\shell\%act%\command
+            If ErrorLevel
+                Return
+        }
+        ;MsgBox, , DEBUG, command = %command%
+
+        exePath := ExpandEnvironmentVariables(CutUnquotedExe(command))
+        ;MsgBox, , DEBUG, clipped exePath = %exePath%
+
+        IfExist, %exePath%
+            Return exePath
+}
+
+GetUserChoiceAppForExt(ext) {
+        local type, ClassesEntry, act, command
+
+        ;MsgBox, , DEBUG, get user overridden settings
 
         RegRead, type, HKCU, Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.%ext%\UserChoice, Progid
         If ErrorLevel
-        {
-            ; default setting
-            RegRead, type, HKCR, .%ext%
-            RegRead, act , HKCR, %type%\shell
-            If ErrorLevel
-                act = open
-            RegRead, cmd , HKCR, %type%\shell\%act%\command
-        }
-        Else {
-            ; current user has overridden default setting
-            RegRead, act, HKCU, Software\Classes\%type%\shell
-            If ErrorLevel
-                act = open
-            RegRead, cmd, HKCU, Software\Classes\%type%\shell\%act%\command
-        }
+            Return
+        ;MsgBox, , DEBUG, type = %type%
 
-        pos := InStr(cmd, ".exe""")
-        If pos
-            cmd := SubStr(cmd, 1, pos + 4)
-        Else
-            cmd := SubStr(cmd, 1, InStr(cmd, ".exe") + 3)
+        RegRead, ClassesEntry, HKCU, Software\Classes\%type%
+        If !ErrorLevel
+            type := ClassesEntry
+        ;MsgBox, , DEBUG, ClassesEntry = %ClassesEntry%
 
-        Return cmd
+        RegRead, act, HKCU, Software\Classes\%type%\shell
+        If ErrorLevel
+            act = open
+
+        RegRead, command, HKCU, Software\Classes\%type%\shell\%act%\command
+            Return command
+}
+
+CutUnquotedExe(command) {
+        local pos = InStr(command, ".exe")
+
+        If !pos
+            Return
+
+        If SubStr(command, 1, 1) = """"
+            Return SubStr(command, 2, pos + 2)
+
+        Return SubStr(command, 1, pos + 3)
+}
+
+ExpandEnvironmentVariables(src) {
+        local dest
+
+        VarSetCapacity(dest, 2000)
+        DllCall("ExpandEnvironmentStrings", "str", src, "str", dest, int, 128, "Cdecl int")
+        Return dest
 }
 
 ; https://autohotkey.com/boards/viewtopic.php?p=109617&sid=a057c8ab901a3ab88f6304b71729c892#p109617
 HasVal(haystack, needle) {
-    For index, value in haystack
-        If (value = needle)
-            Return index
+        local index, value
 
-    If !(IsObject(haystack))
-        Throw Exception("Bad haystack!", -1, haystack)
+        For index, value in haystack
+            If (value = needle)
+                Return index
 
-    Return 0
+        If !IsObject(haystack)
+            Throw Exception("Bad haystack!", -1, haystack)
 }
