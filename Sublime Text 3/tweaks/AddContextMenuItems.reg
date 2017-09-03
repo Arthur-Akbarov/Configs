@@ -1,0 +1,25 @@
+Windows Registry Editor Version 5.00
+
+; add Sublime Text 3 for all file types
+[HKEY_CLASSES_ROOT\*\shell\Open with Sublime Text 3]
+@="Open &with Sublime Text 3"
+"Icon"="\"C:\\Program Files\\Sublime Text 3\\sublime_text.exe\",0"
+
+[HKEY_CLASSES_ROOT\*\shell\Open with Sublime Text 3\command]
+@="\"C:\\Program Files\\Sublime Text 3\\sublime_text.exe\" \"%1\""
+
+; add Sublime Text 3 for folder background
+[HKEY_CLASSES_ROOT\Directory\shell\Open with Sublime Text 3]
+@="Open &with Sublime Text 3"
+"Icon"="\"C:\\Program Files\\Sublime Text 3\\sublime_text.exe\",0"
+
+[HKEY_CLASSES_ROOT\Directory\shell\Open with Sublime Text 3\command]
+@="\"C:\\Program Files\\Sublime Text 3\\sublime_text.exe\" \"%1\""
+
+; add Sublime Text 3 for folders
+[HKEY_CLASSES_ROOT\Directory\Background\shell\Open with Sublime Text 3]
+@="Open &with Sublime Text 3"
+"Icon"="\"C:\\Program Files\\Sublime Text 3\\sublime_text.exe\",0"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\Open with Sublime Text 3\command]
+@="\"C:\\Program Files\\Sublime Text 3\\sublime_text.exe\" \"%v\""
