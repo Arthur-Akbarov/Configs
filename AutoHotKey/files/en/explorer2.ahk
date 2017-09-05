@@ -95,6 +95,31 @@ Return
             OpenSelectedFilesBy(subl)
 Return
 
+; Win+E to expand and open selected path in explorer or open MyComputer in error
+#IfWinNotActive ahk_class CabinetWClass
+#E::
+        ClipSaved := ClipBoardAll
+        ClipBoard =
+        Send, ^{SC02e}
+        ClipWait, 0.2
+        If ErrorLevel
+            Run, explorer =, ,max
+        Else
+        {
+            ;Run, cmd /C If exist %ClipBoard% (start /max explorer /select`, %ClipBoard% ) else (start /max explorer =), , hide
+
+            ClipBoard := ExpandEnvironmentVariables(ClipBoard)
+
+            IfExist %ClipBoard%
+                Run, explorer /select`, %ClipBoard%, , max
+            Else
+                Run, explorer =, ,max
+        }
+        ClipBoard := ClipSaved
+        ClipSaved =  ; free memory
+Return
+; for debug purpose C:\Windows\System32\drivers\etc\hosts    %AppData%\Microsoft
+
 
 ;*********************************************************************
 ;*                     functions and subroutines                     *
@@ -108,6 +133,8 @@ GetCurrentDirPath() {
 }
 
 OpenSelectedFilesBy(editor) {
+        local ClipSaved
+
         ClipSaved := ClipBoardAll
         ClipBoard =
         Send, ^{SC02e}

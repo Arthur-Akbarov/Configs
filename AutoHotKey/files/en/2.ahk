@@ -25,27 +25,6 @@ GroupAdd, Console, ahk_class ahk_class mintty
 ~^#End::        ExitApp
 
 
-; Win+E to open selected path in explorer and MyComputer in error
-#IfWinNotActive ahk_class CabinetWClass
-#E::
-        ClipSaved := ClipBoardAll
-        ClipBoard =
-        Send, ^{SC02e}
-        ClipWait, 0.2
-        If ErrorLevel
-            Run, explorer =, ,max
-        Else
-            ;Run, cmd /C If exist %ClipBoard% (start /max explorer /select`, %ClipBoard% ) else (start /max explorer =), , hide
-            IfExist %ClipBoard%
-                Run, explorer /select`, %ClipBoard%, , max
-            Else
-                Run, explorer =, ,max
-        ClipBoard := ClipSaved
-        ClipSaved =  ; free memory
-Return
-; for debug purpose C:\Windows\System32\drivers\etc\hosts
-
-
 ; this feature have moved to scroll.ahk
 ; Windows Photo Viewer
 ; #IfWinActive ahk_class Photo_Lightweight_Viewer
