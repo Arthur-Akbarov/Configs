@@ -74,11 +74,19 @@ GoogleSearch(searchQuery) {
 
         If InStr(searchQuery, "http://") = 1
         || InStr(searchQuery, "https://") = 1
-            Run, %searchQuery%
-        Else
         {
-            searchQuery := RegExReplace(searchQuery, "\s+", " ")
-            Run, http://www.google.com/search?q=%searchQuery%
+            Run, %searchQuery%
+            Return
         }
+
+        If !InStr(searchQuery, " ")
+        && InStr(searchQuery, ".")
+        {
+            Run, http://%searchQuery%
+            Return
+        }
+
+        searchQuery := RegExReplace(searchQuery, "\s+", " ")
+        Run, http://www.google.com/search?q=%searchQuery%
 }
 ; for debug purpose https://ya.ru
