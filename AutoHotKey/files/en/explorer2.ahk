@@ -68,7 +68,7 @@ txtEditor := GetDefaultAppForExt("txt")
         If (pos != -1 && pos != 0)
         {
             ext := SubStr(UserInput, pos + 2, StrLen(UserInput) - pos - 1)
-            arr := ["txt", "ahk", "cmd", "go", "java"]
+            arr := ["txt", "ahk", "cmd", "go", "java", "reg"]
             If !HasVal(arr, ext)
                 Return
         }
@@ -106,8 +106,6 @@ Return
             Run, explorer =, ,max
         Else
         {
-            ;Run, cmd /C If exist %ClipBoard% (start /max explorer /select`, %ClipBoard% ) else (start /max explorer =), , hide
-
             ClipBoard := ExpandEnvironmentVariables(ClipBoard)
 
             IfExist %ClipBoard%

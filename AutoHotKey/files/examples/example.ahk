@@ -9,13 +9,15 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance Force        ; Forced replacement older instance of this script with newer one.
-#NoTrayIcon
+;#NoTrayIcon
 
 ; get default browser path into var 'browser'
 RegRead, command, HKCR, http\shell\open\command
 StringReplace, command, command, "
 SplitPath, command, , dir, , name, drive
-browser = %dir%\%name%.exe
+If dir
+    name = %dir%\%name%
+browser = %name%.exe
 MsgBox, , DEBUG, browser = "%browser%"
 
 EnvGet, drive, SystemDrive
@@ -67,9 +69,14 @@ Return
 
 ; Win+NumPad1 to get info about active window
 #NumPad1::
-        WinGet, aId, ID, A                  ; get active window id
-        WinGetClass, aClass, A              ; get active class
-        WinGetTitle, aTitle, A              ; get active window title
-        WinGetActiveTitle, aTitle2
-        MsgBox %aId% `n%aClass% `n%aTitle% `n%aTitle2%
+        WinGet, id, ID, A                  ; get active window id
+        WinGetClass, class, A              ; get active class
+        WinGetTitle, title, A              ; get active window title
+        WinGetActiveTitle, title2
+        MsgBox %id% `n%class% `n%title% `n%title2%
+Return
+
+; Win+E open copied expanded path in explorer or open MyComputer in error
+#E::
+        Run, cmd /C If exist %ClipBoard% (start /max explorer /select`, %ClipBoard% ) else (start /max explorer =), , hide
 Return

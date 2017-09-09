@@ -21,7 +21,9 @@ Loop %A_ScriptDir%\%lang%\*.ahk
 RegRead, command, HKCR, AutoHotkeyScript\Shell\Edit\Command
 StringReplace, command, command, "
 SplitPath, command, , dir, , name, drive
-ahkEditor = %dir%\%name%.exe
+If dir
+    name = %dir%\%name%
+ahkEditor = %name%.exe
 ;MsgBox, , DEBUG, ahkEditor = "%ahkEditor%"
 
 ;*********************************************************************

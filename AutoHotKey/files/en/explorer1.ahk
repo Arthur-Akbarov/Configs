@@ -124,11 +124,11 @@ Return
 ; require cp-1251 encoding to remove Russian prefix "(^Адрес: )"
 GetCurrentDirPath() {
         WinHWND := WinActive()
-            For win in ComObjCreate("Shell.Application").Windows
-                If (win.HWND = WinHWND)
-                {
-                    result := SubStr(win.LocationURL, 9)  ; remove "file:///"
-                    result := RegExReplace(result, "%20", " ")
-                    Return result
-                }
+        For win in ComObjCreate("Shell.Application").Windows
+            If (win.HWND = WinHWND)
+            {
+                result := SubStr(win.LocationURL, 9)  ; remove "file:///"
+                result := RegExReplace(result, "%20", " ")
+                Return result
+            }
 }
