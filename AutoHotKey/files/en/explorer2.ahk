@@ -126,8 +126,8 @@ Return
 ; require cp-1251 encoding to remove Russian prefix "(^Адрес: )"
 GetCurrentDirPath() {
         WinGetText, text, A
-        StringSplit, pathArray, text, `r`n
-        Return RegExReplace(pathArray1, "(^(Adress|Адрес): )", "")
+        StringSplit, pathArray, text, `r`
+        Return RegExReplace(pathArray1, "(^(Address|Адрес): )", "")
 }
 
 OpenSelectedFilesBy(editor) {

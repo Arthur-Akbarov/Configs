@@ -25,11 +25,12 @@ GroupAdd, Console, ahk_class ahk_class mintty
 ~^#End::        ExitApp
 
 
-; this feature have moved to scroll.ahk
 ; Windows Photo Viewer
-; #IfWinActive ahk_class Photo_Lightweight_Viewer
+#IfWinActive ahk_class Photo_Lightweight_Viewer
 ; WheelUp::       Send, {Left}
 ; WheelDown::     Send, {Right}
+J::             Send, {Left}
+L::             Send, {Right}
 
 
 #IfWinActive ahk_group Console

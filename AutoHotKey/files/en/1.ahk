@@ -25,7 +25,7 @@ NumLock::       Send, {RButton}
 +NumLock::      Return
 ^NumLock::      Return
 
-Capslock::      LButton
+CapsLock::      LButton
 !CapsLock::     Return
 +CapsLock::     Return
 ^CapsLock::     ^LButton
@@ -69,17 +69,17 @@ Insert::        Return
 #^+Up::         SoundSet, 0, , mute
 #^+Down::       SoundSet, 1, , mute
 
->^Numpad3::     SoundSet, 0, , mute
+>^NumPad3::     SoundSet, 0, , mute
 >^NumPadDot::   SoundSet, 1, , mute
 
->^NumPadEnter:: Run, Calc.exe
+>^NumPadEnter:: Run, calc.exe
 PrintScreen::   Run, SnippingTool.exe
 
 
 ; Ctrl+; to add semicolon to the end of the line
 ^`;::           Send, {End}`;
 
-!'::
+; !'::
 ^'::
         ClipSaved := ClipBoardAll
         Send, ^{SC02e}
@@ -89,7 +89,7 @@ PrintScreen::   Run, SnippingTool.exe
         ClipSaved =  ; free memory
 Return
 
-!2::
+; !2::
 ^@::
 ^"::
         ClipSaved := ClipBoardAll
@@ -100,7 +100,7 @@ Return
         ClipSaved =  ; free memory
 Return
 
-!5::
+; !5::
 ^%::
         ClipSaved := ClipBoardAll
         Send, ^{SC02e}

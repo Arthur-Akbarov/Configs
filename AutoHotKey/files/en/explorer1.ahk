@@ -17,7 +17,7 @@ GroupAdd, Explorer, ahk_class Progman        ; Desktop
 GroupAdd, Explorer, ahk_class ExploreWClass
 GroupAdd, Explorer, ahk_class WorkerW
 
-RegRead, conemu, HKCU, Software\ConEmu, DefTerm-ConEmuExe
+RegRead, conemu, HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\ConEmu64.exe
 ;MsgBox, , DEBUG, conemu = "%conemu%"
 
 ;*********************************************************************
