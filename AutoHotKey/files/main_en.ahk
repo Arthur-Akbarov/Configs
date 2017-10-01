@@ -36,7 +36,7 @@ ahkEditor = %name%.exe
 ~^#End::        ExitApp
 
 ; Ctrl+Win+L to log off
-^#L::Shutdown, 0
+^#L::           Shutdown, 0
 
 ; RightCtrl+NumPad7 to edit all scripts
 >^NumPad7::

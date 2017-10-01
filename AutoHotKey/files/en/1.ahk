@@ -78,11 +78,9 @@ Insert::        Return
 >^NumPadEnter:: Run, calc.exe
 PrintScreen::   Run, SnippingTool.exe
 
-
 ; Ctrl+; to add semicolon to the end of the line
 ^`;::           Send, {End}`;
 
-; !'::
 ^'::
         ClipSaved := ClipBoardAll
         Send, ^{SC02e}
@@ -92,7 +90,6 @@ PrintScreen::   Run, SnippingTool.exe
         ClipSaved =  ; free memory
 Return
 
-; !2::
 ^@::
 ^"::
         ClipSaved := ClipBoardAll
@@ -103,7 +100,6 @@ Return
         ClipSaved =  ; free memory
 Return
 
-; !5::
 ^%::
         ClipSaved := ClipBoardAll
         Send, ^{SC02e}

@@ -40,7 +40,7 @@ RegRead, conemu, HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\ConEm
             dir := GetCurrentDirPath()
 
         If !dir
-                dir = %A_Desktop%
+                dir := A_Desktop
 
         If conemu
             Run, %conemu% -Dir "%dir%" -run {Shells::cmd}
