@@ -17,6 +17,9 @@ GroupAdd, Explorer, ahk_class Progman        ; Desktop
 GroupAdd, Explorer, ahk_class ExploreWClass
 GroupAdd, Explorer, ahk_class WorkerW
 
+IniRead, workspace, settings.ini, Section1, workspace
+; MsgBox, , DEBUG, workspace = "%workspace%"
+
 RegRead, conemu, HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\ConEmu64.exe
 ;MsgBox, , DEBUG, conemu = "%conemu%"
 
@@ -31,14 +34,13 @@ RegRead, conemu, HKLM, SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\ConEm
 
 ; Win+C to open ConEmu or cmd in current directory
 #C::
+        dir := workspace
+
         If WinActive("ahk_group Explorer")
-        {
             dir := GetCurrentDirPath()
-            If !dir
+
+        If !dir
                 dir = %A_Desktop%
-        }
-        Else
-            dir = D:\Workspace
 
         If conemu
             Run, %conemu% -Dir "%dir%" -run {Shells::cmd}

@@ -35,7 +35,7 @@
   <setting name="HideSignedProcesses">0</setting>
   <setting name="HideUnnamedHandles">1</setting>
   <setting name="HighlightingDuration">7d0</setting>
-  <setting name="IconMask">8</setting>
+  <setting name="IconMask">9</setting>
   <setting name="IconMaskList"></setting>
   <setting name="IconNotifyMask">c</setting>
   <setting name="IconProcesses">f</setting>
@@ -47,9 +47,9 @@
   <setting name="LogWindowSize">@120|563,625</setting>
   <setting name="MainWindowAlwaysOnTop">0</setting>
   <setting name="MainWindowOpacity">0</setting>
-  <setting name="MainWindowPosition">349,123</setting>
+  <setting name="MainWindowPosition">0,0</setting>
   <setting name="MainWindowSize">@96|800,600</setting>
-  <setting name="MainWindowState">1</setting>
+  <setting name="MainWindowState">3</setting>
   <setting name="MaxSizeUnit">6</setting>
   <setting name="MemEditBytesPerRow">10</setting>
   <setting name="MemEditGotoChoices"></setting>
@@ -76,7 +76,7 @@
   <setting name="NoPurgeProcessRecords">0</setting>
   <setting name="PluginsDirectory">plugins</setting>
   <setting name="ProcessServiceListViewColumns"></setting>
-  <setting name="ProcessTreeListColumns">@96|0,0,290|1,1,58|2,4,47|4,6,108|5,8,222|6,7,348|12,5,105|32,3,162|37,9,218|40,2,49</setting>
+  <setting name="ProcessTreeListColumns">@96|0,0,243|1,1,50|2,4,47|4,6,108|5,8,222|6,7,348|12,5,105|32,3,162|37,9,218|40,2,44</setting>
   <setting name="ProcessTreeListSort">0,0</setting>
   <setting name="ProcPropPage">General</setting>
   <setting name="ProcPropPosition">214,183</setting>
@@ -85,7 +85,7 @@
   <setting name="PropagateCpuUsage">1</setting>
   <setting name="RunAsProgram"></setting>
   <setting name="RunAsUserName"></setting>
-  <setting name="SampleCount">2ab</setting>
+  <setting name="SampleCount">190</setting>
   <setting name="SampleCountAutomatic">1</setting>
   <setting name="ScrollToNewProcesses">1</setting>
   <setting name="SearchEngine">http://www.google.com/search?q=&quot;%s&quot;</setting>
@@ -180,7 +180,7 @@
   <setting name="ProcessHacker.ToolStatus.ToolbarConfig"></setting>
   <setting name="ProcessHacker.ToolStatus.StatusbarConfig"></setting>
   <setting name="ProcessHacker.UpdateChecker.PromptStart">1</setting>
-  <setting name="ProcessHacker.UpdateChecker.LastUpdateCheckTime">131501996096556178</setting>
+  <setting name="ProcessHacker.UpdateChecker.LastUpdateCheckTime">131513008968312735</setting>
   <setting name="ProcessHacker.UserNotes.DatabasePath">%APPDATA%\Process Hacker 2\usernotesdb.xml</setting>
   <setting name="ProcessHacker.UserNotes.ColorCustomList"></setting>
   <setting name="ProcessHacker.WindowExplorer.ShowDesktopWindows">0</setting>

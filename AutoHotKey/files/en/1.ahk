@@ -11,6 +11,9 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance force        ; Forced replacement older instance of this script with newer one.
 #NoTrayIcon
 
+IniRead, email, settings.ini, Section1, email
+; MsgBox, , DEBUG, email = "%email%"
+
 ;*********************************************************************
 ;*                  end of the auto-execute section                  *
 ;*********************************************************************
@@ -20,7 +23,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ~#End::         Suspend, On
 ~^#End::        ExitApp
 
-NumLock::       Send, {RButton}
+NumLock::       RButton
 !NumLock::      Return
 +NumLock::      Return
 ^NumLock::      Return
@@ -32,7 +35,7 @@ CapsLock::      LButton
 
 Insert::        Return
 
-!+A::           Send, arthur.akbarov@yandex.ru
+!+A::           Send, %email%
 !+K::           Send, autohotkey
 
 ^!A::           WinSet, AlwaysOnTop, Toggle, A
