@@ -1,8 +1,8 @@
 ﻿; reminder ^ Ctrl, ! Alt, + Shift, # Win, >^ RightCtrl, <! LeftAlt, ` escape character
 
-;*********************************************************************
-;*                  start of the auto-execute section                *
-;*********************************************************************
+; *********************************************************************
+; *                  start of the auto-execute section                *
+; *********************************************************************
 
 #NoEnv          ; Recommended for performance and compatibility with future AutoHotkey releases.
 #Warn           ; Enables warnings to assist with detecting common errors.
@@ -15,7 +15,7 @@ GroupAdd, Editors, ahk_class Notepad++        ; Notepad++
 
 ; run all scripts in appropriate folder
 lang := SubStr(A_ScriptName, 6, 2)
-Loop %A_ScriptDir%\%lang%\*.ahk
+Loop, %A_ScriptDir%\%lang%\*.ahk
     Run, %A_LoopFileFullPath%
 
 RegRead, command, HKCR, AutoHotkeyScript\Shell\Edit\Command
@@ -24,11 +24,11 @@ SplitPath, command, , dir, , name, drive
 If dir
     name = %dir%\%name%
 ahkEditor = %name%.exe
-;MsgBox, , DEBUG, ahkEditor = "%ahkEditor%"
+; MsgBox, , DEBUG, ahkEditor = "%ahkEditor%"
 
-;*********************************************************************
-;*                  end of the auto-execute section                  *
-;*********************************************************************
+; *********************************************************************
+; *                  end of the auto-execute section                  *
+; *********************************************************************
 
 ; Win+End to suspend all scripts, Win+Home to rise back, Ctrl+Win+End to close
 ~#Home::        Suspend, Off
@@ -40,36 +40,39 @@ ahkEditor = %name%.exe
 
 ; RightCtrl+NumPad7 to edit all scripts
 >^NumPad7::
-        Run, %ahkEditor% %A_ScriptFullPath%
-        Loop %A_ScriptDir%\%lang%\*.ahk
-            Run, %ahkEditor% %A_LoopFileFullPath%
+    Run, %ahkEditor% %A_ScriptFullPath%
+    Loop, %A_ScriptDir%\%lang%\*.ahk
+        Run, %ahkEditor% %A_LoopFileFullPath%
 Return
 
 ; RightCtrl+NumPad8 to reload all scripts
 >^NumPad8::     Reload
 
 ; Ctrl+Shift+S to save current and update all scripts while working with anyone
-#IfWinActive ahk_class Notepad                ; in notepad.exe
+; in notepad.exe
+#IfWinActive ahk_class Notepad
 ^+S::
-        IfWinActive, %A_ScriptName%
-            Gosub, SaveAndReload
+    IfWinActive, %A_ScriptName%
+        Gosub, SaveAndReload
 Return
 
-#IfWinActive ahk_group Editors                ; in Sublime Text 3 and Notepad++
+; in Sublime Text 3 and Notepad++
+#IfWinActive ahk_group Editors
 ^+S::
-        WinGetActiveTitle, title
-        IfInString, title, %A_ScriptDir%
-            Gosub, SaveAndReload
+    WinGetActiveTitle, title
+    IfInString, title, %A_ScriptDir%
+        Gosub, SaveAndReload
+    Else
+        Send, ^+{SC01F}  ; Ctrl+S
 Return
 
-
-;*********************************************************************
-;*                     functions and subroutines                     *
-;*********************************************************************
+; *********************************************************************
+; *                     functions and subroutines                     *
+; *********************************************************************
 
 SaveAndReload:
-        Send, ^{SC01f}
-        ToolTip, Scripts are updating
-        Sleep, 500
-        Reload
+    Send, ^{SC01F}  ; Ctrl+S
+    ToolTip, Scripts are updating
+    Sleep, 500
+    Reload
 Return

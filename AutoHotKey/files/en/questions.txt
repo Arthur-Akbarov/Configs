@@ -1,0 +1,6 @@
+questions
+
+how to ensure WinActive editor after opening file in explorer2.ahk
+"Run, %chrome% --incognito "%url%", , max" doesn't maximize window in google.ahk
+how to call functions from another script for more decomposition
+

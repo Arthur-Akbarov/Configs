@@ -1,0 +1,22 @@
+[
+    { "keys": ["ctrl+tab"], "command": "next_view" },
+    { "keys": ["ctrl+shift+tab"], "command": "prev_view" },
+
+    { "keys": ["alt+right"], "command": "next_view" },
+    { "keys": ["alt+left"], "command": "prev_view" },
+
+    { "keys": ["super+shift+w"], "command": "close_all" },
+
+    { "keys": ["alt+shift+up"], "command": "swap_line_up" },
+    { "keys": ["alt+shift+down"], "command": "swap_line_down" },
+    { "keys": ["ctrl+shift+alt+down"], "command": "duplicate_line" },
+
+    { "keys": ["ctrl+shift+x"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
+    { "keys": ["ctrl+shift+r"], "command": "set_setting", "args": {"setting": "rulers", "value": []} },
+    { "keys": ["alt+z"], "command": "toggle_setting", "args": {"setting": "word_wrap"} },
+    { "keys": ["alt+v"], "command": "toggle_sync_scroll" },
+
+    // { "keys": ["ctrl+shift+up"], "command": "select_lines", "args": {"forward": false} },
+    // { "keys": ["ctrl+shift+down"], "command": "select_lines", "args": {"forward": true} },
+]
+

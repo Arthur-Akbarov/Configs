@@ -1,20 +1,21 @@
-; easy way to get path of active window program
+; getPathOfActiveProgram
+
+; easy way
 #NumPad3::
-        WinGet, Path, ProcessPath, A
-        MsgBox, %Path%
+    WinGet, path, ProcessPath, A
+    MsgBox, % path
 Return
 
-; hard way to get path of active window program
+; hard way
 #NumPad2::
-    PID = 0
+    pid = 0
     WinGet, hWnd,, A
-    DllCall("GetWindowThreadProcessId", "UInt", hWnd, "UInt *", PID)
-    hProcess := DllCall("OpenProcess",  "UInt", 0x400 | 0x10, "Int", False
-                                     ,  "UInt", PID)
+    DllCall("GetWindowThreadProcessId", "UInt", hWnd, "UInt *", pid)
+    hProcess := DllCall("OpenProcess",  "UInt", 0x400 | 0x10, "Int", False, "UInt", pid)
     PathLength = 260*2
     VarSetCapacity(FilePath, PathLength, 0)
     DllCall("Psapi.dll\GetModuleFileNameExW", "UInt", hProcess, "Int", 0
-                                 , "Str", FilePath, "UInt", PathLength)
+            , "Str", FilePath, "UInt", PathLength)
     DllCall("CloseHandle", "UInt", hProcess)
-    MsgBox, %FilePath%
+    MsgBox, % FilePath
 Return

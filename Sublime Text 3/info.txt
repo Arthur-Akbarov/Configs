@@ -1,12 +1,4 @@
 info
 
-"installed_packages":
-[
-	"AutoHotkey",
-	"Package Control",
-	"PowerShell",
-	"REG"
-]
-
 russian-english spell check
 http://zencoder.ru/sublime/spell-check-sublime-text-3/

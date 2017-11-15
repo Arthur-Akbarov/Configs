@@ -11,15 +11,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance Force        ; Forced replacement older instance of this script with newer one.
 ;#NoTrayIcon
 
-; get default browser path into var 'browser'
-RegRead, command, HKCR, http\shell\open\command
-StringReplace, command, command, "
-SplitPath, command, , dir, , name, drive
-If dir
-    name = %dir%\%name%
-browser = %name%.exe
-MsgBox, , DEBUG, browser = "%browser%"
-
 EnvGet, drive, SystemDrive
 
 subl =
@@ -46,7 +37,7 @@ Else
 ; Alt+CapsLock to edit this script with default ahk editor
 !CapsLock::     Edit, %A_ScriptFullPath%
 
-#NumPad2::      MsgBox %A_ScriptFullPath%
+#NumPad2::      MsgBox, %A_ScriptFullPath%
 #NumPad5::      Reload
 #Numpad9::      ExitApp
 
@@ -80,3 +71,19 @@ Return
 #E::
         Run, cmd /C If exist %ClipBoard% (start /max explorer /select`, %ClipBoard% ) else (start /max explorer =), , hide
 Return
+
+; Alt+MiddleClick on window title bar to minimize it, Ctrl+MiddleClick to close
+#If MouseIsOverTitlebar()
+!MButton::      WinMinimize
+^MButton::      WinClose
+
+MouseIsOverTitlebar() {
+        static WM_NCHITTEST := 0x84, HTCAPTION := 2
+        CoordMode Mouse, Screen
+        MouseGetPos x, y, w
+        If WinExist("ahk_class Shell_TrayWnd ahk_id " w)  ; exclude taskbar
+            Return false
+        SendMessage WM_NCHITTEST,, x | (y << 16),, ahk_id %w%
+        WinExist("ahk_id " w)  ; set Last Found Window for convenience
+        Return ErrorLevel = HTCAPTION
+}

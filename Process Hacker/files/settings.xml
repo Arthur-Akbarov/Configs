@@ -35,7 +35,7 @@
   <setting name="HideSignedProcesses">0</setting>
   <setting name="HideUnnamedHandles">1</setting>
   <setting name="HighlightingDuration">7d0</setting>
-  <setting name="IconMask">8</setting>
+  <setting name="IconMask">18</setting>
   <setting name="IconMaskList"></setting>
   <setting name="IconNotifyMask">c</setting>
   <setting name="IconProcesses">f</setting>
@@ -66,7 +66,7 @@
   <setting name="MiniInfoWindowEnabled">1</setting>
   <setting name="MiniInfoWindowOpacity">0</setting>
   <setting name="MiniInfoWindowPinned">0</setting>
-  <setting name="MiniInfoWindowPosition">977,568</setting>
+  <setting name="MiniInfoWindowPosition">977,553</setting>
   <setting name="MiniInfoWindowRefreshAutomatically">1</setting>
   <setting name="MiniInfoWindowSize">@96|315,200</setting>
   <setting name="ModuleTreeListColumns">@96|0,0,100|1,1,104|2,2,60|3,3,477</setting>
@@ -77,10 +77,10 @@
   <setting name="PluginsDirectory">plugins</setting>
   <setting name="ProcessServiceListViewColumns"></setting>
   <setting name="ProcessTreeListColumns">@96|0,0,290|1,1,58|2,4,47|4,6,108|5,10,222|6,9,348|12,5,105|14,7,85|16,8,99|32,3,162|37,11,218|40,2,49</setting>
-  <setting name="ProcessTreeListSort">2,2</setting>
+  <setting name="ProcessTreeListSort">0,0</setting>
   <setting name="ProcPropPage">Comment</setting>
-  <setting name="ProcPropPosition">214,183</setting>
-  <setting name="ProcPropSize">@96|460,580</setting>
+  <setting name="ProcPropPosition">307,81</setting>
+  <setting name="ProcPropSize">@96|891,580</setting>
   <setting name="ProgramInspectExecutables">peview.exe &quot;%s&quot;</setting>
   <setting name="PropagateCpuUsage">1</setting>
   <setting name="RunAsProgram"></setting>
@@ -180,7 +180,7 @@
   <setting name="ProcessHacker.ToolStatus.ToolbarConfig"></setting>
   <setting name="ProcessHacker.ToolStatus.StatusbarConfig"></setting>
   <setting name="ProcessHacker.UpdateChecker.PromptStart">1</setting>
-  <setting name="ProcessHacker.UpdateChecker.LastUpdateCheckTime">131508922275464176</setting>
+  <setting name="ProcessHacker.UpdateChecker.LastUpdateCheckTime">131522169787152743</setting>
   <setting name="ProcessHacker.UserNotes.DatabasePath">%APPDATA%\Process Hacker 2\usernotesdb.xml</setting>
   <setting name="ProcessHacker.UserNotes.ColorCustomList"></setting>
   <setting name="ProcessHacker.WindowExplorer.ShowDesktopWindows">0</setting>

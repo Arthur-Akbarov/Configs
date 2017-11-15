@@ -1,11 +1,12 @@
 @echo add cmd aliases file to registry
 @echo off
 
-reg add "HKEY_CURRENT_USER\Environment" ^
+:: %~dp0 should be without quotes to use %DoskeyDir% as prefix in other scripts
+reg add "HKCU\Environment" ^
         /v "DoskeyDir" ^
-        /d "%~dp0
+        /d %~dp0
 
-reg add "HKEY_CURRENT_USER\Software\Microsoft\Command Processor" ^
+reg add "HKCU\Software\Microsoft\Command Processor" ^
         /v "AutoRun" ^
-        /d "%~dp0\files\cmdrc.cmd" ^
+        /d """%~dp0files\cmdrc.cmd""" ^
         /f

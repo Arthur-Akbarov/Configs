@@ -1,0 +1,6 @@
+<!-- list of Sublime Text 3 configuration files -->
+<!-- -*- mode: markdown -*- -->
+
+%AppData%\Sublime Text 3\Packages\User\Preferences.sublime-settings
+%AppData%\Sublime Text 3\Packages\User\Default (Windows).sublime-keymap
+%AppData%\Sublime Text 3\Packages\User\Package Control.sublime-settings
